@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Still Human — Dr. T. Jeevaraj · Author, Digital Health Researcher</title>
+  <meta name="description" content="Dr. T. Jeevaraj — Medical doctor, health informatician, and author. Exploring the intersection of artificial intelligence and human experience in Sri Lanka.">
+  <meta property="og:title" content="Still Human — Dr. T. Jeevaraj">
+  <meta property="og:description" content="Author of 'Are You Still Human?' and digital health researcher based in Sri Lanka.">
+  <meta property="og:type" content="website">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "Are You Still Human?",
+    "author": { "@type": "Person", "name": "Dr. T. Jeevaraj" },
+    "isbn": "B0H333G41P",
+    "publisher": "Self-published",
+    "datePublished": "2026-05",
+    "numberOfPages": "37",
+    "genre": "Literary Nonfiction",
+    "description": "A short book about what artificial intelligence quietly does to ordinary human relationships.",
+    "url": "https://www.amazon.com/dp/B0H333G41P"
+  }
+  </script>
+</head>
+<body>
+
+<!-- ── NAVIGATION ─────────────────────────────── -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-title">Still Human</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="books.html">The Book</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="notes.html">Notes</a></li>
+    <li><a href="memory-witness.html">Memory Witness</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="dev.html">Dev Work</a></li>
+    <li><a href="cv.html">CV</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────── -->
+<section class="hero">
+  <canvas id="particles-canvas"></canvas>
+  <div class="hero-inner">
+
+    <!-- Book cover (left) -->
+    <div class="hero-book-col">
+      <div class="hero-book-wrap">
+        <span class="hero-book-badge"><i class="fa-solid fa-star"></i> &nbsp;New Release 2026</span>
+        <img src="ARE YOU STILL HUMAN.jpg" alt="Are You Still Human? book cover" class="hero-book-img" />
+        <div class="hero-book-glow"></div>
+      </div>
+    </div>
+
+    <!-- Centre text -->
+    <div class="hero-center">
+      <span class="hero-eyebrow"><i class="fa-solid fa-feather-pointed"></i> &nbsp; Literary Nonfiction</span>
+      <h1 class="hero-title">Still<br>Human</h1>
+      <p class="hero-byline">A literary project by Dr. T. Jeevaraj</p>
+      <p class="hero-desc">What does artificial intelligence<br>quietly do to ordinary human<br>relationships?</p>
+      <div class="hero-ctas">
+        <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" class="btn-buy">
+          <i class="fa-brands fa-amazon"></i> &nbsp;Read on Kindle
+        </a>
+        <a href="books.html" class="btn-preview">
+          <i class="fa-solid fa-book-open"></i> &nbsp;Explore the Book
+        </a>
+        <a href="dev.html" class="btn-contact">
+          <i class="fa-solid fa-laptop-code"></i> &nbsp;Dev Work
+        </a>
+      </div>
+      <div class="hero-trust-bar">
+        <span>Amazon Kindle</span>
+        <span>37 Pages</span>
+        <span>$2.99 · Free with KU</span>
+      </div>
+    </div>
+
+    <!-- Author photo (right) -->
+    <div class="hero-author-col">
+      <div class="hero-author-wrap">
+        <img src="T. Jeevaraj.jpg" alt="Dr. T. Jeevaraj" class="hero-author-img" />
+        <p class="hero-author-name">Dr. T. Jeevaraj</p>
+        <p class="hero-author-creds">
+          MBBS · MCGP<br>
+          MSc Biomedical Informatics<br>
+          MD Trainee · Health Informatics<br>
+          Sri Lanka
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <div class="hero-scroll-hint"><i class="fa-solid fa-chevron-down"></i></div>
+</section>
+
+<!-- ── BOOK META STRIP ────────────────────────── -->
+<div class="book-meta-strip">
+  <div class="book-meta-inner container">
+    <div class="book-meta-item">
+      <span class="meta-label"><i class="fa-solid fa-book"></i> &nbsp;Title</span>
+      Are You Still Human?
+    </div>
+    <span class="meta-divider">·</span>
+    <div class="book-meta-item">
+      <span class="meta-label"><i class="fa-solid fa-user-pen"></i> &nbsp;Author</span>
+      Dr. T. Jeevaraj
+    </div>
+    <span class="meta-divider">·</span>
+    <div class="book-meta-item">
+      <span class="meta-label"><i class="fa-solid fa-calendar"></i> &nbsp;Published</span>
+      May 2026
+    </div>
+    <span class="meta-divider">·</span>
+    <div class="book-meta-item">
+      <span class="meta-label"><i class="fa-solid fa-file-lines"></i> &nbsp;Length</span>
+      37 pages
+    </div>
+    <span class="meta-divider">·</span>
+    <div class="book-meta-item">
+      <span class="meta-label"><i class="fa-solid fa-tag"></i> &nbsp;Kindle Price</span>
+      $2.99 · Free with KU
+    </div>
+    <span class="meta-divider">·</span>
+    <div class="book-meta-item">
+      <span class="meta-label"><i class="fa-brands fa-amazon"></i> &nbsp;ASIN</span>
+      B0H333G41P
+    </div>
+  </div>
+</div>
+
+<!-- ── STATS STRIP ────────────────────────────── -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid stats-grid-5">
+
+      <div class="stat-card fade-in">
+        <div class="stat-icon-wrap"><i class="fa-solid fa-stethoscope"></i></div>
+        <span class="stat-number">8</span>
+        <span class="stat-label">Digital Health Projects</span>
+        <span class="stat-desc">DHIS2, PWA, health data systems</span>
+      </div>
+
+      <div class="stat-card fade-in delay-1">
+        <div class="stat-icon-wrap"><i class="fa-solid fa-earth-asia"></i></div>
+        <span class="stat-number">Public</span>
+        <span class="stat-label">Health Focus</span>
+        <span class="stat-desc">Systems &amp; reform, Sri Lanka</span>
+      </div>
+
+      <div class="stat-card fade-in delay-2">
+        <div class="stat-icon-wrap"><i class="fa-solid fa-microscope"></i></div>
+        <span class="stat-number">MD</span>
+        <span class="stat-label">Research Driven</span>
+        <span class="stat-desc">Health Informatics trainee, PGIM</span>
+      </div>
+
+      <div class="stat-card fade-in">
+        <div class="stat-icon-wrap"><i class="fa-solid fa-book-open-reader"></i></div>
+        <span class="stat-number">2026</span>
+        <span class="stat-label">Author</span>
+        <span class="stat-desc">"Are You Still Human?" published</span>
+      </div>
+
+      <div class="stat-card fade-in delay-1">
+        <div class="stat-icon-wrap"><i class="fa-solid fa-brain"></i></div>
+        <span class="stat-number">AI &amp; ❤</span>
+        <span class="stat-label">Human-First Tech</span>
+        <span class="stat-desc">Technology with humanity at centre</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── ABOUT ──────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="about-grid fade-in">
+      <div class="about-sidebar">
+        <img src="T. Jeevaraj.jpg" alt="Dr. T. Jeevaraj" class="about-portrait" />
+        <div class="about-credentials">
+          MBBS<br>MCGP<br>MSc Biomedical Informatics<br>MD Trainee · Health Informatics<br>PGIM, University of Colombo
+        </div>
+      </div>
+      <div class="about-content">
+        <h2>Dr. T. Jeevaraj</h2>
+        <span class="about-role">Medical Doctor · Health Informatician · Author · Sri Lanka</span>
+        <p>I am a medical doctor and health informatician working at the intersection of medicine, technology, and public health in Sri Lanka. My work focuses on building digital health systems that serve communities — not just institutions.</p>
+        <p>I work in public health information systems and digital health program development, and I hold qualifications in MBBS, MCGP, and MSc Biomedical Informatics. I am currently an MD Trainee in Health Informatics at the Postgraduate Institute of Medicine, University of Colombo.</p>
+        <p>In 2026 I published my first book — <em>Are You Still Human?</em> — a short literary nonfiction work about what artificial intelligence quietly does to ordinary human relationships.</p>
+        <div class="expertise-tags">
+          <span class="expertise-tag"><i class="fa-solid fa-database"></i> DHIS2</span>
+          <span class="expertise-tag"><i class="fa-solid fa-hospital"></i> Health Informatics</span>
+          <span class="expertise-tag"><i class="fa-solid fa-robot"></i> AI in Healthcare</span>
+          <span class="expertise-tag"><i class="fa-solid fa-chart-bar"></i> Public Health Data</span>
+          <span class="expertise-tag"><i class="fa-solid fa-pen-nib"></i> Literary Nonfiction</span>
+          <span class="expertise-tag"><i class="fa-solid fa-earth-asia"></i> Sri Lanka</span>
+        </div>
+        <div style="margin-top:2.2rem;">
+          <a href="about.html" class="btn-ghost"><i class="fa-solid fa-arrow-right"></i> &nbsp;Full Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURED BOOK ──────────────────────────── -->
+<section class="alt">
+  <div class="container">
+    <div class="section-heading fade-in">
+      <span class="section-ornament">· · ·</span>
+      <h2>The Book</h2>
+      <p class="section-sub">Are You Still Human? — A short literary nonfiction</p>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="featured-book-grid fade-in">
+      <div class="featured-book-cover-wrap">
+        <img src="ARE YOU STILL HUMAN.jpg" alt="Are You Still Human? book cover" class="featured-book-img" />
+        <div class="featured-book-price">
+          <strong style="color:var(--label-ink);">$2.99</strong> Kindle Edition<br>
+          Free with Kindle Unlimited<br>
+          37 pages &nbsp;·&nbsp; May 2026
+        </div>
+      </div>
+      <div class="featured-book-info">
+        <h2>Are You Still<br>Human?</h2>
+        <span class="book-sub"><i class="fa-solid fa-feather-pointed" style="color:var(--gold-deep);margin-right:0.4rem;"></i>A short book about a long shift</span>
+        <p>Not the kind of shift that happens in a hospital ward — the kind that happens slowly, over years, in ordinary places. What happens when effective habits from the digital world begin to bleed into the parts of life where those habits do not belong?</p>
+        <p>Ten patterns. Three stories. Thirty-seven pages. Written for people who build intelligent systems, and for people who simply live alongside them — which is, increasingly, everyone.</p>
+        <div class="book-highlights">
+          <span class="book-highlights-title"><i class="fa-solid fa-list-check" style="color:var(--gold-deep);margin-right:0.5rem;"></i>What you'll find inside</span>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Three true, personal stories</li>
+            <li><i class="fa-solid fa-check"></i> Ten human-AI shift patterns</li>
+            <li><i class="fa-solid fa-check"></i> Clinical and personal insight</li>
+            <li><i class="fa-solid fa-check"></i> Readable in an afternoon</li>
+            <li><i class="fa-solid fa-check"></i> Written from lived experience</li>
+            <li><i class="fa-solid fa-check"></i> No jargon — just clarity</li>
+          </ul>
+        </div>
+        <div class="book-ctas">
+          <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" class="btn-buy">
+            <i class="fa-brands fa-amazon"></i> &nbsp;Read on Amazon Kindle
+          </a>
+          <a href="books.html" class="btn-ghost">
+            <i class="fa-solid fa-book-open"></i> &nbsp;Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PATTERNS ───────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-heading fade-in">
+      <span class="section-ornament">· · ·</span>
+      <h2>Ten Patterns</h2>
+      <p class="section-sub">Quiet shifts that extended AI exposure tends to produce in human thinking</p>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="patterns-grid">
+
+      <div class="pattern-card fade-in">
+        <div class="pattern-card-icon"><i class="fa-solid fa-compress"></i></div>
+        <span class="pattern-num">01 ·</span>
+        <h3>The Compression of Reflection</h3>
+        <p>The practised habit of reducing everything to what can be processed, evaluated, and acted upon in minimal time.</p>
+      </div>
+
+      <div class="pattern-card fade-in delay-1">
+        <div class="pattern-card-icon"><i class="fa-solid fa-gauge-high"></i></div>
+        <span class="pattern-num">02 ·</span>
+        <h3>Borrowed Confidence</h3>
+        <p>Adopting the output certainty of machine systems into human communication where uncertainty is actually appropriate.</p>
+      </div>
+
+      <div class="pattern-card fade-in delay-2">
+        <div class="pattern-card-icon"><i class="fa-solid fa-clock"></i></div>
+        <span class="pattern-num">03 ·</span>
+        <h3>Attention as Resource</h3>
+        <p>Framing human attention as a finite resource to be allocated rather than a presence to be given.</p>
+      </div>
+
+      <div class="pattern-card fade-in">
+        <div class="pattern-card-icon"><i class="fa-solid fa-filter"></i></div>
+        <span class="pattern-num">04 ·</span>
+        <h3>The Signal-Noise Filter</h3>
+        <p>Pre-emptively editing what is 'worth' responding to — before fully receiving it.</p>
+      </div>
+
+      <div class="pattern-card fade-in delay-1">
+        <div class="pattern-card-icon"><i class="fa-solid fa-people-arrows"></i></div>
+        <span class="pattern-num">05 ·</span>
+        <h3>Relational Optimisation</h3>
+        <p>Calculating the return on investment of human relationships as if they were processes to be improved.</p>
+      </div>
+
+      <div class="pattern-card fade-in delay-2">
+        <div class="pattern-card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <span class="pattern-num">06 ·</span>
+        <h3>The Accuracy Reflex</h3>
+        <p>An inability to tolerate ambiguity or partial information — a need to resolve rather than hold.</p>
+      </div>
+
+      <div class="pattern-card fade-in">
+        <div class="pattern-card-icon"><i class="fa-solid fa-circle-pause"></i></div>
+        <span class="pattern-num">07 ·</span>
+        <h3>The Pre-empted Pause</h3>
+        <p>The disappearance of the productive gap between experience and response — the space where meaning forms.</p>
+      </div>
+
+      <div class="pattern-card fade-in delay-1">
+        <div class="pattern-card-icon"><i class="fa-solid fa-heart-crack"></i></div>
+        <span class="pattern-num">08 ·</span>
+        <h3>Grief Suppression by Design</h3>
+        <p>Optimisation habits learned at work that quietly teach the brain to pre-empt emotional processing.</p>
+      </div>
+
+      <div class="pattern-card fade-in delay-2">
+        <div class="pattern-card-icon"><i class="fa-solid fa-user-slash"></i></div>
+        <span class="pattern-num">09 ·</span>
+        <h3>The Prompt Relationship</h3>
+        <p>Interacting with people as if they were systems to be queried — looking for the right input to generate the desired output.</p>
+      </div>
+
+      <div class="pattern-card fade-in">
+        <div class="pattern-card-icon"><i class="fa-solid fa-seedling"></i></div>
+        <span class="pattern-num">10 ·</span>
+        <h3>Choosing Differently</h3>
+        <p>The possibility — and the practice — of noticing where these patterns have arrived, and deciding whether to keep them.</p>
+      </div>
+
+    </div>
+    <div style="text-align:center; margin-top:3rem;">
+      <a href="books.html" class="btn-ghost"><i class="fa-solid fa-book-open"></i> &nbsp;Read the Full Book</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ───────────────────────────── -->
+<section class="dark">
+  <div class="container">
+    <div class="section-heading fade-in">
+      <span class="section-ornament">· · ·</span>
+      <h2>Reader Responses</h2>
+      <p class="section-sub">What readers are saying about the book</p>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <p class="testimonial-text">"This short book made me sit with something I had been noticing but not naming. Quietly powerful."</p>
+        <div class="testimonial-author"><strong>S. Fernando</strong> Pre-publication reader</div>
+      </div>
+      <div class="testimonial-card fade-in delay-1">
+        <p class="testimonial-text">"I build AI systems for a living. I didn't expect a 37-page book to make me reconsider what I was building them for."</p>
+        <div class="testimonial-author"><strong>Dr. R. Patel</strong> Pre-publication reader</div>
+      </div>
+      <div class="testimonial-card fade-in delay-2">
+        <p class="testimonial-text">"A rare thing: a book about technology that is actually about people. Honest and precise."</p>
+        <div class="testimonial-author"><strong>M. Krishnaswamy</strong> Pre-publication reader</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STORIES ────────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-heading fade-in">
+      <span class="section-ornament">· · ·</span>
+      <h2>Stories</h2>
+      <p class="section-sub">The three opening stories from the book — and the questions they left</p>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="chapter-list fade-in">
+      <div class="chapter-item story-card">
+        <div class="story-icon-wrap story-icon-one"><i class="fa-solid fa-user-group"></i></div>
+        <div class="story-card-body">
+          <span class="chapter-num">Story One &nbsp;·&nbsp; 6 min read</span>
+          <h2>The Software Engineer</h2>
+          <span class="chapter-meta-line">Optimisation &nbsp;·&nbsp; Friendship &nbsp;·&nbsp; Calculation</span>
+          <p class="chapter-excerpt">He sees an old friend at a gate and begins, without meaning to, to calculate whether he has time for this. The problem is that he has enough time. What he is calculating is something else.</p>
+          <span class="tag-label">Human Relationship</span>
+          <a href="stories.html" class="read-link">Read the story <i class="fa-solid fa-arrow-right" style="font-size:0.6rem;"></i></a>
+        </div>
+      </div>
+      <div class="chapter-item story-card">
+        <div class="story-icon-wrap story-icon-two"><i class="fa-solid fa-car-side"></i></div>
+        <div class="story-card-body">
+          <span class="chapter-num">Story Two &nbsp;·&nbsp; 5 min read</span>
+          <h2>The Father</h2>
+          <span class="chapter-meta-line">Parenting &nbsp;·&nbsp; Language &nbsp;·&nbsp; The Prompt Habit</span>
+          <p class="chapter-excerpt">Mid-conversation, he notices he is prompting his own son the way he prompts an AI system — looking for the right input to produce the desired output. His son says eight words his father does not forget.</p>
+          <span class="tag-label">Family</span>
+          <a href="stories.html" class="read-link">Read the story <i class="fa-solid fa-arrow-right" style="font-size:0.6rem;"></i></a>
+        </div>
+      </div>
+      <div class="chapter-item story-card">
+        <div class="story-icon-wrap story-icon-three"><i class="fa-solid fa-heart"></i></div>
+        <div class="story-card-body">
+          <span class="chapter-num">Story Three &nbsp;·&nbsp; 5 min read</span>
+          <h2>The Colleague</h2>
+          <span class="chapter-meta-line">Grief &nbsp;·&nbsp; Optimisation &nbsp;·&nbsp; Emotional Pre-emption</span>
+          <p class="chapter-excerpt">She cannot locate her grief. She wonders, very quietly, whether ten years of optimising everything at work has taught her brain to pre-empt it.</p>
+          <span class="tag-label">Grief &amp; Feeling</span>
+          <a href="stories.html" class="read-link">Read the story <i class="fa-solid fa-arrow-right" style="font-size:0.6rem;"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NOTES / BLOG ───────────────────────────── -->
+<section class="alt">
+  <div class="container">
+    <div class="section-heading fade-in">
+      <span class="section-ornament">· · ·</span>
+      <h2>Field Notes</h2>
+      <p class="section-sub">Observations from the intersection of medicine, technology, and living</p>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card fade-in">
+        <div class="blog-card-icon"><i class="fa-solid fa-stethoscope"></i></div>
+        <span class="blog-card-date"><i class="fa-regular fa-calendar" style="margin-right:0.3rem;font-size:0.5rem;"></i>May 2026</span>
+        <h3>On the Difficulty of Staying Present in a Clinical Consultation</h3>
+        <p>When you have learned to process information at machine speed, the clinical pause — the one where the patient is still deciding whether to tell you something — becomes very hard to hold.</p>
+        <div class="blog-card-footer"><i class="fa-solid fa-arrow-right"></i> &nbsp;<a href="notes.html">Read in Notes</a></div>
+      </div>
+      <div class="blog-card fade-in delay-1">
+        <div class="blog-card-icon"><i class="fa-solid fa-brain"></i></div>
+        <span class="blog-card-date"><i class="fa-regular fa-calendar" style="margin-right:0.3rem;font-size:0.5rem;"></i>April 2026</span>
+        <h3>What DHIS2 Taught Me About the Limits of Quantification</h3>
+        <p>After years of building health data systems, I noticed what gets lost when a patient becomes a data point — and what it takes to design against that loss.</p>
+        <div class="blog-card-footer"><i class="fa-solid fa-arrow-right"></i> &nbsp;<a href="notes.html">Read in Notes</a></div>
+      </div>
+      <div class="blog-card fade-in delay-2">
+        <div class="blog-card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <span class="blog-card-date"><i class="fa-regular fa-calendar" style="margin-right:0.3rem;font-size:0.5rem;"></i>March 2026</span>
+        <h3>Why I Write at All</h3>
+        <p>Writing, for me, is the place where I process what the data cannot hold. It is the part of medicine and technology that happens in language instead of numbers.</p>
+        <div class="blog-card-footer"><i class="fa-solid fa-arrow-right"></i> &nbsp;<a href="notes.html">Read in Notes</a></div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:3rem;">
+      <a href="notes.html" class="btn-ghost"><i class="fa-solid fa-pen-nib"></i> &nbsp;All Field Notes</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEV WORK ───────────────────────────────── -->
+<section>
+  <div class="container">
+    <div class="section-heading fade-in">
+      <span class="section-ornament">· · ·</span>
+      <h2>Digital Health Work</h2>
+      <p class="section-sub">Selected projects in health information systems and digital public health</p>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="dev-section-grid fade-in">
+      <div class="dev-mini-card">
+        <div class="dev-mini-icon"><i class="fa-solid fa-virus"></i></div>
+        <div class="dev-mini-header">
+          <span class="dev-mini-num">01 ·</span>
+          <span class="dev-mini-type">Surveillance</span>
+        </div>
+        <h3>OutbreakWatch</h3>
+        <p>Real-time communicable disease surveillance platform with anomaly detection and early-warning alerts.</p>
+        <div class="dev-mini-tags"><span class="dev-mini-tag">Python</span><span class="dev-mini-tag">Django</span></div>
+      </div>
+      <div class="dev-mini-card">
+        <div class="dev-mini-icon"><i class="fa-solid fa-house-flood-water"></i></div>
+        <div class="dev-mini-header">
+          <span class="dev-mini-num">02 ·</span>
+          <span class="dev-mini-type">Emergency</span>
+        </div>
+        <h3>FloodTrackerApp</h3>
+        <p>Mobile-first field tool for flood and disaster response teams — offline-capable with reconnect sync.</p>
+        <div class="dev-mini-tags"><span class="dev-mini-tag">React Native</span><span class="dev-mini-tag">PWA</span></div>
+      </div>
+      <div class="dev-mini-card">
+        <div class="dev-mini-icon"><i class="fa-solid fa-chart-column"></i></div>
+        <div class="dev-mini-header">
+          <span class="dev-mini-num">03 ·</span>
+          <span class="dev-mini-type">Analytics</span>
+        </div>
+        <h3>District Health Stats PWA</h3>
+        <p>Progressive Web App to visualise district-level health statistics — works offline, no training required.</p>
+        <div class="dev-mini-tags"><span class="dev-mini-tag">JavaScript</span><span class="dev-mini-tag">D3.js</span></div>
+      </div>
+      <div class="dev-mini-card">
+        <div class="dev-mini-icon"><i class="fa-solid fa-people-roof"></i></div>
+        <div class="dev-mini-header">
+          <span class="dev-mini-num">04 ·</span>
+          <span class="dev-mini-type">Welfare</span>
+        </div>
+        <h3>Welfare Centre Dashboard</h3>
+        <p>Data management and reporting dashboard for tracking displaced populations during disaster events.</p>
+        <div class="dev-mini-tags"><span class="dev-mini-tag">React</span><span class="dev-mini-tag">Firebase</span></div>
+      </div>
+      <div class="dev-mini-card">
+        <div class="dev-mini-icon"><i class="fa-solid fa-ribbon"></i></div>
+        <div class="dev-mini-header">
+          <span class="dev-mini-num">05 ·</span>
+          <span class="dev-mini-type">Clinical</span>
+        </div>
+        <h3>Cancer Early Detection Centre</h3>
+        <p>Patient registration and screening workflow system — designed for clinic staff with minimal IT background.</p>
+        <div class="dev-mini-tags"><span class="dev-mini-tag">Vue.js</span><span class="dev-mini-tag">REST API</span></div>
+      </div>
+      <div class="dev-mini-card">
+        <div class="dev-mini-icon"><i class="fa-solid fa-van-shuttle"></i></div>
+        <div class="dev-mini-header">
+          <span class="dev-mini-num">06 ·</span>
+          <span class="dev-mini-type">Fleet</span>
+        </div>
+        <h3>Health Fleet Manager</h3>
+        <p>Vehicle management system for public health field operations — allocation, maintenance, and scheduling.</p>
+        <div class="dev-mini-tags"><span class="dev-mini-tag">PHP</span><span class="dev-mini-tag">Laravel</span></div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:3rem;">
+      <a href="dev.html" class="btn-ghost"><i class="fa-solid fa-laptop-code"></i> &nbsp;All Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ────────────────────────────────── -->
+<section class="dark">
+  <div class="container">
+    <div class="section-heading fade-in">
+      <span class="section-ornament">· · ·</span>
+      <h2>Get in Touch</h2>
+      <p class="section-sub">For speaking, collaboration, media, and conversation</p>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="contact-grid fade-in">
+      <div class="contact-info">
+        <h3>Let's connect</h3>
+        <p>Whether you'd like to discuss the book, invite me to speak, collaborate on digital health work, or simply respond to something you read here — I'd love to hear from you.</p>
+        <div class="contact-social">
+          <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+          <a href="https://www.linkedin.com/in/geevanathy/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener"><i class="fa-brands fa-amazon"></i> Amazon Author Page</a>
+          <a href="https://substack.com/@drtjeevaraaj" target="_blank" rel="noopener"><i class="fa-solid fa-envelope-open-text"></i> Substack Newsletter</a>
+        </div>
+        <p class="contact-email-direct">Or write directly: <a href="mailto:tjeevaraj78@gmail.com">tjeevaraj78@gmail.com</a></p>
+      </div>
+      <div>
+        <!-- IMPORTANT: Replace YOUR_FORM_ID below with your actual Formspree form ID.
+             Register free at https://formspree.io/register, verify tjeevaraj78@gmail.com,
+             create a form, and copy the ID (e.g. xpwzabcd) into the action URL. -->
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="hidden" name="_subject" value="Still Human — Website Contact">
+          <input type="hidden" name="_replyto" value="tjeevaraj78@gmail.com">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Your Name</label>
+              <input class="form-input" type="text" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input class="form-input" type="email" name="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <input class="form-input" type="text" name="subject" placeholder="Book enquiry / Speaking / Collaboration / Other">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" name="message" placeholder="Your message..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            <i class="fa-solid fa-paper-plane"></i> &nbsp;Send Message
+          </button>
+          <p class="form-note"><i class="fa-solid fa-lock" style="margin-right:0.3rem;font-size:0.6rem;"></i>Powered by Formspree · Your message goes directly to Dr. T. Jeevaraj</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<footer>
+  <span class="footer-ornament">· · ·</span>
+  <p class="footer-title">Still Human</p>
+  <p class="footer-tagline">Human stories in the age of artificial intelligence.</p>
+  <ul class="footer-links">
+    <li><a href="books.html"><i class="fa-solid fa-book" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>The Book</a></li>
+    <li><a href="stories.html"><i class="fa-solid fa-feather" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>Stories</a></li>
+    <li><a href="notes.html"><i class="fa-solid fa-pen-nib" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>Notes</a></li>
+    <li><a href="memory-witness.html"><i class="fa-solid fa-eye" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>Memory Witness</a></li>
+    <li><a href="about.html"><i class="fa-solid fa-user" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>About</a></li>
+    <li><a href="dev.html"><i class="fa-solid fa-laptop-code" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>Dev Work</a></li>
+    <li><a href="cv.html"><i class="fa-solid fa-file-medical" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>CV</a></li>
+  </ul>
+  <div class="social-links">
+    <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.linkedin.com/in/geevanathy/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener"><i class="fa-brands fa-amazon"></i> Amazon Author</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://substack.com/@drtjeevaraaj" target="_blank" rel="noopener"><i class="fa-solid fa-envelope-open-text"></i> Substack</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human &nbsp;&middot;&nbsp; Sri Lanka</p>
+</footer>
+
+<!-- ── STICKY BUY BAR ─────────────────────────── -->
+<div class="sticky-buy" id="sticky-buy">
+  <div class="sticky-buy-inner">
+    <span class="sticky-title"><em>Are You Still Human?</em> &mdash; Dr. T. Jeevaraj</span>
+    <span class="sticky-price"><i class="fa-brands fa-amazon" style="margin-right:0.3rem;"></i>$2.99 · Free with Kindle Unlimited</span>
+    <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" class="sticky-btn"><i class="fa-solid fa-cart-shopping"></i> &nbsp;Buy on Amazon</a>
+    <button class="sticky-close" id="sticky-close" aria-label="Close">&times;</button>
+  </div>
+</div>
+
+<!-- ── SCRIPTS ────────────────────────────────── -->
+<script>
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('solid', window.scrollY > 30);
+  const sb = document.getElementById('sticky-buy');
+  if (!sb.dataset.closed) sb.classList.toggle('visible', window.scrollY > 450);
+}, { passive: true });
+
+// Sticky buy close
+const stickyClose = document.getElementById('sticky-close');
+const stickyBuy = document.getElementById('sticky-buy');
+if (stickyClose) {
+  stickyClose.addEventListener('click', () => {
+    stickyBuy.classList.remove('visible');
+    stickyBuy.dataset.closed = '1';
+  });
+}
+
+// Hamburger menu
+const hamburger = document.getElementById('nav-hamburger');
+const navLinks = document.getElementById('nav-links');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+}
+
+// Fade-in observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Page exit transition
+document.querySelectorAll('a[href]').forEach(link => {
+  const href = link.getAttribute('href');
+  if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto')) {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.body.classList.add('page-exit');
+      setTimeout(() => { window.location.href = href; }, 320);
+    });
+  }
+});
+
+// Particles
+(function(){
+  const canvas = document.getElementById('particles-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  function init(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    particles = [];
+    const n = Math.min(Math.floor(canvas.width * canvas.height / 11000), 90);
+    for (let i = 0; i < n; i++){
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.6 + 0.3,
+        vx: (Math.random() - 0.5) * 0.22,
+        vy: -(Math.random() * 0.20 + 0.04),
+        o: Math.random() * 0.38 + 0.08
+      });
+    }
+  }
+  function draw(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200,151,62,${p.o})`;
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.y < -4){ p.y = canvas.height + 4; p.x = Math.random() * canvas.width; }
+      if (p.x < -4) p.x = canvas.width + 4;
+      if (p.x > canvas.width + 4) p.x = -4;
+    });
+    requestAnimationFrame(draw);
+  }
+  init(); draw();
+  window.addEventListener('resize', init);
+})();
+
+// Hero scroll hint fade
+window.addEventListener('scroll', () => {
+  const hint = document.querySelector('.hero-scroll-hint');
+  if (hint) hint.style.opacity = window.scrollY > 80 ? '0' : '1';
+}, { passive: true });
+</script>
+
+</body>
+</html>

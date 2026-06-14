@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes — Still Human</title>
+  <meta name="description" content="Short observations on technology, human behaviour, and ordinary life. By Dr. T. Jeevaraj.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── NOTES PAGE STYLES ───────────────────── */
+
+    .notes-header-strip {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .notes-count-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--parchment-deep);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.5rem 1.1rem;
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+    }
+    .notes-count-badge i { color: var(--gold); }
+
+    /* Note card */
+    .note-card {
+      display: flex;
+      gap: 2rem;
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.4rem;
+      transition: border-color var(--t), box-shadow var(--t);
+    }
+    .note-card:hover {
+      border-left-color: var(--gold-deep);
+      box-shadow: var(--shadow-md);
+    }
+    .note-card-icon-col {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: 0.2rem;
+    }
+    .note-icon-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      transition: transform var(--t), box-shadow var(--t);
+    }
+    .note-card:hover .note-icon-circle {
+      transform: scale(1.08);
+      box-shadow: 0 0 0 4px rgba(200,151,62,0.12);
+    }
+    .note-icon-a { background: linear-gradient(135deg,rgba(200,151,62,0.14),rgba(200,151,62,0.04)); color: var(--gold-deep); }
+    .note-icon-b { background: linear-gradient(135deg,rgba(154,114,48,0.14),rgba(154,114,48,0.04)); color: var(--copper); }
+    .note-icon-c { background: linear-gradient(135deg,rgba(168,92,40,0.14),rgba(168,92,40,0.04)); color: var(--copper-light); }
+
+    .note-card-body { flex: 1; min-width: 0; }
+    .note-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.9rem;
+    }
+    .note-date-chip {
+      font-family: 'Courier New', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      color: var(--gold-deep);
+      background: rgba(200,151,62,0.08);
+      border: 1px solid rgba(200,151,62,0.22);
+      padding: 2px 9px;
+      border-radius: 2px;
+    }
+    .note-topic-chip {
+      font-family: var(--font-ui);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      background: var(--parchment-deep);
+      border: 1px solid var(--border-light);
+      padding: 2px 9px;
+      border-radius: 2px;
+    }
+    .note-card-text {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      color: var(--ink-mid);
+      line-height: 2.0;
+      margin: 0;
+    }
+    .note-card-text em {
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    /* Divider note (end) */
+    .notes-end-note {
+      text-align: center;
+      padding: 2.5rem 0 1rem;
+    }
+    .notes-end-ornament {
+      display: block;
+      font-size: 0.6rem;
+      letter-spacing: 8px;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .notes-end-text {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ink-light);
+      line-height: 1.9;
+    }
+
+    @media (max-width: 640px) {
+      .note-card { flex-direction: column; gap: 1rem; padding: 1.4rem 1.4rem; }
+      .note-card-icon-col { flex-direction: row; }
+      .note-icon-circle { width: 42px; height: 42px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body class="inner-page">
+
+<nav id="main-nav" class="solid">
+  <a href="index.html" class="nav-title">Still Human</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="books.html">The Book</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="notes.html" class="active">Notes</a></li>
+    <li><a href="memory-witness.html">Memory Witness</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="dev.html">Dev Work</a></li>
+    <li><a href="cv.html">CV</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="inner-hero">
+    <span class="page-label">Observations</span>
+    <h1>Notes</h1>
+    <p class="page-sub">Short observations. Not yet stories.<br>Not quite essays. Written as they arrived.</p>
+  </div>
+</div>
+
+<section style="padding-top: 0;">
+  <div class="container">
+
+    <div class="notes-header-strip">
+      <div class="notes-count-badge"><i class="fa-solid fa-pen-nib"></i> 8 notes</div>
+      <div class="notes-count-badge"><i class="fa-solid fa-clock"></i> 2 – 4 min read each</div>
+      <div class="notes-count-badge"><i class="fa-solid fa-arrows-rotate"></i> Updated regularly</div>
+    </div>
+
+    <!-- Note 1 -->
+    <article class="note-card fade-in">
+      <div class="note-card-icon-col">
+        <div class="note-icon-circle note-icon-a"><i class="fa-solid fa-comments"></i></div>
+      </div>
+      <div class="note-card-body">
+        <div class="note-card-meta">
+          <span class="note-date-chip">May 2026</span>
+          <span class="note-topic-chip">Language of Care</span>
+        </div>
+        <p class="note-card-text">A colleague described a difficult conversation with a patient&rsquo;s family. Afterwards, she said: &ldquo;I kept thinking about how I could have <em>framed</em> it better.&rdquo; She used the word <em>framed</em>. Not said differently, or explained more clearly. Framed. The language of prompts has entered the language of care without anyone announcing it.</p>
+      </div>
+    </article>
+
+    <!-- Note 2 -->
+    <article class="note-card fade-in delay-1">
+      <div class="note-card-icon-col">
+        <div class="note-icon-circle note-icon-b"><i class="fa-solid fa-brain"></i></div>
+      </div>
+      <div class="note-card-body">
+        <div class="note-card-meta">
+          <span class="note-date-chip">May 2026</span>
+          <span class="note-topic-chip">Human Attention</span>
+        </div>
+        <p class="note-card-text">There is a specific discomfort that arrives when you ask someone a question and immediately, before they answer, begin composing your follow-up. You are no longer listening. You are processing. The person in front of you has become an input. Most of us do not notice when this happens. The ones who notice it in others rarely notice it in themselves.</p>
+      </div>
+    </article>
+
+    <!-- Note 3 -->
+    <article class="note-card fade-in delay-2">
+      <div class="note-card-icon-col">
+        <div class="note-icon-circle note-icon-c"><i class="fa-solid fa-book-open"></i></div>
+      </div>
+      <div class="note-card-body">
+        <div class="note-card-meta">
+          <span class="note-date-chip">May 2026</span>
+          <span class="note-topic-chip">Memory &amp; Record</span>
+        </div>
+        <p class="note-card-text">A patient told me he had stopped keeping a diary because he had started using AI to summarise his week. &ldquo;It is more accurate,&rdquo; he said. &ldquo;My diary was always what I <em>felt</em> happened, not what actually happened.&rdquo; I did not tell him that this was the point of a diary. He seemed genuinely content. I have been thinking about that conversation since.</p>
+      </div>
+    </article>
+
+    <!-- Note 4 -->
+    <article class="note-card fade-in">
+      <div class="note-card-icon-col">
+        <div class="note-icon-circle note-icon-a"><i class="fa-solid fa-network-wired"></i></div>
+      </div>
+      <div class="note-card-body">
+        <div class="note-card-meta">
+          <span class="note-date-chip">April 2026</span>
+          <span class="note-topic-chip">Technology Language</span>
+        </div>
+        <p class="note-card-text">The most common use of the phrase <em>I don&rsquo;t have bandwidth for this</em> is in response to someone who needs something that cannot be scheduled. Bandwidth is a network term. We have borrowed it to mean human attention, human capacity, human presence. The borrowing was quiet and has become so complete that people use it without hearing it.</p>
+      </div>
+    </article>
+
+    <!-- Note 5 -->
+    <article class="note-card fade-in delay-1">
+      <div class="note-card-icon-col">
+        <div class="note-icon-circle note-icon-b"><i class="fa-solid fa-chart-line"></i></div>
+      </div>
+      <div class="note-card-body">
+        <div class="note-card-meta">
+          <span class="note-date-chip">April 2026</span>
+          <span class="note-topic-chip">Health Informatics</span>
+        </div>
+        <p class="note-card-text">In health informatics, a confidence score tells you how certain a system is about its output. Below a threshold, you review the result manually. Above the threshold, you may not. The threshold is set by humans, and then forgotten. Most people who act on the output never see the score. This is not a note about AI in medicine. It is a note about what happens when we forget where our confidence comes from.</p>
+      </div>
+    </article>
+
+    <!-- Note 6 -->
+    <article class="note-card fade-in delay-2">
+      <div class="note-card-icon-col">
+        <div class="note-icon-circle note-icon-c"><i class="fa-solid fa-child-reaching"></i></div>
+      </div>
+      <div class="note-card-body">
+        <div class="note-card-meta">
+          <span class="note-date-chip">March 2026</span>
+          <span class="note-topic-chip">Children &amp; Awareness</span>
+        </div>
+        <p class="note-card-text">A fifteen-year-old can identify prompt engineering in a conversation. His father could not. This is not a story about intelligence. It is a story about what you are trained to notice, and when the training begins.</p>
+      </div>
+    </article>
+
+    <!-- Note 7 -->
+    <article class="note-card fade-in">
+      <div class="note-card-icon-col">
+        <div class="note-icon-circle note-icon-a"><i class="fa-solid fa-heart-crack"></i></div>
+      </div>
+      <div class="note-card-body">
+        <div class="note-card-meta">
+          <span class="note-date-chip">March 2026</span>
+          <span class="note-topic-chip">Grief &amp; Efficiency</span>
+        </div>
+        <p class="note-card-text">Grief is inefficient. It does not produce output. It does not shorten when you manage it correctly. It does not respond well to systems. A mind trained for ten hours a day to reduce inefficiency will, eventually, begin to apply that training to grief. The results of this application are not yet well understood, because they tend not to appear in clinical settings until much later &mdash; when the person arrives and says: <em>I should have cried by now. I don&rsquo;t know where it went.</em></p>
+      </div>
+    </article>
+
+    <!-- Note 8 -->
+    <article class="note-card fade-in delay-1">
+      <div class="note-card-icon-col">
+        <div class="note-icon-circle note-icon-b"><i class="fa-solid fa-robot"></i></div>
+      </div>
+      <div class="note-card-body">
+        <div class="note-card-meta">
+          <span class="note-date-chip">February 2026</span>
+          <span class="note-topic-chip">Clinical AI</span>
+        </div>
+        <p class="note-card-text">I was reviewing a clinical AI tool&rsquo;s output when I noticed the system had flagged its own recommendation as &ldquo;reconstructed from incomplete data.&rdquo; It was more honest about its limitations than most people I have worked with. That is not a criticism of people. It is a question about what we have built into machines that we have not yet built into ourselves.</p>
+      </div>
+    </article>
+
+    <hr class="section-rule">
+
+    <div class="notes-end-note">
+      <span class="notes-end-ornament">· · ·</span>
+      <p class="notes-end-text">More notes will be added as they are written.<br>There is no schedule. Observations arrive when they arrive.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <span class="footer-ornament">· · ·</span>
+  <p class="footer-title">Still Human</p>
+  <p class="footer-tagline">Human stories in the age of artificial intelligence.</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="books.html">The Book</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="memory-witness.html">Memory Witness</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <div class="social-links">
+    <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener">X / Twitter</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.linkedin.com/in/geevanathy/" target="_blank" rel="noopener">LinkedIn</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener">Amazon Author</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://substack.com/@drtjeevaraaj" target="_blank" rel="noopener">Substack</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('javascript')) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.add('page-exit');
+        setTimeout(() => { window.location.href = href; }, 320);
+      });
+    }
+  });
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+  }
+</script>
+
+</body>
+</html>

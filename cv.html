@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae — Dr. T. Jeevaraj · Still Human</title>
+  <meta name="description" content="Curriculum vitae of Dr. Thangarasa Jeevaraaj — General Practitioner, MBBS, MCGP, MSc Biomedical Informatics, MD Trainee Health Informatics. Sri Lanka.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── CV PAGE STYLES ──────────────────────────────── */
+
+    .cv-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 0 5rem;
+    }
+
+    /* Section heading */
+    .cv-sec {
+      margin-bottom: 3.8rem;
+    }
+    .cv-sec-head {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .cv-sec-head i { font-size: 0.7rem; color: var(--gold); }
+
+    /* Section accent colours */
+    .cv-sec-head.csh-copper { color: var(--copper); border-bottom-color: rgba(154,114,48,0.35); }
+    .cv-sec-head.csh-teal   { color: var(--teal); border-bottom-color: rgba(26,110,110,0.35); }
+    .cv-sec-head.csh-blue   { color: #3D6E8C; border-bottom-color: rgba(61,110,140,0.35); }
+    .cv-sec-head.csh-green  { color: #4F7D52; border-bottom-color: rgba(79,125,82,0.35); }
+    .cv-sec-head.csh-red    { color: #B5453A; border-bottom-color: rgba(181,69,58,0.35); }
+    .cv-sec-head.csh-gold   { border-bottom-color: rgba(200,151,62,0.35); }
+    .cv-sec-head.csh-copper i,
+    .cv-sec-head.csh-teal i,
+    .cv-sec-head.csh-blue i,
+    .cv-sec-head.csh-green i,
+    .cv-sec-head.csh-red i { color: inherit; }
+
+    /* Print button */
+    .cv-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      background: var(--parchment-deep);
+      border: 1px solid var(--border);
+      padding: 0.65rem 1.5rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all var(--t);
+      text-decoration: none;
+    }
+    .cv-print:hover { border-color: var(--gold); color: var(--gold-deep); }
+    .cv-print i { color: var(--gold-deep); }
+
+    /* Profile header */
+    .cv-header-grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 2.8rem;
+      align-items: center;
+      margin-bottom: 0;
+    }
+    .cv-photo {
+      width: 110px;
+      height: 138px;
+      object-fit: cover;
+      object-position: top;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-md);
+    }
+    .cv-name-block h2 {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: 1px;
+      margin-bottom: 0.3rem;
+      line-height: 1.1;
+    }
+    .cv-quals-line {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--label-sub);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .cv-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .cv-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      color: var(--ink-mid);
+    }
+    .cv-contact-item i {
+      color: var(--gold-deep);
+      font-size: 0.7rem;
+      width: 14px;
+      text-align: center;
+    }
+    .cv-contact-item a { color: var(--copper-light); transition: color var(--t); }
+    .cv-contact-item a:hover { color: var(--gold-deep); }
+    .cv-reg-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--parchment-deep);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 1.1rem;
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      color: var(--label-ink);
+    }
+    .cv-reg-chip i { color: var(--gold); }
+    .cv-reg-chip strong { font-family: 'Courier New', monospace; font-size: 0.85rem; color: var(--ink); letter-spacing: 2px; }
+
+    /* Qualification items */
+    .cv-qual-row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1rem 2.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border-light);
+      align-items: start;
+    }
+    .cv-qual-row:last-child { border-bottom: none; }
+    .cv-qual-year {
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: var(--gold-deep);
+      padding-top: 0.3rem;
+    }
+    .cv-qual-abbr {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--border-light);
+      padding: 2px 10px;
+      border-radius: 2px;
+      margin-bottom: 0.4rem;
+    }
+    .cv-qual-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .cv-qual-inst {
+      font-family: var(--font-ui);
+      font-size: 0.76rem;
+      color: var(--ink-light);
+      line-height: 1.5;
+    }
+    .cv-qual-note {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-style: italic;
+      color: var(--ink-pale);
+      margin-top: 0.2rem;
+      display: block;
+    }
+    .cv-status-badge {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 2px 9px;
+      border-radius: 2px;
+      margin-top: 0.4rem;
+    }
+    .cv-status-done { color: var(--copper-light); border: 1px solid rgba(168,92,40,0.30); }
+    .cv-status-ongoing { color: var(--gold-deep); border: 1px solid rgba(154,114,48,0.30); }
+
+    /* Experience timeline */
+    .cv-timeline { padding-left: 1.8rem; position: relative; }
+    .cv-timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px; top: 10px; bottom: 10px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold) 0%, var(--border-light) 100%);
+    }
+    .cv-entry {
+      position: relative;
+      padding: 0 0 2.8rem 2rem;
+    }
+    .cv-entry:last-child { padding-bottom: 0; }
+    .cv-entry-dot {
+      position: absolute;
+      left: -1.8rem;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--parchment);
+      border: 2px solid var(--gold);
+      z-index: 1;
+    }
+    .cv-entry-period {
+      font-family: 'Courier New', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      color: var(--gold-deep);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .cv-entry-role {
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.15rem;
+    }
+    .cv-entry-place {
+      font-family: var(--font-ui);
+      font-size: 0.76rem;
+      color: var(--ink-light);
+      margin-bottom: 1rem;
+    }
+    .cv-entry-desc {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      margin-bottom: 0.9rem;
+    }
+    .cv-bullets {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.35rem 1.5rem;
+      padding: 0;
+    }
+    .cv-bullets li {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      color: var(--ink-mid);
+      line-height: 1.55;
+      padding-left: 0.9rem;
+      position: relative;
+    }
+    .cv-bullets li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    /* Publication cards */
+    .cv-pub {
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.2rem;
+    }
+    .cv-pub:last-child { margin-bottom: 0; }
+    .cv-pub-type {
+      font-family: var(--font-ui);
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .cv-pub-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      line-height: 1.5;
+    }
+    .cv-pub-journal {
+      font-family: var(--font-ui);
+      font-size: 0.76rem;
+      color: var(--ink-light);
+      margin-bottom: 0.7rem;
+      line-height: 1.6;
+    }
+    .cv-pub-journal a { color: var(--copper-light); transition: color var(--t); }
+    .cv-pub-journal a:hover { color: var(--gold-deep); }
+    .cv-pub-authors {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      color: var(--ink-pale);
+      line-height: 1.75;
+      margin-bottom: 0.8rem;
+    }
+    .cv-pub-authors strong { color: var(--ink-mid); font-weight: 600; }
+    .cv-pub-links { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .cv-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: var(--font-ui);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--copper-light);
+      border: 1px solid var(--border);
+      padding: 3px 11px;
+      border-radius: 2px;
+      transition: color var(--t), border-color var(--t);
+    }
+    .cv-link-btn:hover { color: var(--gold-deep); border-color: var(--gold); }
+
+    /* Cert grid */
+    .cv-cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+    .cv-cert {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.1rem 1.3rem;
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      line-height: 1.55;
+      transition: border-color var(--t), box-shadow var(--t);
+    }
+    .cv-cert:hover { border-color: var(--border); box-shadow: var(--shadow-md); }
+    .cv-cert-icon-wrap {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      background: linear-gradient(135deg,rgba(200,151,62,0.15),rgba(200,151,62,0.04));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .cv-cert i {
+      color: var(--gold-deep);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .cv-cert-org {
+      display: block;
+      font-size: 0.6rem;
+      color: var(--ink-pale);
+      font-style: italic;
+      margin-top: 2px;
+    }
+
+    /* Cert icon colour variants */
+    .cci-gold   .cv-cert-icon-wrap { background: linear-gradient(135deg,rgba(200,151,62,0.20),rgba(200,151,62,0.05)); border-color: rgba(200,151,62,0.30); }
+    .cci-gold   .cv-cert-icon-wrap i { color: var(--gold-deep); }
+    .cci-copper .cv-cert-icon-wrap { background: linear-gradient(135deg,rgba(154,114,48,0.20),rgba(154,114,48,0.05)); border-color: rgba(154,114,48,0.30); }
+    .cci-copper .cv-cert-icon-wrap i { color: var(--copper); }
+    .cci-teal   .cv-cert-icon-wrap { background: linear-gradient(135deg,rgba(26,110,110,0.20),rgba(26,110,110,0.05)); border-color: rgba(26,110,110,0.30); }
+    .cci-teal   .cv-cert-icon-wrap i { color: var(--teal); }
+    .cci-green  .cv-cert-icon-wrap { background: linear-gradient(135deg,rgba(79,125,82,0.20),rgba(79,125,82,0.05)); border-color: rgba(79,125,82,0.30); }
+    .cci-green  .cv-cert-icon-wrap i { color: #4F7D52; }
+    .cci-blue   .cv-cert-icon-wrap { background: linear-gradient(135deg,rgba(61,110,140,0.20),rgba(61,110,140,0.05)); border-color: rgba(61,110,140,0.30); }
+    .cci-blue   .cv-cert-icon-wrap i { color: #3D6E8C; }
+    .cci-red    .cv-cert-icon-wrap { background: linear-gradient(135deg,rgba(181,69,58,0.20),rgba(181,69,58,0.05)); border-color: rgba(181,69,58,0.30); }
+    .cci-red    .cv-cert-icon-wrap i { color: #B5453A; }
+
+    /* Languages */
+    .cv-lang-row { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .cv-lang {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 1.1rem;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--ink-mid);
+    }
+    .cv-lang i { color: var(--gold); font-size: 0.7rem; }
+    .cv-lang.clang-green i  { color: #4F7D52; }
+    .cv-lang.clang-blue i   { color: #3D6E8C; }
+    .cv-lang.clang-copper i { color: var(--copper); }
+
+    /* Highlights strip */
+    .cv-highlights {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+      margin-bottom: 3.5rem;
+    }
+    .cv-highlight-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.5rem 1rem 1.3rem;
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      text-align: center;
+      transition: border-color var(--t), box-shadow var(--t);
+    }
+    .cv-highlight-tile:hover { border-color: var(--border); box-shadow: var(--shadow-md); }
+    .cv-hl-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+    .cv-hl-1 { background: linear-gradient(135deg,rgba(200,151,62,0.18),rgba(200,151,62,0.05)); color: var(--gold-deep); }
+    .cv-hl-2 { background: linear-gradient(135deg,rgba(154,114,48,0.18),rgba(154,114,48,0.05)); color: var(--copper); }
+    .cv-hl-3 { background: linear-gradient(135deg,rgba(168,92,40,0.18),rgba(168,92,40,0.05)); color: var(--copper-light); }
+    .cv-hl-4 { background: linear-gradient(135deg,rgba(61,110,140,0.18),rgba(61,110,140,0.05)); color: #3D6E8C; }
+    .cv-hl-5 { background: linear-gradient(135deg,rgba(26,110,110,0.18),rgba(26,110,110,0.05)); color: var(--teal); }
+    .cv-hl-6 { background: linear-gradient(135deg,rgba(79,125,82,0.18),rgba(79,125,82,0.05)); color: #4F7D52; }
+    .cv-hl-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .cv-hl-label {
+      font-family: var(--font-ui);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+      line-height: 1.4;
+    }
+    .cv-hl-sub {
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      color: var(--ink-pale);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* Education cards */
+    .cv-edu-card {
+      display: flex;
+      gap: 1.6rem;
+      align-items: flex-start;
+      border-radius: var(--radius-md);
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 0.9rem;
+      transition: border-color var(--t), box-shadow var(--t), transform var(--t);
+      border-left: 4px solid transparent;
+      border-top: 1px solid var(--border-light);
+      border-right: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .cv-edu-card:last-child { margin-bottom: 0; }
+    .cv-edu-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+
+    /* Card colour variants */
+    .cv-ecard-mbbs {
+      background: linear-gradient(115deg, rgba(200,151,62,0.10) 0%, rgba(242,232,210,0.55) 60%);
+      border-left-color: var(--gold);
+    }
+    .cv-ecard-mcgp {
+      background: linear-gradient(115deg, rgba(154,114,48,0.10) 0%, rgba(242,232,210,0.55) 60%);
+      border-left-color: var(--copper);
+    }
+    .cv-ecard-msc {
+      background: linear-gradient(115deg, rgba(168,92,40,0.10) 0%, rgba(242,232,210,0.55) 60%);
+      border-left-color: var(--copper-light);
+    }
+    .cv-ecard-md {
+      background: linear-gradient(115deg, rgba(200,151,62,0.07) 0%, rgba(20,17,13,0.03) 100%);
+      border-left-color: var(--gold-deep);
+    }
+
+    .cv-edu-icon {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-top: 0.2rem;
+      transition: transform var(--t);
+    }
+    .cv-edu-card:hover .cv-edu-icon { transform: scale(1.06); }
+    .cv-eicon-1 { background: linear-gradient(135deg,rgba(200,151,62,0.25),rgba(200,151,62,0.08)); color: var(--gold-deep); border-color: rgba(200,151,62,0.3); }
+    .cv-eicon-2 { background: linear-gradient(135deg,rgba(154,114,48,0.25),rgba(154,114,48,0.08)); color: var(--copper); border-color: rgba(154,114,48,0.3); }
+    .cv-eicon-3 { background: linear-gradient(135deg,rgba(168,92,40,0.25),rgba(168,92,40,0.08)); color: var(--copper-light); border-color: rgba(168,92,40,0.3); }
+    .cv-eicon-4 { background: linear-gradient(135deg,rgba(200,151,62,0.18),rgba(20,17,13,0.06)); color: var(--gold-deep); border-color: rgba(200,151,62,0.25); }
+    .cv-edu-body { flex: 1; min-width: 0; }
+    .cv-edu-year-badge {
+      font-family: 'Courier New', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      color: var(--gold-deep);
+      background: rgba(200,151,62,0.08);
+      border: 1px solid rgba(200,151,62,0.22);
+      padding: 2px 9px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Specialty icon badges on experience entries */
+    .cv-role-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(200,151,62,0.10);
+      border: 1px solid rgba(200,151,62,0.25);
+      color: var(--gold-deep);
+      font-size: 0.65rem;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .cv-entry-role-line {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 0.15rem;
+    }
+
+    /* Role icon colour variants */
+    .cri-blue   { background: rgba(61,110,140,0.10); border-color: rgba(61,110,140,0.25); color: #3D6E8C; }
+    .cri-gold   { background: rgba(200,151,62,0.10); border-color: rgba(200,151,62,0.25); color: var(--gold-deep); }
+    .cri-green  { background: rgba(79,125,82,0.10); border-color: rgba(79,125,82,0.25); color: #4F7D52; }
+    .cri-red    { background: rgba(181,69,58,0.10); border-color: rgba(181,69,58,0.25); color: #B5453A; }
+    .cri-copper { background: rgba(154,114,48,0.10); border-color: rgba(154,114,48,0.25); color: var(--copper); }
+
+    /* Timeline dot colours to match role icon */
+    .cv-entry.ent-blue .cv-entry-dot   { border-color: #3D6E8C; }
+    .cv-entry.ent-gold .cv-entry-dot   { border-color: var(--gold); }
+    .cv-entry.ent-green .cv-entry-dot  { border-color: #4F7D52; }
+    .cv-entry.ent-red .cv-entry-dot    { border-color: #B5453A; }
+    .cv-entry.ent-copper .cv-entry-dot { border-color: var(--copper); }
+
+    @media (max-width: 700px) {
+      .cv-highlights { grid-template-columns: repeat(2, 1fr); }
+      .cv-edu-card { flex-direction: column; gap: 0.8rem; }
+      .cv-edu-icon { width: 46px; height: 46px; border-radius: 10px; font-size: 1.1rem; }
+    }
+
+    /* Notice */
+    .cv-notice {
+      background: rgba(200,151,62,0.05);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold-deep);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 0.9rem 1.4rem;
+      margin-bottom: 3rem;
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+    }
+    .cv-notice i { color: var(--gold-deep); margin-right: 0.4rem; }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .cv-header-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .cv-photo { display: none; }
+      .cv-qual-row { grid-template-columns: 1fr; gap: 0.3rem; }
+      .cv-bullets { grid-template-columns: 1fr; }
+      .cv-cert-grid { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      #main-nav, footer, .cv-print, .sticky-buy { display: none !important; }
+      .inner-hero { padding-top: 2rem !important; }
+      body { background: white; }
+      .cv-timeline::before { display: none; }
+      .cv-entry-dot { border-color: #888; }
+    }
+  </style>
+</head>
+<body class="inner-page">
+
+<nav id="main-nav" class="solid">
+  <a href="index.html" class="nav-title">Still Human</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="books.html">The Book</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="notes.html">Notes</a></li>
+    <li><a href="memory-witness.html">Memory Witness</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="cv.html" class="active">CV</a></li>
+    <li><a href="dev.html">Dev Work</a></li>
+  </ul>
+</nav>
+
+<!-- ── PAGE HEADER ─────────────────────────────── -->
+<div class="container">
+  <div class="inner-hero">
+    <span class="page-label">Curriculum Vitae</span>
+    <h1>Dr. Thangarasa Jeevaraaj</h1>
+    <p class="page-sub">MBBS &nbsp;·&nbsp; MCGP &nbsp;·&nbsp; MSc Biomedical Informatics &nbsp;·&nbsp; MD Trainee, Health Informatics</p>
+    <div style="margin-top: 1.5rem;">
+      <a href="javascript:window.print()" class="cv-print">
+        <i class="fa-solid fa-print"></i> Print / Save as PDF
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── CV CONTENT ──────────────────────────────── -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="cv-wrap">
+
+      <!-- ── PROFILE ──────────────────────────── -->
+      <div class="cv-sec">
+        <div class="cv-sec-head">
+          <i class="fa-solid fa-user"></i> Profile
+        </div>
+        <div class="cv-header-grid">
+          <img src="T. Jeevaraj.jpg" alt="Dr. T. Jeevaraj" class="cv-photo" />
+          <div class="cv-name-block">
+            <h2>Dr. Thangarasa Jeevaraaj</h2>
+            <span class="cv-quals-line">General Practitioner &nbsp;·&nbsp; Health Informatician &nbsp;·&nbsp; Author &nbsp;·&nbsp; Historical Researcher</span>
+            <div class="cv-contact-list">
+              <div class="cv-contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:tjeevaraj78@gmail.com">tjeevaraj78@gmail.com</a>
+              </div>
+              <div class="cv-contact-item">
+                <i class="fa-brands fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/geevanathy/" target="_blank" rel="noopener">linkedin.com/in/geevanathy</a>
+              </div>
+              <div class="cv-contact-item">
+                <i class="fa-solid fa-flag"></i>
+                Sri Lankan Tamil &nbsp;·&nbsp; Sri Lanka
+              </div>
+              <div class="cv-contact-item">
+                <i class="fa-solid fa-language"></i>
+                English &nbsp;·&nbsp; Tamil &nbsp;·&nbsp; Sinhala
+              </div>
+            </div>
+          </div>
+          <div class="cv-reg-chip">
+            <i class="fa-solid fa-shield-halved"></i>
+            <div>
+              <span style="font-family:var(--font-ui);font-size:0.52rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--label-ink);display:block;margin-bottom:2px;">SLMC Registration</span>
+              <strong>23293</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── HIGHLIGHTS ──────────────────────── -->
+      <div class="cv-highlights">
+        <div class="cv-highlight-tile">
+          <div class="cv-hl-icon cv-hl-1"><i class="fa-solid fa-briefcase-medical"></i></div>
+          <span class="cv-hl-number">20+</span>
+          <span class="cv-hl-label">Years in<br>Medicine</span>
+          <span class="cv-hl-sub">MBBS 2006</span>
+        </div>
+        <div class="cv-highlight-tile">
+          <div class="cv-hl-icon cv-hl-2"><i class="fa-solid fa-hospital"></i></div>
+          <span class="cv-hl-number">8</span>
+          <span class="cv-hl-label">Clinical<br>Roles</span>
+          <span class="cv-hl-sub">GP · MOIC · MO · NCCP · Informatics</span>
+        </div>
+        <div class="cv-highlight-tile">
+          <div class="cv-hl-icon cv-hl-3"><i class="fa-solid fa-certificate"></i></div>
+          <span class="cv-hl-number">23</span>
+          <span class="cv-hl-label">CPD<br>Certifications</span>
+          <span class="cv-hl-sub">Continued education</span>
+        </div>
+        <div class="cv-highlight-tile">
+          <div class="cv-hl-icon cv-hl-4"><i class="fa-solid fa-flask"></i></div>
+          <span class="cv-hl-number">9</span>
+          <span class="cv-hl-label">Published<br>Works</span>
+          <span class="cv-hl-sub">2 Papers · 7 Books</span>
+        </div>
+        <div class="cv-highlight-tile">
+          <div class="cv-hl-icon cv-hl-5"><i class="fa-solid fa-award"></i></div>
+          <span class="cv-hl-number">8</span>
+          <span class="cv-hl-label">Awards &amp;<br>Recognition</span>
+          <span class="cv-hl-sub">Literary · Community · Service</span>
+        </div>
+      </div>
+
+      <!-- ── EDUCATION ────────────────────────── -->
+      <div class="cv-sec">
+        <div class="cv-sec-head csh-copper">
+          <i class="fa-solid fa-graduation-cap"></i> Education &amp; Qualifications
+        </div>
+
+        <div class="cv-edu-card cv-ecard-mbbs fade-in">
+          <div class="cv-edu-icon cv-eicon-1"><i class="fa-solid fa-user-graduate"></i></div>
+          <div class="cv-edu-body">
+            <span class="cv-edu-year-badge">2006</span>
+            <span class="cv-qual-abbr">MBBS</span>
+            <p class="cv-qual-name">Bachelor of Medicine, Bachelor of Surgery</p>
+            <p class="cv-qual-inst">Faculty of Medicine, University of Jaffna &nbsp;·&nbsp; Sri Lanka</p>
+          </div>
+        </div>
+
+        <div class="cv-edu-card cv-ecard-mcgp fade-in delay-1">
+          <div class="cv-edu-icon cv-eicon-2"><i class="fa-solid fa-stethoscope"></i></div>
+          <div class="cv-edu-body">
+            <span class="cv-edu-year-badge">2014 – 2016</span>
+            <span class="cv-qual-abbr">MCGP</span>
+            <p class="cv-qual-name">Member of the College of General Practitioners</p>
+            <p class="cv-qual-inst">College of General Practitioners of Sri Lanka</p>
+            <span class="cv-qual-note">Two-year postgraduate programme in general practice</span>
+          </div>
+        </div>
+
+        <div class="cv-edu-card cv-ecard-msc fade-in delay-2">
+          <div class="cv-edu-icon cv-eicon-3"><i class="fa-solid fa-laptop-medical"></i></div>
+          <div class="cv-edu-body">
+            <span class="cv-edu-year-badge">Post 2022</span>
+            <span class="cv-qual-abbr">MSc</span>
+            <p class="cv-qual-name">Master of Science in Biomedical Informatics</p>
+            <p class="cv-qual-inst">Details to be confirmed</p>
+            <span class="cv-qual-note">Two-year postgraduate programme in Biomedical Informatics</span>
+            <span class="cv-status-badge cv-status-done" style="display:inline-flex;align-items:center;gap:4px;margin-top:0.5rem;"><i class="fa-solid fa-check" style="font-size:0.5rem;"></i>Completed</span>
+          </div>
+        </div>
+
+        <div class="cv-edu-card cv-ecard-md fade-in">
+          <div class="cv-edu-icon cv-eicon-4"><i class="fa-solid fa-microscope"></i></div>
+          <div class="cv-edu-body">
+            <span class="cv-edu-year-badge">Ongoing</span>
+            <span class="cv-qual-abbr">MD (Trainee)</span>
+            <p class="cv-qual-name">Doctor of Medicine &mdash; Health Informatics</p>
+            <p class="cv-qual-inst">Postgraduate Institute of Medicine (PGIM), University of Colombo &nbsp;·&nbsp; Sri Lanka</p>
+            <span class="cv-status-badge cv-status-ongoing" style="display:inline-flex;align-items:center;gap:4px;margin-top:0.5rem;"><i class="fa-solid fa-hourglass-half" style="font-size:0.5rem;"></i>In Progress</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── CLINICAL EXPERIENCE ──────────────── -->
+      <div class="cv-sec">
+        <div class="cv-sec-head csh-teal">
+          <i class="fa-solid fa-briefcase-medical"></i> Clinical Experience
+        </div>
+
+        <div class="cv-timeline">
+
+          <!-- 1. MD Health Informatics Trainee — Batch 9 -->
+          <div class="cv-entry ent-blue fade-in">
+            <div class="cv-entry-dot"></div>
+            <span class="cv-entry-period">6 April 2026 – April 2027 &nbsp;·&nbsp; In Training</span>
+            <div class="cv-entry-role-line">
+              <span class="cv-role-icon cri-blue"><i class="fa-solid fa-graduation-cap"></i></span>
+              <p class="cv-entry-role" style="margin:0;">MD Health Informatics Trainee — Batch 9</p>
+            </div>
+            <p class="cv-entry-place">Postgraduate Institute of Medicine (PGIM), University of Colombo &nbsp;·&nbsp; Ministry of Health Rotations, Sri Lanka</p>
+            <p class="cv-entry-desc">Selected at the MD Health Informatics Selection Examination (January 2026) and appointed by PGIM to the Pre-MD Training Programme in Health Informatics (Batch 9), commencing 6 April 2026. Training spans five structured rotations across national-level health information institutions under the Ministry of Health, with weekly lectures at the PGIM, Colombo.</p>
+            <ul class="cv-bullets">
+              <li><strong>Apr – Jul 2026</strong> &nbsp;·&nbsp; PD Office, Western Province <em style="color:var(--ink-light);font-size:0.88em;">(Supervisor: Dr. Anuradha Jayathilake)</em></li>
+              <li><strong>Jul – Oct 2026</strong> &nbsp;·&nbsp; Health Information Unit (HIU), Ministry of Health <em style="color:var(--ink-light);font-size:0.88em;">(Supervisor: Dr. Sridharan Sathasivam, DDG Planning)</em></li>
+              <li><strong>Oct – Nov 2026</strong> &nbsp;·&nbsp; Epidemiology Unit, Ministry of Health <em style="color:var(--ink-light);font-size:0.88em;">(Supervisor: Dr. Palitha Karunapema, CCP)</em></li>
+              <li><strong>Nov 2026 – Jan 2027</strong> &nbsp;·&nbsp; Family Health Bureau (FHB), Ministry of Health <em style="color:var(--ink-light);font-size:0.88em;">(Supervisor: Dr. Kaushalya Kasturiarachchi, CCP)</em></li>
+              <li><strong>Jan – Apr 2027</strong> &nbsp;·&nbsp; Medical Statistics Unit (MSU), Ministry of Health <em style="color:var(--ink-light);font-size:0.88em;">(Supervisor: Dr. Sridharan Sathasivam, DDG Planning)</em></li>
+            </ul>
+          </div>
+
+          <!-- 2. Medical Officer — NCCP -->
+          <div class="cv-entry ent-red fade-in delay-1">
+            <div class="cv-entry-dot"></div>
+            <span class="cv-entry-period">1 January 2026 – 6 April 2026 &nbsp;·&nbsp; 3 Months</span>
+            <div class="cv-entry-role-line">
+              <span class="cv-role-icon cri-red"><i class="fa-solid fa-ribbon"></i></span>
+              <p class="cv-entry-role" style="margin:0;">Medical Officer</p>
+            </div>
+            <p class="cv-entry-place">National Cancer Control Programme (NCCP) &nbsp;·&nbsp; Ministry of Health &nbsp;·&nbsp; Public Health Complex, Elvitigala Mawatha, Colombo 05, Sri Lanka</p>
+            <p class="cv-entry-desc">Medical Officer posting at the National Cancer Control Programme, supporting CanReg5-based cancer registry operations alongside early cancer detection initiatives and internal IT improvement work. This appointment also served as the parent station for the PGIM MD Health Informatics Batch 9 rotations commencing 6 April 2026.</p>
+            <ul class="cv-bullets">
+              <li>Supported CanReg5 cancer registry data operations and quality assurance</li>
+              <li>Collaborated in early development of the cancer detection centre registry</li>
+              <li>Internal IT-related improvement work within the programme</li>
+            </ul>
+          </div>
+
+          <!-- 3. MO RDHS Trincomalee (post-MSc return, 2025) -->
+          <div class="cv-entry ent-gold fade-in delay-2">
+            <div class="cv-entry-dot"></div>
+            <span class="cv-entry-period">2025 – December 2025</span>
+            <div class="cv-entry-role-line">
+              <span class="cv-role-icon cri-gold"><i class="fa-solid fa-database"></i></span>
+              <p class="cv-entry-role" style="margin:0;">Medical Officer</p>
+            </div>
+            <p class="cv-entry-place">Regional Director of Health Services (RDHS) Office &nbsp;·&nbsp; Trincomalee, Sri Lanka</p>
+            <p class="cv-entry-desc">Return posting at the RDHS Office, Trincomalee following completion of the MSc Biomedical Informatics programme. Primarily supported statistical work and health information management functions within the regional health administration.</p>
+          </div>
+
+          <!-- 4. MSc Biomedical Informatics — Batch 12 -->
+          <div class="cv-entry ent-blue fade-in delay-2">
+            <div class="cv-entry-dot"></div>
+            <span class="cv-entry-period">17 October 2022 – October 2024 &nbsp;·&nbsp; 24 Months</span>
+            <div class="cv-entry-role-line">
+              <span class="cv-role-icon cri-blue"><i class="fa-solid fa-laptop-medical"></i></span>
+              <p class="cv-entry-role" style="margin:0;">MSc Biomedical Informatics Trainee — Batch 12</p>
+            </div>
+            <p class="cv-entry-place">Postgraduate Institute of Medicine (PGIM), University of Colombo &nbsp;·&nbsp; Sri Lanka</p>
+            <p class="cv-entry-desc">Selected at the MSc Biomedical Informatics Selection Examination (August 2022) and released from the RDHS/Trincomalee posting for a full-time 24-month postgraduate training programme leading to the MSc in Biomedical Informatics. Training covered health information systems, clinical informatics, biomedical data science, and research methodology.</p>
+            <ul class="cv-bullets">
+              <li>Released from RDHS/Trincomalee with effect from 17 October 2022</li>
+              <li>Covering health information management, biomedical data, and informatics research</li>
+              <li>PGIM Library Resources and Services Orientation — 19 October 2022</li>
+              <li>Batch 12 of 19 trainees nationwide across major hospitals and health institutions</li>
+            </ul>
+          </div>
+
+          <!-- 5. MO RDHS Trincomalee (~2020 – 2022) -->
+          <div class="cv-entry ent-gold fade-in">
+            <div class="cv-entry-dot"></div>
+            <span class="cv-entry-period">~2020 – October 2022</span>
+            <div class="cv-entry-role-line">
+              <span class="cv-role-icon cri-gold"><i class="fa-solid fa-chart-line"></i></span>
+              <p class="cv-entry-role" style="margin:0;">Medical Officer</p>
+            </div>
+            <p class="cv-entry-place">Regional Director of Health Services (RDHS) Office &nbsp;·&nbsp; Trincomalee, Sri Lanka</p>
+            <p class="cv-entry-desc">Medical Officer at the RDHS Office, Trincomalee, primarily supporting statistical and health information work at regional health administration level. This was the posting from which the PGIM MSc Biomedical Informatics release was issued in October 2022.</p>
+            <ul class="cv-bullets">
+              <li>Supporting health statistical work at regional level</li>
+              <li>Health information coordination across the Trincomalee district</li>
+              <li>NCD data and population-level surveillance support</li>
+              <li>Primary Healthcare System Strengthening Programme (PSSP) data coordination</li>
+            </ul>
+          </div>
+
+          <!-- 5. MOIC DH Thampalakamam -->
+          <div class="cv-entry ent-gold fade-in delay-1">
+            <div class="cv-entry-dot"></div>
+            <span class="cv-entry-period">2019 – 2022 &nbsp;·&nbsp; 3 Years</span>
+            <div class="cv-entry-role-line">
+              <span class="cv-role-icon cri-gold"><i class="fa-solid fa-building-columns"></i></span>
+              <p class="cv-entry-role" style="margin:0;">Medical Officer In Charge (MOIC)</p>
+            </div>
+            <p class="cv-entry-place">Divisional Hospital, Thampalakamam &nbsp;·&nbsp; Trincomalee District, Sri Lanka</p>
+            <p class="cv-entry-desc">Leadership appointment as Medical Officer In Charge of a divisional hospital under the World Bank-funded Primary Healthcare System Strengthening Project (PSSP). Led NCD screening, community health engagement, and population-level data collection that drew international recognition.</p>
+            <ul class="cv-bullets">
+              <li>NCD screening programme — 43% of local population over 35 screened</li>
+              <li>Pre-scheduled appointment system for follow-up continuity</li>
+              <li>Community health walks — 200+ participants, theme: Prevention before Cure</li>
+              <li>Friends of Facility (FFC) committee — community-led NCD awareness</li>
+              <li>Hospital operations, staff supervision, and resource management</li>
+              <li>Featured in World Bank documentation, March 2022</li>
+            </ul>
+            <div style="margin-top:1rem;">
+              <a href="https://www.worldbank.org/en/news/feature/2022/03/28/sri-lanka-making-strides-towards-a-healthier-future" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-ui);font-size:0.62rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--copper-light);border:1px solid var(--border-light);padding:3px 12px;border-radius:2px;transition:color var(--t),border-color var(--t);" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold-deep)'" onmouseout="this.style.borderColor='var(--border-light)';this.style.color='var(--copper-light)'">
+                <i class="fa-solid fa-earth-asia"></i> World Bank Feature Article
+              </a>
+            </div>
+          </div>
+
+          <!-- 6. GP Selvanayagapuram -->
+          <div class="cv-entry ent-green fade-in delay-2">
+            <div class="cv-entry-dot"></div>
+            <span class="cv-entry-period">December 2017 – 2022 &nbsp;·&nbsp; ~5 Years</span>
+            <div class="cv-entry-role-line">
+              <span class="cv-role-icon cri-green"><i class="fa-solid fa-house-medical"></i></span>
+              <p class="cv-entry-role" style="margin:0;">General Practitioner</p>
+            </div>
+            <p class="cv-entry-place">Primary Medical Care Unit, Selvanayagapuram &nbsp;·&nbsp; Trincomalee, Sri Lanka</p>
+            <p class="cv-entry-desc">Full-scope primary care at the front line of Sri Lanka's NCD epidemic, grounding clinical informatics work in the daily reality of high-need community health settings — where population health decisions depend on quality clinical records and timely information systems.</p>
+            <ul class="cv-bullets">
+              <li>NCD detection, registration, and long-term follow-up</li>
+              <li>Clinical decision-making without specialist support</li>
+              <li>Longitudinal patient record management</li>
+              <li>Minor surgery and acute presentations</li>
+              <li>Community health education and prevention</li>
+            </ul>
+          </div>
+
+          <!-- 7. GP Kappalthurai -->
+          <div class="cv-entry ent-green fade-in">
+            <div class="cv-entry-dot"></div>
+            <span class="cv-entry-period">December 2013 – December 2017 &nbsp;·&nbsp; 4 Years</span>
+            <div class="cv-entry-role-line">
+              <span class="cv-role-icon cri-green"><i class="fa-solid fa-house-medical"></i></span>
+              <p class="cv-entry-role" style="margin:0;">General Practitioner</p>
+            </div>
+            <p class="cv-entry-place">Primary Medical Care Unit, Kappalthurai &nbsp;·&nbsp; Trincomalee, Sri Lanka</p>
+            <p class="cv-entry-desc">First posting as MCGP-qualified general practitioner — the foundation of a decade of primary care practice. Developed clinical pattern-recognition and patient-relationship skills that underpin health informatics research, working in settings where clinical judgement must substitute for digital decision-support.</p>
+            <ul class="cv-bullets">
+              <li>Chronic disease management and population screening</li>
+              <li>Independent clinical assessment and diagnosis</li>
+              <li>Acute presentations and minor surgery</li>
+              <li>Health education and preventive care</li>
+            </ul>
+          </div>
+
+          <!-- 8. MO Medical / ECU / ICU -->
+          <div class="cv-entry ent-red fade-in delay-1">
+            <div class="cv-entry-dot"></div>
+            <span class="cv-entry-period">August 2008 – December 2013 &nbsp;·&nbsp; 5 Years</span>
+            <div class="cv-entry-role-line">
+              <span class="cv-role-icon cri-red"><i class="fa-solid fa-hospital"></i></span>
+              <p class="cv-entry-role" style="margin:0;">Medical Officer</p>
+            </div>
+            <p class="cv-entry-place">Medical Unit, Emergency Care Unit &amp; Medical Intensive Care Unit &nbsp;·&nbsp; General Hospital, Trincomalee</p>
+            <p class="cv-entry-desc">Five years of high-volume acute clinical experience across medical wards, emergency care, and the medical ICU — forming the clinical evidence base that informs current health informatics research. Responsible for inward management of 80–100 patients with exposure to the full range of acute and chronic presentations.</p>
+            <ul class="cv-bullets">
+              <li>Inward management of 80–100 patients</li>
+              <li>Acute medical, surgical, paediatric and obstetric emergencies</li>
+              <li>Medical Intensive Care Unit (MICU) and Emergency Care Unit (ECU)</li>
+              <li>Lumbar puncture, IV cannulation, emergency intubation</li>
+              <li>Adult CPR and mass casualty management</li>
+            </ul>
+          </div>
+
+          <!-- 9. MO OB/GYN -->
+          <div class="cv-entry ent-copper fade-in delay-2">
+            <div class="cv-entry-dot"></div>
+            <span class="cv-entry-period">2007 – 2008 &nbsp;·&nbsp; 1 Year</span>
+            <div class="cv-entry-role-line">
+              <span class="cv-role-icon cri-copper"><i class="fa-solid fa-baby"></i></span>
+              <p class="cv-entry-role" style="margin:0;">Medical Officer</p>
+            </div>
+            <p class="cv-entry-place">Gynaecology &amp; Obstetrics Unit &nbsp;·&nbsp; General Hospital, Trincomalee</p>
+            <p class="cv-entry-desc">Clinical posting in obstetrics and gynaecology. Assessment and management of obstetric and gynaecological inward and outpatient cases with exposure to maternal health documentation and referral systems.</p>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- ── RESEARCH & PUBLICATIONS ─────────── -->
+      <div class="cv-sec">
+        <div class="cv-sec-head csh-blue">
+          <i class="fa-solid fa-book-open"></i> Research &amp; Publications
+        </div>
+
+        <!-- Jaffna Medical Journal 2024 -->
+        <div class="cv-pub fade-in" style="border-left-color:var(--teal);">
+          <span class="cv-pub-type" style="color:var(--teal);"><i class="fa-solid fa-heart-pulse" style="margin-right:4px;"></i>Peer-Reviewed Research Article</span>
+          <p class="cv-pub-title">The Correlation Between Global Longitudinal Strain by Speckle Tracking Echocardiography and Coronary Angiogram Finding in Patients with Suspected Chronic Stable Angina Pectoris</p>
+          <p class="cv-pub-journal">
+            <strong>Jaffna Medical Journal</strong> &nbsp;·&nbsp; Volume 36, Issue 2 &nbsp;·&nbsp; December 2024 &nbsp;·&nbsp;
+            DOI: <a href="https://doi.org/10.4038/jmj.v36i2.221" target="_blank" rel="noopener">10.4038/jmj.v36i2.221</a>
+            &nbsp;·&nbsp; Submitted: June 2024 &nbsp;·&nbsp; Accepted: November 2024
+          </p>
+          <p class="cv-pub-authors">
+            T. Jeyakanth, G. Mayurathan, A. Kularatne, <strong>T. Jeevaraj</strong>, J. Prashanthi, T. Abeysingha
+          </p>
+          <p style="font-family:var(--font-ui);font-size:0.73rem;color:var(--ink-light);line-height:1.65;margin-bottom:0.8rem;">
+            Multi-centre study across Teaching Hospital Kandy, District General Hospital Trincomalee (T. Jeevaraj), and Teaching Hospital Jaffna. Evaluated whether Global Longitudinal Strain (GLS) by speckle-tracking echocardiography predicts significant coronary artery disease in patients with chronic stable angina and normal LV function. Study of 78 patients demonstrated that lower GLS values were significantly associated with CAD severity; GLS cutoff of &minus;19 showed useful diagnostic performance.
+          </p>
+          <p style="font-family:'Courier New',monospace;font-size:0.62rem;color:var(--ink-pale);line-height:1.6;margin-bottom:0.8rem;">
+            Vancouver: Jeyakanth T, Mayurathan G, Kularatne A, Jeevaraj T, Prashanthi J, Abeysingha T. The correlation between global longitudinal strain by speckle tracking echocardiography and coronary angiogram finding in patients with suspected chronic stable angina pectoris. Jaffna Med J. 2024;36(2). doi:10.4038/jmj.v36i2.221.
+          </p>
+          <div class="cv-pub-links">
+            <a href="https://doi.org/10.4038/jmj.v36i2.221" target="_blank" rel="noopener" class="cv-link-btn">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Jaffna Med J
+            </a>
+          </div>
+        </div>
+
+        <!-- BMJ Open paper -->
+        <div class="cv-pub fade-in" style="border-left-color:#3D6E8C;">
+          <span class="cv-pub-type" style="color:#3D6E8C;"><i class="fa-solid fa-flask" style="margin-right:4px;"></i>Peer-Reviewed Research Article</span>
+          <p class="cv-pub-title">Imputing HbA1c from capillary blood glucose levels in patients with type 2 diabetes in Sri Lanka: a cross-sectional study</p>
+          <p class="cv-pub-journal">
+            <strong>BMJ Open</strong> &nbsp;·&nbsp; July 2020 &nbsp;·&nbsp;
+            DOI: <a href="https://doi.org/10.1136/bmjopen-2020-038148" target="_blank" rel="noopener">10.1136/bmjopen-2020-038148</a>
+            &nbsp;·&nbsp; PMID: 32690534 &nbsp;·&nbsp; PMCID: PMC7371026
+          </p>
+          <p class="cv-pub-authors">
+            Monica Choo, Gregory E. Hoy, Sarah P. Dugan, Laura N. McEwen, Naresh Gunaratnam, Jennifer Wyckoff,
+            <strong>Thangarasa Jeevaraaj</strong>, Arunachalam Saththiyaseelan, B. Ganeikabahu, Prasad Katulanda,
+            Ulysses Balis, William H. Herman, Anjan K. Saha
+          </p>
+          <p style="font-family:var(--font-ui);font-size:0.73rem;color:var(--ink-light);line-height:1.65;margin-bottom:0.8rem;">
+            In collaboration with the University of Michigan, Division of Metabolism, Endocrinology &amp; Diabetes. Field data collection conducted in Sri Lanka. Original submission to <em>Diabetes Research and Clinical Practice</em> (DIAB_2019_1169, September 2019).
+          </p>
+          <div class="cv-pub-links">
+            <a href="https://pubmed.ncbi.nlm.nih.gov/32690534/" target="_blank" rel="noopener" class="cv-link-btn">
+              <i class="fa-solid fa-flask"></i> PubMed
+            </a>
+            <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7371026/" target="_blank" rel="noopener" class="cv-link-btn">
+              <i class="fa-solid fa-file-lines"></i> PMC Full Text
+            </a>
+            <a href="https://doi.org/10.1136/bmjopen-2020-038148" target="_blank" rel="noopener" class="cv-link-btn">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> BMJ Open
+            </a>
+          </div>
+        </div>
+
+        <!-- Are You Still Human? -->
+        <div class="cv-pub fade-in delay-1">
+          <span class="cv-pub-type"><i class="fa-solid fa-book" style="margin-right:4px;"></i>Book &mdash; Literary Nonfiction</span>
+          <p class="cv-pub-title">Are You Still Human?</p>
+          <p class="cv-pub-journal">
+            Kindle eBook &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; ASIN: B0H333G41P &nbsp;·&nbsp;
+            <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener">Amazon</a>
+          </p>
+          <p style="font-family:var(--font-ui);font-size:0.75rem;color:var(--ink-light);line-height:1.65;margin-bottom:0.8rem;">
+            A short literary nonfiction book examining what artificial intelligence quietly does to ordinary human relationships. Three true clinical and personal narratives; ten observed patterns of cognitive and emotional change.
+          </p>
+          <div class="cv-pub-links">
+            <a href="books.html" class="cv-link-btn">
+              <i class="fa-solid fa-circle-info"></i> About the Book
+            </a>
+            <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" class="cv-link-btn">
+              <i class="fa-brands fa-amazon"></i> Amazon Kindle
+            </a>
+          </div>
+        </div>
+
+        <!-- Tamil Printed Books -->
+        <div class="cv-pub fade-in delay-2" style="border-left-color: var(--copper);">
+          <span class="cv-pub-type"><i class="fa-solid fa-map-location-dot" style="margin-right:4px;"></i>Printed Book &mdash; Toponymy &amp; Historical Geography</span>
+          <p class="cv-pub-title">A Study of Place Names in Thambalagamam</p>
+          <p style="font-family:var(--font-ui);font-size:0.75rem;color:var(--ink-light);line-height:1.65;margin-bottom:0.7rem;">
+            An investigation into the origins, meanings, and historical development of place names in the Thambalagamam area — contributing to the scholarly discipline of Tamil toponymy and the documented history of the Eastern Province.
+          </p>
+          <p style="font-family:var(--font-ui);font-size:0.68rem;color:var(--ink-pale);line-height:1.6;margin-bottom:0.7rem;">
+            Author: T. Jeevaraj &nbsp;·&nbsp; Language: Tamil &nbsp;·&nbsp; Subject: Toponymy, Place-Name Studies, Eastern Sri Lanka &nbsp;·&nbsp; Format: Printed Book
+          </p>
+          <div class="cv-pub-links">
+            <a href="https://www.noolaham.org/wiki/index.php/%E0%AE%AA%E0%AE%95%E0%AF%81%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81:%E0%AE%9C%E0%AF%80%E0%AE%B5%E0%AE%B0%E0%AE%BE%E0%AE%9C%E0%AF%8D,_%E0%AE%A4." target="_blank" rel="noopener" class="cv-link-btn">
+              <i class="fa-solid fa-database"></i> Noolaham Archive
+            </a>
+          </div>
+        </div>
+
+        <div class="cv-pub fade-in" style="border-left-color: var(--copper);">
+          <span class="cv-pub-type"><i class="fa-solid fa-chess-king" style="margin-right:4px;"></i>Printed Book &mdash; Eastern Sri Lankan History</span>
+          <p class="cv-pub-title">Vannimai Chieftains of Kottiyarpattu</p>
+          <p style="font-family:var(--font-ui);font-size:0.75rem;color:var(--ink-light);line-height:1.65;margin-bottom:0.7rem;">
+            A historical account of the Vannimai chieftains and their role in the political and social history of eastern Sri Lanka. Documents a largely unrecorded chapter of the region's history through archival and oral sources.
+          </p>
+          <p style="font-family:var(--font-ui);font-size:0.68rem;color:var(--ink-pale);line-height:1.6;margin-bottom:0.7rem;">
+            Author: T. Jeevaraj &nbsp;·&nbsp; Language: Tamil &nbsp;·&nbsp; Subject: Vannimai History, Eastern Sri Lanka, Political History &nbsp;·&nbsp; Format: Printed Book
+          </p>
+          <div class="cv-pub-links">
+            <a href="https://www.noolaham.org/wiki/index.php/%E0%AE%AA%E0%AE%95%E0%AF%81%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81:%E0%AE%9C%E0%AF%80%E0%AE%B5%E0%AE%B0%E0%AE%BE%E0%AE%9C%E0%AF%8D,_%E0%AE%A4." target="_blank" rel="noopener" class="cv-link-btn">
+              <i class="fa-solid fa-database"></i> Noolaham Archive
+            </a>
+          </div>
+        </div>
+
+        <!-- Tamil eBooks / PDF -->
+        <div class="cv-pub fade-in delay-1" style="border-left-color: var(--copper-light);">
+          <span class="cv-pub-type"><i class="fa-solid fa-landmark" style="margin-right:4px;"></i>eBook (PDF) &mdash; Tamil Epigraphy &amp; Archaeology</span>
+          <p class="cv-pub-title">Thirukonamalai Tamil Inscriptions</p>
+          <p style="font-family:var(--font-ui);font-size:0.75rem;color:var(--ink-light);line-height:1.65;margin-bottom:0.7rem;">
+            A scholarly study of Tamil inscriptions discovered in the Trincomalee region, examining their historical, linguistic, and cultural significance. Contributes to the epigraphic record of the Eastern Province of Sri Lanka.
+          </p>
+          <p style="font-family:var(--font-ui);font-size:0.68rem;color:var(--ink-pale);line-height:1.6;margin-bottom:0.7rem;">
+            Author: T. Jeevaraj (Thambalagamam T. Jeevaraj) &nbsp;·&nbsp; Language: Tamil &nbsp;·&nbsp; Subject: Epigraphy, History, Eastern Sri Lanka &nbsp;·&nbsp; Format: eBook / PDF
+          </p>
+          <div class="cv-pub-links">
+            <a href="https://www.noolaham.org/wiki/index.php/%E0%AE%AA%E0%AE%95%E0%AF%81%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81:%E0%AE%9C%E0%AF%80%E0%AE%B5%E0%AE%B0%E0%AE%BE%E0%AE%9C%E0%AF%8D,_%E0%AE%A4." target="_blank" rel="noopener" class="cv-link-btn">
+              <i class="fa-solid fa-database"></i> Noolaham Archive
+            </a>
+          </div>
+        </div>
+
+        <div class="cv-pub fade-in delay-2" style="border-left-color: var(--copper-light);">
+          <span class="cv-pub-type"><i class="fa-solid fa-feather-pointed" style="margin-right:4px;"></i>eBook (PDF) &mdash; Tamil Poetry</span>
+          <p class="cv-pub-title">Manam Thudikkum <span style="font-family:var(--font-display);font-size:0.9rem;color:var(--ink-light);font-style:italic;">(The Beating Heart)</span></p>
+          <p style="font-family:var(--font-ui);font-size:0.75rem;color:var(--ink-light);line-height:1.65;margin-bottom:0.7rem;">
+            A collection of Tamil poems reflecting personal experiences, emotions, culture, and social themes rooted in the life and landscape of the Eastern Province.
+          </p>
+          <p style="font-family:var(--font-ui);font-size:0.68rem;color:var(--ink-pale);line-height:1.6;margin-bottom:0.7rem;">
+            Author: T. Jeevaraj &nbsp;·&nbsp; Language: Tamil &nbsp;·&nbsp; Subject: Poetry, Culture, Tamil life &nbsp;·&nbsp; Format: eBook / PDF
+          </p>
+          <div class="cv-pub-links">
+            <a href="https://www.noolaham.org/wiki/index.php/%E0%AE%AA%E0%AE%95%E0%AF%81%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81:%E0%AE%9C%E0%AF%80%E0%AE%B5%E0%AE%B0%E0%AE%BE%E0%AE%9C%E0%AF%8D,_%E0%AE%A4." target="_blank" rel="noopener" class="cv-link-btn">
+              <i class="fa-solid fa-database"></i> Noolaham Archive
+            </a>
+          </div>
+        </div>
+
+        <div class="cv-pub fade-in" style="border-left-color: var(--copper-light);">
+          <span class="cv-pub-type"><i class="fa-solid fa-crown" style="margin-right:4px;"></i>eBook (PDF) &mdash; Tamil History</span>
+          <p class="cv-pub-title">The Cholas in Trincomalee</p>
+          <p style="font-family:var(--font-ui);font-size:0.75rem;color:var(--ink-light);line-height:1.65;margin-bottom:0.7rem;">
+            A historical study exploring the influence and legacy of the Chola dynasty in the Trincomalee region. Examines political, architectural, and cultural imprints of Chola rule in the Eastern Province.
+          </p>
+          <p style="font-family:var(--font-ui);font-size:0.68rem;color:var(--ink-pale);line-height:1.6;margin-bottom:0.7rem;">
+            Language: Tamil &nbsp;·&nbsp; Subject: Chola History, Eastern Sri Lanka &nbsp;·&nbsp; Format: eBook / PDF
+          </p>
+          <div class="cv-pub-links">
+            <a href="https://www.noolaham.org/wiki/index.php/%E0%AE%AA%E0%AE%95%E0%AF%81%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81:%E0%AE%9C%E0%AF%80%E0%AE%B5%E0%AE%B0%E0%AE%BE%E0%AE%9C%E0%AF%8D,_%E0%AE%A4." target="_blank" rel="noopener" class="cv-link-btn">
+              <i class="fa-solid fa-database"></i> Noolaham Archive
+            </a>
+          </div>
+        </div>
+
+        <div class="cv-pub fade-in delay-1" style="border-left-color: var(--copper-light);">
+          <span class="cv-pub-type"><i class="fa-solid fa-om" style="margin-right:4px;"></i>eBook (PDF) &mdash; Tamil Bhakti Scholarship</span>
+          <p class="cv-pub-title">Thirukoneswaram in the Tamil Bhakti Movement of Thirugnanasambandar</p>
+          <p style="font-family:var(--font-ui);font-size:0.75rem;color:var(--ink-light);line-height:1.65;margin-bottom:0.7rem;">
+            A research monograph examining the significance of Thirukoneswaram temple in the Tamil Saiva Bhakti tradition and its connection to the hymns of Thirugnanasambandar. Contributes to the study of Tamil religious literature and the sacred geography of Trincomalee.
+          </p>
+          <p style="font-family:var(--font-ui);font-size:0.68rem;color:var(--ink-pale);line-height:1.6;margin-bottom:0.7rem;">
+            Language: Tamil &nbsp;·&nbsp; Subject: Bhakti Literature, Saiva Tradition, Tamil Epigraphy, Thirukoneswaram &nbsp;·&nbsp; Format: eBook / PDF
+          </p>
+          <div class="cv-pub-links">
+            <a href="https://www.noolaham.org/wiki/index.php/%E0%AE%AA%E0%AE%95%E0%AF%81%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81:%E0%AE%9C%E0%AF%80%E0%AE%B5%E0%AE%B0%E0%AE%BE%E0%AE%9C%E0%AF%8D,_%E0%AE%A4." target="_blank" rel="noopener" class="cv-link-btn">
+              <i class="fa-solid fa-database"></i> Noolaham Archive
+            </a>
+          </div>
+        </div>
+
+        <!-- Noolaham archive note -->
+        <div style="margin-top:1.4rem;padding:1.2rem 1.6rem;background:var(--parchment-light);border:1px solid var(--border-light);border-radius:var(--radius-md);display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;">
+          <div style="flex:1;min-width:220px;">
+            <p style="font-family:var(--font-ui);font-size:0.72rem;color:var(--ink-mid);line-height:1.7;margin:0;">
+              <strong style="color:var(--ink);">Digital Archive:</strong> Tamil historical and literary publications preserved through the <strong>Noolaham Digital Library</strong> — a major repository for Tamil literary, historical, and cultural heritage. Also available via Free Tamil Ebooks.
+            </p>
+          </div>
+          <a href="https://www.noolaham.org/wiki/index.php/%E0%AE%AA%E0%AE%95%E0%AF%81%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81:%E0%AE%9C%E0%AF%80%E0%AE%B5%E0%AE%B0%E0%AE%BE%E0%AE%9C%E0%AF%8D,_%E0%AE%A4." target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-ui);font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--border);padding:0.55rem 1.2rem;border-radius:var(--radius-sm);white-space:nowrap;transition:border-color var(--t);">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Noolaham Author Page
+          </a>
+        </div>
+
+      </div>
+
+      <!-- ── PROFESSIONAL DEVELOPMENT ─────────── -->
+      <div class="cv-sec">
+        <div class="cv-sec-head csh-green">
+          <i class="fa-solid fa-certificate"></i> Professional Development &amp; Certifications
+        </div>
+        <div class="cv-cert-grid">
+
+          <div class="cv-cert cci-gold fade-in">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-users-medical"></i></div>
+            <div>
+              WONCA SAR Conference — Reaching Across Shores to Strengthen Primary Care
+              <span class="cv-cert-org">World Organization of Family Doctors · Colombo</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-copper fade-in delay-1">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div>
+              Cardiology Update
+              <span class="cv-cert-org">Sri Lanka Heart Association</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-teal fade-in delay-2">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-kit-medical"></i></div>
+            <div>
+              Cardio Pulmonary Resuscitation (CPR) Training Programme
+              <span class="cv-cert-org">Department of Anaesthesia, General Hospital Trincomalee</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-green fade-in">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-eye"></i></div>
+            <div>
+              Certificate of Appreciation — Outreach Programme for Eye Disease
+              <span class="cv-cert-org">College of Ophthalmologists of Sri Lanka</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-blue fade-in delay-1">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-chart-bar"></i></div>
+            <div>
+              Results-Based Management for Inclusive Social Development
+              <span class="cv-cert-org">UNICEF</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-red fade-in delay-2">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-brain"></i></div>
+            <div>
+              Clinical Meeting — Neurology
+              <span class="cv-cert-org">Association of Sri Lankan Neurologists (ASN)</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-gold fade-in">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-person-cane"></i></div>
+            <div>
+              Ensuring Dignity in Silver Age
+              <span class="cv-cert-org">Sri Lanka Association of Geriatric Medicine</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-copper fade-in delay-1">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-person-walking"></i></div>
+            <div>
+              Active Ageing — Elderly Care
+              <span class="cv-cert-org">Elderly Care Friendly Clinic, General Hospital Trincomalee</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-teal fade-in delay-2">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-lungs"></i></div>
+            <div>
+              Respiratory Symposium
+              <span class="cv-cert-org">Association of Pulmonologists Sri Lanka &amp; Clinical Society of Trincomalee</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-green fade-in">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-ribbon"></i></div>
+            <div>
+              Certificate of Appreciation — Dedication to Stop Tuberculosis
+              <span class="cv-cert-org">Regional Director of Health Services (RDHS), Trincomalee</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-blue fade-in delay-1">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-syringe"></i></div>
+            <div>
+              Anti-Rabies Post Exposure Therapy (PET) Training
+              <span class="cv-cert-org">Public Health Veterinary Services, Ministry of Health Sri Lanka</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-red fade-in delay-2">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-user-doctor"></i></div>
+            <div>
+              Clinical Meeting
+              <span class="cv-cert-org">Ceylon College of Physicians &amp; Clinical Society of Trincomalee</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-gold fade-in">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-venus"></i></div>
+            <div>
+              Cancer in Women — Current Concepts, Practices &amp; Strategies
+              <span class="cv-cert-org">Women's Health Committee, Sri Lanka Medical Association</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-copper fade-in delay-1">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-hospital-user"></i></div>
+            <div>
+              Orientation Course in Medical Administration
+              <span class="cv-cert-org">College of Medical Administrators of Sri Lanka</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-teal fade-in delay-2">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+              Hospital Safety Programme — Managing Emergencies During Disasters
+              <span class="cv-cert-org">District Disaster Management Coordination Unit, Trincomalee · 2019</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-green fade-in">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-bacterium"></i></div>
+            <div>
+              Sensitization of General Practitioners on TB Control
+              <span class="cv-cert-org">Independent Medical Practitioners Association &amp; NPTCCD, Ministry of Health · 2009</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-blue fade-in delay-1">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-microscope"></i></div>
+            <div>
+              Advanced Research Methodology with Hands-on Training — 21 CPD Points
+              <span class="cv-cert-org">Ministry of Health &amp; Mass Media, Sri Lanka · May–June 2026</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-red fade-in delay-2">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div>
+              Right to Information Act — Workshop Completion
+              <span class="cv-cert-org">Skills Development Fund Ltd (SDFL), Ministry of Education · July 2025</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-teal fade-in">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-database"></i></div>
+            <div>
+              Introduction to DHIS2
+              <span class="cv-cert-org">DHIS2 Online Academy — HISP Centre, University of Oslo · February 2025</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-blue fade-in delay-1">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-clipboard-check"></i></div>
+            <div>
+              Aggregate Data Capture and Validation Fundamentals
+              <span class="cv-cert-org">DHIS2 Online Academy — HISP Centre, University of Oslo · August 2023</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-green fade-in delay-2">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-chart-bar"></i></div>
+            <div>
+              Aggregate Data Analysis Fundamentals
+              <span class="cv-cert-org">DHIS2 Online Academy — HISP Centre, University of Oslo · August 2023</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-gold fade-in">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-sliders"></i></div>
+            <div>
+              Aggregate Customization Fundamentals
+              <span class="cv-cert-org">DHIS2 Online Academy — HISP Centre, University of Oslo · February 2025</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-copper fade-in delay-1">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-building-columns"></i></div>
+            <div>
+              PGIM Library Resources and Services — Orientation Programme
+              <span class="cv-cert-org">Postgraduate Institute of Medicine, University of Colombo · 19 October 2022</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── AWARDS & RECOGNITION ───────── -->
+      <div class="cv-sec">
+        <div class="cv-sec-head csh-gold">
+          <i class="fa-solid fa-award"></i> Awards &amp; Recognition
+        </div>
+        <div class="cv-cert-grid">
+
+          <div class="cv-cert cci-gold fade-in">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-trophy"></i></div>
+            <div>
+              State Literary Award (அரச இலக்கிய விருது) 2023
+              <span class="cv-cert-org">For <em>Thambalagamam Oor Peyar Aayvu</em> · Ministry of University &amp; Cultural Affairs, Sri Lanka · 14 September 2023</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-copper fade-in delay-1">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-medal"></i></div>
+            <div>
+              Best Book Award — Place Names Category 2023
+              <span class="cv-cert-org">Eastern Province Tamil Literary Festival · 2023</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-teal fade-in delay-2">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-medal"></i></div>
+            <div>
+              Best Book Award — History Category 2022
+              <span class="cv-cert-org">Eastern Province Tamil Literary Festival · 2022</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-green fade-in">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-star"></i></div>
+            <div>
+              Youth Recognition in Tamil Literature (இளங்கலைஞர் பாராட்டு) 2017
+              <span class="cv-cert-org">Eastern Province Tamil Literary Festival · For documentation services to Tamil literature · 02 August 2017</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-blue fade-in delay-1">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-handshake"></i></div>
+            <div>
+              Samasri Award 2013 — Inter-Community Harmony
+              <span class="cv-cert-org">United Organisation of All Communities · Recognised by Eastern Province Chief Minister for cultural, religious &amp; social services</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-red fade-in delay-2">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-heart"></i></div>
+            <div>
+              Blood Donor Recognition — 9 Citations (2010–2018)
+              <span class="cv-cert-org">National Blood Transfusion Service, Ministry of Health · Recognised as Donor &amp; Mobile Campaign Organiser across World Blood Donor Days</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-gold fade-in">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-certificate"></i></div>
+            <div>
+              Certificate of Appreciation — Primary Health Care System Strengthening
+              <span class="cv-cert-org">PSSP 2020, Eastern Province · Presented 8 April 2021, Batticaloa</span>
+            </div>
+          </div>
+
+          <div class="cv-cert cci-copper fade-in delay-1">
+            <div class="cv-cert-icon-wrap"><i class="fa-solid fa-om"></i></div>
+            <div>
+              Paper Presentation — Heritage &amp; Literary Traditions of Sri Lankan Hindu Temples
+              <span class="cv-cert-org">Department of Hindu Religious &amp; Cultural Affairs · Annual Research Conference · A.V.S Hall, Bambalapitiya, Colombo</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ── DIGITAL HEALTH & INFORMATICS ───────── -->
+      <div class="cv-sec">
+        <div class="cv-sec-head csh-gold">
+          <i class="fa-solid fa-laptop-medical"></i> Digital Health &amp; Health Informatics
+        </div>
+        <p style="font-family:var(--font-body);font-size:1.0rem;color:var(--ink-mid);line-height:1.95;margin-bottom:1.6rem;">
+          Alongside clinical practice, I have worked in digital health and health informatics — building and deploying information systems for public health settings in Sri Lanka. This work spans disease surveillance, emergency response data tools, clinic administration systems, and health data visualisation. Current research under the MD Health Informatics programme at PGIM focuses on the application of informatics methods in the Sri Lankan public health context.
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem;">
+          <span class="cv-qual-abbr" style="display:inline-block;">Disease Surveillance</span>
+          <span class="cv-qual-abbr" style="display:inline-block;">Emergency Response Data</span>
+          <span class="cv-qual-abbr" style="display:inline-block;">Health Statistics Visualisation</span>
+          <span class="cv-qual-abbr" style="display:inline-block;">Progressive Web Apps (PWA)</span>
+          <span class="cv-qual-abbr" style="display:inline-block;">Offline-First Systems</span>
+          <span class="cv-qual-abbr" style="display:inline-block;">Patient Data Management</span>
+          <span class="cv-qual-abbr" style="display:inline-block;">DHIS2</span>
+          <span class="cv-qual-abbr" style="display:inline-block;">Python &amp; JavaScript</span>
+          <span class="cv-qual-abbr" style="display:inline-block;">SQL Databases</span>
+          <span class="cv-qual-abbr" style="display:inline-block;">REST APIs</span>
+        </div>
+
+        <div style="background:var(--parchment-light);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:1.4rem 1.8rem;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;">
+          <div style="flex:1;min-width:220px;">
+            <p style="font-family:var(--font-ui);font-size:0.76rem;color:var(--ink-light);line-height:1.7;margin:0;">
+              Full project portfolio — disease surveillance tools, emergency dashboards, clinic systems, and the Still Human author website — available on the Developer Portfolio page.
+            </p>
+          </div>
+          <a href="dev.html" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-ui);font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--border);padding:0.65rem 1.4rem;border-radius:var(--radius-sm);white-space:nowrap;transition:border-color var(--t),color var(--t);" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+            <i class="fa-solid fa-arrow-right"></i> Developer Portfolio
+          </a>
+        </div>
+      </div>
+
+      <!-- ── LANGUAGES ────────────────────────── -->
+      <div class="cv-sec">
+        <div class="cv-sec-head csh-red">
+          <i class="fa-solid fa-language"></i> Languages
+        </div>
+
+        <p style="font-family:var(--font-ui);font-size:0.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ink-light);margin-bottom:0.75rem;">Spoken &amp; Written</p>
+        <div class="cv-lang-row" style="margin-bottom:1.8rem;">
+          <div class="cv-lang clang-green">
+            <i class="fa-solid fa-circle-check"></i>
+            <span><strong>Tamil</strong> &nbsp;—&nbsp; Native</span>
+          </div>
+          <div class="cv-lang clang-blue">
+            <i class="fa-solid fa-circle-check"></i>
+            <span><strong>English</strong> &nbsp;—&nbsp; Professional</span>
+          </div>
+          <div class="cv-lang clang-copper">
+            <i class="fa-solid fa-circle-check"></i>
+            <span><strong>Sinhala</strong> &nbsp;—&nbsp; Professional</span>
+          </div>
+        </div>
+
+        <p style="font-family:var(--font-ui);font-size:0.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ink-light);margin-bottom:0.75rem;">Programming &amp; Markup Languages</p>
+        <div class="cv-lang-row">
+          <div class="cv-lang" style="background:rgba(200,151,62,0.07);border-color:rgba(200,151,62,0.2);">
+            <i class="fa-brands fa-python" style="color:var(--gold-deep);"></i>
+            <span><strong>Python</strong></span>
+          </div>
+          <div class="cv-lang" style="background:rgba(200,151,62,0.07);border-color:rgba(200,151,62,0.2);">
+            <i class="fa-brands fa-php" style="color:var(--gold-deep);"></i>
+            <span><strong>PHP</strong></span>
+          </div>
+          <div class="cv-lang" style="background:rgba(200,151,62,0.07);border-color:rgba(200,151,62,0.2);">
+            <i class="fa-brands fa-html5" style="color:var(--gold-deep);"></i>
+            <span><strong>HTML / CSS</strong></span>
+          </div>
+          <div class="cv-lang" style="background:rgba(200,151,62,0.07);border-color:rgba(200,151,62,0.2);">
+            <i class="fa-solid fa-database" style="color:var(--gold-deep);"></i>
+            <span><strong>MySQL</strong></span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.cv-wrap -->
+  </div>
+</section>
+
+<footer>
+  <span class="footer-ornament">· · ·</span>
+  <p class="footer-title">Still Human</p>
+  <p class="footer-tagline">Human stories in the age of artificial intelligence.</p>
+  <ul class="footer-links">
+    <li><a href="index.html"><i class="fa-solid fa-house" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>Home</a></li>
+    <li><a href="books.html"><i class="fa-solid fa-book" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>The Book</a></li>
+    <li><a href="about.html"><i class="fa-solid fa-user" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>About</a></li>
+    <li><a href="dev.html"><i class="fa-solid fa-laptop-code" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>Dev Work</a></li>
+  </ul>
+  <div class="social-links">
+    <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.linkedin.com/in/geevanathy/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener"><i class="fa-brands fa-amazon"></i> Amazon Author</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human &nbsp;&middot;&nbsp; Sri Lanka</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+  }
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('javascript')) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.add('page-exit');
+        setTimeout(() => { window.location.href = href; }, 320);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

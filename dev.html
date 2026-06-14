@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Portfolio — Dr. T. Jeevaraj · Still Human</title>
+  <meta name="description" content="Digital health and public health technology projects by Dr. T. Jeevaraj — disease surveillance, emergency response tools, welfare data platforms, and more.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── DEV PORTFOLIO STYLES ──────────────────── */
+
+    /* Skills overview strip */
+    .dev-skills-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.8rem;
+      margin: 0 0 3.5rem;
+    }
+    .dev-skill-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 1.4rem 1rem;
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      text-align: center;
+      transition: border-color var(--t), box-shadow var(--t);
+    }
+    .dev-skill-tile:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    .dev-skill-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      border: 1.5px solid var(--border-light);
+    }
+    .dsi-1 { background: linear-gradient(135deg,rgba(200,151,62,0.18),rgba(200,151,62,0.05)); color: var(--gold-deep); }
+    .dsi-2 { background: linear-gradient(135deg,rgba(154,114,48,0.18),rgba(154,114,48,0.05)); color: var(--copper); }
+    .dsi-3 { background: linear-gradient(135deg,rgba(168,92,40,0.18),rgba(168,92,40,0.05)); color: var(--copper-light); }
+    .dsi-red   { background: linear-gradient(135deg,rgba(181,69,58,0.18),rgba(181,69,58,0.05)); color: #B5453A; }
+    .dsi-blue  { background: linear-gradient(135deg,rgba(61,110,140,0.18),rgba(61,110,140,0.05)); color: #3D6E8C; }
+    .dsi-green { background: linear-gradient(135deg,rgba(79,125,82,0.18),rgba(79,125,82,0.05)); color: #4F7D52; }
+    .dsi-teal  { background: linear-gradient(135deg,rgba(26,110,110,0.18),rgba(26,110,110,0.05)); color: var(--teal); }
+
+    /* Coloured top accent + label colour per work area */
+    .dev-skill-tile { border-top: 3px solid transparent; }
+    .dst-red   { border-top-color: #B5453A; }
+    .dst-copper{ border-top-color: var(--copper-light); }
+    .dst-teal  { border-top-color: var(--teal); }
+    .dst-green { border-top-color: #4F7D52; }
+    .dst-gold  { border-top-color: var(--gold); }
+    .dst-blue  { border-top-color: #3D6E8C; }
+
+    .dev-skill-desc {
+      font-family: var(--font-ui);
+      font-size: 0.66rem;
+      color: var(--ink-pale);
+      line-height: 1.5;
+    }
+    .dev-skill-label {
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      line-height: 1.4;
+    }
+
+    /* Technology category cards */
+    .dev-tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    .dev-tech-cat {
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.3rem 1.5rem;
+    }
+    .dtc-lang  { border-left-color: var(--gold); }
+    .dtc-frame { border-left-color: var(--copper); }
+    .dtc-pwa   { border-left-color: #3D6E8C; }
+    .dtc-data  { border-left-color: var(--teal); }
+    .dtc-health{ border-left-color: #4F7D52; }
+    .dev-tech-cat-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-ui);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+      margin-bottom: 0.9rem;
+    }
+    .dtc-lang  .dev-tech-cat-label i { color: var(--gold-deep); }
+    .dtc-frame .dev-tech-cat-label i { color: var(--copper); }
+    .dtc-pwa   .dev-tech-cat-label i { color: #3D6E8C; }
+    .dtc-data  .dev-tech-cat-label i { color: var(--teal); }
+    .dtc-health .dev-tech-cat-label i { color: #4F7D52; }
+    .dev-tech-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .dev-tech-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.68rem;
+      color: var(--ink-mid);
+      background: var(--parchment-deep);
+      border: 1px solid var(--border-light);
+      padding: 3px 10px;
+      border-radius: 2px;
+      letter-spacing: 0.5px;
+      transition: border-color var(--t), color var(--t);
+    }
+    .dev-tech-chip:hover { border-color: var(--gold); color: var(--gold-deep); }
+    .dev-tech-chip i { font-size: 0.55rem; color: var(--gold); }
+
+    /* Improved project cards */
+    .dev-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.4rem;
+      margin-bottom: 3rem;
+    }
+    .dev-card {
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 0;
+      overflow: hidden;
+      transition: box-shadow var(--t), border-color var(--t), transform var(--t);
+      display: flex;
+      flex-direction: column;
+    }
+    .dev-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border);
+      transform: translateY(-2px);
+    }
+
+    /* Card icon header */
+    .dev-card-icon-band {
+      padding: 2rem 2rem 1.2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .dev-proj-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      border: 1.5px solid var(--border-light);
+      transition: transform var(--t);
+    }
+    .dev-card:hover .dev-proj-icon { transform: scale(1.06); }
+    .dpi-1 { background: linear-gradient(135deg,rgba(200,151,62,0.20),rgba(200,151,62,0.06)); color: var(--gold-deep); }
+    .dpi-2 { background: linear-gradient(135deg,rgba(154,114,48,0.20),rgba(154,114,48,0.06)); color: var(--copper); }
+    .dpi-3 { background: linear-gradient(135deg,rgba(168,92,40,0.20),rgba(168,92,40,0.06)); color: var(--copper-light); }
+    .dpi-4 { background: linear-gradient(135deg,rgba(45,42,38,0.10),rgba(45,42,38,0.03)); color: var(--ink-light); }
+
+    .dev-card-title-group { flex: 1; min-width: 0; padding-top: 0.2rem; }
+    .dev-card-num {
+      font-family: 'Courier New', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      color: var(--gold-deep);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .dev-card-type {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 0.6rem;
+    }
+    .badge-red    { color: #B5453A; background: rgba(181,69,58,0.08); border: 1px solid rgba(181,69,58,0.25); }
+    .badge-copper { color: var(--copper); background: rgba(154,114,48,0.08); border: 1px solid rgba(154,114,48,0.25); }
+    .badge-teal   { color: var(--teal); background: rgba(26,110,110,0.08); border: 1px solid rgba(26,110,110,0.25); }
+    .badge-green  { color: #4F7D52; background: rgba(79,125,82,0.08); border: 1px solid rgba(79,125,82,0.25); }
+    .badge-gold   { color: var(--gold-deep); background: rgba(200,151,62,0.08); border: 1px solid rgba(200,151,62,0.25); }
+    .badge-blue   { color: #3D6E8C; background: rgba(61,110,140,0.08); border: 1px solid rgba(61,110,140,0.25); }
+    .badge-neutral{ color: var(--ink-light); background: rgba(45,42,38,0.05); border: 1px solid rgba(45,42,38,0.15); }
+    .dev-card-title {
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+      margin: 0 0 0.3rem;
+    }
+    .dev-card-subtitle {
+      font-family: var(--font-ui);
+      font-size: 0.74rem;
+      font-style: italic;
+      color: var(--ink-pale);
+      line-height: 1.5;
+    }
+
+    /* Card body */
+    .dev-card-body {
+      padding: 1.4rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .dev-card-desc {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--ink-mid);
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+    .dev-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1.2rem;
+    }
+    .tech-tag {
+      font-family: 'Courier New', monospace;
+      font-size: 0.62rem;
+      color: var(--copper-light);
+      background: rgba(168,92,40,0.07);
+      border: 1px solid rgba(168,92,40,0.20);
+      padding: 2px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.5px;
+    }
+    .dev-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--radius-sm);
+      transition: border-color var(--t), color var(--t), background var(--t);
+      align-self: flex-start;
+    }
+    .dev-link:hover {
+      border-color: var(--gold);
+      background: rgba(200,151,62,0.06);
+    }
+
+    /* Philosophy strip */
+    .dev-philosophy {
+      background: var(--ink);
+      border: 1px solid rgba(200,151,62,0.18);
+      border-radius: var(--radius-md);
+      padding: 2.8rem 3rem;
+      margin-bottom: 3rem;
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .dev-philosophy-icon {
+      flex-shrink: 0;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(200,151,62,0.30);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--gold);
+      background: rgba(200,151,62,0.06);
+    }
+    .dev-philosophy-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.12rem;
+      font-style: italic;
+      color: rgba(242,232,210,0.85);
+      line-height: 1.9;
+      margin: 0;
+    }
+    .dev-philosophy-attr {
+      display: block;
+      margin-top: 0.8rem;
+      font-family: var(--font-ui);
+      font-size: 0.58rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* Cross-link to CV */
+    .dev-cv-link-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1.4rem 2rem;
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      margin-bottom: 2rem;
+    }
+    .dev-cv-link-text {
+      font-family: var(--font-ui);
+      font-size: 0.76rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+    .dev-cv-link-text strong { color: var(--ink); }
+
+    /* Hero FA icons */
+    .dev-hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1.8rem;
+    }
+    .dev-hero-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: rgba(242,232,210,0.65);
+      letter-spacing: 1.5px;
+    }
+    .dev-hero-stat i {
+      color: var(--gold);
+      font-size: 0.75rem;
+    }
+
+    /* Section label */
+    .dev-section-label {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+      margin-bottom: 1.4rem;
+    }
+
+    @media (max-width: 800px) {
+      .dev-skills-strip { grid-template-columns: repeat(3, 1fr); }
+      .dev-grid { grid-template-columns: 1fr; }
+      .dev-philosophy { flex-direction: column; gap: 1.2rem; padding: 1.8rem 1.6rem; }
+    }
+    @media (max-width: 500px) {
+      .dev-skills-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body class="inner-page">
+
+<nav id="main-nav" class="solid">
+  <a href="index.html" class="nav-title">Still Human</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="books.html">The Book</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="notes.html">Notes</a></li>
+    <li><a href="memory-witness.html">Memory Witness</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="dev.html" class="active">Dev Work</a></li>
+    <li><a href="cv.html">CV</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────── -->
+<div class="dev-hero-strip">
+  <div class="container">
+    <span class="page-label"><i class="fa-solid fa-laptop-medical" style="margin-right:0.4rem;"></i>Digital health &amp; public health technology</span>
+    <h1>Developer Portfolio</h1>
+    <p class="page-sub" style="color:rgba(237,228,212,0.72);">
+      Systems built for Sri Lanka&rsquo;s public health sector.<br>
+      Built alongside clinical work and ongoing health informatics research.
+    </p>
+    <div class="dev-hero-meta">
+      <div class="dev-hero-stat"><i class="fa-solid fa-diagram-project"></i> 8 Projects</div>
+      <div class="dev-hero-stat"><i class="fa-solid fa-heart-pulse"></i> Public Health Focus</div>
+      <div class="dev-hero-stat"><i class="fa-solid fa-wifi-slash" style="font-size:0.7rem;"></i><span><i class="fa-solid fa-wifi" style="font-size:0.7rem;"></i></span> Offline-First Design</div>
+      <div class="dev-hero-stat"><i class="fa-solid fa-flag"></i> Sri Lanka</div>
+      <div class="dev-hero-stat"><i class="fa-brands fa-github"></i> Open Source</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTENT ────────────────────────────────── -->
+<section style="padding-top: 2.5rem;">
+  <div class="container">
+
+    <!-- Domain overview -->
+    <span class="dev-section-label"><i class="fa-solid fa-layer-group" style="margin-right:0.4rem;"></i>Areas of work</span>
+    <div class="dev-skills-strip">
+      <div class="dev-skill-tile dst-red fade-in">
+        <div class="dev-skill-icon-wrap dsi-red"><i class="fa-solid fa-virus"></i></div>
+        <span class="dev-skill-label">Disease<br>Surveillance</span>
+        <span class="dev-skill-desc">Outbreak detection &amp; alerts</span>
+      </div>
+      <div class="dev-skill-tile dst-copper fade-in delay-1">
+        <div class="dev-skill-icon-wrap dsi-2"><i class="fa-solid fa-truck-medical"></i></div>
+        <span class="dev-skill-label">Emergency<br>Response</span>
+        <span class="dev-skill-desc">Disaster &amp; field response tools</span>
+      </div>
+      <div class="dev-skill-tile dst-teal fade-in delay-2">
+        <div class="dev-skill-icon-wrap dsi-teal"><i class="fa-solid fa-chart-column"></i></div>
+        <span class="dev-skill-label">Health Data<br>Analytics</span>
+        <span class="dev-skill-desc">Dashboards &amp; statistics</span>
+      </div>
+      <div class="dev-skill-tile dst-green fade-in">
+        <div class="dev-skill-icon-wrap dsi-green"><i class="fa-solid fa-people-roof"></i></div>
+        <span class="dev-skill-label">Welfare<br>Systems</span>
+        <span class="dev-skill-desc">Relief centre management</span>
+      </div>
+      <div class="dev-skill-tile dst-gold fade-in delay-1">
+        <div class="dev-skill-icon-wrap dsi-1"><i class="fa-solid fa-file-medical"></i></div>
+        <span class="dev-skill-label">Clinical<br>Administration</span>
+        <span class="dev-skill-desc">Patient &amp; resource records</span>
+      </div>
+      <div class="dev-skill-tile dst-blue fade-in delay-2">
+        <div class="dev-skill-icon-wrap dsi-blue"><i class="fa-solid fa-mobile-screen"></i></div>
+        <span class="dev-skill-label">PWA &amp;<br>Offline Apps</span>
+        <span class="dev-skill-desc">Works without internet</span>
+      </div>
+    </div>
+
+    <!-- Technology chips -->
+    <span class="dev-section-label" style="margin-top:0;"><i class="fa-solid fa-code" style="margin-right:0.4rem;"></i>Technologies</span>
+    <div class="dev-tech-grid fade-in">
+
+      <div class="dev-tech-cat dtc-lang">
+        <div class="dev-tech-cat-label"><i class="fa-solid fa-terminal"></i> Languages</div>
+        <div class="dev-tech-chips">
+          <span class="dev-tech-chip"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="dev-tech-chip"><i class="fa-brands fa-js"></i> JavaScript</span>
+          <span class="dev-tech-chip"><i class="fa-brands fa-php"></i> PHP</span>
+          <span class="dev-tech-chip"><i class="fa-solid fa-database"></i> SQL</span>
+        </div>
+      </div>
+
+      <div class="dev-tech-cat dtc-frame">
+        <div class="dev-tech-cat-label"><i class="fa-solid fa-layer-group"></i> Frameworks</div>
+        <div class="dev-tech-chips">
+          <span class="dev-tech-chip">Django</span>
+          <span class="dev-tech-chip"><i class="fa-brands fa-react"></i> React</span>
+          <span class="dev-tech-chip">Vue.js</span>
+          <span class="dev-tech-chip">Laravel</span>
+        </div>
+      </div>
+
+      <div class="dev-tech-cat dtc-pwa">
+        <div class="dev-tech-cat-label"><i class="fa-solid fa-mobile-screen"></i> Offline &amp; PWA</div>
+        <div class="dev-tech-chips">
+          <span class="dev-tech-chip"><i class="fa-solid fa-signal"></i> PWA</span>
+          <span class="dev-tech-chip">Service Worker</span>
+          <span class="dev-tech-chip">IndexedDB</span>
+        </div>
+      </div>
+
+      <div class="dev-tech-cat dtc-data">
+        <div class="dev-tech-cat-label"><i class="fa-solid fa-chart-line"></i> Data &amp; Visualisation</div>
+        <div class="dev-tech-chips">
+          <span class="dev-tech-chip">D3.js</span>
+          <span class="dev-tech-chip">Chart.js</span>
+          <span class="dev-tech-chip">PostgreSQL</span>
+          <span class="dev-tech-chip">Firebase</span>
+        </div>
+      </div>
+
+      <div class="dev-tech-cat dtc-health">
+        <div class="dev-tech-cat-label"><i class="fa-solid fa-heart-pulse"></i> Health Standards &amp; Hosting</div>
+        <div class="dev-tech-chips">
+          <span class="dev-tech-chip">DHIS2</span>
+          <span class="dev-tech-chip">REST API</span>
+          <span class="dev-tech-chip"><i class="fa-brands fa-github"></i> GitHub Pages</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Project cards -->
+    <span class="dev-section-label"><i class="fa-solid fa-folder-open" style="margin-right:0.4rem;"></i>Projects</span>
+    <div class="dev-grid">
+
+      <!-- 01 OutbreakWatch -->
+      <div class="dev-card fade-in">
+        <div class="dev-card-icon-band">
+          <div class="dev-proj-icon dpi-1"><i class="fa-solid fa-virus"></i></div>
+          <div class="dev-card-title-group">
+            <span class="dev-card-num">01</span>
+            <span class="dev-card-type badge-red"><i class="fa-solid fa-virus" style="margin-right:4px;"></i>Disease Surveillance</span>
+            <h3 class="dev-card-title">OutbreakWatch</h3>
+            <p class="dev-card-subtitle">Early-warning system for disease outbreaks</p>
+          </div>
+        </div>
+        <div class="dev-card-body">
+          <p class="dev-card-desc">A real-time communicable disease surveillance platform for early detection of outbreak signals. Aggregates clinic-level data, applies anomaly detection, and surfaces alerts to public health officers. Designed for low-bandwidth environments.</p>
+          <div class="dev-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Django</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Chart.js</span>
+          </div>
+          <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener" class="dev-link">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- 02 FloodTrackerApp -->
+      <div class="dev-card fade-in delay-1">
+        <div class="dev-card-icon-band">
+          <div class="dev-proj-icon dpi-2"><i class="fa-solid fa-house-flood-water"></i></div>
+          <div class="dev-card-title-group">
+            <span class="dev-card-num">02</span>
+            <span class="dev-card-type badge-copper"><i class="fa-solid fa-truck-medical" style="margin-right:4px;"></i>Emergency Response</span>
+            <h3 class="dev-card-title">FloodTrackerApp</h3>
+            <p class="dev-card-subtitle">Field tool for flood &amp; disaster response teams</p>
+          </div>
+        </div>
+        <div class="dev-card-body">
+          <p class="dev-card-desc">A mobile-first flood situational awareness tool for field health teams during monsoon emergencies. Records affected household data, tracks displacement, and pushes alerts to district coordinators. Offline-capable with sync on reconnect.</p>
+          <div class="dev-tags">
+            <span class="tech-tag">React Native</span>
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">PWA</span>
+          </div>
+          <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener" class="dev-link">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- 03 District Health Stats PWA -->
+      <div class="dev-card fade-in">
+        <div class="dev-card-icon-band">
+          <div class="dev-proj-icon dpi-3"><i class="fa-solid fa-chart-column"></i></div>
+          <div class="dev-card-title-group">
+            <span class="dev-card-num">03</span>
+            <span class="dev-card-type badge-teal"><i class="fa-solid fa-chart-column" style="margin-right:4px;"></i>Health Data Analytics</span>
+            <h3 class="dev-card-title">District Health Stats PWA</h3>
+            <p class="dev-card-subtitle">Visual health statistics for district offices</p>
+          </div>
+        </div>
+        <div class="dev-card-body">
+          <p class="dev-card-desc">A Progressive Web App to visualise district-level health statistics. Enables non-technical staff to generate and export charts from live data with no training required. Works offline.</p>
+          <div class="dev-tags">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Service Worker</span>
+            <span class="tech-tag">IndexedDB</span>
+            <span class="tech-tag">D3.js</span>
+          </div>
+          <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener" class="dev-link">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- 04 Welfare Centre Dashboard -->
+      <div class="dev-card fade-in delay-1">
+        <div class="dev-card-icon-band">
+          <div class="dev-proj-icon dpi-1"><i class="fa-solid fa-people-roof"></i></div>
+          <div class="dev-card-title-group">
+            <span class="dev-card-num">04</span>
+            <span class="dev-card-type badge-green"><i class="fa-solid fa-people-roof" style="margin-right:4px;"></i>Welfare Systems</span>
+            <h3 class="dev-card-title">Welfare Centre Dashboard</h3>
+            <p class="dev-card-subtitle">Tracking shelters during disaster displacement</p>
+          </div>
+        </div>
+        <div class="dev-card-body">
+          <p class="dev-card-desc">Data management and reporting dashboard for district welfare centres during disaster displacement events. Tracks occupancy, resource needs, and vulnerable population data. Produces standardised reports for national coordination.</p>
+          <div class="dev-tags">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Firebase</span>
+            <span class="tech-tag">Tailwind</span>
+            <span class="tech-tag">PDF export</span>
+          </div>
+          <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener" class="dev-link">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- 05 Health Fleet Manager -->
+      <div class="dev-card fade-in">
+        <div class="dev-card-icon-band">
+          <div class="dev-proj-icon dpi-2"><i class="fa-solid fa-van-shuttle"></i></div>
+          <div class="dev-card-title-group">
+            <span class="dev-card-num">05</span>
+            <span class="dev-card-type badge-gold"><i class="fa-solid fa-file-medical" style="margin-right:4px;"></i>Clinical Administration</span>
+            <h3 class="dev-card-title">Health Fleet Manager</h3>
+            <p class="dev-card-subtitle">Fleet &amp; vehicle scheduling for health field operations</p>
+          </div>
+        </div>
+        <div class="dev-card-body">
+          <p class="dev-card-desc">A Vehicle Management System for public health field operations. Tracks fleet allocation, maintenance schedules, fuel usage, and field deployment for public health vehicles. Reduces double-booking and improves field response time.</p>
+          <div class="dev-tags">
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Bootstrap</span>
+            <span class="tech-tag">Laravel</span>
+          </div>
+          <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener" class="dev-link">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- 06 Cancer Early Detection -->
+      <div class="dev-card fade-in delay-1">
+        <div class="dev-card-icon-band">
+          <div class="dev-proj-icon dpi-3"><i class="fa-solid fa-ribbon"></i></div>
+          <div class="dev-card-title-group">
+            <span class="dev-card-num">06</span>
+            <span class="dev-card-type badge-gold"><i class="fa-solid fa-ribbon" style="margin-right:4px;"></i>Clinical Administration</span>
+            <h3 class="dev-card-title">Cancer Early Detection Centre</h3>
+            <p class="dev-card-subtitle">Patient registration &amp; screening workflow</p>
+          </div>
+        </div>
+        <div class="dev-card-body">
+          <p class="dev-card-desc">Patient registration and screening workflow system for a dedicated cancer early detection centre. Manages referral pathways, tracks screening follow-ups, and generates data for national cancer registry reporting. Designed for clinic staff with minimal IT background.</p>
+          <div class="dev-tags">
+            <span class="tech-tag">Vue.js</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">REST API</span>
+          </div>
+          <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener" class="dev-link">
+            <i class="fa-brands fa-github"></i> View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- 07 Still Human Author Site -->
+      <div class="dev-card fade-in">
+        <div class="dev-card-icon-band">
+          <div class="dev-proj-icon dpi-1"><i class="fa-solid fa-book-open-reader"></i></div>
+          <div class="dev-card-title-group">
+            <span class="dev-card-num">07</span>
+            <span class="dev-card-type badge-blue"><i class="fa-solid fa-book-open-reader" style="margin-right:4px;"></i>PWA &amp; Offline Apps</span>
+            <h3 class="dev-card-title">Still Human — Author Site</h3>
+            <p class="dev-card-subtitle">This literary website</p>
+          </div>
+        </div>
+        <div class="dev-card-body">
+          <p class="dev-card-desc">This website. Hand-coded static HTML/CSS with a custom design system built on CSS custom properties. No framework, no build tool, no CMS. Designed for literary reading experience on all devices. Hosted on GitHub Pages.</p>
+          <div class="dev-tags">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">Vanilla JS</span>
+            <span class="tech-tag">GitHub Pages</span>
+          </div>
+          <a href="https://jeevantjr.github.io/stillhuman/" target="_blank" rel="noopener" class="dev-link">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> View Site
+          </a>
+        </div>
+      </div>
+
+      <!-- 08 GitHub.io Portfolio -->
+      <div class="dev-card fade-in delay-1">
+        <div class="dev-card-icon-band">
+          <div class="dev-proj-icon dpi-2"><i class="fa-brands fa-github"></i></div>
+          <div class="dev-card-title-group">
+            <span class="dev-card-num">08</span>
+            <span class="dev-card-type badge-neutral"><i class="fa-brands fa-github" style="margin-right:4px;"></i>Developer Portfolio</span>
+            <h3 class="dev-card-title">GitHub.io Portfolio</h3>
+            <p class="dev-card-subtitle">Catalogue of public health software projects</p>
+          </div>
+        </div>
+        <div class="dev-card-body">
+          <p class="dev-card-desc">Technical portfolio site on GitHub Pages cataloguing public health software projects, open source tools, and health informatics work. Updated as projects are completed or released.</p>
+          <div class="dev-tags">
+            <span class="tech-tag">GitHub Pages</span>
+            <span class="tech-tag">Jekyll</span>
+            <span class="tech-tag">Markdown</span>
+          </div>
+          <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener" class="dev-link">
+            <i class="fa-brands fa-github"></i> Visit Portfolio
+          </a>
+        </div>
+      </div>
+
+    </div><!-- end .dev-grid -->
+
+    <!-- Philosophy -->
+    <div class="dev-philosophy fade-in">
+      <div class="dev-philosophy-icon"><i class="fa-solid fa-stethoscope"></i></div>
+      <p class="dev-philosophy-text">
+        These systems are built to work in real conditions &mdash; low bandwidth, intermittent power, minimal IT support in district hospitals and field offices. They are designed by a clinician who uses them, not by a contractor who does not.
+        <span class="dev-philosophy-attr"><i class="fa-solid fa-map-pin" style="margin-right:4px;font-size:0.5rem;"></i>Trincomalee, Sri Lanka</span>
+      </p>
+    </div>
+
+    <!-- Link to CV -->
+    <div class="dev-cv-link-strip fade-in">
+      <div class="dev-cv-link-text">
+        <strong>Looking for clinical and academic credentials?</strong><br>
+        MBBS &nbsp;·&nbsp; MCGP &nbsp;·&nbsp; MSc Biomedical Informatics &nbsp;·&nbsp; MD Trainee Health Informatics &nbsp;·&nbsp; BMJ Open 2020
+      </div>
+      <a href="cv.html" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-ui);font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--border);padding:0.65rem 1.4rem;border-radius:var(--radius-sm);white-space:nowrap;transition:border-color var(--t);">
+        <i class="fa-solid fa-file-medical"></i> View Full CV
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <span class="footer-ornament">· · ·</span>
+  <p class="footer-title">Still Human</p>
+  <p class="footer-tagline">Human stories in the age of artificial intelligence.</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="books.html">The Book</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="notes.html">Notes</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="cv.html">CV</a></li>
+  </ul>
+  <div class="social-links">
+    <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener">X / Twitter</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.linkedin.com/in/geevanathy/" target="_blank" rel="noopener">LinkedIn</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener">Amazon Author</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('javascript')) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.add('page-exit');
+        setTimeout(() => { window.location.href = href; }, 320);
+      });
+    }
+  });
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+  }
+</script>
+
+</body>
+</html>

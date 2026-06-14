@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Memory Witness Journal — Still Human</title>
+  <meta name="description" content="Development journal for The Memory Witness — a novel about Alzheimer's disease, AI memory reconstruction, and a fifty-year family secret. By Dr. T. Jeevaraj.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── MEMORY WITNESS PAGE STYLES ──────────── */
+
+    /* Logline */
+    .mw-logline {
+      background: var(--ink);
+      border: 1px solid rgba(200,151,62,0.20);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 2.8rem 3rem;
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .mw-logline::before {
+      content: '\201C';
+      position: absolute;
+      top: -0.4rem;
+      left: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 7rem;
+      color: rgba(200,151,62,0.12);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .mw-logline-label {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .mw-logline-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.18rem;
+      font-style: italic;
+      color: rgba(242,232,210,0.9);
+      line-height: 1.9;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Novel status strip */
+    .mw-status-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 4rem;
+      padding: 1.4rem 1.8rem;
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+    }
+    .mw-status-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      color: var(--ink-mid);
+    }
+    .mw-status-item i {
+      color: var(--gold);
+      font-size: 0.7rem;
+      width: 16px;
+      text-align: center;
+    }
+    .mw-status-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--border-light);
+      align-self: center;
+    }
+
+    /* Confidence meter */
+    .mw-confidence {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 1.2rem;
+    }
+    .mw-confidence-label {
+      font-family: var(--font-ui);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+    }
+    .mw-confidence-track {
+      width: 220px;
+      height: 6px;
+      background: rgba(200,151,62,0.12);
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+    }
+    .mw-confidence-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--gold-deep), var(--gold));
+      transition: width 1.2s ease;
+    }
+    .mw-confidence-score {
+      font-family: 'Courier New', monospace;
+      font-size: 0.68rem;
+      color: var(--gold-deep);
+      letter-spacing: 1px;
+    }
+
+    /* Journal entry card */
+    .mw-entry {
+      display: flex;
+      gap: 2rem;
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 2.2rem 2.4rem;
+      margin-bottom: 1.4rem;
+      transition: box-shadow var(--t), border-color var(--t);
+      position: relative;
+    }
+    .mw-entry:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--border);
+    }
+    .mw-entry-num {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.8rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 2px;
+      color: var(--border);
+    }
+    .mw-entry-icon-col {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 0.2rem;
+      gap: 0.4rem;
+    }
+    .mw-entry-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: transform var(--t), box-shadow var(--t);
+    }
+    .mw-entry:hover .mw-entry-icon {
+      transform: scale(1.08);
+      box-shadow: 0 0 0 5px rgba(200,151,62,0.10);
+    }
+    .mw-icon-1 { background: linear-gradient(135deg,rgba(200,151,62,0.16),rgba(200,151,62,0.04)); color: var(--gold-deep); }
+    .mw-icon-2 { background: linear-gradient(135deg,rgba(154,114,48,0.16),rgba(154,114,48,0.04)); color: var(--copper); }
+    .mw-icon-3 { background: linear-gradient(135deg,rgba(168,92,40,0.16),rgba(168,92,40,0.04)); color: var(--copper-light); }
+
+    /* Per-entry left accent border */
+    .mw-entry-gold   { border-left: 3px solid var(--gold); }
+    .mw-entry-copper { border-left: 3px solid var(--copper-light); }
+    .mw-entry-teal   { border-left: 3px solid var(--teal); }
+    .mw-entry-green  { border-left: 3px solid #4F7D52; }
+    .mw-entry-red    { border-left: 3px solid #B5453A; }
+    .mw-entry-ink    { border-left: 3px solid var(--ink-mid); }
+
+    /* Extended icon colour palette */
+    .mw-icon-gold   { background: linear-gradient(135deg,rgba(200,151,62,0.18),rgba(200,151,62,0.05)); color: var(--gold-deep); }
+    .mw-icon-copper { background: linear-gradient(135deg,rgba(154,114,48,0.18),rgba(154,114,48,0.05)); color: var(--copper); }
+    .mw-icon-teal   { background: linear-gradient(135deg,rgba(26,110,110,0.18),rgba(26,110,110,0.05)); color: var(--teal); }
+    .mw-icon-green  { background: linear-gradient(135deg,rgba(79,125,82,0.18),rgba(79,125,82,0.05)); color: #4F7D52; }
+    .mw-icon-red    { background: linear-gradient(135deg,rgba(181,69,58,0.18),rgba(181,69,58,0.05)); color: #B5453A; }
+    .mw-icon-ink    { background: linear-gradient(135deg,rgba(45,42,38,0.12),rgba(45,42,38,0.04)); color: var(--ink-light); }
+
+    /* Topic badge colour variants */
+    .mw-entry-topic.mw-topic-gold   { color: var(--gold-deep); background: rgba(200,151,62,0.08); border-color: rgba(200,151,62,0.28); }
+    .mw-entry-topic.mw-topic-copper { color: var(--copper); background: rgba(154,114,48,0.08); border-color: rgba(154,114,48,0.28); }
+    .mw-entry-topic.mw-topic-teal   { color: var(--teal); background: rgba(26,110,110,0.08); border-color: rgba(26,110,110,0.28); }
+    .mw-entry-topic.mw-topic-green  { color: #4F7D52; background: rgba(79,125,82,0.08); border-color: rgba(79,125,82,0.28); }
+    .mw-entry-topic.mw-topic-red    { color: #B5453A; background: rgba(181,69,58,0.08); border-color: rgba(181,69,58,0.28); }
+    .mw-entry-topic.mw-topic-ink    { color: var(--ink-light); background: rgba(45,42,38,0.06); border-color: rgba(45,42,38,0.22); }
+
+    .mw-entry-body { flex: 1; min-width: 0; }
+    .mw-entry-dateline {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.7rem;
+    }
+    .mw-entry-date {
+      font-family: 'Courier New', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      color: var(--gold-deep);
+      background: rgba(200,151,62,0.08);
+      border: 1px solid rgba(200,151,62,0.22);
+      padding: 2px 9px;
+      border-radius: 2px;
+    }
+    .mw-entry-topic {
+      font-family: var(--font-ui);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      background: var(--parchment-deep);
+      border: 1px solid var(--border-light);
+      padding: 2px 9px;
+      border-radius: 2px;
+    }
+    .mw-entry-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 1.1rem;
+    }
+    .mw-entry-body p {
+      font-family: var(--font-body);
+      font-size: 1.02rem;
+      color: var(--ink-mid);
+      line-height: 2.0;
+      margin-bottom: 0.9rem;
+    }
+    .mw-entry-body p:last-of-type { margin-bottom: 0; }
+    .mw-entry-body em { font-style: italic; color: var(--ink); }
+
+    @media (max-width: 640px) {
+      .mw-entry { flex-direction: column; gap: 1rem; padding: 1.5rem 1.5rem; }
+      .mw-entry-icon-col { flex-direction: row; }
+      .mw-confidence-track { width: 160px; }
+      .mw-logline { padding: 1.8rem 1.6rem; }
+      .mw-entry-num { display: none; }
+    }
+  </style>
+</head>
+<body class="inner-page">
+
+<nav id="main-nav" class="solid">
+  <a href="index.html" class="nav-title">Still Human</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="books.html">The Book</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="notes.html">Notes</a></li>
+    <li><a href="memory-witness.html" class="active">Memory Witness</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="dev.html">Dev Work</a></li>
+    <li><a href="cv.html">CV</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="inner-hero">
+    <span class="page-label">Novel in development &nbsp;·&nbsp; 2026</span>
+    <h1>The Memory Witness</h1>
+    <p class="page-sub">A journal of questions the novel is trying to answer.</p>
+  </div>
+</div>
+
+<section style="padding-top: 0;">
+  <div class="container">
+
+    <!-- Logline -->
+    <div class="mw-logline fade-in" style="margin-bottom: 2rem;">
+      <span class="mw-logline-label"><i class="fa-solid fa-quote-left" style="margin-right:6px;font-size:0.6rem;"></i>The novel, in one sentence</span>
+      <p class="mw-logline-text">When a retired schoolteacher with Alzheimer&rsquo;s disease whispers a secret he was forbidden to speak for fifty years, his neurologist son uses a national AI memory-reconstruction system to verify the truth &mdash; only to discover that the machine&rsquo;s shifting confidence scores are no more reliable than his father&rsquo;s failing mind.</p>
+    </div>
+
+    <!-- Status strip -->
+    <div class="mw-status-strip fade-in delay-1">
+      <div class="mw-status-item"><i class="fa-solid fa-pen-nib"></i> Novel in development</div>
+      <div class="mw-status-divider"></div>
+      <div class="mw-status-item"><i class="fa-solid fa-location-dot"></i> Sri Lanka &mdash; Colombo</div>
+      <div class="mw-status-divider"></div>
+      <div class="mw-status-item"><i class="fa-solid fa-calendar"></i> 2026</div>
+      <div class="mw-status-divider"></div>
+      <div class="mw-status-item"><i class="fa-solid fa-tag"></i> Literary fiction &nbsp;·&nbsp; Alzheimer&rsquo;s &nbsp;·&nbsp; AI &nbsp;·&nbsp; Family secret</div>
+    </div>
+
+    <!-- Journal entries -->
+
+    <!-- Entry 1 -->
+    <article class="mw-entry mw-entry-gold fade-in">
+      <span class="mw-entry-num">01 / 06</span>
+      <div class="mw-entry-icon-col">
+        <div class="mw-entry-icon mw-icon-gold"><i class="fa-solid fa-scale-balanced"></i></div>
+      </div>
+      <div class="mw-entry-body">
+        <div class="mw-entry-dateline">
+          <span class="mw-entry-date">June 2026</span>
+          <span class="mw-entry-topic mw-topic-gold">Central Question</span>
+        </div>
+        <h2 class="mw-entry-heading">Who should you trust when both sources are unreliable?</h2>
+        <p>The novel does not ask: what is the secret? That question is answered by the middle of the book. The real question is: who should Arjun trust &mdash; a father whose memories are failing, or an AI system that reconstructs reality from incomplete data and labels its own uncertainty with admirable honesty?</p>
+        <p>Both the human brain and the AMRS (AI Memory Reconstruction System) do the same thing: they take incomplete information and build a probable account from it. The critical difference is that the AMRS labels what it has reconstructed. It says: <em>this part I built. This is my confidence level. This is as far as I can go.</em></p>
+        <p>The human brain does not do this. It says: I know.</p>
+        <div class="mw-confidence">
+          <span class="mw-confidence-label">AMRS score &nbsp;·&nbsp; variable</span>
+          <div class="mw-confidence-track">
+            <div class="mw-confidence-fill" style="width: 65%;"></div>
+          </div>
+          <span class="mw-confidence-score">Score: variable throughout</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Entry 2 -->
+    <article class="mw-entry mw-entry-copper fade-in delay-1">
+      <span class="mw-entry-num">02 / 06</span>
+      <div class="mw-entry-icon-col">
+        <div class="mw-entry-icon mw-icon-copper"><i class="fa-solid fa-brain"></i></div>
+      </div>
+      <div class="mw-entry-body">
+        <div class="mw-entry-dateline">
+          <span class="mw-entry-date">June 2026</span>
+          <span class="mw-entry-topic mw-topic-copper">Alzheimer&rsquo;s in Fiction</span>
+        </div>
+        <h2 class="mw-entry-heading">The disease is never background scenery</h2>
+        <p>Most fiction that includes Alzheimer&rsquo;s disease uses it as a device &mdash; a way to make a character sympathetic, or to introduce uncertainty about what is real. The Memory Witness tries to do something different. The disease is the mechanism through which a fifty-year silence is broken. It does not invent the secret; it destroys the promise that kept it.</p>
+        <p>Sivan Ramanathan, the father, must never feel like a patient in this novel. He is the novel&rsquo;s moral centre. On his good days, he is precise, warm, and capable of extraordinary clarity. On bad days, he is lost. The novel moves between these registers to prevent the reader from settling into either pity or dismissal.</p>
+        <p>A clinical note that influenced this: confabulation is not lying. It is the brain constructing a narrative from available material, without the knowledge that the material is incomplete. This distinction matters enormously in the novel &mdash; because Arjun, as a neurologist, knows it perfectly, and still cannot be sure which of his father&rsquo;s statements are confabulation and which are truth held for fifty years.</p>
+      </div>
+    </article>
+
+    <!-- Entry 3 -->
+    <article class="mw-entry mw-entry-teal fade-in delay-2">
+      <span class="mw-entry-num">03 / 06</span>
+      <div class="mw-entry-icon-col">
+        <div class="mw-entry-icon mw-icon-teal"><i class="fa-solid fa-microchip"></i></div>
+      </div>
+      <div class="mw-entry-body">
+        <div class="mw-entry-dateline">
+          <span class="mw-entry-date">June 2026</span>
+          <span class="mw-entry-topic mw-topic-teal">The AMRS System</span>
+        </div>
+        <h2 class="mw-entry-heading">The AMRS must never be sinister</h2>
+        <p>The AI system in this novel is a tool. Its errors are the errors of incompleteness, not malice. The most important quality I want it to have is honesty about uncertainty.</p>
+        <p>The confidence score arc tells the story: 97.2% at the start (no evidence &mdash; the claim seems false), declining to 61.3% at the midpoint (data found, but the connecting evidence is reconstructed by the model), rising to 89.1% at the end (primary source found &mdash; terminal confidence).</p>
+        <p>The score never reaches 100%. The final 10.9% represents the adoption-chain link which cannot be confirmed by archival records alone. That gap is closed not by data, but by Sivan&rsquo;s face when he sees his son.</p>
+        <p>This is, I think, the novel&rsquo;s argument: the machine can take you to 89.1%. The last 10.9% is human.</p>
+        <div class="mw-confidence">
+          <span class="mw-confidence-label">Terminal confidence score</span>
+          <div class="mw-confidence-track">
+            <div class="mw-confidence-fill" style="width: 89.1%;"></div>
+          </div>
+          <span class="mw-confidence-score">89.1% &mdash; no further updates</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Entry 4 -->
+    <article class="mw-entry mw-entry-green fade-in">
+      <span class="mw-entry-num">04 / 06</span>
+      <div class="mw-entry-icon-col">
+        <div class="mw-entry-icon mw-icon-green"><i class="fa-solid fa-stethoscope"></i></div>
+      </div>
+      <div class="mw-entry-body">
+        <div class="mw-entry-dateline">
+          <span class="mw-entry-date">May 2026</span>
+          <span class="mw-entry-topic mw-topic-green">Origin of the Novel</span>
+        </div>
+        <h2 class="mw-entry-heading">A neurologist once told me something I have not forgotten</h2>
+        <p>During my clinical training, a neurologist said: &ldquo;The history is worth more than the scan. The scan tells you what is there. The history tells you what it means to the person who is living inside it.&rdquo;</p>
+        <p>I have been thinking about this sentence in the context of artificial intelligence. The AI systems I work with in health informatics are increasingly good at reading the scan. They are not designed to take the history. The gap between these two capabilities is not technical. It is human.</p>
+        <p>The Memory Witness began there &mdash; in that gap.</p>
+      </div>
+    </article>
+
+    <!-- Entry 5 -->
+    <article class="mw-entry mw-entry-red fade-in delay-1">
+      <span class="mw-entry-num">05 / 06</span>
+      <div class="mw-entry-icon-col">
+        <div class="mw-entry-icon mw-icon-red"><i class="fa-solid fa-door-closed"></i></div>
+      </div>
+      <div class="mw-entry-body">
+        <div class="mw-entry-dateline">
+          <span class="mw-entry-date">May 2026</span>
+          <span class="mw-entry-topic mw-topic-red">On Roshan</span>
+        </div>
+        <h2 class="mw-entry-heading">He is not a lost thing waiting to be found</h2>
+        <p>One of the characters I am most careful about is Roshan Perera &mdash; the son who was given away in 1971, who became a schoolteacher, who found the welfare records himself four years ago, who came to Jaffna once and stood outside the gate and could not knock.</p>
+        <p>He must not be written as a victim. He had good adoptive parents. He had a career. He had a garden he tended with attention. His question &mdash; <em>what right do I have?</em> &mdash; is not a question of injury. It is a question of dignity.</p>
+        <p>The mirror structure matters: both families drove to a gate and could not cross it. Sivan and Kamala drove to Kandy in 1987 and looked at their son through a gap in the hedge and drove home. Roshan drove to Jaffna and stood outside and left. Both acts were love. Both were self-erasure. The novel takes neither side.</p>
+      </div>
+    </article>
+
+    <!-- Entry 6 -->
+    <article class="mw-entry mw-entry-ink fade-in delay-2">
+      <span class="mw-entry-num">06 / 06</span>
+      <div class="mw-entry-icon-col">
+        <div class="mw-entry-icon mw-icon-ink"><i class="fa-solid fa-circle-half-stroke"></i></div>
+      </div>
+      <div class="mw-entry-body">
+        <div class="mw-entry-dateline">
+          <span class="mw-entry-date">May 2026</span>
+          <span class="mw-entry-topic mw-topic-ink">The Ending</span>
+        </div>
+        <h2 class="mw-entry-heading">89.1% is not 100%</h2>
+        <p>The novel ends not with confirmation but with continuation. Roshan comes every Sunday. Sivan doesn&rsquo;t always know who he is. Sometimes a former student. Sometimes &ldquo;the man from Kandy.&rdquo; Sometimes, on a good day, he looks at Roshan for a long time and says: <em>you have your mother&rsquo;s eyes.</em></p>
+        <p>The AMRS confidence score remains at 89.1%. Terminal. No further updates. The 10.9% gap &mdash; the part the data could not verify &mdash; was closed not by evidence but by a father&rsquo;s face when he looked at his son.</p>
+        <p>The mango tree needs trimming. Nobody mentions it. There will be time.</p>
+        <div class="mw-confidence">
+          <span class="mw-confidence-label">Novel status &nbsp;·&nbsp; 2026</span>
+          <div class="mw-confidence-track">
+            <div class="mw-confidence-fill" style="width: 40%;"></div>
+          </div>
+          <span class="mw-confidence-score">In development &mdash; journal updates ongoing</span>
+        </div>
+      </div>
+    </article>
+
+    <hr class="section-rule">
+
+    <p style="font-size:1rem; font-style:italic; color:var(--ink-light); line-height:1.9; text-align:center; max-width:480px; margin: 0 auto 3rem;">
+      This journal is updated as the novel develops.<br>
+      Earlier related writing: <a href="stories.html" style="color:var(--copper);">Stories</a> &amp; <a href="notes.html" style="color:var(--copper);">Notes</a>.
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <span class="footer-ornament">· · ·</span>
+  <p class="footer-title">Still Human</p>
+  <p class="footer-tagline">Human stories in the age of artificial intelligence.</p>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="books.html">The Book</a></li>
+    <li><a href="stories.html">Stories</a></li>
+    <li><a href="notes.html">Notes</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="dev.html">Dev Work</a></li>
+    <li><a href="cv.html">CV</a></li>
+  </ul>
+  <div class="social-links">
+    <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener">X / Twitter</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.linkedin.com/in/geevanathy/" target="_blank" rel="noopener">LinkedIn</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener">Amazon Author</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://substack.com/@drtjeevaraaj" target="_blank" rel="noopener">Substack</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human</p>
+</footer>
+
+<script>
+  // Confidence bars animate on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Trigger confidence bar fill
+        entry.target.querySelectorAll('.mw-confidence-fill').forEach(bar => {
+          const target = bar.style.width;
+          bar.style.width = '0';
+          setTimeout(() => { bar.style.width = target; }, 200);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('javascript')) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.add('page-exit');
+        setTimeout(() => { window.location.href = href; }, 320);
+      });
+    }
+  });
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+  }
+</script>
+
+</body>
+</html>
