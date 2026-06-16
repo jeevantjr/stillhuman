@@ -575,6 +575,36 @@ section.dark .section-sub { color: var(--hero-sub); }
 .media-card p { font-size: 0.88rem; color: var(--hero-sub); line-height: 1.75; }
 .media-card-coming { display: inline-block; margin-top: 1rem; font-family: var(--font-ui); font-size: 0.55rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(200,151,62,0.42); border: 1px solid rgba(200,151,62,0.18); padding: 3px 10px; border-radius: 2px; }
 
+/* ── DIGITAL HEALTH EMBLEM ──────────────────────────────────── */
+.dh-emblem-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.2rem;
+}
+.dh-emblem-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  /* Subtle gold ring that echoes the site's heritage palette */
+  box-shadow:
+    0 0 0 3px rgba(200, 151, 62, 0.28),
+    0 0 0 6px rgba(200, 151, 62, 0.10),
+    0 12px 40px rgba(26, 46, 104, 0.18);
+  transition: transform 0.45s ease, box-shadow 0.45s ease, filter 0.45s ease;
+  will-change: transform;
+}
+.dh-emblem-img:hover {
+  transform: scale(1.07) rotate(4deg);
+  box-shadow:
+    0 0 0 3px rgba(200, 151, 62, 0.50),
+    0 0 0 8px rgba(200, 151, 62, 0.15),
+    0 18px 56px rgba(26, 46, 104, 0.26);
+  filter: drop-shadow(0 6px 18px rgba(26, 190, 212, 0.20));
+}
+@media (max-width: 600px) {
+  .dh-emblem-img { width: 120px; height: 120px; }
+}
+
 /* ── DEV (HOMEPAGE) ─────────────────────────────────────────── */
 .dev-section-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
