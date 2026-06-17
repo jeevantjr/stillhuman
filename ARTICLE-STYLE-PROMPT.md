@@ -1,213 +1,653 @@
-# Article Style Prompt — drjeevaraj.com
-*Paste this at the start of any new session to restore the exact design.*
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
----
+<title>Dr. Thangarasa Jeevaraaj | AI Reviewer | Health Informatician</title>
 
-## THE REQUEST
+<meta name="description" content="AI Reviewer, Health Informatics Specialist, Digital Health Developer, Physician, Researcher">
 
-Create a **publication-quality standalone HTML article page** for drjeevaraj.com in the same design as `ai-consistency-nccp.html`. The file must be a single self-contained HTML file with all CSS embedded. No external JavaScript libraries. Google Fonts loaded via link tag only.
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
----
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-## COLOR PALETTE
+<style>
 
-| Role | Hex |
-|---|---|
-| Primary (headings, nav, key elements) | `#1f4e79` |
-| Secondary (subheadings, borders) | `#2c6e91` |
-| Accent (highlights, pull quote borders, numbers) | `#d97706` |
-| Accent background (light amber) | `#fef3c7` |
-| Page background | `#F2E8D2` (warm parchment — matches drjeevaraj.com) |
-| Tint background | `#E6D8BC` |
-| Warm background | `#FAF6EE` |
-| Body text | `#222222` |
-| Mid text | `#444444` |
-| Light text | `#666666` |
-| Border | `#d1c9a8` |
+:root{
+--primary:#0F4C81;
+--secondary:#00A8E8;
+--accent:#1E9E63;
+--dark:#111827;
+--light:#F5F7FA;
+--white:#ffffff;
+}
 
----
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-## TYPOGRAPHY
+body{
+font-family:'Inter',sans-serif;
+background:#f7f9fc;
+color:#1f2937;
+line-height:1.7;
+}
 
-- **Headings / UI elements:** `Inter` (Google Fonts, weights 300–800)
-- **Body text:** `Merriweather` (Google Fonts, weights 300–400, italic)
-- **Body font size:** `1rem` (base 18px), line-height `1.9`
-- **Max reading width:** `780px` centered
+html{
+scroll-behavior:smooth;
+}
 
-Load via:
-```html
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
-```
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
 
----
+section{
+padding:80px 0;
+}
 
-## PAGE STRUCTURE (in order)
+h1,h2,h3{
+font-weight:700;
+}
 
-1. **`<head>`** — Full SEO meta, Open Graph, Twitter Card, Schema.org JSON-LD Article, Google Fonts, embedded CSS
-2. **Skip link** (accessibility) + **reading progress bar** (3px, amber, top of page, JS-driven)
-3. **Sticky nav** — brand left (`Still Human · Dr. T. Jeevaraj`), links right (Book · Stories · Articles · Dev Work · CV), background `var(--bg)`
-4. **Hero section** — gradient `#E6D8BC → #F2E8D2`, contains:
-   - Category chips (pill labels, primary color)
-   - `<h1>` — Inter 800, clamp(2rem–3rem), color `#1f4e79`
-   - Subtitle — Merriweather italic, 1.1rem, color `#444`
-   - Author meta row — photo 44px circle, name, role, date, read time, country flag
-5. **Featured quote section** — full-width, background `#1f4e79`, white italic Merriweather text, large `"` in accent color
-6. **Article body** (`max-width: 780px`):
-   - First paragraph: **drop cap** (CSS `::first-letter`, Inter 800, 4.2rem, primary color)
-   - Section headings: Inter 700, `border-top: 3px solid #d97706`, inline-block
-   - Pull quotes: left border 4px accent, light warm background, Merriweather italic 1.2rem, primary color
-   - **Figures:** border + border-radius, click-to-enlarge lightbox, caption with gold label + Inter text caption below in tinted background
-   - **Key Observation callout:** blue tinted `#eff6ff`, left border 4px primary, SVG info icon
-   - **Lessons Learned callout:** tint background, top border 4px accent, numbered list with amber circle numbers
-   - **Human-in-the-Loop section:** dark gradient `#1f4e79 → #163d63`, white text, 3-column principle grid with emoji icons
-   - Conclusion: centered italic Merriweather, ornament `· · ·`
-7. **Tags row** — small pill chips, secondary color
-8. **Share buttons** — LinkedIn (blue), X/Twitter (black), Medium (black), Email (grey), Copy Link (grey)
-9. **Author box** — top border 4px primary, photo 80px circle, name + credentials, two-paragraph bio, interest chips, links row including Amazon book
-10. **Footer** — primary background `#1f4e79`, white text, nav links, copyright
+a{
+text-decoration:none;
+}
 
----
+/* HERO */
 
-## COMPONENTS — EXACT SPECS
+.hero{
+background:linear-gradient(135deg,#0F4C81,#00A8E8);
+color:white;
+padding:100px 0;
+}
 
-### Pull Quote
-```css
-margin: 2.5rem 0;
-padding: 1.5rem 2rem;
-border-left: 4px solid #d97706;
-background: #FAF6EE;
-font: italic 1.2rem Merriweather;
-color: #1f4e79;
-```
+.hero-grid{
+display:grid;
+grid-template-columns:300px 1fr;
+gap:50px;
+align-items:center;
+}
 
-### Section Heading
-```css
-font: 700 1.45rem Inter;
-color: #1f4e79;
-border-top: 3px solid #d97706;
-display: inline-block;
-margin: 3.5rem 0 1.2rem;
-```
+.profile-img{
+width:280px;
+height:280px;
+border-radius:50%;
+object-fit:cover;
+border:8px solid rgba(255,255,255,.2);
+}
 
-### Figure / Screenshot
-- Outer wrapper: `margin: 2.8rem 0`
-- Inner: `border: 1px solid #d1c9a8`, `border-radius: 6px`, `overflow: hidden`, `cursor: zoom-in`
-- On hover: `box-shadow: 0 8px 32px rgba(31,78,121,0.12)`
-- Caption area: `background: var(--bg-tint)`, `border-top: 1px solid var(--border)`, `padding: 0.9rem 1.2rem`
-- Caption label: Inter 700, `0.62rem`, letter-spacing 2px, uppercase, accent color `#d97706`
-- If image missing → placeholder div shows icon + description text
+.hero h1{
+font-size:3rem;
+margin-bottom:10px;
+}
 
-### HTML Comparison Figure (Figure 4 style)
-- Dark header bar: `background: #1f4e79`, white text, small uppercase label
-- Two-column grid inside
-- Row text: `0.88rem`, key in `#444`, value bold `0.9rem`
-- Green values: `#166534`, amber values: `#92400e`
-- Caption bar: tinted background
+.hero h3{
+font-weight:400;
+margin-bottom:20px;
+}
 
-### Key Observation Callout
-```
-background: #eff6ff
-border: 1px solid #bfdbfe
-border-left: 4px solid #1f4e79
-label color: #1f4e79
-title + body color: #1e40af
-```
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin:20px 0;
+}
 
-### Lessons Learned Callout
-```
-background: var(--bg-tint)
-border: 1px solid var(--border)
-border-top: 4px solid #d97706
-numbered circles: amber #d97706 background fef3c7
-```
+.badge{
+background:rgba(255,255,255,.15);
+padding:8px 14px;
+border-radius:50px;
+font-size:.9rem;
+}
 
-### Human-in-the-Loop Block
-```
-background: linear-gradient(135deg, #1f4e79 0%, #163d63 100%)
-border-radius: 6px
-padding: 2.8rem 2.5rem
-text: white / rgba(255,255,255,0.85)
-3-column grid for principles with emoji icons
-```
+.btn-group{
+margin-top:30px;
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
 
----
+.btn{
+padding:14px 22px;
+border-radius:50px;
+font-weight:600;
+transition:.3s;
+}
 
-## IMAGE PATHS
+.btn-primary{
+background:white;
+color:#0F4C81;
+}
 
-All images go in the `images/` subfolder of the repo.
-Naming convention: `[article-slug]-fig1.jpeg`, `[article-slug]-fig2.jpeg` etc.
-Example: `images/ai-nccp-fig1.jpeg`
+.btn-outline{
+border:2px solid white;
+color:white;
+}
 
-Always include `onerror` fallback on `<img>` tags calling `placeholderHTML('description text')`.
+.btn:hover{
+transform:translateY(-3px);
+}
 
----
+/* COUNTERS */
 
-## LIGHTBOX
+.stats{
+margin-top:-60px;
+}
 
-Vanilla JS only — no libraries.
-Click image → full-screen overlay, Escape to close, click outside to close.
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
 
----
+.stat-card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+text-align:center;
+}
 
-## NAVIGATION LINKS (all pages use this set)
+.stat-number{
+font-size:2.5rem;
+font-weight:800;
+color:var(--primary);
+}
 
-```
-Still Human · Dr. T. Jeevaraj  [brand]
-Book · Stories · Articles · Dev Work · CV  [links → books.html, stories.html, notes.html, dev.html, cv.html]
-```
+/* SECTION TITLE */
 
----
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
 
-## AUTHOR DETAILS
+.section-title h2{
+font-size:2.2rem;
+color:var(--primary);
+}
 
-**Name:** Dr. Thangarasa Jeevaraaj (Dr. T. Jeevaraj)
-**Credentials:** MBBS · MCGP · MSc Biomedical Informatics · MD Trainee, Health Informatics · PGIM, University of Colombo · Sri Lanka
-**Photo:** `https://drjeevaraj.com/T. Jeevaraj.jpg`
-**Bio (short):**
-> I am a medical doctor with qualifications in MBBS, MCGP, and MSc Biomedical Informatics, currently an MD Trainee in Health Informatics at PGIM, University of Colombo. My professional work lives inside systems — DHIS2, public health data platforms, AI verification frameworks, governance structures. I believe technology should sharpen accountability, not quietly replace the judgment it was meant to support.
->
-> Alongside that technical work, I write about what AI does to ordinary human life — not the technology itself, but what it quietly changes in the people who use it. That observation became my first English book: *Are You Still Human? (2026)*.
+/* ABOUT */
 
-**Links:**
-- Book: `https://www.amazon.com/dp/B0H333G41P`
-- Website: `https://drjeevaraj.com`
-- CV: `https://drjeevaraj.com/cv.html`
-- Dev Work: `https://drjeevaraj.com/dev.html`
-- LinkedIn: `https://www.linkedin.com/in/geevanathy/`
-- X: `https://x.com/drjeevaraj`
+.about{
+background:white;
+}
 
----
+.about p{
+font-size:1.1rem;
+max-width:900px;
+margin:auto;
+text-align:center;
+}
 
-## META / SEO TEMPLATE
+/* SKILLS */
 
-```
-author: Dr. T. Jeevaraj
-twitter:creator: @drjeevaraj
-og:site_name: Dr. T. Jeevaraj — Still Human
-article:author: https://drjeevaraj.com
-canonical: https://drjeevaraj.com/[filename].html
-```
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
 
----
+.skill-card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.06);
+transition:.3s;
+}
 
-## RESPONSIVE
+.skill-card:hover{
+transform:translateY(-6px);
+}
 
-- Mobile breakpoint: `700px`
-- Nav links hidden on mobile
-- Comparison grids stack to single column
-- Author box stacks vertically
-- Font base: 16px on mobile, 18px on desktop
+.skill-card i{
+font-size:40px;
+color:var(--secondary);
+margin-bottom:15px;
+}
 
-## PRINT STYLES
+/* PROJECTS */
 
-- Hide nav, progress bar, share section, lightbox
-- Body 11pt, headings scale down
-- Links black, no underline
-- Color sections use `-webkit-print-color-adjust: exact`
+.projects{
+background:#f4f7fb;
+}
 
----
+.project-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:25px;
+}
 
-## SAVE LOCATION
+.project-card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.07);
+}
 
-Final file → `C:\Users\Admin\Desktop\stillhuman-main\[article-filename].html`
-Reference example → `C:\Users\Admin\Desktop\stillhuman-main\ai-consistency-nccp.html`
+.project-card h3{
+margin-bottom:10px;
+color:var(--primary);
+}
+
+.tech{
+margin:15px 0;
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.tech span{
+background:#eef5ff;
+padding:6px 10px;
+border-radius:30px;
+font-size:.85rem;
+}
+
+.project-links{
+margin-top:20px;
+}
+
+.project-links a{
+margin-right:15px;
+font-weight:600;
+color:var(--secondary);
+}
+
+/* TIMELINE */
+
+.timeline{
+position:relative;
+max-width:900px;
+margin:auto;
+}
+
+.timeline::before{
+content:'';
+position:absolute;
+left:50%;
+width:4px;
+height:100%;
+background:#00A8E8;
+}
+
+.timeline-item{
+width:50%;
+padding:20px 40px;
+position:relative;
+}
+
+.timeline-item:nth-child(odd){
+left:0;
+text-align:right;
+}
+
+.timeline-item:nth-child(even){
+left:50%;
+}
+
+.timeline-item::before{
+content:'';
+position:absolute;
+top:30px;
+width:18px;
+height:18px;
+background:#00A8E8;
+border-radius:50%;
+}
+
+.timeline-item:nth-child(odd)::before{
+right:-11px;
+}
+
+.timeline-item:nth-child(even)::before{
+left:-11px;
+}
+
+/* CONTACT */
+
+.contact{
+background:linear-gradient(135deg,#0F4C81,#00A8E8);
+color:white;
+text-align:center;
+}
+
+.contact a{
+color:white;
+}
+
+footer{
+padding:30px;
+text-align:center;
+background:#0b2d4d;
+color:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero-grid{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.profile-img{
+margin:auto;
+}
+
+.stats-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.timeline::before{
+left:20px;
+}
+
+.timeline-item,
+.timeline-item:nth-child(even),
+.timeline-item:nth-child(odd){
+left:0;
+width:100%;
+text-align:left;
+padding-left:60px;
+}
+
+.timeline-item::before{
+left:10px !important;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<div class="container">
+<div class="hero-grid">
+
+<img src="profile.jpg" class="profile-img" alt="Dr Jeevaraj">
+
+<div>
+
+<h1>Dr. Thangarasa Jeevaraaj</h1>
+
+<h3>
+Physician • Health Informatician • AI Reviewer • Digital Health Developer
+</h3>
+
+<p>
+Bridging medicine, artificial intelligence, data science,
+public health, and human-centered technology.
+</p>
+
+<div class="badges">
+<div class="badge">MBBS</div>
+<div class="badge">MCGP</div>
+<div class="badge">MSc Biomedical Informatics</div>
+<div class="badge">MD Health Informatics Trainee</div>
+</div>
+
+<div class="btn-group">
+
+<a class="btn btn-primary"
+href="https://drjeevaraj.com"
+target="_blank">
+Portfolio Website
+</a>
+
+<a class="btn btn-outline"
+href="mailto:tjeevaraj78@gmail.com">
+Email Me
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="stats">
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<div class="stat-number">20+</div>
+Years in Medicine
+</div>
+
+<div class="stat-card">
+<div class="stat-number">8</div>
+Health Systems Built
+</div>
+
+<div class="stat-card">
+<div class="stat-number">2</div>
+Research Papers
+</div>
+
+<div class="stat-card">
+<div class="stat-number">3</div>
+Languages
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="about">
+<div class="container">
+<div class="section-title">
+<h2>Professional Profile</h2>
+</div>
+
+<p>
+Medical Doctor and Health Informatics specialist with over
+20 years of healthcare experience. Experienced in evaluating
+complex information, validating data, reviewing AI-generated
+outputs, and developing digital health systems for real-world
+public health environments across Sri Lanka.
+</p>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<div class="section-title">
+<h2>AI Review & Evaluation Expertise</h2>
+</div>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+<i class="fas fa-brain"></i>
+<h3>AI Output Review</h3>
+<p>Evaluate accuracy, reasoning, consistency and usefulness.</p>
+</div>
+
+<div class="skill-card">
+<i class="fas fa-check-circle"></i>
+<h3>Quality Assurance</h3>
+<p>Validation, fact checking and error detection.</p>
+</div>
+
+<div class="skill-card">
+<i class="fas fa-file-medical"></i>
+<h3>Clinical Expertise</h3>
+<p>Healthcare domain knowledge for medical AI review.</p>
+</div>
+
+<div class="skill-card">
+<i class="fas fa-chart-line"></i>
+<h3>Data Analytics</h3>
+<p>Public health data analysis and interpretation.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="projects">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Featured Projects</h2>
+</div>
+
+<div class="project-grid">
+
+<div class="project-card">
+<h3>OutbreakWatch</h3>
+<p>Disease surveillance and outbreak early warning system.</p>
+
+<div class="tech">
+<span>Python</span>
+<span>Django</span>
+<span>PostgreSQL</span>
+</div>
+
+<div class="project-links">
+<a href="https://jeevantjr.github.io/OutbreakWatch-main/" target="_blank">Live Demo</a>
+</div>
+</div>
+
+<div class="project-card">
+<h3>FloodTrackerApp</h3>
+<p>Disaster response and emergency management platform.</p>
+
+<div class="tech">
+<span>React</span>
+<span>Node.js</span>
+<span>PWA</span>
+</div>
+
+<div class="project-links">
+<a href="https://jeevantjr.github.io/FloodTrackerApp-main/" target="_blank">Live Demo</a>
+</div>
+</div>
+
+<div class="project-card">
+<h3>District Health Stats PWA</h3>
+
+<p>Interactive district health analytics dashboard.</p>
+
+<div class="project-links">
+<a href="https://jeevantjr.github.io/rdhs-stats-pwa-main/" target="_blank">Live Demo</a>
+</div>
+
+</div>
+
+<div class="project-card">
+<h3>Health Fleet Manager</h3>
+
+<p>Fleet scheduling and logistics management system.</p>
+
+<div class="project-links">
+<a href="https://jeevantjr.github.io/vmsrdhstrinco-main/" target="_blank">Live Demo</a>
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+<h2>Career Timeline</h2>
+</div>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>2006</h3>
+<p>MBBS – University of Jaffna</p>
+</div>
+
+<div class="timeline-item">
+<h3>2016</h3>
+<p>MCGP Qualification</p>
+</div>
+
+<div class="timeline-item">
+<h3>2022</h3>
+<p>MSc Biomedical Informatics</p>
+</div>
+
+<div class="timeline-item">
+<h3>2026</h3>
+<p>National Cancer Control Programme</p>
+</div>
+
+<div class="timeline-item">
+<h3>2026</h3>
+<p>MD Health Informatics Trainee</p>
+</div>
+
+</div>
+</div>
+
+</section>
+
+<section class="contact">
+
+<div class="container">
+
+<h2>Connect</h2>
+
+<br>
+
+<p>
+<i class="fas fa-envelope"></i>
+<a href="mailto:tjeevaraj78@gmail.com">
+tjeevaraj78@gmail.com
+</a>
+</p>
+
+<br>
+
+<p>
+<i class="fab fa-linkedin"></i>
+<a href="https://linkedin.com/in/geevanathy" target="_blank">
+LinkedIn Profile
+</a>
+</p>
+
+<br>
+
+<p>
+<i class="fas fa-globe"></i>
+<a href="https://drjeevaraj.com" target="_blank">
+www.drjeevaraj.com
+</a>
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Dr. Thangarasa Jeevaraaj
+<br>
+AI Reviewer • Health Informatician • Digital Health Developer
+
+</footer>
+
+</body>
+</html>
