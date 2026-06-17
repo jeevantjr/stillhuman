@@ -13,6 +13,8 @@ I build open-source digital health tools to fill real gaps I encountered in clin
 
 Also a researcher, AI reviewer, and author of seven books — including _Are You Still Human?_ (Kindle, 2026), a literary nonfiction book on what artificial intelligence does to ordinary human relationships.
 
+> 📂 Two GitHub accounts: **[@jeevantjr](https://github.com/jeevantjr)** (main) · **[@tjeevan](https://github.com/tjeevan)** (health tools & PWAs)
+
 ---
 
 ### 🏥 Current Role
@@ -42,16 +44,19 @@ _April 2026 – April 2027_
 
 ### 📦 Projects
 
-| # | Project | Type | Live |
-|---|---|---|---|
-| 01 | [OutbreakWatch](https://github.com/tjeevan/OutbreakWatch) | Disease surveillance & outbreak early-warning | [🔗 Demo](https://jeevantjr.github.io/OutbreakWatch-main/) |
-| 02 | [FloodTrackerApp](https://github.com/tjeevan/FloodTrackerApp) | Emergency management PWA for disaster health response | [🔗 Demo](https://jeevantjr.github.io/FloodTrackerApp-main/) |
-| 03 | [rdhs-stats-pwa](https://github.com/jeevantjr/rdhs-stats-pwa) | Offline-first district health statistics dashboard (RDHS Trincomalee) | [🔗 Demo](https://jeevantjr.github.io/rdhs-stats-pwa/) |
-| 04 | [vmsrdhstrinco](https://github.com/jeevantjr/vmsrdhstrinco) | Health fleet management system — vehicle scheduling & logistics | [🔗 Demo](https://jeevantjr.github.io/vmsrdhstrinco-main/) |
-| 05 | [rdtrinco](https://github.com/jeevantjr/rdtrinco) | Administrative portal for RDHS Trincomalee | — |
-| 06 | [stillhuman](https://github.com/jeevantjr/stillhuman) | drjeevaraj.com — author & professional website | [🔗 Site](https://drjeevaraj.com) |
-| 07 | [geevanathy.com](https://github.com/jeevantjr/geevanathy.com) | Earlier personal website (pre-relaunch) | — |
-| 08 | [github.io](https://github.com/jeevantjr/github.io) | Developer portfolio index | [🔗 Portfolio](https://jeevantjr.github.io/github.io/) |
+9 open-source projects across [@jeevantjr](https://github.com/jeevantjr) and [@tjeevan](https://github.com/tjeevan)
+
+| # | Account | Project | Type | Live |
+|---|---|---|---|---|
+| 01 | @tjeevan | [OutbreakWatch](https://github.com/tjeevan/OutbreakWatch) | Disease surveillance & outbreak early-warning · Google Forms/Sheets/Apps Script | [🔗 Demo](https://jeevantjr.github.io/OutbreakWatch-main/) |
+| 02 | @tjeevan | [FloodTrackerApp](https://github.com/tjeevan/FloodTrackerApp) | Offline-ready PWA for flood reporting & disaster data pipelines | [🔗 Demo](https://jeevantjr.github.io/FloodTrackerApp-main/) |
+| 03 | @tjeevan | [Digital-Admin-Assistant](https://github.com/tjeevan/Digital-Admin-Assistant) | AI-guided administrative inquiry tool based on the Establishment Code | — |
+| 04 | @jeevantjr | [rdhs-stats-pwa](https://github.com/jeevantjr/rdhs-stats-pwa) | Offline-first district health statistics dashboard (RDHS Trincomalee) | [🔗 Demo](https://jeevantjr.github.io/rdhs-stats-pwa/) |
+| 05 | @jeevantjr | [vmsrdhstrinco](https://github.com/jeevantjr/vmsrdhstrinco) | Health fleet management system — vehicle scheduling & logistics | [🔗 Demo](https://jeevantjr.github.io/vmsrdhstrinco-main/) |
+| 06 | @jeevantjr | [rdtrinco](https://github.com/jeevantjr/rdtrinco) | Administrative portal for RDHS Trincomalee | — |
+| 07 | @jeevantjr | [stillhuman](https://github.com/jeevantjr/stillhuman) | drjeevaraj.com — author & professional website | [🔗 Site](https://drjeevaraj.com) |
+| 08 | @jeevantjr | [geevanathy.com](https://github.com/jeevantjr/geevanathy.com) | Earlier personal website (pre-relaunch) | — |
+| 09 | @jeevantjr | [github.io](https://github.com/jeevantjr/github.io) | Developer portfolio index | [🔗 Portfolio](https://jeevantjr.github.io/github.io/) |
 
 ---
 
