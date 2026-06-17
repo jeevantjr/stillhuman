@@ -833,3 +833,193 @@ footer {
   .sticky-buy-inner { flex-wrap: wrap; gap: 0.8rem; }
   .sticky-title { flex-basis: 100%; }
 }
+
+/* ── MOBILE READABILITY — dark sections ─────────────────────────
+   On small screens, opacity-based colours that look subtle on
+   desktop become unreadable. These overrides bring contrast up
+   to WCAG AA on every dark-background section.
+───────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+
+  /* ── Testimonials ── */
+  .testimonial-card {
+    background: rgba(200,151,62,0.10);
+    border-color: rgba(200,151,62,0.35);
+  }
+  .testimonial-text {
+    color: #F2E8D2;
+    font-size: 1.05rem;
+    line-height: 1.95;
+  }
+  .testimonial-card::before {
+    opacity: 0.55;
+  }
+  .testimonial-author {
+    color: rgba(242,232,210,0.82);
+  }
+  .testimonial-author strong {
+    color: var(--gold-light);
+  }
+  .testimonials-note {
+    color: rgba(242,232,210,0.50);
+  }
+
+  /* ── Dev mini cards (homepage dark grid) ── */
+  .dev-mini-card {
+    background: #1E1408;
+  }
+  .dev-mini-card h3 {
+    color: #F2E8D2;
+  }
+  .dev-mini-card p {
+    color: rgba(242,232,210,0.80);
+  }
+  .dev-mini-num,
+  .dev-mini-type {
+    color: rgba(200,151,62,0.75);
+    border-color: rgba(200,151,62,0.35);
+  }
+  .dev-mini-tag {
+    color: rgba(200,151,62,0.85);
+    border-color: rgba(200,151,62,0.32);
+  }
+
+  /* ── Full dev cards (dev page, light background — already fine,
+        but ensure description text is readable) ── */
+  .dev-card-desc {
+    color: var(--ink-mid);
+  }
+
+  /* ── Contact section ── */
+  .contact-info h3 {
+    color: #F2E8D2;
+    font-size: 1.4rem;
+  }
+  .contact-info p {
+    color: rgba(242,232,210,0.85);
+    font-size: 1rem;
+  }
+  .contact-social a {
+    color: rgba(200,151,62,0.90);
+    font-size: 0.82rem;
+  }
+  .contact-email-direct {
+    color: rgba(242,232,210,0.65);
+    font-size: 0.78rem;
+  }
+  .contact-email-direct a {
+    color: var(--gold-light);
+  }
+  .form-label {
+    color: rgba(200,151,62,0.85);
+    font-size: 0.65rem;
+  }
+  .form-input,
+  .form-textarea {
+    background: rgba(255,255,255,0.10);
+    border-color: rgba(200,151,62,0.45);
+    color: #F2E8D2;
+    font-size: 1rem;
+  }
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: rgba(242,232,210,0.50);
+  }
+  .form-input:focus,
+  .form-textarea:focus {
+    background: rgba(255,255,255,0.15);
+    border-color: var(--gold);
+  }
+  .form-note {
+    color: rgba(242,232,210,0.55);
+  }
+
+  /* ── Media cards ── */
+  .media-card h3 {
+    color: #F2E8D2;
+  }
+  .media-card p {
+    color: rgba(242,232,210,0.82);
+  }
+  .media-type {
+    color: rgba(200,151,62,0.80);
+  }
+
+  /* ── Book meta strip ── */
+  .book-meta-item {
+    color: rgba(242,232,210,0.90);
+  }
+
+  /* ── General dark section text boost ── */
+  section.dark p,
+  section.dark li {
+    color: rgba(242,232,210,0.88);
+  }
+  section.dark .section-sub {
+    color: rgba(242,232,210,0.78);
+  }
+
+  /* ── Font size improvements for mobile reading ──────────────
+     Desktop uses 20px base. Mobile drops to 18px which is fine
+     for short sections but we boost key reading elements here.
+  ─────────────────────────────────────────────────────────── */
+
+  /* Body text in content sections */
+  .about-content p,
+  .featured-book-info p,
+  .chapter-excerpt,
+  .pattern-card p,
+  .blog-card p {
+    font-size: 1.05rem;
+    line-height: 1.95;
+  }
+
+  /* Section subtitles */
+  .section-sub,
+  .page-sub {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  /* Card headings */
+  .blog-card h3,
+  .pattern-card h3 {
+    font-size: 1.25rem;
+  }
+
+  /* Chapter titles */
+  .chapter-item h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Tag/chip labels — minimum readable size */
+  .note-date-chip,
+  .blog-card-date,
+  .chapter-num,
+  .pattern-num,
+  .project-num,
+  .project-type,
+  .tag-label {
+    font-size: 0.72rem;
+  }
+
+  /* Expertise and role tags */
+  .expertise-tag {
+    font-size: 0.72rem;
+    padding: 6px 14px;
+  }
+
+  /* Read links */
+  .read-link {
+    font-size: 0.78rem;
+  }
+
+  /* Sticky bar */
+  .sticky-title {
+    font-size: 1rem;
+  }
+  .sticky-price,
+  .sticky-btn {
+    font-size: 0.75rem;
+  }
+}

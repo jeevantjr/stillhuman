@@ -117,29 +117,29 @@
     }
     .note-date-chip {
       font-family: 'Courier New', monospace;
-      font-size: 0.62rem;
+      font-size: 0.72rem;
       letter-spacing: 2px;
       color: var(--gold-deep);
       background: rgba(200,151,62,0.08);
       border: 1px solid rgba(200,151,62,0.22);
-      padding: 2px 9px;
+      padding: 3px 10px;
       border-radius: 2px;
     }
     .note-topic-chip {
       font-family: var(--font-ui);
-      font-size: 0.55rem;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 2.5px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--ink-light);
       background: var(--parchment-deep);
       border: 1px solid var(--border-light);
-      padding: 2px 9px;
+      padding: 3px 10px;
       border-radius: 2px;
     }
     .note-card-text {
       font-family: var(--font-body);
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       color: var(--ink-mid);
       line-height: 2.0;
       margin: 0;
@@ -173,6 +173,12 @@
       .note-card { flex-direction: column; gap: 1rem; padding: 1.4rem 1.4rem; }
       .note-card-icon-col { flex-direction: row; }
       .note-icon-circle { width: 42px; height: 42px; font-size: 0.9rem; }
+      .note-date-chip { font-size: 0.78rem; padding: 4px 11px; }
+      .note-topic-chip { font-size: 0.70rem; padding: 4px 11px; }
+      .note-card-text { font-size: 1.05rem; line-height: 1.95; }
+      .notes-count-badge { font-size: 0.68rem; padding: 0.55rem 1.2rem; }
+      /* "Read full article" links inside featured cards */
+      .note-card a[href$=".html"] { font-size: 0.72rem !important; padding: 0.55rem 1.1rem !important; }
     }
   </style>
 </head>
