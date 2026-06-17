@@ -654,6 +654,106 @@
       .cv-timeline::before { display: none; }
       .cv-entry-dot { border-color: #888; }
     }
+
+    /* ── Digital Health Dev Cards ─────────────────── */
+    .cv-dev-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+    .cv-dev-card {
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.5rem;
+      transition: box-shadow var(--t), border-color var(--t), transform var(--t);
+    }
+    .cv-dev-card:hover { box-shadow: var(--shadow-md); border-color: var(--border); transform: translateY(-2px); }
+    .cv-dev-card.ddc-teal  { border-top-color: var(--teal); }
+    .cv-dev-card.ddc-red   { border-top-color: #B5453A; }
+    .cv-dev-card.ddc-blue  { border-top-color: #3D6E8C; }
+    .cv-dev-card.ddc-green { border-top-color: #4F7D52; }
+    .cv-dev-card.ddc-cop   { border-top-color: var(--copper); }
+    .cv-dev-num {
+      font-family: var(--font-ui);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold-deep);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .cv-dev-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-ui);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-bottom: 0.6rem;
+    }
+    .dvt-pwa   { background: rgba(26,110,110,0.10);  color: var(--teal);       border: 1px solid rgba(26,110,110,0.25); }
+    .dvt-red   { background: rgba(181,69,58,0.10);   color: #B5453A;           border: 1px solid rgba(181,69,58,0.25); }
+    .dvt-gold  { background: rgba(200,151,62,0.10);  color: var(--gold-deep);  border: 1px solid var(--border-light); }
+    .dvt-blue  { background: rgba(61,110,140,0.10);  color: #3D6E8C;           border: 1px solid rgba(61,110,140,0.25); }
+    .dvt-green { background: rgba(79,125,82,0.10);   color: #4F7D52;           border: 1px solid rgba(79,125,82,0.25); }
+    .dvt-cop   { background: rgba(154,114,48,0.10);  color: var(--copper);     border: 1px solid rgba(154,114,48,0.25); }
+    .cv-dev-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+    .cv-dev-card p {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--ink-mid);
+      line-height: 1.65;
+      margin-bottom: 0.7rem;
+    }
+    .cv-dev-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-bottom: 0.8rem;
+    }
+    .cv-dev-tag {
+      font-family: var(--font-ui);
+      font-size: 0.58rem;
+      font-weight: 500;
+      padding: 2px 7px;
+      background: rgba(200,151,62,0.06);
+      border: 1px solid rgba(200,151,62,0.18);
+      border-radius: 2px;
+      color: var(--ink-light);
+    }
+    .cv-dev-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--copper-light);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 2px;
+      transition: border-color var(--t), color var(--t);
+      text-decoration: none;
+    }
+    .cv-dev-link:hover { border-color: var(--gold); color: var(--gold-deep); }
+    .cv-dev-link + .cv-dev-link { margin-left: 5px; }
+    @media (max-width: 700px) { .cv-dev-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body class="inner-page">
@@ -669,8 +769,8 @@
     <li><a href="notes.html">Articles</a></li>
     <li><a href="memory-witness.html">Memory Witness</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="cv.html" class="active">CV</a></li>
     <li><a href="dev.html">Dev Work</a></li>
+    <li><a href="cv.html" class="active">CV</a></li>
     <li><a href="ai-reviewer.html">AI Reviewer</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
   </ul>
@@ -683,8 +783,8 @@
     <h1>Dr. Thangarasa Jeevaraaj</h1>
     <p class="page-sub">MBBS &nbsp;·&nbsp; MCGP &nbsp;·&nbsp; MSc Biomedical Informatics &nbsp;·&nbsp; MD Trainee, Health Informatics</p>
     <div style="margin-top: 1.5rem;">
-      <a href="javascript:window.print()" class="cv-print">
-        <i class="fa-solid fa-print"></i> Print / Save as PDF
+      <a href="https://drive.google.com/file/d/1nz5RmU6JnYjtmrKb-l-e82BzJwPaMYKE/view?usp=drive_link" target="_blank" rel="noopener" class="cv-print">
+        <i class="fa-solid fa-download"></i> Download PDF CV
       </a>
     </div>
   </div>
@@ -798,11 +898,11 @@
         <div class="cv-edu-card cv-ecard-msc fade-in delay-2">
           <div class="cv-edu-icon cv-eicon-3"><i class="fa-solid fa-laptop-medical"></i></div>
           <div class="cv-edu-body">
-            <span class="cv-edu-year-badge">Post 2022</span>
-            <span class="cv-qual-abbr">MSc</span>
-            <p class="cv-qual-name">Master of Science in Biomedical Informatics</p>
-            <p class="cv-qual-inst">Details to be confirmed</p>
-            <span class="cv-qual-note">Two-year postgraduate programme in Biomedical Informatics</span>
+            <span class="cv-edu-year-badge">October 2022 – October 2024</span>
+            <span class="cv-qual-abbr">MSc Biomedical Informatics</span>
+            <p class="cv-qual-name">Master of Science in Biomedical Informatics — Batch 12</p>
+            <p class="cv-qual-inst">Postgraduate Institute of Medicine (PGIM), University of Colombo &nbsp;·&nbsp; Sri Lanka</p>
+            <span class="cv-qual-note">Full-time 24-month programme covering health information systems, clinical informatics, biomedical data science, and research methodology. DHIS2 certified. Released from RDHS/Trincomalee 17 October 2022. Batch of 19 trainees across major hospitals and health institutions nationwide.</span>
             <span class="cv-status-badge cv-status-done" style="display:inline-flex;align-items:center;gap:4px;margin-top:0.5rem;"><i class="fa-solid fa-check" style="font-size:0.5rem;"></i>Completed</span>
           </div>
         </div>
@@ -1471,36 +1571,159 @@
         </div>
       </div>
 
-      <!-- ── DIGITAL HEALTH & INFORMATICS ───────── -->
+      <!-- ── DIGITAL HEALTH DEVELOPMENT ───────────── -->
       <div class="cv-sec">
-        <div class="cv-sec-head csh-gold">
-          <i class="fa-solid fa-laptop-medical"></i> Digital Health &amp; Health Informatics
+        <div class="cv-sec-head csh-blue">
+          <i class="fa-solid fa-laptop-medical"></i> Digital Health Development
+          <span style="margin-left:auto;font-size:0.5rem;color:var(--ink-pale);letter-spacing:1px;">github.com/jeevantjr &nbsp;·&nbsp; github.com/tjeevan</span>
         </div>
-        <p style="font-family:var(--font-body);font-size:1.0rem;color:var(--ink-mid);line-height:1.95;margin-bottom:1.6rem;">
-          Alongside clinical practice, I have worked in digital health and health informatics — building and deploying information systems for public health settings in Sri Lanka. This work spans disease surveillance, emergency response data tools, clinic administration systems, and health data visualisation. Current research under the MD Health Informatics programme at PGIM focuses on the application of informatics methods in the Sri Lankan public health context.
+        <p style="font-family:var(--font-body);font-size:0.98rem;color:var(--ink-mid);line-height:1.9;margin-bottom:1.6rem;">
+          Eight open-source digital health systems built alongside clinical and informatics work — designed for real-world public health environments in Sri Lanka, with offline-first architecture for low-bandwidth district settings. All projects independently developed, deployed, and maintained.
         </p>
 
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem;">
-          <span class="cv-qual-abbr" style="display:inline-block;">Disease Surveillance</span>
-          <span class="cv-qual-abbr" style="display:inline-block;">Emergency Response Data</span>
-          <span class="cv-qual-abbr" style="display:inline-block;">Health Statistics Visualisation</span>
-          <span class="cv-qual-abbr" style="display:inline-block;">Progressive Web Apps (PWA)</span>
-          <span class="cv-qual-abbr" style="display:inline-block;">Offline-First Systems</span>
-          <span class="cv-qual-abbr" style="display:inline-block;">Patient Data Management</span>
-          <span class="cv-qual-abbr" style="display:inline-block;">DHIS2</span>
-          <span class="cv-qual-abbr" style="display:inline-block;">Python &amp; JavaScript</span>
-          <span class="cv-qual-abbr" style="display:inline-block;">SQL Databases</span>
-          <span class="cv-qual-abbr" style="display:inline-block;">REST APIs</span>
-        </div>
+        <div class="cv-dev-grid">
 
-        <div style="background:var(--parchment-light);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:1.4rem 1.8rem;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;">
+          <!-- 01 OutbreakWatch -->
+          <div class="cv-dev-card ddc-red fade-in">
+            <span class="cv-dev-num">01</span>
+            <span class="cv-dev-type dvt-red"><i class="fa-solid fa-virus" style="margin-right:3px;"></i>Disease Surveillance</span>
+            <h3>OutbreakWatch</h3>
+            <p>Disease surveillance and outbreak early-warning system for public health monitoring. Real-time alerts, epidemiological trend analysis, and reporting dashboards.</p>
+            <div class="cv-dev-tags">
+              <span class="cv-dev-tag">Python</span>
+              <span class="cv-dev-tag">Django</span>
+              <span class="cv-dev-tag">Chart.js</span>
+              <span class="cv-dev-tag">PostgreSQL</span>
+              <span class="cv-dev-tag">GitHub Pages</span>
+            </div>
+            <a href="https://jeevantjr.github.io/OutbreakWatch-main/" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            <a href="https://github.com/tjeevan/OutbreakWatch" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-brands fa-github"></i> Repository</a>
+          </div>
+
+          <!-- 02 FloodTrackerApp -->
+          <div class="cv-dev-card ddc-blue fade-in delay-1">
+            <span class="cv-dev-num">02</span>
+            <span class="cv-dev-type dvt-blue"><i class="fa-solid fa-water" style="margin-right:3px;"></i>Disaster Response</span>
+            <h3>FloodTrackerApp</h3>
+            <p>Emergency management PWA for coordinating health resources, tracking flood-affected areas, and dispatching medical teams in real time during disaster events.</p>
+            <div class="cv-dev-tags">
+              <span class="cv-dev-tag">React</span>
+              <span class="cv-dev-tag">Node.js</span>
+              <span class="cv-dev-tag">PWA</span>
+              <span class="cv-dev-tag">Maps API</span>
+              <span class="cv-dev-tag">GitHub Pages</span>
+            </div>
+            <a href="https://jeevantjr.github.io/FloodTrackerApp-main/" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            <a href="https://github.com/tjeevan/FloodTrackerApp" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-brands fa-github"></i> Repository</a>
+          </div>
+
+          <!-- 03 RDHS Stats PWA -->
+          <div class="cv-dev-card ddc-teal fade-in delay-2">
+            <span class="cv-dev-num">03</span>
+            <span class="cv-dev-type dvt-pwa"><i class="fa-solid fa-chart-column" style="margin-right:3px;"></i>Health Analytics · PWA</span>
+            <h3>RDHS District Statistics Dashboard</h3>
+            <p>Offline-first PWA for RDHS Trincomalee providing interactive dashboards for district-level health statistics — maternal health, immunisation, dengue, NCD burden, bed occupancy, and cadre data.</p>
+            <div class="cv-dev-tags">
+              <span class="cv-dev-tag">Vanilla JS</span>
+              <span class="cv-dev-tag">Chart.js</span>
+              <span class="cv-dev-tag">Bootstrap 4</span>
+              <span class="cv-dev-tag">Service Worker</span>
+              <span class="cv-dev-tag">IndexedDB</span>
+            </div>
+            <a href="https://jeevantjr.github.io/rdhs-stats-pwa/" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            <a href="https://github.com/jeevantjr/rdhs-stats-pwa" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-brands fa-github"></i> Repository</a>
+          </div>
+
+          <!-- 04 Health Fleet Manager -->
+          <div class="cv-dev-card ddc-cop fade-in">
+            <span class="cv-dev-num">04</span>
+            <span class="cv-dev-type dvt-cop"><i class="fa-solid fa-truck-medical" style="margin-right:3px;"></i>Fleet Management</span>
+            <h3>Health Fleet Manager</h3>
+            <p>Fleet scheduling and logistics management system for RDHS Trincomalee. Vehicle assignments, maintenance tracking, driver rosters, and fuel consumption analytics for the district health fleet.</p>
+            <div class="cv-dev-tags">
+              <span class="cv-dev-tag">JavaScript</span>
+              <span class="cv-dev-tag">Bootstrap</span>
+              <span class="cv-dev-tag">Firebase</span>
+              <span class="cv-dev-tag">REST API</span>
+            </div>
+            <a href="https://jeevantjr.github.io/vmsrdhstrinco-main/" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            <a href="https://github.com/jeevantjr/vmsrdhstrinco" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-brands fa-github"></i> Repository</a>
+          </div>
+
+          <!-- 05 rdtrinco -->
+          <div class="cv-dev-card ddc-teal fade-in delay-1">
+            <span class="cv-dev-num">05</span>
+            <span class="cv-dev-type dvt-pwa"><i class="fa-solid fa-building-columns" style="margin-right:3px;"></i>Administration</span>
+            <h3>RDHS Trincomalee Portal</h3>
+            <p>Administrative and data management portal for the Regional Director of Health Services, Trincomalee — centralising health service records, reports, and operational tools for the regional health administration office.</p>
+            <div class="cv-dev-tags">
+              <span class="cv-dev-tag">HTML5</span>
+              <span class="cv-dev-tag">JavaScript</span>
+              <span class="cv-dev-tag">CSS3</span>
+              <span class="cv-dev-tag">GitHub Pages</span>
+            </div>
+            <a href="https://github.com/jeevantjr/rdtrinco" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-brands fa-github"></i> Repository</a>
+          </div>
+
+          <!-- 06 Still Human Website -->
+          <div class="cv-dev-card fade-in delay-2">
+            <span class="cv-dev-num">06</span>
+            <span class="cv-dev-type dvt-gold"><i class="fa-solid fa-book" style="margin-right:3px;"></i>Author Website</span>
+            <h3>drjeevaraj.com — Still Human</h3>
+            <p>Personal author and professional website. Features literary works, health informatics portfolio, AI Reviewer profile, developer portfolio, full CV, and the <em>Still Human</em> literary project.</p>
+            <div class="cv-dev-tags">
+              <span class="cv-dev-tag">HTML5</span>
+              <span class="cv-dev-tag">CSS3</span>
+              <span class="cv-dev-tag">Vanilla JS</span>
+              <span class="cv-dev-tag">GitHub Pages</span>
+              <span class="cv-dev-tag">Custom DNS</span>
+            </div>
+            <a href="https://drjeevaraj.com" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-solid fa-globe"></i> Visit Site</a>
+            <a href="https://github.com/jeevantjr/stillhuman" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-brands fa-github"></i> Repository</a>
+          </div>
+
+          <!-- 07 geevanathy.com -->
+          <div class="cv-dev-card fade-in">
+            <span class="cv-dev-num">07</span>
+            <span class="cv-dev-type dvt-green"><i class="fa-solid fa-user" style="margin-right:3px;"></i>Personal Site</span>
+            <h3>geevanathy.com</h3>
+            <p>Earlier personal website under the username Geevanathy — capturing clinical profile, informatics work, and professional background prior to the drjeevaraj.com relaunch.</p>
+            <div class="cv-dev-tags">
+              <span class="cv-dev-tag">HTML5</span>
+              <span class="cv-dev-tag">CSS3</span>
+              <span class="cv-dev-tag">JavaScript</span>
+              <span class="cv-dev-tag">GitHub Pages</span>
+            </div>
+            <a href="https://github.com/jeevantjr/geevanathy.com" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-brands fa-github"></i> Repository</a>
+          </div>
+
+          <!-- 08 GitHub.io Portfolio -->
+          <div class="cv-dev-card fade-in delay-1">
+            <span class="cv-dev-num">08</span>
+            <span class="cv-dev-type" style="background:rgba(0,0,0,0.04);color:var(--ink-light);border:1px solid var(--border-light);display:inline-flex;align-items:center;gap:4px;font-family:var(--font-ui);font-size:0.55rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:2px 8px;border-radius:2px;margin-bottom:0.6rem;">
+              <i class="fa-brands fa-github" style="margin-right:3px;"></i>Developer Portfolio
+            </span>
+            <h3>GitHub.io Portfolio</h3>
+            <p>Technical portfolio on GitHub Pages cataloguing all public health software projects, open-source tools, and health informatics work. Developer index for all repositories.</p>
+            <div class="cv-dev-tags">
+              <span class="cv-dev-tag">GitHub Pages</span>
+              <span class="cv-dev-tag">Markdown</span>
+              <span class="cv-dev-tag">HTML5</span>
+            </div>
+            <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Portfolio</a>
+            <a href="https://github.com/jeevantjr/github.io" target="_blank" rel="noopener" class="cv-dev-link"><i class="fa-brands fa-github"></i> Repository</a>
+          </div>
+
+        </div><!-- /cv-dev-grid -->
+
+        <div style="background:var(--parchment-light);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:1.2rem 1.6rem;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;">
           <div style="flex:1;min-width:220px;">
-            <p style="font-family:var(--font-ui);font-size:0.76rem;color:var(--ink-light);line-height:1.7;margin:0;">
-              Full project portfolio — disease surveillance tools, emergency dashboards, clinic systems, and the Still Human author website — available on the Developer Portfolio page.
+            <p style="font-family:var(--font-ui);font-size:0.72rem;color:var(--ink-light);line-height:1.7;margin:0;">
+              All systems built and maintained independently. Designed for real-world public health environments — offline-first, lightweight, operable without specialist IT support. Built by a clinician who uses them.
             </p>
           </div>
-          <a href="dev.html" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-ui);font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--border);padding:0.65rem 1.4rem;border-radius:var(--radius-sm);white-space:nowrap;transition:border-color var(--t),color var(--t);" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
-            <i class="fa-solid fa-arrow-right"></i> Developer Portfolio
+          <a href="dev.html" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-ui);font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);border:1px solid var(--border);padding:0.65rem 1.2rem;border-radius:var(--radius-sm);white-space:nowrap;transition:border-color var(--t);text-decoration:none;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+            <i class="fa-solid fa-laptop-code"></i> Full Dev Portfolio
           </a>
         </div>
       </div>
