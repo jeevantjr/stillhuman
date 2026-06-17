@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Day Health Advice Stopped Traveling Through People | Dr. T. Jeevaraj</title>
+<link rel="canonical" href="https://drjeevaraj.com/ai-health-advice-human-connection.html">
+<meta name="description" content="A physician and health informatician reflects on how conversational AI is quietly replacing the human conversations that once carried health advice through families, neighbours, and communities in rural Sri Lanka.">
+<meta name="keywords" content="AI in healthcare, conversational AI, ChatGPT, health information seeking, human connection, digital health, health informatics, Sri Lanka, patient trust, community health, social support, responsible AI">
+<meta name="author" content="Dr. T. Jeevaraj">
+<meta name="article:author" content="https://drjeevaraj.com">
+<meta name="article:published_time" content="2026-06-17T00:00:00Z">
+<meta name="article:section" content="Health Informatics">
+<meta name="article:tag" content="Conversational AI">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dr. T. Jeevaraj — Still Human">
+<meta property="og:title" content="The Day Health Advice Stopped Traveling Through People">
+<meta property="og:description" content="Reflections on AI, community, and the future of human connection — from a physician and health informatician in Sri Lanka.">
+<meta property="og:image" content="https://drjeevaraj.com/images/rural-opd-consultation.jpg">
+<meta property="og:url" content="https://drjeevaraj.com/ai-health-advice-human-connection.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@drjeevaraj">
+<meta name="twitter:creator" content="@drjeevaraj">
+<meta name="twitter:title" content="The Day Health Advice Stopped Traveling Through People">
+<meta name="twitter:description" content="When health advice once traveled through people. A reflection on AI, community, and human connection in healthcare.">
+<meta name="twitter:image" content="https://drjeevaraj.com/images/rural-opd-consultation.jpg">
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#1a1a1a;
+    --muted:#5a5a5a;
+    --line:#e6e6e6;
+    --accent:#0b6b5e;
+    --accent-soft:#e8f3f1;
+    --soft:#f7f8f8;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:Georgia,'Times New Roman',serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.7;
+    font-size:19px;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .skip{position:absolute;left:-9999px;}
+  .skip:focus{left:8px;top:8px;background:#fff;padding:8px;}
+  /* top nav */
+  .topbar{
+    border-bottom:1px solid var(--line);
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  }
+  .topbar .inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 20px;
+    display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+  }
+  .brand{font-weight:700;color:var(--ink);font-size:16px;}
+  .nav a{color:var(--muted);font-size:14px;margin-left:16px;}
+  .nav a:first-child{margin-left:0;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+  .kicker{
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    text-transform:uppercase;letter-spacing:.12em;font-size:12px;
+    color:var(--accent);font-weight:700;margin-top:44px;
+  }
+  h1{
+    font-size:40px;line-height:1.18;margin:14px 0 10px;letter-spacing:-.01em;
+  }
+  .subtitle{
+    font-size:21px;color:var(--muted);font-style:italic;margin:0 0 28px;
+  }
+  .byline{
+    display:flex;align-items:center;gap:14px;
+    padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  }
+  .byline img{width:54px;height:54px;border-radius:50%;object-fit:cover;background:var(--soft);}
+  .byline .who{font-size:15px;}
+  .byline .who strong{display:block;font-size:16px;}
+  .byline .who span{color:var(--muted);font-size:13px;}
+  .meta{
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:13px;color:var(--muted);margin:14px 0 30px;display:flex;gap:18px;flex-wrap:wrap;
+  }
+  article p{margin:0 0 22px;}
+  article h2{
+    font-size:27px;line-height:1.25;margin:46px 0 14px;letter-spacing:-.01em;
+  }
+  figure{margin:34px 0;}
+  figure img{width:100%;height:auto;border-radius:8px;display:block;background:var(--soft);}
+  figcaption{
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:14px;color:var(--muted);margin-top:10px;line-height:1.55;
+  }
+  figcaption strong{color:var(--ink);}
+  blockquote{
+    margin:36px 0;padding:24px 26px;background:var(--accent-soft);
+    border-left:4px solid var(--accent);border-radius:0 8px 8px 0;
+    font-size:22px;line-height:1.5;font-style:italic;color:#0a4d44;
+  }
+  blockquote .src{
+    display:block;margin-top:12px;font-size:14px;font-style:normal;
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--muted);
+  }
+  .callout{
+    background:var(--soft);border:1px solid var(--line);border-radius:10px;
+    padding:22px 24px;margin:34px 0;
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px;line-height:1.6;
+  }
+  .callout .tag{
+    display:inline-block;text-transform:uppercase;letter-spacing:.1em;font-size:12px;
+    font-weight:700;color:var(--accent);margin-bottom:8px;
+  }
+  .callout h3{margin:0 0 8px;font-size:19px;font-family:inherit;}
+  .pull{font-size:23px;line-height:1.5;font-style:italic;color:var(--accent);
+    margin:36px 0;padding:0 8px;}
+  .divider{text-align:center;color:var(--muted);letter-spacing:.5em;margin:46px 0;font-size:14px;}
+  .topics{margin:44px 0 10px;}
+  .topics .lbl{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:12px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chips span{
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:13px;background:var(--soft);border:1px solid var(--line);
+    padding:6px 12px;border-radius:999px;color:var(--muted);
+  }
+  .share{border-top:1px solid var(--line);margin-top:34px;padding-top:24px;}
+  .share .lbl{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:13px;color:var(--muted);margin-bottom:12px;}
+  .share a{
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:14px;margin-right:18px;
+  }
+  .author-card{
+    background:var(--soft);border:1px solid var(--line);border-radius:12px;
+    padding:28px;margin:40px 0;
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.65;
+  }
+  .author-card .head{display:flex;gap:16px;align-items:center;margin-bottom:14px;}
+  .author-card img{width:64px;height:64px;border-radius:50%;object-fit:cover;background:#fff;}
+  .author-card .head strong{font-size:18px;display:block;}
+  .author-card .head span{font-size:13px;color:var(--muted);}
+  .author-card .roles{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;}
+  .author-card .roles span{font-size:12px;background:#fff;border:1px solid var(--line);padding:5px 10px;border-radius:999px;color:var(--muted);}
+  .author-card .links a{font-size:14px;margin-right:16px;display:inline-block;margin-top:6px;}
+  footer{border-top:1px solid var(--line);margin-top:50px;
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  footer .inner{max-width:var(--maxw);margin:0 auto;padding:26px 20px;font-size:14px;color:var(--muted);}
+  footer a{color:var(--muted);margin-right:16px;}
+  .copyright{margin-top:14px;font-size:13px;}
+  @media (max-width:600px){
+    body{font-size:18px;}
+    h1{font-size:31px;}
+    .subtitle{font-size:18px;}
+    article h2{font-size:23px;}
+    blockquote{font-size:19px;}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to main content</a>
+<div class="topbar">
+  <div class="inner">
+    <a class="brand" href="https://drjeevaraj.com/index.html">Dr. T. Jeevaraj · Still Human</a>
+    <nav class="nav">
+      <a href="https://drjeevaraj.com/books.html">Book</a>
+      <a href="https://drjeevaraj.com/stories.html">Stories</a>
+      <a href="https://drjeevaraj.com/notes.html">Articles</a>
+      <a href="https://drjeevaraj.com/dev.html">Dev Work</a>
+      <a href="https://drjeevaraj.com/cv.html">CV</a>
+    </nav>
+  </div>
+</div>
+<main id="main-content" class="wrap">
+  <div class="kicker">Health Informatics · Artificial Intelligence · Human Connection</div>
+  <h1>The Day Health Advice Stopped Traveling Through People</h1>
+  <p class="subtitle">A reflection on AI, community, and what we risk losing along the way</p>
+  <div class="byline">
+    <img src="https://drjeevaraj.com/T. Jeevaraj.jpg" alt="Dr. T. Jeevaraj">
+    <div class="who">
+      <strong>Dr. T. Jeevaraj</strong>
+      <span>MBBS · MCGP · MSc Biomedical Informatics · MD Trainee, Health Informatics</span>
+    </div>
+  </div>
+  <div class="meta">
+    <span>📅 17 June 2026</span>
+    <span>⏱ 7 min read</span>
+    <span>🇱🇰 Sri Lanka</span>
+  </div>
+  <article>
+
+    <blockquote>
+      What traveled through those conversations was not only advice. It was the quiet assurance that he was not facing this alone.
+      <span class="src">A memory from rural primary care in Sri Lanka</span>
+    </blockquote>
+
+    <p>There was an elderly man I remember from my first years in rural primary care. He came to me with back pain, but he did not arrive alone. He arrived carrying conversations.</p>
+
+    <p>Before he described the pain, he described the people. His daughter had said rest. A neighbour had recommended a particular oil used for generations. A friend who had suffered something similar years earlier had urged him, quite firmly, not to ignore it. By the time he sat down across from me, the consultation was not the beginning of his journey. It was the final step in a long, warm chain of human contact. Several people had already thought carefully about this man's body, and every one of them had let him know it.</p>
+
+    <p>I did not fully appreciate what I was witnessing at the time. But I understand it now. What traveled through those conversations was not only advice. It was the quiet assurance that he was not facing this alone.</p>
+
+    <h2>Health Advice Has Always Been a Social Act</h2>
+
+    <p>In our communities, becoming unwell has never been a private event. People speak first with family. Then friends. Then a trusted pharmacist, a neighbour, an elder whose opinion carries weight. By the time a patient reaches the clinic, several people have already weighed in — some knowledgeable, some not, but all present. The advice that moves between them may be imperfect. Some of it is, inevitably. But something valuable has always traveled alongside it: shared attention, companionship, and the feeling of being held inside a community's concern.</p>
+
+    <p>In South Asian cultures especially, health decisions have rarely been individual ones. A family gathers. An older relative gives their view. Someone accompanies the patient to the consultation and sits beside them, ready to ask the question the patient is too frightened to ask alone. I have seen this more times than I can count. A daughter who translates not language, but emotion. A son who makes eye contact with me when his father cannot. The encounter is clinical, yes. But it is also unmistakably human, and the two have never been easy to separate.</p>
+
+    <h2>Then Something Changed</h2>
+
+    <p>A few months ago, a young man in his late twenties came to my clinic. He was calm and organised. Before I could ask about his symptoms, he turned his phone screen toward me. He had described what he was feeling to a conversational AI the previous night — late, when no clinic was open and no one he knew was available to call. The system had returned a structured response: possible causes, in order of likelihood, red flags to watch for, and a clear recommendation to see a doctor.</p>
+
+    <p>"It helped me understand what might be happening," he said. "I came here to confirm."</p>
+
+    <p>I looked at what the AI had written. It was well-constructed, cautious, and largely accurate. And I felt something I could not immediately name. Not disapproval — I know better than that. Something more like absence. There had been no daughter, no neighbour, no late-night call to a cousin who had once been through something similar. The chain of people had collapsed into a single, silent screen.</p>
+
+    <figure>
+      <img src="https://drjeevaraj.com/images/rural-opd-consultation.jpg" alt="A doctor and nurse consulting with an elderly couple in a rural Sri Lankan outpatient department, in a sparse and weathered room beneath a health awareness poster">
+      <figcaption><strong>Figure 1.</strong> A consultation in a rural outpatient department in Sri Lanka. The room is spare — peeling paint, a worn desk, a single overhead light — but it has never been empty of people. Patients in our communities have rarely arrived alone. They come with family, with the concerns of neighbours, with conversations already in progress. The clinic visit has always been the last step in a social journey, not the first.</figcaption>
+    </figure>
+
+    <h2>Why AI Feels So Reassuring</h2>
+
+    <p>It would be too simple to say people turn to conversational AI because they believe it is always right. In my experience, that is rarely the whole reason. When someone is frightened at two in the morning — when the chest feels tight, when the child has a fever and will not settle — what they need is not only a correct answer. What they need is someone who will respond.</p>
+
+    <p>Conversational AI is extraordinarily good at providing that feeling. It does not ask whether the question is silly. It does not sound tired or impatient. It never makes a person feel they are imposing. And so trust builds — not because accuracy has been verified, but because the tool has been reliably calm and kind at exactly the moment when calmness and kindness were most needed.</p>
+
+    <p>This matters to understand clearly, because reassurance and accuracy are not the same thing. A system that delivers one with great consistency can easily be mistaken for excelling at the other. The relief the mind feels is real. But relief is not the same as being well-informed, and feeling cared for is not the same as being cared for.</p>
+
+    <div class="callout">
+      <span class="tag">A Reflection</span>
+      <h3>Comfort and correctness are not the same thing</h3>
+      <p>Much of what patients need during illness is to feel heard and less afraid. Conversational AI is remarkably good at providing that feeling, at any hour, without judgment. The risk is not that this comfort is false — it is genuine. The risk is that comfort, delivered convincingly, can quietly substitute for the slower human conversations that once carried the same reassurance alongside real human presence.</p>
+    </div>
+
+    <h2>What Is Quietly Being Lost</h2>
+
+    <p>What those older conversations carried was not only information. It was presence. When a worried patient speaks to a family member or a trusted neighbour, something more than words moves between them. There is recognition. There is empathy shaped by shared history. There is the unspoken comfort of a familiar face and a cultural understanding that does not need to be explained.</p>
+
+    <p>An elderly woman talking to her neighbour about her knees receives more than advice. She receives companionship. A family gathered around a parent's new diagnosis does more than solve a practical problem. It strengthens itself in the solving. These things are difficult to measure, which is precisely why they are easy to overlook.</p>
+
+    <p>As conversational AI becomes the first port of call for health questions, those informal webs of support may quietly thin out. Not suddenly, and not dramatically — but steadily, interaction by interaction, query by query. A person can now hold more health information than any previous generation and yet face it more alone. And we may only notice the warmth has faded once it is already gone.</p>
+
+    <p class="pull">Efficiency is not the same as wellbeing. Faster answers are not the same as better care.</p>
+
+    <h2>What This Means for Those of Us in Healthcare</h2>
+
+    <p>For health professionals, this shift redefines our role rather than diminishing it. Patients increasingly arrive having already gathered information. They are not less informed than previous generations — in many ways they are more so. What changes is what they need from us.</p>
+
+    <p>I find myself spending less time explaining what a condition is and more time helping someone place what they have already read within the context of their actual life and body. The young man who came to confirm his AI's answer did not need me to describe his symptoms. He needed me to sit with him, look at him as a whole person, and help him understand what the information actually meant for him. Empathy, judgment, the particular weight of human presence during a frightening moment — these are the things that cannot be replicated, and they are exactly where our attention must now go.</p>
+
+    <p>There is also a dimension that concerns me at the population level. When millions of people consult similar AI systems, small inaccuracies scale across communities. When health advice flows through a handful of platforms rather than through the distributed, self-correcting networks of families and communities, questions of accountability and equity stop being individual concerns. They become structural ones.</p>
+
+    <h2>Not Humans or AI — Humans and AI</h2>
+
+    <p>I want to be careful here. This is not an argument against conversational AI. The same curiosity that draws me toward health informatics — toward building tools like ICD-O coding assistants for cancer registry work — makes me genuinely hopeful about what these systems can offer. For someone who is isolated, geographically or socially or economically, a well-designed AI assistant may be the most responsive and non-judgmental voice available to them. That is not a small thing.</p>
+
+    <p>The future I hope for is not people or AI. It is people and AI working alongside each other. A future where technology carries information efficiently and human communities continue to carry connection. Where AI accelerates the practical and human presence anchors the emotional. Where no one has to face illness alone — not merely because a machine is available at midnight, but because people still are.</p>
+
+    <div class="callout">
+      <span class="tag">The Balance I Hope For</span>
+      <h3>Technology should strengthen human relationships, not silently replace them</h3>
+      <p>AI can carry the information. People must continue to carry the connection. The measure of success is not how little we need each other. It is how much better we can care for one another when good tools and good relationships work side by side — each doing what only it can do.</p>
+    </div>
+
+    <div class="divider">· · ·</div>
+
+    <h2>A Reflection to Close</h2>
+
+    <p>The elderly man with the back pain, who arrived at my clinic one morning carrying the advice of half his village, was participating in something that predates formal medicine by centuries. His journey to my consultation room was as much a social act as a clinical one. Those conversations had given him more than guidance. They had given him the feeling of being accompanied — of belonging to a community that noticed when he was unwell and thought carefully about how to help him.</p>
+
+    <p>Healthcare has never been only about data, or diagnosis, or the right prescription. It has always been, at its heart, about relationships. As remarkable new tools enter that space, the question I keep returning to is not whether AI can give good health advice. It clearly can, and often does.</p>
+
+    <p>The harder question is whether we can ensure that receiving health advice still feels like being cared for. That is not a technology problem. It is a human one. And it belongs to us to protect.</p>
+
+  </article>
+
+  <div class="topics">
+    <div class="lbl">Topics</div>
+    <div class="chips">
+      <span>AI in Healthcare</span>
+      <span>Conversational AI</span>
+      <span>Human Connection</span>
+      <span>Patient Trust</span>
+      <span>Community Health</span>
+      <span>Digital Transformation</span>
+      <span>Health Informatics</span>
+      <span>Social Support</span>
+      <span>Responsible AI</span>
+      <span>Sri Lanka</span>
+    </div>
+  </div>
+
+  <div class="share">
+    <div class="lbl">Share This Article</div>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdrjeevaraj.com%2Fai-health-advice-human-connection.html">LinkedIn</a>
+    <a href="https://twitter.com/intent/tweet?text=The+Day+Health+Advice+Stopped+Traveling+Through+People+%E2%80%94+reflections+on+AI%2C+community%2C+and+human+connection+by+%40drjeevaraj&url=https%3A%2F%2Fdrjeevaraj.com%2Fai-health-advice-human-connection.html">X / Twitter</a>
+    <a href="https://medium.com/new-story?canonical=https%3A%2F%2Fdrjeevaraj.com%2Fai-health-advice-human-connection.html">Medium</a>
+    <a href="mailto:?subject=The%20Day%20Health%20Advice%20Stopped%20Traveling%20Through%20People&body=I%20thought%20you%20might%20find%20this%20article%20by%20Dr.%20T.%20Jeevaraj%20interesting%3A%0A%0Ahttps%3A%2F%2Fdrjeevaraj.com%2Fai-health-advice-human-connection.html">Email</a>
+  </div>
+
+  <div class="author-card">
+    <div class="head">
+      <img src="https://drjeevaraj.com/T. Jeevaraj.jpg" alt="Dr. T. Jeevaraj">
+      <div>
+        <strong>Dr. Thangarasa Jeevaraaj (Dr. T. Jeevaraj)</strong>
+        <span>MBBS · MCGP · MSc Biomedical Informatics · MD Trainee, Health Informatics · PGIM, University of Colombo · Sri Lanka</span>
+      </div>
+    </div>
+    <p>I am a medical doctor with qualifications in MBBS, MCGP, and MSc Biomedical Informatics, currently an MD Trainee in Health Informatics at PGIM, University of Colombo. My professional work lives inside systems — DHIS2, public health data platforms, AI verification frameworks, governance structures. I believe technology should sharpen accountability and human care, not quietly replace them.</p>
+    <p>Alongside that technical work, I write about what AI does to ordinary human life — not the technology itself, but what it quietly changes in the people who use it. That observation became my first English book: <a href="https://www.amazon.com/dp/B0H333G41P"><em>Are You Still Human? (2026)</em></a> — three true stories, ten patterns, one quiet question.</p>
+    <div class="roles">
+      <span>Medical Doctor</span>
+      <span>Health Informatics Professional</span>
+      <span>Cancer Registry &amp; Digital Health</span>
+      <span>AI Governance</span>
+      <span>Responsible AI in Healthcare</span>
+    </div>
+    <div class="links">
+      <a href="https://www.amazon.com/dp/B0H333G41P">📖 Book on Amazon</a>
+      <a href="https://drjeevaraj.com">🌐 Website</a>
+      <a href="https://drjeevaraj.com/cv.html">📄 CV</a>
+      <a href="https://drjeevaraj.com/dev.html">💻 Dev Work</a>
+      <a href="https://www.linkedin.com/in/geevanathy/">LinkedIn</a>
+      <a href="https://x.com/drjeevaraj">X / Twitter</a>
+    </div>
+  </div>
+
+</main>
+<footer>
+  <div class="inner">
+    <a href="https://drjeevaraj.com/index.html">Home</a>
+    <a href="https://drjeevaraj.com/books.html">The Book</a>
+    <a href="https://drjeevaraj.com/notes.html">Articles</a>
+    <a href="https://drjeevaraj.com/dev.html">Dev Work</a>
+    <a href="https://drjeevaraj.com/cv.html">CV</a>
+    <div class="copyright">© 2026 T. Jeevaraj. All rights reserved.</div>
+  </div>
+</footer>
+</body>
+</html>
