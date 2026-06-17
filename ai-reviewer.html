@@ -26,7 +26,38 @@
   <style>
     /* ── AI REVIEWER PAGE STYLES ─────────────────────────────── */
 
-    /* Competency grid */
+    /* ── AVAILABILITY BADGE ── */
+    .air-available-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(79,125,82,0.18);
+      border: 1px solid rgba(79,125,82,0.50);
+      color: #7ecf83;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 2px;
+      margin-bottom: 1.4rem;
+      display: inline-flex;
+    }
+    .air-available-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #7ecf83;
+      animation: pulse-green 2s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-green {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* ── COMPETENCY GRID ── */
     .air-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -66,9 +97,9 @@
 
     .air-card-label {
       font-family: var(--font-ui);
-      font-size: 0.58rem;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 3px;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--gold-deep);
       margin-bottom: 0.4rem;
@@ -76,7 +107,7 @@
     }
     .air-card h3 {
       font-family: var(--font-display);
-      font-size: 1.28rem;
+      font-size: 1.32rem;
       font-weight: 400;
       color: var(--ink);
       margin-bottom: 0.7rem;
@@ -84,138 +115,81 @@
     }
     .air-card p {
       font-family: var(--font-body);
-      font-size: 0.88rem;
-      color: var(--ink-light);
-      line-height: 1.78;
+      font-size: 0.96rem;
+      color: var(--ink-mid);
+      line-height: 1.82;
     }
 
-    /* Platform availability */
-    .air-platform-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2.5rem;
-    }
-    .air-platform-card {
-      background: rgba(200,151,62,0.05);
-      border: 1px solid var(--border-dark);
-      border-radius: var(--radius-md);
-      padding: 1.4rem 1.5rem;
-      text-align: center;
-      transition: border-color var(--t), background var(--t);
-    }
-    .air-platform-card:hover {
-      border-color: var(--border);
-      background: rgba(200,151,62,0.10);
-    }
-    .air-platform-icon {
-      font-size: 1.5rem;
-      color: var(--gold);
-      margin-bottom: 0.7rem;
-      display: block;
-    }
-    .air-platform-name {
-      font-family: var(--font-ui);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--hero-text);
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .air-platform-desc {
-      font-family: var(--font-ui);
-      font-size: 0.62rem;
-      color: rgba(242,232,210,0.48);
-      line-height: 1.5;
-    }
-    .air-platform-badge {
-      display: inline-block;
-      margin-top: 0.6rem;
-      font-family: var(--font-ui);
-      font-size: 0.52rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #080604;
-      background: linear-gradient(135deg, var(--gold-light), var(--gold));
-      padding: 2px 8px;
-      border-radius: 2px;
-    }
-    .air-platform-badge.open {
-      background: linear-gradient(135deg, #4F7D52, #3a5f3d);
-      color: #f0ece6;
-    }
-
-    /* Stats strip on dark bg */
+    /* ── STATS STRIP ── */
     .air-stats-strip {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
-      border: 1px solid rgba(200,151,62,0.18);
+      border: 1px solid rgba(200,151,62,0.25);
       border-radius: var(--radius-md);
       overflow: hidden;
       margin-bottom: 3.5rem;
     }
     .air-stat {
-      padding: 1.8rem 1.5rem;
+      padding: 2rem 1.5rem;
       text-align: center;
-      border-right: 1px solid rgba(200,151,62,0.12);
+      border-right: 1px solid rgba(200,151,62,0.15);
     }
     .air-stat:last-child { border-right: none; }
     .air-stat-num {
       display: block;
       font-family: var(--font-display);
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       font-weight: 300;
       color: var(--gold-light);
       line-height: 1;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
     .air-stat-label {
       font-family: var(--font-ui);
-      font-size: 0.58rem;
+      font-size: 0.68rem;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 1.8px;
       text-transform: uppercase;
-      color: rgba(242,232,210,0.52);
+      color: rgba(242,232,210,0.82);
     }
 
-    /* Publication cards */
+    /* ── PUBLICATION CARDS ── */
     .air-pub-list { display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 2.5rem; }
     .air-pub-card {
       background: var(--parchment-light);
       border: 1px solid var(--border-light);
-      border-left: 3px solid var(--gold-deep);
+      border-left: 4px solid var(--gold-deep);
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      padding: 1.4rem 1.8rem;
+      padding: 1.6rem 2rem;
       transition: border-color var(--t), box-shadow var(--t);
     }
-    .air-pub-card:hover { border-left-color: var(--gold); box-shadow: var(--shadow-sm); }
+    .air-pub-card:hover { border-left-color: var(--gold); box-shadow: var(--shadow-md); }
+    .air-pub-card.featured { border-left-color: var(--gold); background: linear-gradient(to right, rgba(200,151,62,0.05), var(--parchment-light)); }
     .air-pub-journal {
       font-family: var(--font-ui);
-      font-size: 0.58rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 2.5px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--gold-deep);
       display: block;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
+    .air-pub-card.featured .air-pub-journal { color: var(--copper); }
     .air-pub-title {
       font-family: var(--font-display);
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       font-weight: 400;
       color: var(--ink);
-      line-height: 1.4;
-      margin-bottom: 0.5rem;
+      line-height: 1.45;
+      margin-bottom: 0.6rem;
     }
     .air-pub-meta {
       font-family: var(--font-ui);
-      font-size: 0.65rem;
-      color: var(--ink-pale);
-      line-height: 1.6;
+      font-size: 0.75rem;
+      color: var(--ink-light);
+      line-height: 1.65;
     }
     .air-pub-meta a {
       color: var(--teal);
@@ -224,73 +198,80 @@
     }
     .air-pub-meta a:hover { color: var(--teal-light); }
 
-    /* Why a physician section */
+    /* ── WHY A PHYSICIAN ── */
     .air-physician-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
+      gap: 1.4rem;
       margin-bottom: 2rem;
     }
     .air-physician-item {
       display: flex;
       gap: 1rem;
       align-items: flex-start;
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.5rem;
+      transition: box-shadow var(--t), border-color var(--t);
     }
+    .air-physician-item:hover { box-shadow: var(--shadow-sm); border-color: var(--border); }
     .air-physician-icon {
       flex-shrink: 0;
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.9rem;
-      background: rgba(200,151,62,0.08);
-      border: 1px solid rgba(200,151,62,0.22);
-      color: var(--gold);
+      font-size: 0.95rem;
+      background: rgba(200,151,62,0.10);
+      border: 1px solid rgba(200,151,62,0.28);
+      color: var(--gold-deep);
       margin-top: 2px;
     }
     .air-physician-text h4 {
       font-family: var(--font-display);
-      font-size: 1.08rem;
+      font-size: 1.12rem;
       font-weight: 400;
       color: var(--ink);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.35rem;
     }
     .air-physician-text p {
       font-family: var(--font-body);
-      font-size: 0.85rem;
-      color: var(--ink-light);
-      line-height: 1.75;
+      font-size: 0.93rem;
+      color: var(--ink-mid);
+      line-height: 1.78;
     }
 
-    /* CTA box */
+    /* ── CTA BOX ── */
     .air-cta-box {
-      background: rgba(200,151,62,0.06);
-      border: 1px solid rgba(200,151,62,0.25);
+      background: rgba(200,151,62,0.08);
+      border: 1px solid rgba(200,151,62,0.30);
       border-radius: var(--radius-md);
-      padding: 3rem 2.8rem;
+      padding: 3.2rem 3rem;
       text-align: center;
     }
     .air-cta-box h2 {
       font-family: var(--font-display);
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       font-weight: 300;
       letter-spacing: 2px;
-      color: var(--hero-text);
+      color: #F2E8D2;
       margin-bottom: 0.8rem;
+      line-height: 1.15;
     }
     .air-cta-box p {
       font-family: var(--font-body);
-      font-size: 1rem;
-      color: rgba(242,232,210,0.68);
-      line-height: 1.75;
-      max-width: 540px;
+      font-size: 1.05rem;
+      color: rgba(242,232,210,0.88);
+      line-height: 1.82;
+      max-width: 580px;
       margin: 0 auto 2rem;
     }
     .air-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-    /* Credentials row */
+    /* ── CREDENTIAL CHIPS ── */
     .air-cred-row {
       display: flex;
       flex-wrap: wrap;
@@ -300,25 +281,25 @@
     .air-cred-chip {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.4rem;
       font-family: var(--font-ui);
-      font-size: 0.6rem;
+      font-size: 0.70rem;
       font-weight: 500;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: rgba(242,232,210,0.55);
-      background: rgba(200,151,62,0.06);
-      border: 1px solid rgba(200,151,62,0.15);
-      padding: 4px 12px;
+      color: rgba(242,232,210,0.80);
+      background: rgba(200,151,62,0.08);
+      border: 1px solid rgba(200,151,62,0.22);
+      padding: 5px 13px;
       border-radius: 2px;
     }
-    .air-cred-chip i { color: var(--gold); font-size: 0.55rem; }
+    .air-cred-chip i { color: var(--gold); font-size: 0.60rem; }
 
-    /* Hero stat badges */
+    /* ── HERO META STATS ── */
     .air-hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 1.2rem 2rem;
       margin-top: 2rem;
     }
     .air-hero-stat {
@@ -326,24 +307,45 @@
       align-items: center;
       gap: 0.5rem;
       font-family: var(--font-ui);
-      font-size: 0.68rem;
+      font-size: 0.75rem;
       font-weight: 500;
-      letter-spacing: 1.8px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: rgba(242,232,210,0.60);
+      color: rgba(242,232,210,0.85);
     }
-    .air-hero-stat i { color: var(--gold); font-size: 0.7rem; }
+    .air-hero-stat i { color: var(--gold); font-size: 0.78rem; }
 
-    /* Responsive */
+    /* ── HERO QUICK ACTIONS ── */
+    .air-hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      margin-top: 2.2rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       .air-stats-strip { grid-template-columns: repeat(2, 1fr); }
-      .air-stat { border-right: 1px solid rgba(200,151,62,0.12); border-bottom: 1px solid rgba(200,151,62,0.12); }
+      .air-stat { border-right: 1px solid rgba(200,151,62,0.15); border-bottom: 1px solid rgba(200,151,62,0.15); }
       .air-stat:nth-child(2n) { border-right: none; }
       .air-stat:nth-last-child(-n+2) { border-bottom: none; }
+      .air-stat-num { font-size: 2.2rem; }
+      .air-stat-label { font-size: 0.72rem; }
+      .air-cta-box { padding: 2.2rem 1.6rem; }
+      .air-cta-box h2 { font-size: 2rem; }
+      .air-cta-box p { font-size: 1rem; }
+      .air-card p { font-size: 0.96rem; }
+      .air-physician-text p { font-size: 0.95rem; }
+      .air-pub-title { font-size: 1.1rem; }
+      .air-pub-meta { font-size: 0.78rem; }
+      .air-hero-stat { font-size: 0.78rem; }
+      .air-hero-actions { margin-top: 1.8rem; }
+      .air-physician-item { padding: 1.2rem; }
     }
     @media (max-width: 480px) {
-      .air-stats-strip { grid-template-columns: 1fr 1fr; }
-      .air-cta-box { padding: 2rem 1.5rem; }
+      .air-grid { grid-template-columns: 1fr; }
+      .air-cta-btns { flex-direction: column; align-items: center; }
+      .air-cta-btns a { width: 100%; max-width: 320px; }
     }
   </style>
 </head>
@@ -372,9 +374,10 @@
 <div class="dev-hero-strip">
   <div class="container">
     <span class="page-label"><i class="fa-solid fa-robot" style="margin-right:0.4rem;"></i>Clinical &amp; Medical AI Review</span>
+    <div class="air-available-badge"><span class="air-available-dot"></span> Currently Accepting Engagements</div>
     <h1>AI Reviewer</h1>
-    <p class="page-sub" style="color:rgba(237,228,212,0.72);">
-      A licensed physician reviewing AI-generated medical content<br>
+    <p class="page-sub" style="color:rgba(237,228,212,0.82); max-width:620px;">
+      A licensed physician reviewing AI-generated medical content
       for clinical accuracy, safety, and real-world validity.
     </p>
     <div class="air-hero-meta">
@@ -382,6 +385,14 @@
       <div class="air-hero-stat"><i class="fa-solid fa-graduation-cap"></i> MBBS · MCGP · MSc Biomed Informatics</div>
       <div class="air-hero-stat"><i class="fa-solid fa-shield-halved"></i> SLMC Reg. 23293</div>
       <div class="air-hero-stat"><i class="fa-solid fa-earth-asia"></i> APAC · Remote</div>
+    </div>
+    <div class="air-hero-actions">
+      <a href="mailto:tjeevaraj78@gmail.com" class="btn-buy" style="font-size:0.76rem;">
+        <i class="fa-solid fa-envelope"></i> &nbsp;Get in Touch
+      </a>
+      <a href="cv.html" class="btn-preview" style="font-size:0.76rem;">
+        <i class="fa-solid fa-file-medical"></i> &nbsp;View Full CV
+      </a>
     </div>
   </div>
 </div>
@@ -530,7 +541,7 @@
   </div>
 </section>
 
-<!-- ── PUBLICATIONS ───────────────────────────── -->
+<!-- ── RESEARCH CREDENTIALS ───────────────────── -->
 <section>
   <div class="container">
     <div class="section-heading fade-in">
@@ -541,21 +552,21 @@
     </div>
     <div class="air-pub-list fade-in">
 
-      <div class="air-pub-card">
-        <span class="air-pub-journal"><i class="fa-solid fa-book-medical" style="margin-right:0.3rem;"></i>BMJ Open · 2020</span>
+      <div class="air-pub-card featured">
+        <span class="air-pub-journal"><i class="fa-solid fa-book-medical" style="margin-right:0.35rem;"></i>BMJ Open &nbsp;·&nbsp; 2020 &nbsp;·&nbsp; University of Michigan Collaboration</span>
         <div class="air-pub-title">Imputing HbA1c from capillary blood glucose values in a diabetes screening programme in Sri Lanka: a cross-sectional study</div>
         <p class="air-pub-meta">
-          Jeevaraaj T, et al. &nbsp;·&nbsp; University of Michigan Collaboration &nbsp;·&nbsp;
+          Jeevaraaj T, et al. &nbsp;·&nbsp;
           <a href="https://doi.org/10.1136/bmjopen-2020-038148" target="_blank" rel="noopener">doi:10.1136/bmjopen-2020-038148</a>
           &nbsp;·&nbsp; PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/32690534/" target="_blank" rel="noopener">32690534</a>
         </p>
       </div>
 
       <div class="air-pub-card">
-        <span class="air-pub-journal"><i class="fa-solid fa-book-medical" style="margin-right:0.3rem;"></i>Jaffna Medical Journal · December 2024</span>
+        <span class="air-pub-journal"><i class="fa-solid fa-book-medical" style="margin-right:0.35rem;"></i>Jaffna Medical Journal &nbsp;·&nbsp; December 2024 &nbsp;·&nbsp; Multi-centre Cardiology Study</span>
         <div class="air-pub-title">Role of Speckle Tracking Echocardiography (Global Longitudinal Strain) in Diagnosing Coronary Artery Disease compared to Coronary Angiogram</div>
         <p class="air-pub-meta">
-          Multi-centre cardiology study &nbsp;·&nbsp; GLS echo vs coronary angiogram as reference standard &nbsp;·&nbsp;
+          GLS echo vs coronary angiogram as reference standard &nbsp;·&nbsp;
           <a href="https://doi.org/10.4038/jmj.v36i2.221" target="_blank" rel="noopener">doi:10.4038/jmj.v36i2.221</a>
         </p>
       </div>
@@ -589,12 +600,10 @@
 </section>
 
 <!-- ── CONTACT CTA ─────────────────────────────── -->
-<section class="dark">
-  <div class="container">
-
-    <!-- CTA box -->
+<section class="dark" style="border-top:1px solid rgba(200,151,62,0.12); padding-top:0;">
+  <div class="container" style="padding-top:4rem; padding-bottom:5rem;">
     <div class="air-cta-box fade-in">
-      <h2>Work with me</h2>
+      <h2>Work with Me</h2>
       <p>
         Looking for a physician reviewer who understands both the clinical floor and the AI stack?
         I review medical AI content part-time alongside active MD training — bringing current
@@ -607,8 +616,11 @@
         <a href="https://www.linkedin.com/in/geevanathy/" target="_blank" rel="noopener" class="btn-preview">
           <i class="fa-brands fa-linkedin"></i> &nbsp;LinkedIn
         </a>
+        <a href="cv.html" class="btn-contact">
+          <i class="fa-solid fa-file-medical"></i> &nbsp;Full CV
+        </a>
       </div>
-      <div class="air-cred-row" style="justify-content:center; margin-top:1.6rem;">
+      <div class="air-cred-row" style="justify-content:center; margin-top:1.8rem;">
         <span class="air-cred-chip"><i class="fa-solid fa-globe"></i> Remote · APAC</span>
         <span class="air-cred-chip"><i class="fa-solid fa-clock"></i> Part-time Available</span>
         <span class="air-cred-chip"><i class="fa-solid fa-shield-halved"></i> SLMC Licensed Physician</span>
@@ -648,15 +660,12 @@
 
 <!-- ── SCRIPTS ────────────────────────────────── -->
 <script>
-// Hamburger menu
 const hamburger = document.getElementById('nav-hamburger');
 const navLinks  = document.getElementById('nav-links');
 if (hamburger && navLinks) {
   hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
 }
-
-// Fade-in observer
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -666,8 +675,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// Page exit transition
 document.querySelectorAll('a[href]').forEach(link => {
   const href = link.getAttribute('href');
   if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto')) {
