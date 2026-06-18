@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9EW1LVGWZP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9EW1LVGWZP');
+  </script>
+
+  <!-- ── SEO ──────────────────────────────────── -->
+  <title>Who Will Supervise the Supervising AI? | Dr. T. Jeevaraj</title>
+  <meta name="description" content="A physician and health informatician reflects on a conversation with his son that led to one of the hardest questions in AI governance: who supervises the supervising AI?" />
+  <meta name="keywords" content="AI governance, healthcare AI, AI oversight, human-in-the-loop, responsible AI, health informatics, AI supervision, information governance, digital health, Sri Lanka" />
+  <meta name="author" content="Dr. T. Jeevaraj" />
+  <link rel="canonical" href="https://drjeevaraj.com/ai-supervision-governance.html" />
+
+  <!-- ── Open Graph ────────────────────────────── -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Who Will Supervise the Supervising AI?" />
+  <meta property="og:description" content="A child's simple question — asked at the end of an ordinary evening — may be the most important question in AI governance. A reflection from a physician and health informatician." />
+  <meta property="og:url" content="https://drjeevaraj.com/ai-supervision-governance.html" />
+  <meta property="og:image" content="https://drjeevaraj.com/images/son-supervision-question.jpg" />
+  <meta property="og:site_name" content="Dr. T. Jeevaraj — Still Human" />
+  <meta property="article:published_time" content="2026-06-18T00:00:00Z" />
+  <meta property="article:author" content="https://drjeevaraj.com" />
+  <meta property="article:section" content="Health Informatics" />
+  <meta property="article:tag" content="AI Governance" />
+  <meta property="article:tag" content="Healthcare AI" />
+  <meta property="article:tag" content="Responsible AI" />
+
+  <!-- ── Twitter Card ──────────────────────────── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@drjeevaraj" />
+  <meta name="twitter:creator" content="@drjeevaraj" />
+  <meta name="twitter:title" content="Who Will Supervise the Supervising AI?" />
+  <meta name="twitter:description" content="A child asked his father three questions about AI in healthcare. The third one stopped him completely." />
+  <meta name="twitter:image" content="https://drjeevaraj.com/images/son-supervision-question.jpg" />
+
+  <!-- ── Schema.org ────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Who Will Supervise the Supervising AI?",
+    "description": "A physician and health informatician reflects on a conversation with his son that raised one of the hardest questions in AI governance — who supervises the supervisor?",
+    "image": "https://drjeevaraj.com/images/son-supervision-question.jpg",
+    "datePublished": "2026-06-18",
+    "dateModified": "2026-06-18",
+    "author": {
+      "@type": "Person",
+      "name": "Dr. T. Jeevaraj",
+      "url": "https://drjeevaraj.com",
+      "jobTitle": "MD Trainee, Health Informatics",
+      "affiliation": "PGIM, University of Colombo"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Dr. T. Jeevaraj",
+      "url": "https://drjeevaraj.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://drjeevaraj.com/ai-supervision-governance.html"
+    },
+    "keywords": ["AI Governance", "Healthcare AI", "Responsible AI", "Human-in-the-Loop", "Health Informatics", "AI Oversight"],
+    "articleSection": "Health Informatics",
+    "wordCount": 1900
+  }
+  </script>
+
+  <!-- ── Fonts ─────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <!-- ── Embedded CSS ──────────────────────────── -->
+  <style>
+    /* ── RESET & BASE ──────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 18px; }
+    body {
+      font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+      font-weight: 300;
+      background: var(--bg);
+      color: #222222;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: #1f4e79; }
+    a:hover { color: #2c6e91; }
+
+    /* ── VARIABLES ─────────────────────────────── */
+    :root {
+      --primary:   #1f4e79;
+      --secondary: #2c6e91;
+      --accent:    #d97706;
+      --accent-bg: #fef3c7;
+      --bg:        #ffffff;
+      --text:      #1a1a1a;
+      --text-mid:  #444444;
+      --text-light:#666666;
+      --border:    #e5e7eb;
+      --bg-tint:   #f3f4f6;
+      --bg-warm:   #f9fafb;
+      --width:     780px;
+      --radius:    6px;
+    }
+
+    /* ── READING PROGRESS BAR ──────────────────── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* ── SKIP LINK ─────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ── MINIMAL NAV ───────────────────────────── */
+    .site-nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-brand {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .nav-links-row {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    .nav-links-row a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-light);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links-row a:hover, .nav-links-row a.active { color: var(--primary); }
+
+    /* ── CONTAINER ─────────────────────────────── */
+    .container {
+      max-width: var(--width);
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    /* ── HERO ──────────────────────────────────── */
+    .article-hero {
+      background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2.5rem 3rem;
+    }
+    .hero-inner { max-width: var(--width); margin: 0 auto; }
+
+    .category-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.6rem;
+    }
+    .category-chip {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: rgba(31,78,121,0.08);
+      border: 1px solid rgba(31,78,121,0.2);
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+    .category-chip.accent {
+      color: var(--accent);
+      background: rgba(217,119,6,0.08);
+      border-color: rgba(217,119,6,0.25);
+    }
+    .category-divider { color: var(--border); font-size: 0.8rem; }
+
+    .article-title {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+    }
+    .article-subtitle {
+      font-family: 'Merriweather', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 680px;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .meta-author-block {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .meta-photo {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+    .meta-author-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+    }
+    .meta-author-role {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      color: var(--text-light);
+      display: block;
+    }
+    .meta-divider { color: var(--border); }
+    .meta-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .meta-icon { font-size: 0.65rem; }
+
+    /* ── FEATURED QUOTE ────────────────────────── */
+    .featured-quote-section {
+      background: var(--primary);
+      padding: 3.5rem 1.5rem;
+    }
+    .featured-quote-inner {
+      max-width: var(--width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .featured-quote-mark {
+      font-family: 'Inter', sans-serif;
+      font-size: 4rem;
+      color: var(--accent);
+      line-height: 0.5;
+      display: block;
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+    }
+    .featured-quote-text {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.2rem, 3vw, 1.65rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #ffffff;
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+    }
+    .featured-quote-attr {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 1.5rem;
+      display: block;
+    }
+
+    /* ── ARTICLE BODY ──────────────────────────── */
+    .article-body {
+      padding: 3.5rem 0 2rem;
+    }
+    .article-body p {
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--text);
+      margin-bottom: 1.6rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    /* Drop cap */
+    .drop-cap::first-letter {
+      float: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 4.2rem;
+      font-weight: 800;
+      line-height: 0.8;
+      color: var(--primary);
+      margin: 0.08em 0.12em 0 0;
+      padding: 0.05em 0;
+    }
+
+    /* Section headings */
+    .section-heading {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.25;
+      margin: 3.5rem 0 1.2rem;
+      padding-top: 0.5rem;
+      border-top: 3px solid var(--accent);
+      display: inline-block;
+    }
+    .section-heading-block {
+      display: block;
+      margin: 3.5rem 0 1.2rem;
+    }
+    .section-heading-block .section-heading {
+      margin-top: 0;
+    }
+
+    /* Pull quotes */
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 1.5rem 2rem;
+      border-left: 4px solid var(--accent);
+      background: var(--bg-warm);
+    }
+    .pull-quote p {
+      font-family: 'Merriweather', serif;
+      font-size: 1.2rem !important;
+      font-weight: 400 !important;
+      font-style: italic;
+      color: var(--primary) !important;
+      line-height: 1.65 !important;
+      margin: 0 !important;
+    }
+
+    /* Callout boxes */
+    .callout {
+      border-radius: var(--radius);
+      padding: 1.8rem 2rem;
+      margin: 2.5rem 0;
+    }
+    .callout-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .callout-label::after {
+      content: '';
+      display: block;
+      flex: 1;
+      height: 1px;
+    }
+    .callout-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .callout p {
+      font-size: 0.92rem !important;
+      line-height: 1.75 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Key observation */
+    .callout-observation {
+      background: #f0f7ff;
+      border: 1px solid #c7dff7;
+      border-left: 4px solid var(--primary);
+    }
+    .callout-observation .callout-label { color: var(--primary); }
+    .callout-observation .callout-label::after { background: #bfdbfe; }
+    .callout-observation .callout-title { color: var(--primary); }
+    .callout-observation p { color: #1e40af !important; }
+
+    /* Lessons learned */
+    .callout-lessons {
+      background: var(--bg-tint);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+    }
+    .callout-lessons .callout-label { color: var(--accent); }
+    .callout-lessons .callout-label::after { background: var(--border); }
+    .callout-lessons .callout-title { color: var(--text); }
+
+    /* Lessons list */
+    .lessons-list {
+      list-style: none;
+      margin: 0.5rem 0 0;
+    }
+    .lessons-list li {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+    .lessons-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .lesson-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-bg);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* Figure */
+    .figure-wrap {
+      margin: 2.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--bg-warm);
+    }
+    .figure-inner {
+      cursor: zoom-in;
+      overflow: hidden;
+    }
+    .figure-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .figure-inner:hover .figure-img { transform: scale(1.01); }
+    .figure-caption {
+      padding: 1rem 1.2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+    .figure-caption-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+      margin-top: 0.1rem;
+    }
+    .figure-caption-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Human-in-the-loop section */
+    .hitl-section {
+      background: var(--primary);
+      border-radius: var(--radius);
+      padding: 2rem 2rem 1.8rem;
+      margin: 3rem 0;
+      color: #ffffff;
+    }
+    .hitl-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+    .hitl-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .hitl-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .hitl-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+    .hitl-body p {
+      font-family: 'Merriweather', serif;
+      font-size: 0.95rem !important;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85) !important;
+      line-height: 1.85 !important;
+      margin-bottom: 1rem !important;
+    }
+    .hitl-body p:last-child { margin-bottom: 0 !important; }
+    .hitl-principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.8rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 1.8rem;
+    }
+    .hitl-principle { text-align: center; }
+    .principle-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+    .principle-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      display: block;
+    }
+    .principle-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+      margin-top: 0.25rem;
+    }
+
+    /* Key point inline */
+    .key-point {
+      background: var(--accent-bg);
+      border-bottom: 2px solid var(--accent);
+      padding: 0 3px;
+    }
+
+    /* Conclusion */
+    .conclusion-section {
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+    }
+    .conclusion-ornament {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 8px;
+      color: var(--accent);
+      text-align: center;
+      display: block;
+      margin-bottom: 2rem;
+    }
+    .conclusion-text {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.9;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Tags */
+    .tags-section {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      margin-top: 2.5rem;
+    }
+    .tags-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.8rem;
+    }
+    .tags-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      color: var(--secondary);
+      background: rgba(44,110,145,0.08);
+      border: 1px solid rgba(44,110,145,0.2);
+      padding: 4px 12px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .tag:hover { background: rgba(44,110,145,0.15); color: var(--primary); }
+
+    /* Share */
+    .share-section {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .share-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    .share-buttons { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.55rem 1.2rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+    }
+    .share-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .share-btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+    .btn-linkedin { background: #0a66c2; color: #ffffff; }
+    .btn-x        { background: #111111; color: #ffffff; }
+    .btn-medium   { background: #000000; color: #ffffff; }
+    .btn-email    { background: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }
+    .btn-copy     { background: #f3f4f6; color: #374151; border: 1px solid #d1d5db; font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; }
+
+    /* Author box */
+    .author-section {
+      margin: 3rem 0;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: 0 0 var(--radius) var(--radius);
+      padding: 2rem 2rem 2rem;
+      background: var(--bg-warm);
+    }
+    .author-section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+    }
+    .author-layout {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .author-photo {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+    }
+    .author-credentials {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: var(--text-light);
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+    .author-bio-text {
+      font-family: 'Merriweather', serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .author-interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .interest-chip {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: var(--secondary);
+      background: rgba(44,110,145,0.07);
+      border: 1px solid rgba(44,110,145,0.18);
+      padding: 3px 9px;
+      border-radius: 2px;
+    }
+    .author-links-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .author-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .author-link:hover { border-color: var(--primary); background: rgba(31,78,121,0.05); }
+
+    /* Footer */
+    .article-footer {
+      background: var(--primary);
+      color: rgba(255,255,255,0.7);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0.8rem 0;
+    }
+    .footer-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: #ffffff; }
+    .footer-copy {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      margin-top: 0.8rem;
+      opacity: 0.4;
+    }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: var(--radius);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: fixed;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.5rem;
+      color: #ffffff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.3rem 0.6rem;
+    }
+
+    /* ── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 700px) {
+      html { font-size: 17px; }
+      .nav-links-row { display: none; }
+      .hitl-principles { grid-template-columns: 1fr; }
+      .author-layout { flex-direction: column; align-items: center; text-align: center; }
+      .author-interests { justify-content: center; }
+      .author-links-row { justify-content: center; }
+      .article-hero { padding: 2.5rem 1.2rem 2rem; }
+      .article-body { padding: 2.5rem 1.2rem 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Reading progress"></div>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ── NAV ──────────────────────────────────── -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="index.html" class="nav-brand">Dr. T. Jeevaraj · Still Human</a>
+    <ul class="nav-links-row">
+      <li><a href="books.html">Book</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="notes.html" class="active">Articles</a></li>
+      <li><a href="dev.html">Dev Work</a></li>
+      <li><a href="cv.html">CV</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────── -->
+  <header class="article-hero" aria-label="Article header">
+    <div class="hero-inner">
+      <div class="category-row" aria-label="Article categories">
+        <span class="category-chip">Health Informatics</span>
+        <span class="category-divider" aria-hidden="true">·</span>
+        <span class="category-chip">Artificial Intelligence</span>
+        <span class="category-divider" aria-hidden="true">·</span>
+        <span class="category-chip accent">AI Governance</span>
+      </div>
+
+      <h1 class="article-title">Who Will Supervise the Supervising AI?</h1>
+      <p class="article-subtitle">A conversation with my son that changed how I think about the future of healthcare governance</p>
+
+      <div class="hero-meta" role="contentinfo" aria-label="Article metadata">
+        <div class="meta-author-block">
+          <img src="https://drjeevaraj.com/T. Jeevaraj.jpg"
+               alt="Dr. T. Jeevaraj"
+               class="meta-photo"
+               width="44" height="44"
+               onerror="this.style.display='none'" />
+          <div>
+            <span class="meta-author-name">Dr. T. Jeevaraj</span>
+            <span class="meta-author-role">MBBS · MCGP · MSc Biomedical Informatics · MD Trainee, Health Informatics</span>
+          </div>
+        </div>
+        <span class="meta-divider" aria-hidden="true">|</span>
+        <span class="meta-item"><span class="meta-icon" aria-hidden="true">📅</span> 18 June 2026</span>
+        <span class="meta-divider" aria-hidden="true">|</span>
+        <span class="meta-item"><span class="meta-icon" aria-hidden="true">⏱</span> 8 min read</span>
+        <span class="meta-divider" aria-hidden="true">|</span>
+        <span class="meta-item"><span class="meta-icon" aria-hidden="true">🇱🇰</span> Sri Lanka</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── FEATURED QUOTE ───────────────────── -->
+  <section class="featured-quote-section" aria-label="Featured quote">
+    <div class="featured-quote-inner">
+      <span class="featured-quote-mark" aria-hidden="true">&ldquo;</span>
+      <blockquote class="featured-quote-text">
+        Who will supervise the supervising AI?
+      </blockquote>
+      <span class="featured-quote-attr">A child's question. One of the oldest governance problems in the world.</span>
+    </div>
+  </section>
+
+  <!-- ── ARTICLE BODY ─────────────────────── -->
+  <main id="main-content">
+    <div class="container">
+      <article class="article-body">
+
+        <!-- Introduction -->
+        <p class="drop-cap">My son came to sit beside me on an evening when I was working. This is how many of our best conversations begin — not at a scheduled time, not with any particular plan on either side, but with quiet proximity slowly becoming something neither of us anticipated.</p>
+
+        <p>He looked at my screen for a moment. Then, with the directness that children bring to things adults have learned to approach carefully, he asked his first question.</p>
+
+        <p>"Nowadays, people ask AI their health questions directly. If that keeps happening, won't doctors lose their jobs?"</p>
+
+        <p>I smiled. I have heard versions of this question many times — at medical conferences, in policy meetings, from colleagues who are genuinely uncertain about what is coming. I gave the answer I have given before, and I believed it.</p>
+
+        <p>"People may ask AI for information," I told him. "But when a decision truly matters — when a person is frightened, when something is at stake — they still want a doctor. AI gives information. Doctors give accountability, experience, and trust."</p>
+
+        <p>He nodded. I thought the conversation was settled.</p>
+
+        <p>It was not.</p>
+
+        <!-- Figure 1 -->
+        <figure class="figure-wrap" aria-label="Figure 1">
+          <div class="figure-inner" id="fig1-inner" onclick="openLightbox('images/son-supervision-question.jpg', 'A physician works at his desk while his son asks about AI supervision in healthcare.')">
+            <img src="images/son-supervision-question.jpg"
+                 alt="A father and son at a study desk discussing AI supervision in healthcare"
+                 class="figure-img"
+                 id="fig1-img"
+                 onerror="this.style.display='none';document.getElementById('fig1-placeholder').style.display='block'" />
+            <div id="fig1-placeholder" style="display:none;padding:3rem 2rem;text-align:center;color:#666;font-family:Inter,sans-serif;font-size:0.85rem;line-height:1.6;background:#f9fafb;">
+              <div style="font-size:2rem;margin-bottom:0.8rem;">📷</div>
+              <div><strong>Figure 1</strong> — Father and son at a study desk.</div>
+              <div style="margin-top:0.4rem;font-style:italic;">Save the photo as <code>images/son-supervision-question.jpg</code> to display it here.</div>
+            </div>
+          </div>
+          <figcaption class="figure-caption">
+            <span class="figure-caption-num">Figure 1</span>
+            <span class="figure-caption-text">An ordinary evening. A physician at his desk, his son beside him with a notebook and a question: <em>"Who will supervise the supervising AI? You said AI will monitor AI. Then who will monitor that AI?"</em> On the wall behind them, a Tamil proverb: <em>கற்றது கைமண் அளவு, கல்லாதது உலகளவு</em> — what one has learned is a handful of sand; what one has not learned is the size of the world.</span>
+          </figcaption>
+        </figure>
+
+        <!-- Section 1 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">Three Questions, Three Levels of Depth</h2>
+        </div>
+
+        <p>"But AI is improving very fast," he continued. "What will happen in the future?"</p>
+
+        <p>This pushed me a little further, but I still felt steady. I explained that future healthcare systems would likely include layers of oversight. One AI might provide health advice while a second monitors the first — checking for safety, consistency, alignment with clinical guidelines.</p>
+
+        <p>"In other words," I said, "there may be a supervising AI watching the medical AI."</p>
+
+        <p>He nodded again. Then, after a pause that I did not quite notice at the time:</p>
+
+        <p><em>"Who will supervise the supervising AI?"</em></p>
+
+        <p>I had no answer. Not immediately. Not in the way I had answered his first two questions — with the comfortable confidence of a professional who has thought carefully about these things. This question was simple. A child had asked it. And it was, I quickly realised, one of the most enduring problems in governance that humanity has ever tried to solve.</p>
+
+        <!-- Section 2 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">From Not Enough Information to Too Much</h2>
+        </div>
+
+        <p>For most of human history, the challenge in healthcare was access. Knowledge lived in specialists, in expensive texts, in clinics that required long journeys to reach. A person in a rural community could not easily verify whether the advice they received was current, complete, or consistent with what someone in a city might hear. The asymmetry was significant and its consequences were real.</p>
+
+        <p>Today, the situation has reversed so completely that we sometimes forget how recently it changed.</p>
+
+        <p>Within seconds, anyone with a mobile connection can ask a sophisticated AI system about symptoms, medications, interactions, or treatment options. Information that once required years of training is now available at midnight to anyone who can type a question.</p>
+
+        <p>This is genuinely remarkable. For communities that have historically been underserved by healthcare infrastructure — including many across South and Southeast Asia — AI-assisted health information has real equalising potential.</p>
+
+        <p>But a new challenge has appeared where the old one used to stand.</p>
+
+        <!-- Observation callout 1 -->
+        <div class="callout callout-observation" role="note" aria-label="Key observation">
+          <div class="callout-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            A Reflection
+          </div>
+          <div class="callout-title">Access and accuracy are not the same problem</div>
+          <p>For most of history, healthcare's information problem was scarcity — too little knowledge reaching too few people. AI has largely solved that problem. The challenge it has created in return is harder to see, because it does not look like a problem. It looks like abundance. The difficulty is no longer finding health information. The difficulty is knowing whether the information you have found is correct.</p>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">When AI Watches AI</h2>
+        </div>
+
+        <p>The scenario I described to my son — a supervising AI monitoring a medical AI — is not hypothetical. Versions of it are already being built. There are systems designed to review AI-generated content for safety violations, inconsistency, or non-compliance with clinical standards. There are AI tools trained specifically to identify when other AI tools produce potentially harmful outputs.</p>
+
+        <p>The logic is sound. If AI will be generating health-related content at enormous scale, human beings cannot be present for every conversation. Some of the oversight will have to be automated.</p>
+
+        <p>The technical argument is reasonable. The limits of that argument are what concern me.</p>
+
+        <p>If a first AI gives advice and a second AI monitors it — who designed the second AI? Who validated its judgements? Who tested it against the cases it was most likely to miss? And if the second AI carries a systematic blind spot — the kind that looks correct until it suddenly does not — who would know?</p>
+
+        <p>A third AI? Then a fourth? Then a fifth?</p>
+
+        <p>There is a principle in systems design that describes exactly this problem: at some point, the chain of supervisors must stop. And whatever it stops at had better be trustworthy, because everything above it depends on it.</p>
+
+        <!-- Section 4 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">The Oldest Governance Question in New Clothing</h2>
+        </div>
+
+        <p>My son had not intended to ask a philosophical question. He was simply following the logic of what I had described. But the question he landed on has a history stretching back two thousand years.</p>
+
+        <p>The Roman poet Juvenal asked it: <em>Quis custodiet ipsos custodes?</em> Who guards the guardians?</p>
+
+        <p>Every governance system ever designed has faced the same challenge. Regulators need regulators. Auditors require auditing. Courts can be appealed — but to other courts, which can also be appealed. Governments have oversight committees. Oversight committees have accountability mechanisms. At some point, the chain has to stop. What makes a stopping point legitimate is not that it is beyond challenge. It is that it has earned trust — through transparency, demonstrated performance, and a genuine culture of accountability.</p>
+
+        <p>Artificial intelligence has not invented this problem. What it has done is bring it into a context where the systems are fast, the scale is vast, the stakes include human health, and the deployment has often moved well ahead of the governance structures designed to contain it.</p>
+
+        <!-- Observation callout 2 -->
+        <div class="callout callout-observation" role="note" aria-label="Key observation">
+          <div class="callout-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            Key Observation
+          </div>
+          <div class="callout-title">The oldest governance question meets the newest technology</div>
+          <p>"Who guards the guardians?" has been asked by philosophers, politicians, and legal scholars for centuries. What AI has done is give it new urgency — because the guardians now operate at a scale and speed that no human institution was built to oversee. The question is not new. The context has changed everything.</p>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">Trust Cannot Be Built by Adding Another Layer</h2>
+        </div>
+
+        <p>When we encounter a governance problem, the instinct is often to add another mechanism of control. Another committee. Another review layer. Another system to check the previous system.</p>
+
+        <p>This instinct is understandable. It is also, when pursued without limit, counterproductive.</p>
+
+        <p>Successful governance does not rest on the assumption that every actor can be watched at every moment by someone else. It rests on a combination of things that work together: clear standards that everyone understands, transparent processes that can be examined, accountability structures that assign responsibility when things go wrong, professional cultures that take those responsibilities seriously, and public trust that the system as a whole is functioning in good faith.</p>
+
+        <div class="pull-quote">
+          <p>Consider aviation — an industry that has developed one of the most rigorous safety cultures in the world. Aircraft are not safe because every engineer is watched by another engineer who is watched by another. They are safe because of design standards, maintenance protocols, crew training, near-miss reporting systems, and a professional culture in which safety is a genuine value rather than a compliance exercise.</p>
+        </div>
+
+        <p>Trust in aviation was built, not assumed. It was earned through transparency, accountability, and decades of hard learning from failure. Healthcare AI has not yet earned that kind of trust. Some parts of it are beginning to. But the work ahead is significant.</p>
+
+        <!-- HITL section -->
+        <div class="hitl-section" role="note" aria-label="Trustworthy supervision section">
+          <div class="hitl-header">
+            <div class="hitl-icon" aria-hidden="true">🏛️</div>
+            <div>
+              <div class="hitl-title">Trustworthy Supervision, Not Infinite Supervision</div>
+              <div class="hitl-sub">A governance principle, not a technical fix</div>
+            </div>
+          </div>
+          <div class="hitl-body">
+            <p>Adding more layers of oversight does not, by itself, create trust. The goal is not to find a perfect supervisor at the top of the chain. The goal is to build a system that deserves trust at every level — one that can explain its decisions, correct its errors, assign accountability when something goes wrong, and be understood by the people who depend on it.</p>
+            <p>That is not a technology problem. It is a governance problem. And governance is made of human choices, human accountability, and human institutions willing to take responsibility for outcomes.</p>
+          </div>
+          <div class="hitl-principles" role="list">
+            <div class="hitl-principle" role="listitem">
+              <div class="principle-icon" aria-hidden="true">🔍</div>
+              <span class="principle-label">Transparency</span>
+              <span class="principle-desc">Systems must be able to explain their reasoning</span>
+            </div>
+            <div class="hitl-principle" role="listitem">
+              <div class="principle-icon" aria-hidden="true">⚖️</div>
+              <span class="principle-label">Accountability</span>
+              <span class="principle-desc">Responsibility must be assigned, not diffused</span>
+            </div>
+            <div class="hitl-principle" role="listitem">
+              <div class="principle-icon" aria-hidden="true">🔄</div>
+              <span class="principle-label">Correction</span>
+              <span class="principle-desc">Errors must be identifiable and fixable</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">Beyond Human-in-the-Loop: Trust-in-the-Loop</h2>
+        </div>
+
+        <p>A phrase that appears frequently in responsible AI discussions is <span class="key-point">human-in-the-loop</span> — the idea that meaningful human oversight should be embedded in AI-driven processes, particularly in high-stakes domains. I support this principle. I have written about it from my own practice building clinical AI tools.</p>
+
+        <p>But I have begun to think that the phrase, as commonly used, frames the question too narrowly.</p>
+
+        <p>The question is not only whether a human is in the loop. The question is whether the loop, as a whole, deserves trust.</p>
+
+        <p>Can the system explain its reasoning? Can errors be identified, investigated, and corrected? Can accountability be assigned when something goes wrong — not abstractly, but specifically, to a person or institution that can be held responsible? Can patients and caregivers understand what the system does well and where it has limits?</p>
+
+        <p>A system with a human in the loop can still be untrustworthy, if that human lacks the information or authority to act. A system without a human in every loop can still earn trust, if it is transparent, regularly audited, and embedded in a governance structure that takes its responsibilities seriously.</p>
+
+        <p>The goal, I have come to believe, is not human-in-the-loop as a technical checkbox. It is trustworthiness as a system property — something that must be built deliberately, demonstrated continuously, and earned rather than claimed.</p>
+
+        <!-- Lessons callout -->
+        <div class="callout callout-lessons" role="note" aria-label="Governance principles">
+          <div class="callout-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+            Five Principles
+          </div>
+          <div class="callout-title">What Trustworthy AI Governance Actually Requires</div>
+          <ol class="lessons-list">
+            <li>
+              <span class="lesson-num">1</span>
+              <span><strong>Transparency over opacity.</strong> AI systems used in healthcare must be able to explain their outputs in terms that professionals and, where appropriate, patients can evaluate and challenge.</span>
+            </li>
+            <li>
+              <span class="lesson-num">2</span>
+              <span><strong>Accountability that can be assigned.</strong> When an AI-assisted decision causes harm, responsibility must be traceable to a person or institution — not diffused across an algorithm.</span>
+            </li>
+            <li>
+              <span class="lesson-num">3</span>
+              <span><strong>Error correction built in.</strong> Governance structures must include mechanisms for detecting, reporting, and correcting both individual errors and systematic patterns.</span>
+            </li>
+            <li>
+              <span class="lesson-num">4</span>
+              <span><strong>Professional standards, not just technical ones.</strong> Clinicians and health informaticians must be trained to understand what AI tools can and cannot do — and to intervene when they should.</span>
+            </li>
+            <li>
+              <span class="lesson-num">5</span>
+              <span><strong>Trust earned, not assumed.</strong> No AI system deployed in healthcare should be trusted simply because it is accurate on average. Trust must be demonstrated over time, across populations, and in the cases that matter most.</span>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Section 7 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">The Question Worth Keeping</h2>
+        </div>
+
+        <p>When my son first asked whether doctors would lose their jobs, I felt comfortable answering. I had thought about this carefully. I had a considered view.</p>
+
+        <p>When he asked about the future role of AI in healthcare, I still felt steady. The conversation was moving in familiar directions.</p>
+
+        <p>When he asked who would supervise the supervising AI, I paused. Not because I had no thoughts at all, but because every answer I formed felt, for the first time, genuinely incomplete. The question was exposing something real — not a gap in my technical knowledge, but a gap in how the field as a whole has thought about what it is building.</p>
+
+        <p>The future of artificial intelligence in healthcare will be shaped not only by engineers, researchers, and technology companies. It will be shaped by the governance choices that societies make about transparency, accountability, and trust. It will be shaped by whether the people building these systems are willing to ask the uncomfortable questions early — rather than waiting until the consequences of not asking them have become visible.</p>
+
+        <p>My son asked his question casually, at the end of an ordinary evening, without any awareness of how long the world has been struggling with a version of it. He asked it because the logic led him there — and because he had not yet learned to stop following a line of thought when it becomes inconvenient.</p>
+
+        <p>That, in its way, may be the most valuable thing a person can bring to this conversation.</p>
+
+        <!-- Conclusion -->
+        <div class="conclusion-section" aria-label="Conclusion">
+          <span class="conclusion-ornament" aria-hidden="true">· · ·</span>
+          <p class="conclusion-text">
+            The greatest challenge of artificial intelligence in healthcare may not be creating intelligence. It may be deciding whom — and what — we trust. Trust is not a feature that can be added at the end. It must be built into the design from the beginning. And it begins with being willing to ask the question a child asked at the end of an ordinary evening, and to sit with it honestly until we have a real answer.
+          </p>
+        </div>
+
+        <!-- Tags -->
+        <div class="tags-section" aria-label="Article tags">
+          <div class="tags-label">Topics</div>
+          <div class="tags-row" role="list">
+            <span class="tag" role="listitem">AI Governance</span>
+            <span class="tag" role="listitem">Healthcare AI</span>
+            <span class="tag" role="listitem">Responsible AI</span>
+            <span class="tag" role="listitem">Human-in-the-Loop</span>
+            <span class="tag" role="listitem">AI Oversight</span>
+            <span class="tag" role="listitem">Health Informatics</span>
+            <span class="tag" role="listitem">Information Governance</span>
+            <span class="tag" role="listitem">Digital Health</span>
+            <span class="tag" role="listitem">AI Safety</span>
+            <span class="tag" role="listitem">Sri Lanka</span>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="share-section" aria-label="Share this article">
+          <div class="share-label">Share This Article</div>
+          <div class="share-buttons">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdrjeevaraj.com%2Fai-supervision-governance.html"
+               target="_blank" rel="noopener noreferrer"
+               class="share-btn btn-linkedin"
+               aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=Who+Will+Supervise+the+Supervising+AI%3F+A+child%27s+question+that+changed+how+I+think+about+healthcare+governance.+By+%40drjeevaraj&url=https%3A%2F%2Fdrjeevaraj.com%2Fai-supervision-governance.html"
+               target="_blank" rel="noopener noreferrer"
+               class="share-btn btn-x"
+               aria-label="Share on X / Twitter">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              X / Twitter
+            </a>
+            <a href="https://medium.com/new-story?canonical=https%3A%2F%2Fdrjeevaraj.com%2Fai-supervision-governance.html"
+               target="_blank" rel="noopener noreferrer"
+               class="share-btn btn-medium"
+               aria-label="Share on Medium">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+              Medium
+            </a>
+            <a href="mailto:?subject=Who%20Will%20Supervise%20the%20Supervising%20AI%3F&body=I%20thought%20you%20might%20find%20this%20article%20by%20Dr.%20T.%20Jeevaraj%20interesting%3A%0A%0Ahttps%3A%2F%2Fdrjeevaraj.com%2Fai-supervision-governance.html"
+               class="share-btn btn-email"
+               aria-label="Share by email">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="#374151"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Email
+            </a>
+            <button class="share-btn btn-copy" onclick="copyLink(this)" aria-label="Copy article link">
+              <svg viewBox="0 0 24 24" fill="#374151" width="14" height="14" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              Copy Link
+            </button>
+          </div>
+        </div>
+
+        <!-- Author Box -->
+        <section class="author-section" aria-label="About the author">
+          <div class="author-section-label">About the Author</div>
+          <div class="author-layout">
+            <img src="https://drjeevaraj.com/T. Jeevaraj.jpg"
+                 alt="Dr. T. Jeevaraj"
+                 class="author-photo"
+                 width="80" height="80"
+                 onerror="this.style.display='none'" />
+            <div>
+              <div class="author-name">Dr. Thangarasa Jeevaraaj (Dr. T. Jeevaraj)</div>
+              <div class="author-credentials">MBBS · MCGP · MSc Biomedical Informatics · MD Trainee, Health Informatics · PGIM, University of Colombo · Sri Lanka</div>
+              <p class="author-bio-text">I am a medical doctor with qualifications in MBBS, MCGP, and MSc Biomedical Informatics, currently an MD Trainee in Health Informatics at PGIM, University of Colombo. My professional work lives inside systems — DHIS2, public health data platforms, AI verification frameworks, governance structures. I believe technology should sharpen accountability and human care, not quietly replace them.</p>
+              <p class="author-bio-text">Alongside that technical work, I write about what AI does to ordinary human life — not the technology itself, but what it quietly changes in the people who use it. That observation became my first English book: <em><a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" style="color:var(--primary);">Are You Still Human? (2026)</a></em> — three true stories, ten patterns, one quiet question.</p>
+              <div class="author-interests">
+                <span class="interest-chip">Medical Doctor</span>
+                <span class="interest-chip">Health Informatics Professional</span>
+                <span class="interest-chip">Cancer Registry &amp; Digital Health</span>
+                <span class="interest-chip">AI Governance</span>
+                <span class="interest-chip">Responsible AI in Healthcare</span>
+              </div>
+              <div class="author-links-row">
+                <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" class="author-link">📖 Book on Amazon</a>
+                <a href="https://drjeevaraj.com" target="_blank" rel="noopener" class="author-link">🌐 Website</a>
+                <a href="https://drjeevaraj.com/cv.html" target="_blank" rel="noopener" class="author-link">📄 CV</a>
+                <a href="https://drjeevaraj.com/dev.html" target="_blank" rel="noopener" class="author-link">💻 Dev Work</a>
+                <a href="https://www.linkedin.com/in/geevanathy/" target="_blank" rel="noopener" class="author-link">LinkedIn</a>
+                <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener" class="author-link">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div><!-- .container -->
+  </main>
+
+  <!-- ── FOOTER ───────────────────────────── -->
+  <footer class="article-footer">
+    <a href="index.html" class="footer-brand">Still Human · Dr. T. Jeevaraj</a>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="books.html">The Book</a></li>
+      <li><a href="notes.html">Articles</a></li>
+      <li><a href="dev.html">Dev Work</a></li>
+      <li><a href="cv.html">CV</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 T. Jeevaraj. All rights reserved.</p>
+  </footer>
+
+  <!-- ── LIGHTBOX ──────────────────────────── -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close image viewer">&times;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+  </div>
+
+  <!-- ── JAVASCRIPT ───────────────────────── -->
+  <script>
+    /* Reading progress bar */
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      document.getElementById('progress-bar').style.width = pct + '%';
+    });
+
+    /* Lightbox */
+    function openLightbox(src, alt) {
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      img.alt = alt || '';
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(e) {
+      if (!e || e.target !== document.getElementById('lightbox-img')) {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    /* Copy link */
+    function copyLink(btn) {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = orig; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
