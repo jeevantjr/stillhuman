@@ -920,13 +920,13 @@
       <article class="article-body">
 
         <!-- Introduction -->
-        <p class="drop-cap">My son came to sit beside me on an evening when I was working. This is how many of our best conversations begin — not at a scheduled time, not with any particular plan on either side, but with quiet proximity slowly becoming something neither of us anticipated.</p>
-
-        <p>He looked at my screen for a moment. Then, with the directness that children bring to things adults have learned to approach carefully, he asked his first question.</p>
+        <p class="drop-cap">My son came to sit beside me on an evening when I was working. He looked at my screen for a moment — medical literature, AI governance papers, health informatics research. The work of someone watching a field change faster than any generation before it has had to watch medicine change. He said nothing at first. Then his first question arrived quietly.</p>
 
         <p>"Nowadays, people ask AI their health questions directly. If that keeps happening, won't doctors lose their jobs?"</p>
 
-        <p>I smiled. I have heard versions of this question many times — at medical conferences, in policy meetings, from colleagues who are genuinely uncertain about what is coming. I gave the answer I have given before, and I believed it.</p>
+        <p>He was asking his father. A doctor. Not a policy maker, not a technologist — his father, who had spent years training to do exactly what AI was now learning to do for free, at any hour, to anyone with a mobile phone.</p>
+
+        <p>I smiled. I have heard versions of this question many times — at medical conferences, in policy meetings, from colleagues genuinely uncertain about what is coming. I gave the answer I have given before, and I believed it.</p>
 
         <p>"People may ask AI for information," I told him. "But when a decision truly matters — when a person is frightened, when something is at stake — they still want a doctor. AI gives information. Doctors give accountability, experience, and trust."</p>
 
@@ -959,17 +959,27 @@
           <h2 class="section-heading">Three Questions, Three Levels of Depth</h2>
         </div>
 
-        <p>"But AI is improving very fast," he continued. "What will happen in the future?"</p>
+        <p>"But there are millions of people asking AI health questions every minute," he said. "You told me a human should be in the loop — watching, checking. But how? How can humans handle that much load?"</p>
 
-        <p>This pushed me a little further, but I still felt steady. I explained that future healthcare systems would likely include layers of oversight. One AI might provide health advice while a second monitors the first — checking for safety, consistency, alignment with clinical guidelines.</p>
+        <p>He had found the real problem faster than most governance discussions do.</p>
 
-        <p>"In other words," I said, "there may be a supervising AI watching the medical AI."</p>
+        <p>At the scale AI operates — millions of conversations every hour, across thousands of topics, in dozens of languages — direct human oversight of every single interaction is not possible. There are not enough doctors, not enough hours, not enough human attention in the world for that.</p>
 
-        <p>He nodded again. Then, after a pause that I did not quite notice at the time:</p>
+        <p>So I explained the architecture that makes it manageable. A medical AI handles the conversation. A supervising AI — a second, separate system — monitors the first, filtering outputs for safety violations, clinical inconsistencies, dangerous advice. Whatever the supervising AI flags is what reaches a human clinician. Whatever it does not flag passes through without any human ever seeing it.</p>
 
-        <p><em>"Who will supervise the supervising AI?"</em></p>
+        <p>"So," he said, following the logic carefully, "the supervising AI decides what doctors see. And what they never see."</p>
 
-        <p>I had no answer. Not immediately. Not in the way I had answered his first two questions — with the comfortable confidence of a professional who has thought carefully about these things. This question was simple. A child had asked it. And it was, I quickly realised, one of the most enduring problems in governance that humanity has ever tried to solve.</p>
+        <p>"Yes," I said. "Essentially."</p>
+
+        <p>He was quiet for a moment. Then:</p>
+
+        <p><em>"Then who will supervise the supervising AI?"</em></p>
+
+        <p>Because if the supervising AI misses something — if it fails to flag dangerous advice, if it has a blind spot it was never tested for — that advice never reaches a human. No doctor sees it. No one catches it. It goes directly to the person who asked.</p>
+
+        <p>That is the disaster. Not AI giving wrong advice. AI giving wrong advice, and the system designed to catch it quietly failing — with no one watching the system that was supposed to watch.</p>
+
+        <p>I had no answer. Not in the way I had answered his first two questions — with the comfortable confidence of a professional who has thought carefully about these things. This question was simple. A child had asked it. And it was, I realised, one of the most enduring problems in governance that humanity has ever tried to solve.</p>
 
         <!-- Section 2 -->
         <div class="section-heading-block">
@@ -1001,17 +1011,19 @@
           <h2 class="section-heading">When AI Watches AI</h2>
         </div>
 
-        <p>The scenario I described to my son — a supervising AI monitoring a medical AI — is not hypothetical. Versions of it are already being built. There are systems designed to review AI-generated content for safety violations, inconsistency, or non-compliance with clinical standards. There are AI tools trained specifically to identify when other AI tools produce potentially harmful outputs.</p>
+        <p>The architecture I described to my son is not hypothetical. Versions of it are already being deployed. A medical AI handles health queries at scale. A supervising AI sits between that system and the human — acting as a filter, reviewing outputs for safety violations, clinical inconsistencies, dangerous or misleading advice. Only what the supervising AI flags ever reaches a human clinician's attention.</p>
 
-        <p>The logic is sound. If AI will be generating health-related content at enormous scale, human beings cannot be present for every conversation. Some of the oversight will have to be automated.</p>
+        <p>The logic is sound. At the volumes AI now operates, human beings simply cannot be present for every conversation. Automated oversight is not a compromise. It is a practical necessity.</p>
 
-        <p>The technical argument is reasonable. The limits of that argument are what concern me.</p>
+        <p>The technical argument is reasonable. The consequences of that argument are what concern me.</p>
 
-        <p>If a first AI gives advice and a second AI monitors it — who designed the second AI? Who validated its judgements? Who tested it against the cases it was most likely to miss? And if the second AI carries a systematic blind spot — the kind that looks correct until it suddenly does not — who would know?</p>
+        <p>If the supervising AI carries a systematic blind spot — the kind that looks correct in testing until it encounters the cases it was never tested on — nothing in the chain catches it. The medical AI produces the advice. The supervising AI passes it through. No human ever sees it. The person who asked receives it and acts on it.</p>
 
-        <p>A third AI? Then a fourth? Then a fifth?</p>
+        <p>The danger is not the advice that gets flagged. The danger is the advice that does not.</p>
 
-        <p>There is a principle in systems design that describes exactly this problem: at some point, the chain of supervisors must stop. And whatever it stops at had better be trustworthy, because everything above it depends on it.</p>
+        <p>And if we add a third AI to supervise the second — who designed that one? Who validated its judgements? Who tested it against the cases it was most likely to miss? A fourth AI? A fifth?</p>
+
+        <p>There is a principle in systems design that describes exactly this: at some point, the chain of supervisors must stop. And whatever it stops at had better be trustworthy, because everything above it depends on it.</p>
 
         <!-- Section 4 -->
         <div class="section-heading-block">
@@ -1140,9 +1152,9 @@
 
         <p>When my son first asked whether doctors would lose their jobs, I felt comfortable answering. I had thought about this carefully. I had a considered view.</p>
 
-        <p>When he asked about the future role of AI in healthcare, I still felt steady. The conversation was moving in familiar directions.</p>
+        <p>When he pointed out that millions of people ask AI health questions every minute, and asked how humans could possibly watch all of it — I had to concede the scale argument. I explained the filter architecture: supervising AI first, human eyes only on what gets flagged.</p>
 
-        <p>When he asked who would supervise the supervising AI, I paused. Not because I had no thoughts at all, but because every answer I formed felt, for the first time, genuinely incomplete. The question was exposing something real — not a gap in my technical knowledge, but a gap in how the field as a whole has thought about what it is building.</p>
+        <p>When he followed that logic to its natural end — if the supervising AI fails to flag something dangerous, it never reaches a human, and that is the real disaster — I paused. Every answer I formed felt, for the first time, genuinely incomplete. The question was exposing something real: not a gap in my technical knowledge, but a gap in how the field as a whole has thought about what it is building.</p>
 
         <p>The future of artificial intelligence in healthcare will be shaped not only by engineers, researchers, and technology companies. It will be shaped by the governance choices that societies make about transparency, accountability, and trust. It will be shaped by whether the people building these systems are willing to ask the uncomfortable questions early — rather than waiting until the consequences of not asking them have become visible.</p>
 
