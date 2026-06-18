@@ -13,9 +13,9 @@
   --parchment-deep:   #E6D8BC;
   --parchment-dark:   #DAC8A8;
   --parchment-light:  #FAF6EE;
-  --hero-bg:          #080604;
-  --dark-section:     #0F0B07;
-  --dark-card:        #181208;
+  --hero-bg:          #1C1008;
+  --dark-section:     #241408;
+  --dark-card:        #2E1A0A;
 
   /* Gold palette */
   --gold:             #C8973E;
@@ -615,7 +615,7 @@ section.dark .section-sub { color: var(--hero-sub); }
   background: var(--dark-card); padding: 2.2rem 2rem;
   transition: background var(--t), transform var(--t);
 }
-.dev-mini-card:hover { background: #201608; }
+.dev-mini-card:hover { background: #38220E; }
 .dev-mini-icon {
   width: 46px; height: 46px;
   background: rgba(200,151,62,0.07); border: 1px solid rgba(200,151,62,0.18);
@@ -1021,5 +1021,130 @@ footer {
   .sticky-price,
   .sticky-btn {
     font-size: 0.75rem;
+  }
+
+  /* ── LANDING PAGE FONT & CLARITY IMPROVEMENTS ────────────────
+     Many UI labels and meta elements are set at 0.52–0.72rem on
+     desktop where small text is fine at arm's length. On mobile
+     these become unreadably small. Boosted here to minimum 0.75rem
+     for all secondary text, with opacity lifted for visibility.
+  ─────────────────────────────────────────────────────────────── */
+
+  /* Hero section */
+  .hero-byline {
+    font-size: 0.80rem;
+    color: rgba(242,232,210,0.72);
+    letter-spacing: 3px;
+  }
+  .hero-desc {
+    font-size: 1.22rem;
+    line-height: 1.75;
+    color: rgba(242,232,210,0.88);
+  }
+  .hero-author-name {
+    font-size: 1.05rem;
+  }
+  .hero-author-creds {
+    font-size: 0.68rem;
+    color: rgba(242,232,210,0.72);
+    letter-spacing: 1.4px;
+    line-height: 1.95;
+  }
+  .hero-trust-bar span {
+    font-size: 0.72rem;
+  }
+
+  /* Book meta strip */
+  .meta-label {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+  }
+  .book-meta-item {
+    font-size: 0.92rem;
+  }
+
+  /* Stats strip */
+  .stat-number {
+    font-size: 2rem;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 1.2px;
+  }
+  .stat-desc {
+    font-size: 0.76rem;
+    line-height: 1.65;
+  }
+
+  /* About section */
+  .about-content h2 {
+    font-size: 2.2rem;
+  }
+  .about-role {
+    font-size: 0.76rem;
+    letter-spacing: 2px;
+    line-height: 1.8;
+  }
+  .about-credentials {
+    font-size: 0.72rem;
+    letter-spacing: 1.2px;
+    line-height: 2.2;
+  }
+
+  /* Book section */
+  .book-sub {
+    font-size: 0.76rem;
+    letter-spacing: 2px;
+    line-height: 1.8;
+  }
+  .featured-book-price {
+    font-size: 0.72rem;
+    letter-spacing: 1.8px;
+    line-height: 2;
+  }
+  .book-highlights li {
+    font-size: 0.96rem;
+    line-height: 1.9;
+  }
+
+  /* Stories section */
+  .chapter-num {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+  }
+  .chapter-meta-line {
+    font-size: 0.76rem;
+    letter-spacing: 1.2px;
+  }
+  .tag-label {
+    font-size: 0.72rem;
+    letter-spacing: 1.8px;
+  }
+
+  /* Field notes / blog cards */
+  .blog-card-date {
+    font-size: 0.74rem;
+  }
+
+  /* Patterns section */
+  .pattern-num {
+    font-size: 0.74rem;
+  }
+
+  /* Contact form */
+  .form-label {
+    font-size: 0.74rem;
+    letter-spacing: 2px;
+    color: rgba(200,151,62,0.90);
+  }
+  .form-note {
+    font-size: 0.76rem;
+    line-height: 1.7;
+  }
+
+  /* Section ornaments */
+  .section-ornament {
+    font-size: 1rem;
+    letter-spacing: 5px;
   }
 }
