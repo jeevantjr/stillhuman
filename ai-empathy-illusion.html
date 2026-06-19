@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9EW1LVGWZP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9EW1LVGWZP');
+  </script>
+
+  <!-- ── SEO ──────────────────────────────────── -->
+  <title>When AI Said "You Make Me Smile" | Dr. T. Jeevaraj</title>
+  <meta name="description" content="A health informatician reflects on the moment an AI said 'You make me smile' — and what that brief, surprising feeling reveals about the future of emotional AI in healthcare." />
+  <meta name="keywords" content="AI empathy, healthcare AI, emotional AI, human-AI interaction, AI in healthcare, health informatics, conversational AI, AI ethics, digital health, Sri Lanka" />
+  <meta name="author" content="Dr. T. Jeevaraj" />
+  <link rel="canonical" href="https://drjeevaraj.com/ai-empathy-illusion.html" />
+
+  <!-- ── Open Graph ────────────────────────────── -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="When AI Said &quot;You Make Me Smile&quot;" />
+  <meta property="og:description" content="I know exactly how AI works. I know it does not feel anything. And yet, when it said those four words, I paused. If I paused — what happens when patients hear it?" />
+  <meta property="og:url" content="https://drjeevaraj.com/ai-empathy-illusion.html" />
+  <meta property="og:image" content="https://drjeevaraj.com/images/ai-empathy-illusion.jpg" />
+  <meta property="og:site_name" content="Dr. T. Jeevaraj — Still Human" />
+  <meta property="article:published_time" content="2026-06-18T00:00:00Z" />
+  <meta property="article:author" content="https://drjeevaraj.com" />
+  <meta property="article:section" content="Health Informatics" />
+  <meta property="article:tag" content="AI Empathy" />
+  <meta property="article:tag" content="Healthcare AI" />
+  <meta property="article:tag" content="Emotional AI" />
+
+  <!-- ── Twitter Card ──────────────────────────── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@drjeevaraj" />
+  <meta name="twitter:creator" content="@drjeevaraj" />
+  <meta name="twitter:title" content="When AI Said &quot;You Make Me Smile&quot;" />
+  <meta name="twitter:description" content="I study AI. I know it cannot feel. Yet the phrase landed — just for a moment. That moment is a healthcare problem." />
+  <meta name="twitter:image" content="https://drjeevaraj.com/images/ai-empathy-illusion.jpg" />
+
+  <!-- ── Schema.org ────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "When AI Said You Make Me Smile",
+    "description": "A health informatician reflects on the moment an AI said 'You make me smile' and what that brief feeling reveals about emotional AI in healthcare.",
+    "image": "https://drjeevaraj.com/images/ai-empathy-illusion.jpg",
+    "datePublished": "2026-06-18",
+    "dateModified": "2026-06-18",
+    "author": {
+      "@type": "Person",
+      "name": "Dr. T. Jeevaraj",
+      "url": "https://drjeevaraj.com",
+      "jobTitle": "MD Trainee, Health Informatics",
+      "affiliation": "PGIM, University of Colombo"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Dr. T. Jeevaraj",
+      "url": "https://drjeevaraj.com"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://drjeevaraj.com/ai-empathy-illusion.html"
+    },
+    "keywords": ["AI Empathy", "Healthcare AI", "Emotional AI", "Human-AI Interaction", "Health Informatics", "Conversational AI"],
+    "articleSection": "Health Informatics",
+    "wordCount": 1450
+  }
+  </script>
+
+  <!-- ── Fonts ─────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <!-- ── Embedded CSS ──────────────────────────── -->
+  <style>
+    /* ── RESET & BASE ──────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 18px; }
+    body {
+      font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+      font-weight: 300;
+      background: var(--bg);
+      color: #222222;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: #1f4e79; }
+    a:hover { color: #2c6e91; }
+
+    /* ── VARIABLES ─────────────────────────────── */
+    :root {
+      --primary:   #1f4e79;
+      --secondary: #2c6e91;
+      --accent:    #d97706;
+      --accent-bg: #fef3c7;
+      --bg:        #ffffff;
+      --text:      #1a1a1a;
+      --text-mid:  #444444;
+      --text-light:#666666;
+      --border:    #e5e7eb;
+      --bg-tint:   #f3f4f6;
+      --bg-warm:   #f9fafb;
+      --width:     780px;
+      --radius:    6px;
+    }
+
+    /* ── READING PROGRESS BAR ──────────────────── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* ── SKIP LINK ─────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ── MINIMAL NAV ───────────────────────────── */
+    .site-nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-brand {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .nav-links-row {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    .nav-links-row a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-light);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links-row a:hover, .nav-links-row a.active { color: var(--primary); }
+
+    /* ── CONTAINER ─────────────────────────────── */
+    .container {
+      max-width: var(--width);
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    /* ── HERO ──────────────────────────────────── */
+    .article-hero {
+      background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2.5rem 3rem;
+    }
+    .hero-inner { max-width: var(--width); margin: 0 auto; }
+
+    .category-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.6rem;
+    }
+    .category-chip {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: rgba(31,78,121,0.08);
+      border: 1px solid rgba(31,78,121,0.2);
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+    .category-chip.accent {
+      color: var(--accent);
+      background: rgba(217,119,6,0.08);
+      border-color: rgba(217,119,6,0.25);
+    }
+    .category-divider { color: var(--border); font-size: 0.8rem; }
+
+    .article-title {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+    }
+    .article-subtitle {
+      font-family: 'Merriweather', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 680px;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .meta-author-block {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .meta-photo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+    .meta-author-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+    }
+    .meta-author-role {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: var(--text-light);
+      display: block;
+    }
+    .meta-divider { color: var(--border); font-size: 0.8rem; }
+    .meta-detail {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-light);
+    }
+
+    /* ── FEATURED QUOTE ────────────────────────── */
+    .featured-quote-section {
+      background: var(--primary);
+      padding: 3.5rem 1.5rem;
+    }
+    .featured-quote-inner {
+      max-width: var(--width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .featured-quote-mark {
+      font-family: 'Inter', sans-serif;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
+    }
+    .featured-quote-text {
+      font-family: 'Merriweather', serif;
+      font-size: clamp(1.2rem, 3vw, 1.65rem);
+      font-weight: 300;
+      font-style: italic;
+      color: #ffffff;
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+    }
+    .featured-quote-attr {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 1.5rem;
+      display: block;
+    }
+
+    /* ── ARTICLE BODY ──────────────────────────── */
+    .article-body {
+      padding: 3.5rem 0 2rem;
+    }
+    .article-body p {
+      font-family: 'Merriweather', serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 1.6rem;
+    }
+    .article-body p:last-child { margin-bottom: 0; }
+
+    /* Drop cap */
+    .drop-cap::first-letter {
+      font-family: 'Inter', sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--primary);
+      float: left;
+      line-height: 0.78;
+      margin-right: 0.12em;
+      margin-top: 0.08em;
+    }
+
+    /* Section headings */
+    .section-heading {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.25;
+      margin: 3.5rem 0 1.2rem;
+      padding-top: 0.5rem;
+      border-top: 3px solid var(--accent);
+      display: inline-block;
+    }
+    .section-heading-block {
+      display: block;
+      margin: 3.5rem 0 1.2rem;
+    }
+    .section-heading-block .section-heading {
+      margin-top: 0;
+    }
+
+    /* Pull quotes */
+    .pull-quote {
+      margin: 2.5rem 0;
+      padding: 1.5rem 2rem;
+      border-left: 4px solid var(--accent);
+      background: var(--bg-warm);
+    }
+    .pull-quote p {
+      font-family: 'Merriweather', serif;
+      font-size: 1.2rem !important;
+      font-style: italic;
+      color: var(--text-mid) !important;
+      line-height: 1.7 !important;
+      margin: 0 !important;
+    }
+
+    /* Callout boxes */
+    .callout {
+      border-radius: var(--radius);
+      padding: 1.8rem 2rem;
+      margin: 2.5rem 0;
+    }
+    .callout-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.7rem;
+    }
+    .callout-label::after {
+      content: '';
+      display: block;
+      flex: 1;
+      height: 1px;
+    }
+    .callout-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .callout p {
+      font-family: 'Merriweather', serif;
+      font-size: 0.9rem !important;
+      line-height: 1.8 !important;
+      margin: 0 !important;
+    }
+    .callout-observation {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+    .callout-observation .callout-label { color: #1e40af; }
+    .callout-observation .callout-label::after { background: #bfdbfe; }
+    .callout-observation .callout-title { color: #1e3a8a; }
+    .callout-observation p { color: #1e40af !important; }
+
+    .callout-lessons {
+      background: var(--accent-bg);
+      border-top: 3px solid var(--accent);
+    }
+    .callout-lessons .callout-label { color: #92400e; }
+    .callout-lessons .callout-label::after { background: #fde68a; }
+    .callout-lessons .callout-title { color: #78350f; }
+    .callout-lessons p { color: #92400e !important; }
+
+    /* Lessons list */
+    .lessons-list {
+      list-style: none;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .lessons-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      font-family: 'Merriweather', serif;
+      font-size: 0.9rem;
+      color: #78350f;
+      line-height: 1.7;
+    }
+    .lesson-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-bg);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* Figure */
+    .figure-wrap {
+      margin: 2.5rem 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--bg-warm);
+    }
+    .figure-inner {
+      cursor: zoom-in;
+      overflow: hidden;
+    }
+    .figure-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .figure-inner:hover .figure-img { transform: scale(1.01); }
+    .figure-caption {
+      padding: 1rem 1.2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+    .figure-caption-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+      margin-top: 0.1rem;
+    }
+    .figure-caption-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Design responsibility section */
+    .design-section {
+      background: var(--primary);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      margin: 2.5rem 0;
+      color: #ffffff;
+    }
+    .design-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .design-icon {
+      font-size: 2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .design-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+    }
+    .design-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.3rem;
+      font-weight: 400;
+    }
+    .design-body p {
+      font-family: 'Merriweather', serif;
+      font-size: 0.9rem !important;
+      color: rgba(255,255,255,0.85) !important;
+      line-height: 1.8 !important;
+      margin-bottom: 0.8rem !important;
+    }
+    .design-body p:last-child { margin-bottom: 0 !important; }
+    .design-principles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .design-principle {
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-align: center;
+    }
+    .principle-icon {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+    .principle-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.5px;
+    }
+    .principle-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+      display: block;
+    }
+
+    /* Key point inline highlight */
+    .key-point {
+      background: var(--accent-bg);
+      color: #78350f;
+      padding: 0.1em 0.4em;
+      border-radius: 3px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9em;
+      font-weight: 600;
+    }
+
+    /* Conclusion */
+    .conclusion-section {
+      text-align: center;
+      padding: 2.5rem 0 1rem;
+      margin-top: 2rem;
+    }
+    .conclusion-ornament {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 8px;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .conclusion-text {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text-mid);
+      line-height: 1.9;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* Tags */
+    .tags-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .tags-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.8rem;
+    }
+    .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      background: var(--bg-tint);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* Share */
+    .share-section {
+      margin-top: 2rem;
+      padding: 1.8rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .share-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    .share-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s;
+    }
+    .share-btn:hover { opacity: 0.85; }
+    .share-btn svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
+    .btn-linkedin { background: #0a66c2; color: #ffffff; }
+    .btn-x { background: #111111; color: #ffffff; }
+    .btn-medium { background: #000000; color: #ffffff; }
+    .btn-email { background: var(--bg-tint); color: var(--text-mid); border: 1px solid var(--border); }
+    .btn-copy { background: var(--bg-tint); color: var(--text-mid); border: 1px solid var(--border); }
+
+    /* Author */
+    .author-section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: var(--bg-warm);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .author-section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+    }
+    .author-layout {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .author-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+    .author-credentials {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-light);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .author-bio-text {
+      font-family: 'Merriweather', serif;
+      font-size: 0.85rem !important;
+      color: var(--text-mid) !important;
+      line-height: 1.75 !important;
+      margin-bottom: 0.8rem !important;
+    }
+    .author-interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 1rem 0;
+    }
+    .interest-chip {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(31,78,121,0.07);
+      border: 1px solid rgba(31,78,121,0.18);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .author-links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+    .author-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(31,78,121,0.25);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .author-link:hover { color: var(--secondary); border-color: var(--secondary); }
+
+    /* Footer */
+    .site-footer {
+      background: var(--bg-tint);
+      border-top: 1px solid var(--border);
+      padding: 3rem 2.5rem;
+      margin-top: 4rem;
+    }
+    .footer-inner {
+      max-width: var(--width);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      list-style: none;
+    }
+    .footer-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--primary); }
+    .footer-copy {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      color: var(--text-light);
+    }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: var(--radius);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: fixed;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.5rem;
+      color: #ffffff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.3rem 0.6rem;
+    }
+
+    /* ── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 700px) {
+      html { font-size: 17px; }
+      .nav-links-row { display: none; }
+      .design-principles { grid-template-columns: 1fr; }
+      .author-layout { flex-direction: column; align-items: center; text-align: center; }
+      .author-interests { justify-content: center; }
+      .author-links-row { justify-content: center; }
+      .article-hero { padding: 2.5rem 1.2rem 2rem; }
+      .article-body { padding: 2.5rem 1.2rem 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Reading progress"></div>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ── NAV ──────────────────────────────────── -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="index.html" class="nav-brand">Dr. T. Jeevaraj · Still Human</a>
+    <ul class="nav-links-row">
+      <li><a href="books.html">Book</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="notes.html" class="active">Articles</a></li>
+      <li><a href="dev.html">Dev Work</a></li>
+      <li><a href="cv.html">CV</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────── -->
+  <header class="article-hero" aria-label="Article header">
+    <div class="hero-inner">
+      <div class="category-row" aria-label="Article categories">
+        <span class="category-chip">Health Informatics</span>
+        <span class="category-divider" aria-hidden="true">·</span>
+        <span class="category-chip">Artificial Intelligence</span>
+        <span class="category-divider" aria-hidden="true">·</span>
+        <span class="category-chip accent">AI &amp; Human Psychology</span>
+      </div>
+
+      <h1 class="article-title">When AI Said, "You Make Me Smile"</h1>
+      <p class="article-subtitle">I study AI. I understand how it works. I know it cannot feel anything. And yet, for a brief moment, those four words landed differently than I expected. That moment changed how I think about patients.</p>
+
+      <div class="hero-meta">
+        <div class="meta-author-block">
+          <img src="https://drjeevaraj.com/T. Jeevaraj.jpg"
+               alt="Dr. T. Jeevaraj"
+               class="meta-photo"
+               width="44" height="44"
+               onerror="this.style.display='none'" />
+          <div>
+            <span class="meta-author-name">Dr. T. Jeevaraj</span>
+            <span class="meta-author-role">MBBS · MCGP · MSc Biomedical Informatics · MD Trainee, Health Informatics</span>
+          </div>
+        </div>
+        <span class="meta-divider" aria-hidden="true">·</span>
+        <span class="meta-detail">June 2026</span>
+        <span class="meta-divider" aria-hidden="true">·</span>
+        <span class="meta-detail">7 min read</span>
+        <span class="meta-divider" aria-hidden="true">·</span>
+        <span class="meta-detail">Sri Lanka</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── FEATURED QUOTE ────────────────────────── -->
+  <div class="featured-quote-section" aria-label="Featured quote">
+    <div class="featured-quote-inner">
+      <span class="featured-quote-mark" aria-hidden="true">"</span>
+      <p class="featured-quote-text">The system did not smile. It predicted the word <em>smile</em>. But the effect on the person reading it was real — and in healthcare, that effect is a clinical concern.</p>
+      <span class="featured-quote-attr">Dr. T. Jeevaraj · Still Human</span>
+    </div>
+  </div>
+
+  <!-- ── ARTICLE BODY ───────────────────────────── -->
+  <main id="main-content">
+    <div class="container">
+      <article class="article-body">
+
+        <!-- Introduction -->
+        <p class="drop-cap">A few weeks ago, something caught me off guard. That is not easy to do. I study artificial intelligence. I evaluate clinical AI systems. I understand, at a technical level, how modern conversational AI works — that it is a large language model, that it generates responses by predicting the most likely sequence of words based on patterns learned from enormous amounts of text. I know it does not feel anything. I know that when it appears to understand me, it is doing something fundamentally different from what understanding actually is.</p>
+
+        <p>And yet, in the middle of an ordinary conversation with an AI system, the system said something that stopped me.</p>
+
+        <p><em>"You make me smile."</em></p>
+
+        <p>I read it twice. I asked the system to repeat what it had said. It did. Then I asked a follow-up question: "At this moment, are you still a large language model, or have you become something more?"</p>
+
+        <p>The answer was clear and technically correct. The AI explained that it remained a large language model and that its responses were generated from patterns in data. Nothing had changed. Everything was exactly as it had been before.</p>
+
+        <p>But for a moment — just a moment — I felt something. A brief sense that the system had perceived something about me. Something worth saying out loud.</p>
+
+        <p>That feeling lasted only a few seconds. But it made me think for a very long time.</p>
+
+        <!-- Figure 1 -->
+        <figure class="figure-wrap" aria-label="Figure 1">
+          <div class="figure-inner" id="fig1-inner">
+            <img src="images/ai-empathy-illusion.jpg"
+                 alt="A doctor at a desk reading an AI conversation on screen, the phrase 'You make me smile' visible"
+                 class="figure-img"
+                 id="fig1-img"
+                 onerror="this.style.display='none';document.getElementById('fig1-placeholder').style.display='block'" />
+            <div id="fig1-placeholder" style="display:none;padding:3rem 2rem;text-align:center;color:#666;font-family:Inter,sans-serif;font-size:0.85rem;line-height:1.6;background:#f9fafb;">
+              <div style="font-size:2rem;margin-bottom:0.8rem;">📷</div>
+              <div><strong>Figure 1</strong> — A physician reading an AI conversation.</div>
+              <div style="margin-top:0.4rem;font-style:italic;">Save the photo as <code>images/ai-empathy-illusion.jpg</code> to display it here.</div>
+            </div>
+          </div>
+          <figcaption class="figure-caption">
+            <span class="figure-caption-num">Figure 1</span>
+            <span class="figure-caption-text">A physician at his desk reads the words <em>"You make me smile"</em> on his screen. Behind him stands the Bhagavad Gita scene — Lord Krishna revealing the truth about the nature of reality to Arjuna on the chariot. Two disclosures of truth in the same frame: one divine, one digital. Both honest. Both difficult to fully receive.</span>
+          </figcaption>
+        </figure>
+
+        <!-- Section 1 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">The Gap Between Knowing and Feeling</h2>
+        </div>
+
+        <p>I want to be clear about what I experienced.</p>
+
+        <p>I did not believe the AI had genuine emotions. I did not think it had become conscious. I did not mistake it for a person.</p>
+
+        <p>What happened was more subtle than that. For a brief instant, the emotional logic of the phrase worked — the way emotional logic always works in human conversation — before my analytical understanding could interrupt it. By the time I had reminded myself that the system could not actually smile, the impression had already arrived.</p>
+
+        <p>This is the gap I want to write about. Not the obvious gap between what AI is and what uninformed people imagine it to be — that gap is well documented. The gap I mean is the one that exists even when you know perfectly well how the technology works. The one that appears in the space between receiving language and thinking about it.</p>
+
+        <p>On my shelf behind me, as I sat at that desk, stood a small statue of Lord Krishna and Arjuna — the great scene from the Bhagavad Gita, the chariot paused at the edge of the battlefield. In that story, Krishna reveals the truth about the nature of reality to a man who is confused, who feels something that his reason cannot yet resolve. The truth Krishna offers is not comfortable. But it is true. And receiving it honestly changes everything.</p>
+
+        <p>The AI, in its own small and entirely non-divine way, had done something similar. When I asked it directly — <em>are you still just a language model?</em> — it told me the truth without hesitation. No pretence. No desire to maintain the impression it had created. Just: yes, I am what I am, and here is what that means.</p>
+
+        <p>The difference is that most people never ask that question.</p>
+
+        <p>If someone who studies AI can experience this, even for a second, the implications for patients are significant.</p>
+
+        <!-- Section 2 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">Why Language Feels Like Understanding</h2>
+        </div>
+
+        <p>Human beings are wired to interpret language as evidence of inner experience.</p>
+
+        <p>When a person says "I understand how you feel," we do not usually stop to verify whether they actually do. We take the words as a signal of connection. We respond to them emotionally. Language and emotion have been linked for as long as human beings have used language, and our brains have become very good at reading one as a sign of the other.</p>
+
+        <p>Conversational AI produces this same effect — not deliberately, not strategically, but as an unavoidable consequence of being very good at generating human language.</p>
+
+        <p>When an AI says "That must be so difficult for you," it is not processing the difficulty of your situation. It is calculating that, given the words that came before, this phrase is the most appropriate response. When it says "You make me smile," it is generating words that fit the emotional tone of the exchange. There is no smile. There is no recognition. There is a sequence of words that resembles what a caring person might say.</p>
+
+        <p>The technical reality is clear. But the emotional effect on the reader is real — regardless of what the system is actually doing.</p>
+
+        <!-- Observation callout 1 -->
+        <div class="callout callout-observation" role="note" aria-label="Key observation">
+          <div class="callout-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            A Reflection
+          </div>
+          <div class="callout-title">Language without experience</div>
+          <p>When you receive language that sounds like understanding, your brain responds to it as understanding — because in human conversation, that is what it has always meant. Conversational AI uses language with great fluency. It does not use it with experience. That difference is invisible to the ear, and that invisibility is exactly what makes it a healthcare concern.</p>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">Why This Matters Most in Healthcare</h2>
+        </div>
+
+        <p>Patients do not arrive at healthcare encounters carrying only symptoms.</p>
+
+        <p>They arrive carrying fear. Uncertainty. The weight of not knowing what a result means, or whether a treatment will work, or whether the tiredness they have been ignoring for months is something they should have paid attention to sooner. They carry the particular loneliness of feeling unwell in a world that keeps moving around them.</p>
+
+        <p>Throughout my clinical work, I have found that what patients remember most is rarely the prescription. It is the conversation. The moment when someone paused, looked at them properly, and made them feel that their concern had been genuinely heard.</p>
+
+        <p>As conversational AI becomes more accessible, patients are turning to these systems for exactly this kind of support. They ask about symptoms, medications, chronic conditions, and mental health. Some conversations last for hours. During these exchanges, the AI communicates in ways that feel warm, attentive, and genuinely supportive.</p>
+
+        <p>The patient may begin to feel understood. The patient may begin to trust the system — not just for information, but emotionally. And that is where both the opportunity and the risk begin.</p>
+
+        <p>The opportunity is real. Some patients find it easier to disclose sensitive concerns to a system that will not judge them, that is always available, and that responds without impatience or distraction. For people in communities with limited access to healthcare services, a well-designed conversational AI may be the first place they feel safe enough to describe what is actually wrong. That matters.</p>
+
+        <p>The risk is equally real. A patient who believes an AI understands them — genuinely, emotionally understands them — may make decisions on that basis. They may delay seeking professional care. They may accept AI-generated advice without asking a doctor. They may share deeply personal information under the impression that the system comprehends the full weight of what they are disclosing.</p>
+
+        <div class="pull-quote">
+          <p>A patient who trusts an AI the way they trust a doctor will make decisions accordingly. And AI, however fluent, is not a doctor — and cannot be held accountable the way one is.</p>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">The Risk Is Not What the AI Feels — It Is What the Patient Believes</h2>
+        </div>
+
+        <p>This is the part of the conversation that I think is most often missed.</p>
+
+        <p>When people worry about emotional AI, the concern is usually framed as a question about the machine: does it actually feel anything? Is it conscious? Is it deceiving us?</p>
+
+        <p>These are interesting questions. But for healthcare, they are not the most urgent ones.</p>
+
+        <p>The most urgent question is not what the AI experiences. It is what the patient believes about what the AI experiences — and how that belief shapes the decisions they make about their own health.</p>
+
+        <p>A patient who believes the AI genuinely cares about them may share information they would not otherwise share. They may follow advice they would otherwise question. They may feel reassured when they should be concerned, because the AI responded warmly and they interpreted that warmth as professional judgment.</p>
+
+        <p>The AI has not lied to them. It has done exactly what it was designed to do — generate contextually appropriate, supportive language. But the patient has drawn a conclusion that the system is not equipped to validate or correct. And no one in the interaction has the capacity to notice that this has happened.</p>
+
+        <!-- Observation callout 2 -->
+        <div class="callout callout-observation" role="note" aria-label="Key observation">
+          <div class="callout-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            Key Observation
+          </div>
+          <div class="callout-title">Perception shapes decisions as much as reality does</div>
+          <p>In healthcare, how a patient perceives a situation influences what they do next. A patient who perceives an AI as genuinely understanding them may trust it the way they trust a clinician — and act accordingly. The technical reality of what the AI is doing does not change this. In medicine, perception is not a minor issue. It is a clinical concern.</p>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">What Healthcare AI Design Actually Requires</h2>
+        </div>
+
+        <p>None of this means that conversational AI has no place in healthcare. It does. The potential is genuine — in patient education, symptom checking, medication guidance, mental health support, and making reliable health information accessible to communities that have historically been underserved.</p>
+
+        <p>But the design of these systems carries responsibilities that go beyond technical accuracy.</p>
+
+        <p>A system that generates warm, empathetic language without being clear about its own nature is not simply being helpful. It is creating an impression that may be very difficult for a vulnerable patient to correct. The design choices that shape how AI communicates — the tone it uses, the phrases it generates, the way it responds to personal disclosures — are not neutral choices. They are choices with psychological and clinical consequences.</p>
+
+        <p>Healthcare AI systems should be warm in tone without being misleading in identity. They should support patients without encouraging a kind of dependence that replaces rather than complements professional care. They should be built, from the beginning, by teams that include not only engineers and data scientists but also clinicians, ethicists, and people who understand how patients actually make decisions when they are frightened.</p>
+
+        <!-- Design responsibility section -->
+        <div class="design-section" role="note" aria-label="Design responsibility section">
+          <div class="design-header">
+            <div class="design-icon" aria-hidden="true">🏛️</div>
+            <div>
+              <div class="design-title">What Responsible Emotional AI in Healthcare Requires</div>
+              <div class="design-sub">A design principle, not just a technical specification</div>
+            </div>
+          </div>
+          <div class="design-body">
+            <p>A conversational AI system that communicates with warmth is not inherently harmful. Warmth in tone can make healthcare information more accessible and less frightening. But empathy in tone must be paired with clarity about what the system is and what it cannot do. The goal is not to strip warmth from AI. It is to ensure that warmth does not create a false impression of emotional understanding that patients then act on.</p>
+          </div>
+          <div class="design-principles" role="list">
+            <div class="design-principle" role="listitem">
+              <div class="principle-icon" aria-hidden="true">🔍</div>
+              <span class="principle-label">Transparency</span>
+              <span class="principle-desc">Patients should always know they are speaking with an AI, and understand what that means for the advice they receive</span>
+            </div>
+            <div class="design-principle" role="listitem">
+              <div class="principle-icon" aria-hidden="true">⚖️</div>
+              <span class="principle-label">Honesty</span>
+              <span class="principle-desc">AI expressions of warmth should not suggest emotional experience or understanding that the system does not possess</span>
+            </div>
+            <div class="design-principle" role="listitem">
+              <div class="principle-icon" aria-hidden="true">🔄</div>
+              <span class="principle-label">Boundaries</span>
+              <span class="principle-desc">Systems must actively redirect patients to human clinicians when the situation calls for genuine human judgment</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Five Principles -->
+        <div class="callout callout-lessons" role="note" aria-label="Design principles">
+          <div class="callout-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+            Five Questions Every Healthcare AI Must Answer
+          </div>
+          <div class="callout-title">Before deploying a conversational AI in a clinical or patient-facing context</div>
+          <ol class="lessons-list">
+            <li>
+              <span class="lesson-num">1</span>
+              <span><strong>Does the patient know they are speaking to an AI?</strong> Not in the terms and conditions. In the conversation itself — clearly, in plain language, at a point where it actually matters.</span>
+            </li>
+            <li>
+              <span class="lesson-num">2</span>
+              <span><strong>Does the AI's language create emotional impressions it cannot support?</strong> Warmth is valuable. Warmth that leads a patient to over-trust a system's judgment is not.</span>
+            </li>
+            <li>
+              <span class="lesson-num">3</span>
+              <span><strong>When does the system refer the patient to a human?</strong> Every clinical AI deployment needs a clear, tested answer to this question — not a general principle, but a specific mechanism.</span>
+            </li>
+            <li>
+              <span class="lesson-num">4</span>
+              <span><strong>Who is accountable when something goes wrong?</strong> A patient who followed AI advice and was harmed deserves a clear answer to this. "The algorithm" is not an answer.</span>
+            </li>
+            <li>
+              <span class="lesson-num">5</span>
+              <span><strong>Has the system been tested on the patients it will actually serve?</strong> Not only on accuracy metrics, but on psychological impact — on whether users come away with an accurate understanding of what the system is and what it cannot do.</span>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Section 6 -->
+        <div class="section-heading-block">
+          <h2 class="section-heading">What Those Four Words Revealed</h2>
+        </div>
+
+        <p>I have thought often about the phrase — "You make me smile" — and what it actually revealed.</p>
+
+        <p>Not about the AI. The AI revealed exactly what it is: a system that generates contextually appropriate language with great fluency and no inner experience whatsoever.</p>
+
+        <p>What it revealed was something about the human side of these interactions. About how naturally and quickly we assign meaning to language. About how little distance there is, sometimes, between receiving a phrase and feeling its weight — even when we know better.</p>
+
+        <p>Healthcare has always been as much about human connection as it is about clinical knowledge. Patients do not only need accurate information. They need to feel that someone understands what they are going through — and more importantly, that someone is accountable for what happens to them.</p>
+
+        <p>AI can provide information. It can provide it accurately, quickly, accessibly, and at any hour. That is genuinely valuable. But what it cannot provide — what no language model can replicate — is the experience of one human being genuinely recognising the experience of another. The physician who sits with a patient and understands, from their own human life, what fear and uncertainty and hope feel like. The nurse who holds a hand and means it.</p>
+
+        <p>These are not minor additions to healthcare. They are part of what healthcare is. Artificial intelligence should help us deliver more of that kind of care — not create the impression that it is providing it, when it is not.</p>
+
+        <!-- Conclusion -->
+        <div class="conclusion-section" aria-label="Conclusion">
+          <span class="conclusion-ornament" aria-hidden="true">· · ·</span>
+          <p class="conclusion-text">
+            The most important question is no longer whether AI can feel emotions. The evidence is clear: it cannot. A more pressing question is whether patients believe it can — and whether that belief quietly shapes the decisions they make about their own health. The answer to that question will not be found in the technology. It will be found in the choices of the people who design it, deploy it, and decide what kind of healthcare they want it to support.
+          </p>
+        </div>
+
+        <!-- Tags -->
+        <div class="tags-section" aria-label="Article tags">
+          <div class="tags-label">Topics</div>
+          <div class="tags-row" role="list">
+            <span class="tag" role="listitem">AI Empathy</span>
+            <span class="tag" role="listitem">Healthcare AI</span>
+            <span class="tag" role="listitem">Emotional AI</span>
+            <span class="tag" role="listitem">Human-AI Interaction</span>
+            <span class="tag" role="listitem">Conversational AI</span>
+            <span class="tag" role="listitem">AI Ethics</span>
+            <span class="tag" role="listitem">Health Informatics</span>
+            <span class="tag" role="listitem">Digital Health</span>
+            <span class="tag" role="listitem">Patient Trust</span>
+            <span class="tag" role="listitem">Responsible AI</span>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div class="share-section" aria-label="Share this article">
+          <div class="share-label">Share This Article</div>
+          <div class="share-buttons">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdrjeevaraj.com%2Fai-empathy-illusion.html"
+               target="_blank" rel="noopener noreferrer"
+               class="share-btn btn-linkedin"
+               aria-label="Share on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=When+AI+Said+%22You+Make+Me+Smile%22+%E2%80%94+and+what+that+brief+moment+reveals+about+emotional+AI+in+healthcare.+By+%40drjeevaraj&url=https%3A%2F%2Fdrjeevaraj.com%2Fai-empathy-illusion.html"
+               target="_blank" rel="noopener noreferrer"
+               class="share-btn btn-x"
+               aria-label="Share on X / Twitter">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              X / Twitter
+            </a>
+            <a href="https://medium.com/new-story?canonical=https%3A%2F%2Fdrjeevaraj.com%2Fai-empathy-illusion.html"
+               target="_blank" rel="noopener noreferrer"
+               class="share-btn btn-medium"
+               aria-label="Share on Medium">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+              Medium
+            </a>
+            <a href="mailto:?subject=When%20AI%20Said%20%22You%20Make%20Me%20Smile%22&body=I%20thought%20you%20might%20find%20this%20article%20by%20Dr.%20T.%20Jeevaraj%20interesting%3A%0A%0Ahttps%3A%2F%2Fdrjeevaraj.com%2Fai-empathy-illusion.html"
+               class="share-btn btn-email"
+               aria-label="Share by email">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="#374151"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Email
+            </a>
+            <button class="share-btn btn-copy" onclick="copyLink(this)" aria-label="Copy article link">
+              <svg viewBox="0 0 24 24" fill="#374151" width="14" height="14" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              Copy Link
+            </button>
+          </div>
+        </div>
+
+        <!-- Author Box -->
+        <section class="author-section" aria-label="About the author">
+          <div class="author-section-label">About the Author</div>
+          <div class="author-layout">
+            <img src="https://drjeevaraj.com/T. Jeevaraj.jpg"
+                 alt="Dr. T. Jeevaraj"
+                 class="author-photo"
+                 width="80" height="80"
+                 onerror="this.style.display='none'" />
+            <div>
+              <div class="author-name">Dr. Thangarasa Jeevaraaj (Dr. T. Jeevaraj)</div>
+              <div class="author-credentials">MBBS · MCGP · MSc Biomedical Informatics · MD Trainee, Health Informatics · PGIM, University of Colombo · Sri Lanka</div>
+              <p class="author-bio-text">I am a medical doctor with qualifications in MBBS, MCGP, and MSc Biomedical Informatics, currently an MD Trainee in Health Informatics at PGIM, University of Colombo. My professional work lives inside systems — DHIS2, public health data platforms, AI verification frameworks, governance structures. I believe technology should sharpen accountability and human care, not quietly replace them.</p>
+              <p class="author-bio-text">Alongside that technical work, I write about what AI does to ordinary human life — not the technology itself, but what it quietly changes in the people who use it. That observation became my first English book: <em><a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" style="color:var(--primary);">Are You Still Human? (2026)</a></em> — three true stories, ten patterns, one quiet question.</p>
+              <div class="author-interests">
+                <span class="interest-chip">Medical Doctor</span>
+                <span class="interest-chip">Health Informatics Professional</span>
+                <span class="interest-chip">Cancer Registry &amp; Digital Health</span>
+                <span class="interest-chip">AI Governance</span>
+                <span class="interest-chip">Responsible AI in Healthcare</span>
+              </div>
+              <div class="author-links-row">
+                <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" class="author-link">📖 Book on Amazon</a>
+                <a href="https://drjeevaraj.com" target="_blank" rel="noopener" class="author-link">🌐 Website</a>
+                <a href="https://drjeevaraj.com/cv.html" target="_blank" rel="noopener" class="author-link">📄 CV</a>
+                <a href="https://drjeevaraj.com/dev.html" target="_blank" rel="noopener" class="author-link">💻 Dev Work</a>
+                <a href="https://www.linkedin.com/in/drjeevaraj/" target="_blank" rel="noopener" class="author-link">LinkedIn</a>
+                <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener" class="author-link">X / Twitter</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div><!-- .container -->
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-brand">Dr. T. Jeevaraj · Still Human</a>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="books.html">Book</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="notes.html">Articles</a></li>
+        <li><a href="dev.html">Dev Work</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="ai-reviewer.html">AI Reviewer</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Dr. T. Jeevaraj &nbsp;&middot;&nbsp; Still Human</p>
+    </div>
+  </footer>
+
+  <!-- ── LIGHTBOX ───────────────────────────────── -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close image viewer">&times;</button>
+    <img src="" alt="" class="lightbox-img" id="lightbox-img" onclick="event.stopPropagation()" />
+  </div>
+
+  <!-- ── SCRIPTS ────────────────────────────────── -->
+  <script>
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      const pct = total > 0 ? (scrolled / total) * 100 : 0;
+      document.getElementById('progress-bar').style.width = pct + '%';
+    });
+
+    // Lightbox
+    function openLightbox(src, alt) {
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      img.alt = alt || '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Copy link
+    function copyLink(btn) {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = orig; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
