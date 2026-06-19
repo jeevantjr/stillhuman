@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV — Dr. Thangarasa Jeevaraaj</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #1a3556;
+  --accent: #2563eb;
+  --light:  #eff6ff;
+  --muted:  #5a6a7e;
+  --border: #c8d8e8;
+  --text:   #1e293b;
+  --bg:     #edf3f9;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 9pt;
+  color: var(--text);
+  line-height: 1.42;
+}
+
+/* ══ PRINT ══════════════════════════════════════════════ */
+@page        { size: A4; margin: 0; }
+@page :first { size: A4; margin: 0; }
+
+@media print {
+  html, body   { width: 210mm; }
+  .no-print    { display: none !important; }
+  .pg          { width: 210mm; height: 297mm; overflow: hidden;
+                 page-break-after: always; }
+  .pg:last-child { page-break-after: avoid; }
+  a            { color: inherit; text-decoration: none; }
+  body         { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ══ SCREEN ══════════════════════════════════════════════ */
+@media screen {
+  body { background: #c9ced6; padding: 20px; }
+  .pg  {
+    background: #fff; width: 210mm; height: 297mm; overflow: hidden;
+    margin: 0 auto 24px;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.18);
+  }
+  .no-print {
+    text-align: center; margin-bottom: 18px;
+  }
+  .no-print button {
+    background: #1a3556; color: #fff; border: none;
+    padding: 10px 30px; border-radius: 6px;
+    font-size: 13px; cursor: pointer; font-family: inherit; font-weight: 600;
+  }
+  .no-print button:hover { background: #2563eb; }
+}
+
+/* ══ HEADER ══════════════════════════════════════════════ */
+.hdr {
+  background: var(--navy); color: #fff;
+  padding: 10px 15mm 9px;
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;
+}
+.hdr-name  { font-size: 16.5pt; font-weight: 700; letter-spacing: -.4px; line-height: 1.1; }
+.hdr-sub   { font-size: 7.8pt; opacity: .82; margin-top: 3px; }
+.hdr-quals { font-size: 7.2pt; opacity: .62; margin-top: 2px; font-weight: 300; }
+.hdr-info  { text-align: right; font-size: 7.8pt; line-height: 1.75; flex-shrink: 0; }
+.hdr-info a { color: #93c5fd; }
+
+/* ══ MINI HEADER (page 2) ══════════════════════════════ */
+.hdr2 {
+  background: var(--navy); color: #fff;
+  padding: 5px 15mm;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.hdr2 .n { font-size: 9.5pt; font-weight: 700; }
+.hdr2 .c { font-size: 7.5pt; opacity: .78; }
+
+/* ══ INNER (padding inside each page) ═════════════════ */
+.inner { padding: 9px 15mm 8px; }
+
+/* ══ STATS BAR ════════════════════════════════════════ */
+.stats {
+  display: flex; border-radius: 6px; overflow: hidden;
+  border: 1.5px solid var(--border); background: var(--bg);
+  margin-bottom: 8px;
+}
+.st { flex:1; text-align:center; padding:6px 3px 5px; border-right:1.5px solid var(--border); background:var(--bg); }
+.st:last-child { border-right:none; }
+.st-n { display:block; font-size:13.5pt; font-weight:700; color:var(--navy); line-height:1.1; }
+.st-l { display:block; font-size:5.8pt; color:var(--muted); text-transform:uppercase; letter-spacing:.4px; margin-top:2px; }
+
+/* ══ SECTION ══════════════════════════════════════════ */
+.sec { margin-bottom: 7px; }
+.sh  {
+  font-size:7.2pt; font-weight:700; text-transform:uppercase; letter-spacing:1px;
+  color:var(--accent); border-bottom:1.5px solid var(--accent); padding-bottom:2px; margin-bottom:5px;
+}
+
+/* ══ PROFILE ══════════════════════════════════════════ */
+.profile { font-size:8.8pt; color:#334155; line-height:1.48; }
+
+/* ══ TWO COL ══════════════════════════════════════════ */
+.two { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+
+/* ══ EDUCATION ════════════════════════════════════════ */
+.edu { display:flex; gap:8px; margin-bottom:5px; }
+.edu-yr  { font-size:7.2pt; color:var(--muted); font-weight:500; min-width:84px; max-width:84px; flex-shrink:0; padding-top:1px; line-height:1.3; }
+.edu-deg { font-size:9.2pt; font-weight:700; color:var(--navy); line-height:1.15; }
+.edu-n   { font-size:7.8pt; color:var(--text); margin-top:1px; }
+.edu-i   { font-size:7.2pt; color:var(--muted); margin-top:1px; }
+.badge   { display:inline-block; font-size:6.2pt; font-weight:600; padding:1px 5px; border-radius:3px; margin-top:2px; }
+.done    { background:#dcfce7; color:#166534; }
+.ip      { background:#fef9c3; color:#854d0e; }
+
+/* ══ SKILLS ═══════════════════════════════════════════ */
+.sk-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px 12px; }
+.sk-cat  { font-size:8.2pt; font-weight:600; color:var(--navy); }
+.sk-val  { font-size:7.8pt; color:#475569; line-height:1.38; }
+
+/* ══ EXPERIENCE ═══════════════════════════════════════ */
+.exp { margin-bottom:4px; padding-bottom:4px; border-bottom:1px solid #edf2f7; }
+.exp:last-child { border-bottom:none; margin-bottom:0; }
+.exp-hdr  { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+.exp-role { font-size:9pt; font-weight:700; color:var(--navy); }
+.exp-date { font-size:7.2pt; color:var(--muted); white-space:nowrap; font-weight:500; }
+.exp-org  { font-size:7.8pt; color:#475569; margin:1px 0 2px; }
+.exp-li   { font-size:7.8pt; color:#475569; padding-left:11px; line-height:1.4; }
+.exp-li li { margin-bottom:1px; }
+
+/* ══ PUBLICATIONS ══════════════════════════════════════ */
+.pub { margin-bottom:5px; }
+.ptag  { display:inline-block; background:var(--navy); color:#fff; font-size:6.2pt; font-weight:600; padding:1px 5px; border-radius:3px; margin-bottom:2px; }
+.ptit  { font-size:8.8pt; font-weight:600; color:var(--text); line-height:1.33; }
+.pauth { font-size:7.8pt; color:var(--muted); font-style:italic; margin-top:1px; }
+.pmeta { font-size:7.2pt; color:var(--muted); margin-top:1px; }
+
+/* ══ PROJECTS ══════════════════════════════════════════ */
+.pg-grid { display:grid; grid-template-columns:1fr 1fr; gap:5px 12px; }
+.pj-n { font-size:8.2pt; font-weight:600; color:var(--navy); }
+.pj-d { font-size:7.8pt; color:var(--muted); line-height:1.33; margin-top:1px; }
+.pj-t { font-size:6.8pt; color:var(--accent); margin-top:1px; }
+
+/* ══ AWARDS ════════════════════════════════════════════ */
+.aw-list { list-style:none; }
+.aw-list li { font-size:8.2pt; padding:1.5px 0; display:flex; gap:5px; line-height:1.38; }
+.aw-list li::before { content:"★"; color:#f59e0b; flex-shrink:0; font-size:7.5pt; }
+
+/* ══ CPD ════════════════════════════════════════════── */
+.cpd-list { list-style:none; }
+.cpd-list li { font-size:7.8pt; color:var(--muted); padding:1px 0 1px 11px; position:relative; line-height:1.38; }
+.cpd-list li::before { content:"·"; position:absolute; left:1px; color:var(--accent); font-weight:700; font-size:11pt; line-height:.85; }
+
+/* ══ OPEN BOX ══════════════════════════════════════════ */
+.open-box {
+  background:var(--light); border-left:3px solid var(--accent);
+  padding:6px 10px; border-radius:0 4px 4px 0; margin-top:5px;
+}
+.ob-t { font-size:8.2pt; font-weight:700; color:var(--navy); margin-bottom:2px; }
+.ob-r { font-size:7.8pt; color:#334155; line-height:1.5; }
+
+/* ══ FOOTER ════════════════════════════════════════════ */
+.foot {
+  border-top:1px solid var(--border); padding-top:4px; margin-top:6px;
+  display:flex; justify-content:space-between; font-size:6.8pt; color:var(--muted);
+}
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button onclick="window.print()">⬇ Save as PDF — set Margins to None in Chrome print dialog</button>
+</div>
+
+<!-- ═══════════════════ PAGE 1 ═══════════════════════ -->
+<div class="pg">
+  <div class="hdr">
+    <div>
+      <div class="hdr-name">Dr. Thangarasa Jeevaraaj</div>
+      <div class="hdr-sub">General Practitioner &nbsp;·&nbsp; Health Informatician &nbsp;·&nbsp; AI Reviewer &nbsp;·&nbsp; Author</div>
+      <div class="hdr-quals">MBBS &nbsp;·&nbsp; MCGP &nbsp;·&nbsp; MSc Biomedical Informatics &nbsp;·&nbsp; MD Health Informatics Trainee &nbsp;·&nbsp; SLMC Reg. 23293</div>
+    </div>
+    <div class="hdr-info">
+      tjeevaraj78@gmail.com<br>
+      <a href="https://www.linkedin.com/in/drjeevaraj/">linkedin.com/in/drjeevaraj</a><br>
+      <a href="https://drjeevaraj.com">drjeevaraj.com</a><br>
+      <a href="https://www.researchgate.net/profile/Jeevaraaj-Thangarasa" target="_blank">ResearchGate</a> &nbsp;·&nbsp; <a href="https://scholar.google.com/citations?user=iUkxMpUAAAAJ&hl=en" target="_blank">Google Scholar</a><br>
+      Sri Lanka &nbsp;·&nbsp; English · Tamil · Sinhala
+    </div>
+  </div>
+
+  <div class="inner">
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="st"><span class="st-n">20+</span><span class="st-l">Years in Medicine</span></div>
+      <div class="st"><span class="st-n">8</span><span class="st-l">Clinical Roles</span></div>
+      <div class="st"><span class="st-n">2</span><span class="st-l">Peer-Reviewed Papers</span></div>
+      <div class="st"><span class="st-n">7</span><span class="st-l">Published Books</span></div>
+      <div class="st"><span class="st-n">8</span><span class="st-l">Awards</span></div>
+      <div class="st"><span class="st-n">9</span><span class="st-l">Digital Health Projects</span></div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="sec">
+      <div class="sh">Profile</div>
+      <div class="profile">Medical doctor with 20+ years of front-line clinical experience (GP · hospital medicine · MICU · emergency · public health), combined with postgraduate training in Biomedical Informatics (MSc, PGIM, 2022–2024) and current MD Health Informatics traineeship (Batch 9, PGIM, University of Colombo, 2026–). Expert in evaluating AI-generated medical content, hallucination detection, clinical QA, and health data governance. Designer of nine open-source digital health platforms deployed in Sri Lanka. Published researcher in <em>BMJ Open</em> (University of Michigan collaboration, 2020). Award-winning author in English and Tamil. Available for remote clinical AI review, health informatics consulting, medical writing, and AI training roles.</div>
+    </div>
+
+    <!-- EDUCATION + SKILLS -->
+    <div class="two">
+
+      <div class="sec">
+        <div class="sh">Education &amp; Qualifications</div>
+
+        <div class="edu">
+          <div class="edu-yr">2006</div>
+          <div>
+            <div class="edu-deg">MBBS</div>
+            <div class="edu-i">Faculty of Medicine, University of Jaffna · Sri Lanka</div>
+          </div>
+        </div>
+
+        <div class="edu">
+          <div class="edu-yr">2014 – 2016</div>
+          <div>
+            <div class="edu-deg">MCGP</div>
+            <div class="edu-i">College of General Practitioners of Sri Lanka</div>
+          </div>
+        </div>
+
+        <div class="edu">
+          <div class="edu-yr">Oct 2022 –<br>Oct 2024</div>
+          <div>
+            <div class="edu-deg">MSc Biomedical Informatics</div>
+            <div class="edu-n">Batch 12 — PGIM, University of Colombo</div>
+            <div class="edu-i">Health info systems · Clinical informatics · Biomedical data science · DHIS2 certified</div>
+            <span class="badge done">✓ Completed</span>
+          </div>
+        </div>
+
+        <div class="edu">
+          <div class="edu-yr">Apr 2026 –<br>Present</div>
+          <div>
+            <div class="edu-deg">MD Health Informatics (Trainee)</div>
+            <div class="edu-n">Batch 9 — PGIM, University of Colombo</div>
+            <div class="edu-i">Five-rotation programme across Ministry of Health institutions nationwide</div>
+            <span class="badge ip">⏳ In Progress</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sh">Skills &amp; Competencies</div>
+        <div class="sk-grid">
+          <div><div class="sk-cat">Clinical AI Review</div><div class="sk-val">AI output evaluation, hallucination detection, medical QA, clinical safety, AI ethics</div></div>
+          <div><div class="sk-cat">Health Informatics</div><div class="sk-val">DHIS2 (certified), CanReg5, health data governance, EHR, NCD surveillance, epidemiology</div></div>
+          <div><div class="sk-cat">Research &amp; Writing</div><div class="sk-val">BMJ Open (peer-reviewed), medical writing, fact-checking, clinical documentation</div></div>
+          <div><div class="sk-cat">Digital Development</div><div class="sk-val">Python, PHP, JavaScript, HTML/CSS, MySQL, REST APIs, PWA, Django, Firebase</div></div>
+          <div><div class="sk-cat">Clinical</div><div class="sk-val">GP, NCD management, emergency medicine, MICU, primary care, OB/GYN, public health</div></div>
+          <div><div class="sk-cat">Languages</div><div class="sk-val">English (professional) · Tamil (native) · Sinhala (professional)</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CLINICAL EXPERIENCE -->
+    <div class="sec">
+      <div class="sh">Clinical Experience</div>
+
+      <div class="exp">
+        <div class="exp-hdr"><div class="exp-role">MD Health Informatics Trainee — Batch 9</div><div class="exp-date">Apr 2026 – Apr 2027</div></div>
+        <div class="exp-org">PGIM / Ministry of Health Rotations, Sri Lanka</div>
+        <ul class="exp-li"><li>Selected at MD Health Informatics Selection Examination (January 2026). Five rotations: PD Office Western Province · HIU Ministry of Health · Epidemiology Unit · Family Health Bureau · Medical Statistics Unit. Weekly lectures at PGIM, Colombo.</li></ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-hdr"><div class="exp-role">Medical Officer — National Cancer Control Programme (NCCP)</div><div class="exp-date">Jan 2026 – Apr 2026</div></div>
+        <div class="exp-org">Ministry of Health · Public Health Complex, Elvitigala Mawatha, Colombo 05</div>
+        <ul class="exp-li"><li>CanReg5 cancer registry data operations and QA · Early cancer detection centre registry development · Internal IT improvement work</li></ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-hdr"><div class="exp-role">MSc Trainee / Medical Officer — RDHS Office, Trincomalee</div><div class="exp-date">Oct 2022 – Dec 2025</div></div>
+        <div class="exp-org">PGIM (MSc Biomedical Informatics, Oct 2022 – Oct 2024, Batch 12) &amp; RDHS Trincomalee (statistical &amp; health information management, 2025)</div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-hdr"><div class="exp-role">Medical Officer In Charge (MOIC) — Divisional Hospital, Thampalakamam</div><div class="exp-date">2019 – 2022</div></div>
+        <div class="exp-org">Trincomalee District · World Bank PSSP · Sri Lanka</div>
+        <ul class="exp-li"><li>NCD screening: 43% of population over 35 screened · Pre-scheduled appointment system · Community health walks (200+ participants) · Friends of Facility (FFC) committee · Featured in World Bank documentation, March 2022</li></ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-hdr"><div class="exp-role">General Practitioner — Primary Medical Care Units, Trincomalee</div><div class="exp-date">Dec 2013 – 2022</div></div>
+        <div class="exp-org">Selvanayagapuram (Dec 2017–2022) &amp; Kappalthurai (Dec 2013–Dec 2017)</div>
+        <ul class="exp-li"><li>Full-scope primary care: NCD detection and long-term management, clinical decision-making, longitudinal patient records, minor surgery, community health education and prevention</li></ul>
+      </div>
+
+      <div class="exp">
+        <div class="exp-hdr"><div class="exp-role">Medical Officer — General Hospital, Trincomalee</div><div class="exp-date">2007 – Dec 2013</div></div>
+        <div class="exp-org">Medical Unit · Emergency Care Unit · MICU · Gynaecology &amp; Obstetrics (2007–2008) · Trincomalee</div>
+        <ul class="exp-li"><li>MICU: inward management of 80–100 patients · Acute medical/surgical/paediatric/obstetric emergencies · Emergency intubation, CPR, lumbar puncture, IV cannulation · Mass casualty management</li></ul>
+      </div>
+
+    </div>
+
+    <div class="foot">
+      <span>Dr. Thangarasa Jeevaraaj · SLMC Reg. 23293 · tjeevaraj78@gmail.com · linkedin.com/in/drjeevaraj · drjeevaraj.com</span>
+      <span>Page 1 of 2</span>
+    </div>
+
+  </div>
+</div><!-- end page 1 -->
+
+
+<!-- ═══════════════════ PAGE 2 ═══════════════════════ -->
+<div class="pg">
+  <div class="hdr2">
+    <div class="n">Dr. Thangarasa Jeevaraaj</div>
+    <div class="c">tjeevaraj78@gmail.com &nbsp;·&nbsp; linkedin.com/in/drjeevaraj &nbsp;·&nbsp; drjeevaraj.com</div>
+  </div>
+
+  <div class="inner">
+
+    <!-- PUBLICATIONS -->
+    <div class="sec">
+      <div class="sh">Research &amp; Publications</div>
+
+      <div class="pub">
+        <span class="ptag">BMJ Open · July 2020</span>
+        <div class="ptit">Imputing HbA1c from capillary blood glucose levels in patients with type 2 diabetes in Sri Lanka: a cross-sectional study</div>
+        <div class="pauth">Choo M, Hoy GE, Dugan SP, McEwen LN, Gunaratnam N, Wyckoff J, <strong>Jeevaraaj T</strong>, Saththiyaseelan A, Ganeikabahu B, Katulanda P, Balis U, Herman WH, Saha AK — University of Michigan collaboration · Field data: Sri Lanka</div>
+        <div class="pmeta">PMID: 32690534 &nbsp;·&nbsp; DOI: 10.1136/bmjopen-2020-038148 &nbsp;·&nbsp; PMCID: PMC7371026</div>
+      </div>
+
+      <div class="pub">
+        <span class="ptag">Jaffna Medical Journal · Dec 2024 · Vol 36(2)</span>
+        <div class="ptit">The Correlation Between Global Longitudinal Strain by Speckle Tracking Echocardiography and Coronary Angiogram Finding in Patients with Suspected Chronic Stable Angina Pectoris</div>
+        <div class="pauth">Jeyakanth T, Mayurathan G, Kularatne A, <strong>Jeevaraj T</strong>, Prashanthi J, Abeysingha T — Multi-centre: Kandy · Trincomalee · Jaffna (n = 78)</div>
+        <div class="pmeta">DOI: 10.4038/jmj.v36i2.221 &nbsp;·&nbsp; Submitted Jun 2024 &nbsp;·&nbsp; Accepted Nov 2024</div>
+      </div>
+
+      <div class="pub">
+        <span class="ptag">Books (2013 – 2026) · 7 titles</span>
+        <div class="ptit">Are You Still Human? (Amazon Kindle, May 2026) · ASIN: B0H333G41P</div>
+        <div class="pauth">Literary nonfiction · 10 human-AI shift patterns · 3 clinical narratives · English · 37 pages</div>
+        <div class="pauth" style="margin-top:2px;"><em>Tamil works (Noolaham Digital Library):</em> A Study of Place Names in Thambalagamam (State Literary Award 2023) · Vannimai Chieftains of Kottiyarpattu (Best History Book 2022) · Thirukonamalai Tamil Inscriptions · The Cholas in Trincomalee · Thirukoneswaram in the Tamil Bhakti Movement · Manam Thudikkum (poetry)</div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="sec">
+      <div class="sh">Digital Health Projects — github.com/jeevantjr</div>
+      <div class="pg-grid">
+        <div><div class="pj-n">OutbreakWatch</div><div class="pj-d">Real-time disease surveillance with anomaly detection and early-warning dashboards</div><div class="pj-t">Python · Django · PostgreSQL · Chart.js</div></div>
+        <div><div class="pj-n">FloodTrackerApp</div><div class="pj-d">Offline-first disaster response PWA for health resource coordination during floods</div><div class="pj-t">React · Node.js · PWA · Maps API</div></div>
+        <div><div class="pj-n">RDHS District Health Stats PWA</div><div class="pj-d">Offline analytics dashboard: maternal health, NCD, immunisation, disease burden</div><div class="pj-t">JavaScript · D3.js · IndexedDB · Service Worker</div></div>
+        <div><div class="pj-n">Health Fleet Manager</div><div class="pj-d">Fleet scheduling and logistics for RDHS Trincomalee — vehicle tracking and fuel analytics</div><div class="pj-t">JavaScript · Bootstrap · Firebase · REST API</div></div>
+        <div><div class="pj-n">Cancer Early Detection Centre Registry</div><div class="pj-d">Patient registration and screening workflow system for clinic staff (NCCP, Colombo)</div><div class="pj-t">Vue.js · REST API · CanReg5 integration</div></div>
+        <div><div class="pj-n">Digital Admin Assistant</div><div class="pj-d">AI-guided tool for public sector administrative inquiries (Establishment Code)</div><div class="pj-t">HTML5 · JavaScript · Apps Script · AI-guided</div></div>
+      </div>
+    </div>
+
+    <!-- AWARDS + CPD -->
+    <div class="two">
+
+      <div class="sec">
+        <div class="sh">Awards &amp; Recognition</div>
+        <ul class="aw-list">
+          <li><strong>State Literary Award 2023</strong> — Ministry of University &amp; Cultural Affairs, Sri Lanka (14 Sep 2023)</li>
+          <li><strong>World Bank Feature</strong> — NCD programme, PSSP (March 2022)</li>
+          <li><strong>Best Book Award — Place Names</strong> — Eastern Province Tamil Literary Festival 2023</li>
+          <li><strong>Best Book Award — History</strong> — Eastern Province Tamil Literary Festival 2022</li>
+          <li><strong>Youth Recognition in Tamil Literature</strong> — Eastern Province Tamil Literary Festival 2017</li>
+          <li><strong>Samasri Award 2013</strong> — Inter-Community Harmony, recognised by Eastern Province Chief Minister</li>
+          <li><strong>Blood Donor Recognition</strong> — 9 citations (2010–2018), National Blood Transfusion Service</li>
+          <li><strong>PSSP Certificate of Appreciation</strong> — Primary Healthcare System Strengthening, 2021</li>
+        </ul>
+      </div>
+
+      <div class="sec">
+        <div class="sh">Professional Development &amp; CPD (Selected)</div>
+        <ul class="cpd-list">
+          <li>Advanced Research Methodology — 21 CPD Points · Ministry of Health, May–Jun 2026</li>
+          <li>Introduction to DHIS2 — HISP Centre, University of Oslo · Feb 2025</li>
+          <li>Aggregate Data Capture &amp; Validation — DHIS2 Online Academy · Aug 2023</li>
+          <li>Aggregate Data Analysis Fundamentals — DHIS2 Online Academy · Aug 2023</li>
+          <li>Aggregate Customization Fundamentals — DHIS2 Online Academy · Feb 2025</li>
+          <li>Right to Information Act — Workshop · SDFL, Ministry of Education · Jul 2025</li>
+          <li>Results-Based Management for Inclusive Social Development — UNICEF</li>
+          <li>WONCA SAR Conference — Reaching Across Shores to Strengthen Primary Care</li>
+          <li>Orientation Course in Medical Administration — College of Medical Administrators</li>
+          <li>Hospital Safety — Managing Emergencies During Disasters · 2019</li>
+          <li>Cancer in Women — Current Concepts, Practices &amp; Strategies · SLMA</li>
+          <li>CPR Training — Department of Anaesthesia, General Hospital Trincomalee</li>
+          <li>Sensitization on TB Control — NPTCCD, Ministry of Health · 2009</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- OPEN BOX -->
+    <div class="open-box">
+      <div class="ob-t">Open to Remote Collaboration</div>
+      <div class="ob-r">Clinical AI Reviewer &nbsp;·&nbsp; AI Medical Fact-Checker &nbsp;·&nbsp; Medical Content Reviewer &nbsp;·&nbsp; Clinical SME (AI Training) &nbsp;·&nbsp; Medical Writer &nbsp;·&nbsp; Digital Health Researcher</div>
+    </div>
+
+    <div class="foot">
+      <span>Dr. Thangarasa Jeevaraaj · SLMC Reg. 23293 · tjeevaraj78@gmail.com · linkedin.com/in/drjeevaraj · drjeevaraj.com</span>
+      <span>Page 2 of 2</span>
+    </div>
+
+  </div>
+</div><!-- end page 2 -->
+
+</body>
+</html>
