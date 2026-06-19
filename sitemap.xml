@@ -38,6 +38,30 @@
   </url>
 
   <url>
+    <loc>https://drjeevaraj.com/ai-health-advice-human-connection.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://drjeevaraj.com/ai-supervision-governance.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://drjeevaraj.com/ai-empathy-illusion.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://drjeevaraj.com/ai-listening-first.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://drjeevaraj.com/dev.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
