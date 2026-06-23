@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9EW1LVGWZP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9EW1LVGWZP');
+  </script>
+  <title>Work With Me — Dr. T. Jeevaraj · Digital Health Consulting & AI Review</title>
+  <meta name="description" content="Services by Dr. T. Jeevaraj — Clinical AI Review, DHIS2 Consulting, Digital Health Development, Medical Writing. Available for remote collaboration worldwide.">
+  <meta name="author" content="Dr. T. Jeevaraj" />
+  <link rel="canonical" href="https://drjeevaraj.com/services.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Work With Me — Dr. T. Jeevaraj · Digital Health Consulting" />
+  <meta property="og:description" content="Remote consulting services: Clinical AI Review, DHIS2 Implementation, Digital Health Development, Medical Writing. 20+ years clinical experience. DHIS2 certified. BMJ Open published." />
+  <meta property="og:url" content="https://drjeevaraj.com/services.html" />
+  <meta property="og:image" content="https://drjeevaraj.com/ARE%20YOU%20STILL%20HUMAN.jpg" />
+  <meta property="og:site_name" content="Dr. T. Jeevaraj — Still Human" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Dr. T. Jeevaraj — Digital Health Consulting",
+    "url": "https://drjeevaraj.com/services.html",
+    "description": "Remote digital health consulting, clinical AI review, DHIS2 implementation, and medical writing services.",
+    "provider": {
+      "@type": "Person",
+      "name": "Dr. T. Jeevaraj",
+      "jobTitle": "General Practitioner & Health Informatics Specialist",
+      "url": "https://drjeevaraj.com",
+      "sameAs": ["https://www.linkedin.com/in/drjeevaraj/", "https://orcid.org/0009-0008-5084-0258"]
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .svc-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 0 5rem;
+    }
+
+    /* ── Availability banner ─────────────────── */
+    .svc-avail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(79,125,82,0.08);
+      border: 1px solid rgba(79,125,82,0.28);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .svc-avail-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #4F7D52;
+      box-shadow: 0 0 0 3px rgba(79,125,82,0.2);
+      flex-shrink: 0;
+    }
+    .svc-avail p {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .svc-avail strong { color: #4F7D52; }
+
+    /* ── Section heading ─────────────────────── */
+    .svc-sec-head {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 2rem;
+      margin-top: 3.5rem;
+    }
+    .svc-sec-head i { font-size: 0.7rem; color: var(--gold); }
+    .svc-sec-head.ssh-teal { color: var(--teal); border-bottom-color: rgba(26,110,110,0.35); }
+    .svc-sec-head.ssh-blue { color: #3D6E8C; border-bottom-color: rgba(61,110,140,0.35); }
+    .svc-sec-head.ssh-green { color: #4F7D52; border-bottom-color: rgba(79,125,82,0.35); }
+    .svc-sec-head.ssh-copper { color: var(--copper); border-bottom-color: rgba(154,114,48,0.35); }
+    .svc-sec-head.ssh-teal i { color: var(--teal); }
+    .svc-sec-head.ssh-blue i { color: #3D6E8C; }
+    .svc-sec-head.ssh-green i { color: #4F7D52; }
+    .svc-sec-head.ssh-copper i { color: var(--copper); }
+
+    /* ── Service cards ───────────────────────── */
+    .svc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .svc-card {
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 1.8rem 1.8rem 1.5rem;
+      transition: box-shadow var(--t), border-color var(--t), transform var(--t);
+    }
+    .svc-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .svc-card.svc-teal  { border-top-color: var(--teal); }
+    .svc-card.svc-blue  { border-top-color: #3D6E8C; }
+    .svc-card.svc-green { border-top-color: #4F7D52; }
+    .svc-card.svc-copper { border-top-color: var(--copper); }
+    .svc-card.svc-red   { border-top-color: #B5453A; }
+
+    .svc-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border-light);
+    }
+    .svc-icon-gold   { background: linear-gradient(135deg,rgba(200,151,62,0.22),rgba(200,151,62,0.06)); color: var(--gold-deep); border-color: rgba(200,151,62,0.3); }
+    .svc-icon-teal   { background: linear-gradient(135deg,rgba(26,110,110,0.22),rgba(26,110,110,0.06)); color: var(--teal); border-color: rgba(26,110,110,0.3); }
+    .svc-icon-blue   { background: linear-gradient(135deg,rgba(61,110,140,0.22),rgba(61,110,140,0.06)); color: #3D6E8C; border-color: rgba(61,110,140,0.3); }
+    .svc-icon-green  { background: linear-gradient(135deg,rgba(79,125,82,0.22),rgba(79,125,82,0.06)); color: #4F7D52; border-color: rgba(79,125,82,0.3); }
+    .svc-icon-copper { background: linear-gradient(135deg,rgba(154,114,48,0.22),rgba(154,114,48,0.06)); color: var(--copper); border-color: rgba(154,114,48,0.3); }
+    .svc-icon-red    { background: linear-gradient(135deg,rgba(181,69,58,0.22),rgba(181,69,58,0.06)); color: #B5453A; border-color: rgba(181,69,58,0.3); }
+
+    .svc-card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-ui);
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      border: 1px solid var(--border-light);
+      padding: 2px 9px;
+      border-radius: 2px;
+      margin-bottom: 0.6rem;
+    }
+    .svc-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
+    }
+    .svc-card p {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .svc-deliverables {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--ink-light);
+      line-height: 1.8;
+      border-top: 1px solid var(--border-light);
+      padding-top: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .svc-deliverables strong {
+      font-size: 0.58rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .svc-deliverables li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.15rem;
+    }
+    .svc-deliverables li::before {
+      content: '–';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ── Why me strip ────────────────────────── */
+    .svc-why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .svc-why-tile {
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 1.3rem 1.2rem 1.1rem;
+      text-align: center;
+    }
+    .svc-why-tile i {
+      font-size: 1.1rem;
+      color: var(--gold-deep);
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+    .svc-why-tile strong {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+    .svc-why-tile p {
+      font-family: var(--font-ui);
+      font-size: 0.73rem;
+      color: var(--ink-light);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ── CTA panel ───────────────────────────── */
+    .svc-cta {
+      background: linear-gradient(115deg, rgba(200,151,62,0.10) 0%, rgba(242,232,210,0.4) 100%);
+      border: 1px solid rgba(200,151,62,0.25);
+      border-radius: var(--radius-md);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-top: 3.5rem;
+    }
+    .svc-cta h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+    .svc-cta p {
+      font-family: var(--font-body);
+      font-size: 0.97rem;
+      color: var(--ink-mid);
+      max-width: 540px;
+      margin: 0 auto 1.8rem;
+      line-height: 1.8;
+    }
+    .svc-cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+    }
+    .svc-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold-deep);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all var(--t);
+    }
+    .svc-btn-primary:hover { background: var(--copper); color: #fff; box-shadow: var(--shadow-md); }
+    .svc-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--gold-deep);
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border: 1.5px solid var(--gold-deep);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all var(--t);
+    }
+    .svc-btn-secondary:hover { background: rgba(200,151,62,0.08); }
+
+    /* ── Trust bar ───────────────────────────── */
+    .svc-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .svc-trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      padding: 0.35rem 0.9rem;
+    }
+    .svc-trust-badge i { color: var(--gold-deep); font-size: 0.6rem; }
+
+    /* ── Responsive ──────────────────────────── */
+    @media (max-width: 700px) {
+      .svc-grid { grid-template-columns: 1fr; }
+      .svc-why-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="inner-page">
+
+<nav id="main-nav" class="solid">
+  <a href="index.html" class="nav-title">Still Human</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="notes.html">Articles</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="ai-reviewer.html">AI Reviewer</a></li>
+    <li><a href="services.html" class="active" style="color:var(--gold-deep);font-weight:600;">Work With Me</a></li>
+  </ul>
+</nav>
+
+<!-- ── PAGE HEADER ─────────────────────────────── -->
+<div class="container">
+  <div class="inner-hero">
+    <span class="page-label">Services &amp; Consulting</span>
+    <h1>Work With Me</h1>
+    <p class="page-sub">Remote · Digital Health · Clinical AI · Medical Writing · DHIS2</p>
+  </div>
+</div>
+
+<!-- ── SERVICES CONTENT ────────────────────────── -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="svc-wrap">
+
+      <!-- Availability banner -->
+      <div class="svc-avail fade-in">
+        <div class="svc-avail-dot"></div>
+        <p>
+          <strong>Available for remote collaboration worldwide.</strong>
+          Currently accepting consulting engagements, AI review contracts, and short-duration research collaborations.
+          Based in Sri Lanka &nbsp;·&nbsp; UTC+5:30 &nbsp;·&nbsp; English &nbsp;·&nbsp; Tamil &nbsp;·&nbsp; Sinhala
+          &nbsp;&nbsp;
+          <a href="mailto:tjeevaraj78@gmail.com" style="color:var(--copper-light);font-weight:600;">tjeevaraj78@gmail.com</a>
+        </p>
+      </div>
+
+      <!-- ── SERVICES ────────────────────────── -->
+      <div class="svc-sec-head">
+        <i class="fa-solid fa-briefcase"></i> Services
+      </div>
+
+      <div class="svc-grid">
+
+        <!-- 1. Clinical AI Review -->
+        <div class="svc-card fade-in">
+          <div class="svc-card-icon svc-icon-gold"><i class="fa-solid fa-robot"></i></div>
+          <div class="svc-card-tag">Remote &nbsp;·&nbsp; Hourly / Contract</div>
+          <h3>Clinical AI Review &amp; Quality Assurance</h3>
+          <p>Medical validation of AI-generated health content, clinical reasoning evaluation, hallucination detection, and dataset annotation for health AI systems. Grounded in 20+ years of clinical decision-making across primary care, emergency medicine, and public health informatics.</p>
+          <ul class="svc-deliverables">
+            <strong>Typical Deliverables</strong>
+            <li>Medical accuracy review of AI training data</li>
+            <li>Clinical reasoning evaluation for LLM outputs</li>
+            <li>Red-teaming for health AI products</li>
+            <li>Annotation and labelling of clinical datasets</li>
+            <li>QA for AI-generated patient-facing content</li>
+          </ul>
+        </div>
+
+        <!-- 2. DHIS2 Consulting -->
+        <div class="svc-card svc-teal fade-in delay-1">
+          <div class="svc-card-icon svc-icon-teal"><i class="fa-solid fa-database"></i></div>
+          <div class="svc-card-tag" style="color:var(--teal);border-color:rgba(26,110,110,0.3);">Remote &nbsp;·&nbsp; Project Based</div>
+          <h3>DHIS2 Implementation &amp; Advisory</h3>
+          <p>Configuration, gap analysis, and training for DHIS2 health information systems. Certified through the HISP Centre, University of Oslo (2023–2025). Implementation experience rooted in real peripheral health contexts — not textbook settings. Understanding of what works when internet is intermittent and staffing is thin.</p>
+          <ul class="svc-deliverables">
+            <strong>Typical Deliverables</strong>
+            <li>HIS needs assessment and gap analysis</li>
+            <li>DHIS2 aggregate and tracker configuration</li>
+            <li>Data entry, validation, and analysis training</li>
+            <li>Dashboard design for district health statistics</li>
+            <li>Participatory design facilitation with frontline users</li>
+          </ul>
+        </div>
+
+        <!-- 3. Digital Health Development -->
+        <div class="svc-card svc-blue fade-in">
+          <div class="svc-card-icon svc-icon-blue"><i class="fa-solid fa-laptop-medical"></i></div>
+          <div class="svc-card-tag" style="color:#3D6E8C;border-color:rgba(61,110,140,0.3);">Remote &nbsp;·&nbsp; Project Based</div>
+          <h3>Digital Health System Development</h3>
+          <p>Design and development of offline-first health tools for low-resource settings. Eight deployed systems built alongside clinical work — disease surveillance, fleet management, health stats PWAs, cancer registry support. Clinician-developer who builds tools they actually use.</p>
+          <ul class="svc-deliverables">
+            <strong>Typical Deliverables</strong>
+            <li>Offline-first PWA health tools (Service Worker / IndexedDB)</li>
+            <li>Disease surveillance dashboards</li>
+            <li>Public health data analytics tools</li>
+            <li>Requirements documentation and system design</li>
+            <li>GitHub deployment and maintenance</li>
+          </ul>
+        </div>
+
+        <!-- 4. Medical Writing -->
+        <div class="svc-card svc-copper fade-in delay-1">
+          <div class="svc-card-icon svc-icon-copper"><i class="fa-solid fa-pen-nib"></i></div>
+          <div class="svc-card-tag" style="color:var(--copper);border-color:rgba(154,114,48,0.3);">Remote &nbsp;·&nbsp; Per Assignment</div>
+          <h3>Medical Writing &amp; Content Review</h3>
+          <p>Health content writing, clinical manuscript support, and peer review of AI-generated medical articles. Published in BMJ Open (2020) with the University of Michigan. Strong track record of translating clinical evidence into clear, accurate language — for academic, patient-facing, and policy audiences.</p>
+          <ul class="svc-deliverables">
+            <strong>Typical Deliverables</strong>
+            <li>Clinical accuracy review of health content</li>
+            <li>AI-generated medical content QA</li>
+            <li>Research manuscript preparation support</li>
+            <li>Public health policy document review</li>
+            <li>Plain-language translation of clinical findings</li>
+          </ul>
+        </div>
+
+        <!-- 5. HIS Advisory -->
+        <div class="svc-card svc-green fade-in">
+          <div class="svc-card-icon svc-icon-green"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="svc-card-tag" style="color:#4F7D52;border-color:rgba(79,125,82,0.3);">Remote &nbsp;·&nbsp; Advisory / Short-term</div>
+          <h3>Health Informatics Advisory</h3>
+          <p>Strategic advisory on health information system design, implementation, and governance — with particular expertise in peripheral and primary care contexts. Experience across Sri Lanka's public health system at district, regional, and national levels. Relevant for Ministries of Health, NGOs, and global health organisations.</p>
+          <ul class="svc-deliverables">
+            <strong>Typical Deliverables</strong>
+            <li>HIS design review and recommendations</li>
+            <li>AI in healthcare implementation frameworks</li>
+            <li>Digital health governance guidance</li>
+            <li>User research and participatory design facilitation</li>
+            <li>Programme evaluation and reporting</li>
+          </ul>
+        </div>
+
+        <!-- 6. Research Collaboration -->
+        <div class="svc-card svc-red fade-in delay-1">
+          <div class="svc-card-icon svc-icon-red"><i class="fa-solid fa-flask"></i></div>
+          <div class="svc-card-tag" style="color:#B5453A;border-color:rgba(181,69,58,0.3);">Remote &nbsp;·&nbsp; Collaboration</div>
+          <h3>Research Collaboration &amp; Co-authorship</h3>
+          <p>Available for research collaborations in health informatics, implementation science, clinical AI, and public health data. ORCID registered. Peer-reviewed publications in BMJ Open and Jaffna Medical Journal. MD Health Informatics Trainee (PGIM) — active research focus. Prior international collaboration with University of Michigan.</p>
+          <ul class="svc-deliverables">
+            <strong>Areas of Interest</strong>
+            <li>Healthcare AI governance and implementation</li>
+            <li>Health information systems in low-resource settings</li>
+            <li>Peripheral and primary care informatics</li>
+            <li>NCD surveillance and population health data</li>
+            <li>DHIS2 and digital health platform evaluation</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- ── WHY WORK WITH ME ─────────────────── -->
+      <div class="svc-sec-head ssh-teal">
+        <i class="fa-solid fa-star"></i> What Makes This Rare
+      </div>
+
+      <div class="svc-why-grid">
+        <div class="svc-why-tile fade-in">
+          <i class="fa-solid fa-stethoscope"></i>
+          <strong>Clinician + Developer</strong>
+          <p>20+ years clinical experience combined with actual coding capability. Builds tools that reflect how care is delivered, not how administrators imagine it is.</p>
+        </div>
+        <div class="svc-why-tile fade-in delay-1">
+          <i class="fa-solid fa-earth-asia"></i>
+          <strong>World Bank Recognised</strong>
+          <p>Featured in World Bank publication for NCD screening outcomes at Divisional Hospital Thampalakamam, Sri Lanka (March 2022). Real-world programme impact, not theoretical.</p>
+        </div>
+        <div class="svc-why-tile fade-in delay-2">
+          <i class="fa-solid fa-signal"></i>
+          <strong>Peripheral-First Thinking</strong>
+          <p>Primary expertise in settings where technology has to work without reliable connectivity, specialist support, or ideal conditions. Most health AI is designed at the centre. This is different.</p>
+        </div>
+        <div class="svc-why-tile fade-in">
+          <i class="fa-brands fa-orcid" style="color:#A6CE39;"></i>
+          <strong>Published Researcher</strong>
+          <p>BMJ Open (2020, University of Michigan collaboration), Jaffna Medical Journal (2024). ORCID: 0009-0008-5084-0258. Active MD Trainee in Health Informatics, PGIM.</p>
+        </div>
+        <div class="svc-why-tile fade-in delay-1">
+          <i class="fa-solid fa-database"></i>
+          <strong>DHIS2 Certified</strong>
+          <p>Certified through HISP Centre, University of Oslo. Three certifications: Introduction to DHIS2, Aggregate Data Capture, Aggregate Data Analysis (2023–2025).</p>
+        </div>
+        <div class="svc-why-tile fade-in delay-2">
+          <i class="fa-solid fa-language"></i>
+          <strong>Multi-language Reach</strong>
+          <p>Professional fluency in English, Tamil (native), and Sinhala. Relevant for Sri Lanka, South Asia, and Tamil diaspora health contexts. 7 published Tamil literary works.</p>
+        </div>
+      </div>
+
+      <!-- ── PUBLICATIONS & RECOGNITION ──────── -->
+      <div class="svc-sec-head ssh-blue">
+        <i class="fa-solid fa-book-open"></i> Research &amp; Recognition
+      </div>
+
+      <!-- BMJ Open -->
+      <div style="background:var(--parchment-light);border:1px solid var(--border-light);border-left:3px solid #3D6E8C;border-radius:0 var(--radius-md) var(--radius-md) 0;padding:1.5rem 1.8rem;margin-bottom:1rem;" class="fade-in">
+        <span style="font-family:var(--font-ui);font-size:0.52rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#3D6E8C;display:block;margin-bottom:0.4rem;">Peer-Reviewed &nbsp;·&nbsp; BMJ Open · 2020 &nbsp;·&nbsp; PMID: 32690534</span>
+        <p style="font-family:var(--font-display);font-size:1.05rem;color:var(--ink);margin-bottom:0.5rem;line-height:1.4;">Imputing HbA1c from capillary blood glucose levels in patients with type 2 diabetes in Sri Lanka</p>
+        <p style="font-family:var(--font-ui);font-size:0.76rem;color:var(--ink-light);">International collaboration with the University of Michigan, Division of Metabolism, Endocrinology &amp; Diabetes · doi:10.1136/bmjopen-2020-038148</p>
+        <div style="margin-top:0.8rem;display:flex;gap:0.4rem;flex-wrap:wrap;">
+          <a href="https://doi.org/10.1136/bmjopen-2020-038148" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.3rem;font-family:var(--font-ui);font-size:0.58rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--copper-light);border:1px solid var(--border);padding:3px 11px;border-radius:2px;text-decoration:none;"><i class="fa-solid fa-arrow-up-right-from-square"></i> BMJ Open</a>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/32690534/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.3rem;font-family:var(--font-ui);font-size:0.58rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--copper-light);border:1px solid var(--border);padding:3px 11px;border-radius:2px;text-decoration:none;"><i class="fa-solid fa-flask"></i> PubMed</a>
+        </div>
+      </div>
+
+      <!-- World Bank -->
+      <div style="background:var(--parchment-light);border:1px solid var(--border-light);border-left:3px solid var(--gold);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:1.5rem 1.8rem;margin-bottom:1rem;" class="fade-in delay-1">
+        <span style="font-family:var(--font-ui);font-size:0.52rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:0.4rem;">World Bank Feature Article &nbsp;·&nbsp; March 2022</span>
+        <p style="font-family:var(--font-display);font-size:1.05rem;color:var(--ink);margin-bottom:0.5rem;line-height:1.4;">Sri Lanka: Making Strides Towards a Healthier Future</p>
+        <p style="font-family:var(--font-ui);font-size:0.76rem;color:var(--ink-light);">Featured for NCD screening programme outcomes at Divisional Hospital, Thampalakamam — 43% of local population over 35 screened under the World Bank Primary Healthcare System Strengthening Project (PSSP).</p>
+        <div style="margin-top:0.8rem;">
+          <a href="https://www.worldbank.org/en/news/feature/2022/03/28/sri-lanka-making-strides-towards-a-healthier-future" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.3rem;font-family:var(--font-ui);font-size:0.58rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--copper-light);border:1px solid var(--border);padding:3px 11px;border-radius:2px;text-decoration:none;"><i class="fa-solid fa-earth-asia"></i> World Bank Article</a>
+        </div>
+      </div>
+
+      <!-- ── CTA ─────────────────────────────── -->
+      <div class="svc-cta fade-in">
+        <h2>Start a Conversation</h2>
+        <p>Available for remote consulting, short-term contracts, and research collaborations. Response within 48 hours. Initial discussions are always free.</p>
+        <div class="svc-cta-buttons">
+          <a href="mailto:tjeevaraj78@gmail.com" class="svc-btn-primary">
+            <i class="fa-solid fa-envelope"></i> Email Dr. Jeevaraj
+          </a>
+          <a href="https://www.linkedin.com/in/drjeevaraj/" target="_blank" rel="noopener" class="svc-btn-secondary">
+            <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+          </a>
+          <a href="cv.html" class="svc-btn-secondary">
+            <i class="fa-solid fa-file-lines"></i> View Full CV
+          </a>
+        </div>
+        <div class="svc-trust">
+          <span class="svc-trust-badge"><i class="fa-solid fa-stethoscope"></i> 20+ Years Clinical Experience</span>
+          <span class="svc-trust-badge"><i class="fa-solid fa-database"></i> DHIS2 Certified</span>
+          <span class="svc-trust-badge"><i class="fa-solid fa-flask"></i> BMJ Open Published</span>
+          <span class="svc-trust-badge"><i class="fa-solid fa-earth-asia"></i> World Bank Featured</span>
+          <span class="svc-trust-badge"><i class="fa-brands fa-orcid" style="color:#A6CE39;"></i> ORCID Registered</span>
+          <span class="svc-trust-badge"><i class="fa-solid fa-globe"></i> Remote · Worldwide</span>
+        </div>
+      </div>
+
+    </div><!-- /.svc-wrap -->
+  </div>
+</section>
+
+<footer>
+  <span class="footer-ornament">· · ·</span>
+  <p class="footer-title">Still Human</p>
+  <p class="footer-tagline">Human stories in the age of artificial intelligence.</p>
+  <ul class="footer-links">
+    <li><a href="index.html"><i class="fa-solid fa-house" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>Home</a></li>
+    <li><a href="books.html"><i class="fa-solid fa-book" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>The Book</a></li>
+    <li><a href="about.html"><i class="fa-solid fa-user" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>About</a></li>
+    <li><a href="cv.html"><i class="fa-solid fa-file-lines" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>CV</a></li>
+    <li><a href="dev.html"><i class="fa-solid fa-laptop-code" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>Dev Work</a></li>
+    <li><a href="ai-reviewer.html"><i class="fa-solid fa-robot" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>AI Reviewer</a></li>
+    <li><a href="portfolio.html"><i class="fa-solid fa-id-card" style="margin-right:0.3rem;font-size:0.55rem;opacity:0.5;"></i>Portfolio</a></li>
+  </ul>
+  <div class="social-links">
+    <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.linkedin.com/in/drjeevaraj/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <span class="social-divider">&middot;</span>
+    <a href="mailto:tjeevaraj78@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener"><i class="fa-brands fa-orcid" style="color:#A6CE39;"></i> ORCID</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human &nbsp;&middot;&nbsp; Sri Lanka</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+  }
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('javascript')) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.add('page-exit');
+        setTimeout(() => { window.location.href = href; }, 320);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

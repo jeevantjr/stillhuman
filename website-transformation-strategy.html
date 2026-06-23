@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Transformation Strategy — Dr. T. Jeevaraj</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+  <style>
+    :root {
+      --gold: #c8973e;
+      --gold-deep: #a87830;
+      --teal: #2dd4bf;
+      --parchment: #fdf8f0;
+      --ink: #1a1208;
+      --ink-soft: #2d2010;
+      --text: #3d2e14;
+      --subtext: #7a6040;
+      --border: rgba(200,151,62,0.2);
+      --card-bg: #fffdf7;
+      --accent-red: #e53e3e;
+      --accent-green: #38a169;
+      --accent-blue: #3182ce;
+      --accent-purple: #805ad5;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--parchment);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: var(--ink);
+      color: var(--parchment);
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      border-bottom: 4px solid var(--gold);
+    }
+    .cover-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .cover h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    .cover h1 span { color: var(--gold); }
+    .cover-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: rgba(253,248,240,0.6);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    .cover-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .cover-meta-item {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: rgba(200,151,62,0.8);
+      letter-spacing: 1px;
+    }
+    .cover-meta-item strong { color: var(--gold); display: block; font-size: 1rem; }
+
+    /* ── TOC ── */
+    .toc {
+      max-width: 860px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    .toc-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      color: var(--subtext);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.6rem;
+    }
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.65rem 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+    .toc-item:hover { border-color: var(--gold); color: var(--gold-deep); }
+    .toc-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--gold);
+      background: rgba(200,151,62,0.1);
+      border-radius: 50%;
+      width: 22px; height: 22px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── MAIN ── */
+    .main { max-width: 860px; margin: 0 auto; padding: 0 2rem 5rem; }
+
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 2rem;
+    }
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .section-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: rgba(200,151,62,0.2);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 2.5rem;
+    }
+    .section-title-block {}
+    .section-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    /* ── PROSE ── */
+    .prose p { margin-bottom: 1rem; font-size: 0.95rem; }
+    .prose strong { color: var(--ink); }
+
+    /* ── CALLOUT ── */
+    .callout {
+      background: rgba(200,151,62,0.08);
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.2rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.2rem 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--ink);
+    }
+    .callout.red { background: rgba(229,62,62,0.07); border-color: var(--accent-red); }
+    .callout.green { background: rgba(56,161,105,0.07); border-color: var(--accent-green); }
+    .callout.blue { background: rgba(49,130,206,0.08); border-color: var(--accent-blue); }
+    .callout.purple { background: rgba(128,90,213,0.07); border-color: var(--accent-purple); }
+    .callout-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .callout.red .callout-label { color: var(--accent-red); }
+    .callout.green .callout-label { color: var(--accent-green); }
+    .callout.blue .callout-label { color: var(--accent-blue); }
+    .callout.purple .callout-label { color: var(--accent-purple); }
+
+    /* ── GRID CARDS ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem;
+    }
+    .card-icon {
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
+    }
+    .card h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .card p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: var(--subtext);
+      line-height: 1.5;
+    }
+
+    /* ── PRIORITY TABLE ── */
+    .priority-list { margin: 1.5rem 0; }
+    .priority-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.9rem 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 0.6rem;
+    }
+    .priority-item:hover { border-color: var(--gold); }
+    .p-rank {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--gold);
+      min-width: 28px;
+      line-height: 1.4;
+    }
+    .p-content {}
+    .p-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .p-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.76rem;
+      color: var(--subtext);
+      line-height: 1.4;
+    }
+    .p-badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-left: 0.5rem;
+      white-space: nowrap;
+    }
+    .badge-critical { background: rgba(229,62,62,0.12); color: var(--accent-red); }
+    .badge-high { background: rgba(200,151,62,0.15); color: var(--gold-deep); }
+    .badge-medium { background: rgba(49,130,206,0.1); color: var(--accent-blue); }
+    .badge-quick { background: rgba(56,161,105,0.1); color: var(--accent-green); }
+
+    /* ── WIREFRAME ── */
+    .wireframe {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+      margin: 1.5rem 0;
+    }
+    .wf-nav {
+      background: var(--ink);
+      padding: 0.7rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: rgba(253,248,240,0.7);
+    }
+    .wf-nav-brand { color: var(--gold); font-weight: 600; }
+    .wf-nav-links { display: flex; gap: 1.2rem; }
+    .wf-nav-cta { color: var(--gold); border: 1px solid rgba(200,151,62,0.5); padding: 3px 10px; border-radius: 20px; font-size: 0.65rem; }
+    .wf-strip {
+      background: #1a1208;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.65rem;
+      color: rgba(200,151,62,0.7);
+      text-align: center;
+      border-bottom: 1px solid rgba(200,151,62,0.15);
+    }
+    .wf-hero {
+      background: linear-gradient(135deg, #1a1208 0%, #2d2010 100%);
+      padding: 2.5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .wf-book {
+      background: rgba(200,151,62,0.1);
+      border: 1px solid rgba(200,151,62,0.3);
+      border-radius: 6px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      color: rgba(200,151,62,0.5);
+      text-align: center;
+      padding: 0.5rem;
+    }
+    .wf-hero-text {}
+    .wf-eyebrow { font-size: 0.6rem; color: var(--teal); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .wf-h1 { font-size: 1.3rem; color: #fff; font-weight: 700; margin-bottom: 0.4rem; line-height: 1.2; }
+    .wf-h1 span { color: var(--gold); }
+    .wf-tagline { font-size: 0.72rem; color: rgba(253,248,240,0.6); margin-bottom: 1rem; line-height: 1.4; }
+    .wf-ctas { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .wf-btn-primary { background: var(--gold); color: var(--ink); font-size: 0.65rem; font-weight: 700; padding: 6px 14px; border-radius: 20px; }
+    .wf-btn-secondary { border: 1px solid rgba(200,151,62,0.5); color: var(--gold); font-size: 0.65rem; padding: 6px 14px; border-radius: 20px; }
+    .wf-trust {
+      background: #fff;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .wf-trust-item { font-size: 0.6rem; color: var(--subtext); display: flex; align-items: center; gap: 0.3rem; }
+    .wf-trust-item i { color: var(--gold); }
+    .wf-section {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .wf-section-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .wf-pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.6rem;
+    }
+    .wf-pillar {
+      background: var(--parchment);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.7rem;
+      text-align: center;
+      font-size: 0.62rem;
+      color: var(--text);
+    }
+    .wf-pillar i { color: var(--gold); display: block; font-size: 1rem; margin-bottom: 0.3rem; }
+    .wf-articles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+    }
+    .wf-article-card {
+      background: var(--parchment);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.7rem;
+      font-size: 0.62rem;
+      color: var(--text);
+    }
+    .wf-article-tag { font-size: 0.55rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.2rem; }
+    .wf-cta-bar {
+      background: var(--ink);
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      color: rgba(253,248,240,0.8);
+      font-size: 0.72rem;
+    }
+    .wf-cta-bar strong { color: var(--gold); display: block; font-size: 1rem; margin-bottom: 0.4rem; }
+    .wf-footer {
+      background: #0f0a04;
+      padding: 0.8rem 1.5rem;
+      text-align: center;
+      font-size: 0.6rem;
+      color: rgba(253,248,240,0.3);
+    }
+
+    /* ── KEYWORD TABLE ── */
+    .kw-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-family: 'Inter', sans-serif; font-size: 0.8rem; }
+    .kw-table th { background: var(--ink); color: var(--gold); font-size: 0.65rem; letter-spacing: 1px; text-transform: uppercase; padding: 0.6rem 0.8rem; text-align: left; }
+    .kw-table td { padding: 0.55rem 0.8rem; border-bottom: 1px solid var(--border); color: var(--text); }
+    .kw-table tr:nth-child(even) td { background: rgba(200,151,62,0.03); }
+    .vol-high { color: var(--accent-green); font-weight: 600; }
+    .vol-med { color: var(--gold); font-weight: 600; }
+    .vol-low { color: var(--subtext); }
+
+    /* ── FUNNEL ── */
+    .funnel {
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .funnel-step {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+    }
+    .funnel-step:nth-child(1) { background: rgba(200,151,62,0.15); border-left: 3px solid var(--gold); }
+    .funnel-step:nth-child(2) { background: rgba(200,151,62,0.1); border-left: 3px solid var(--gold); }
+    .funnel-step:nth-child(3) { background: rgba(200,151,62,0.07); border-left: 3px solid rgba(200,151,62,0.5); }
+    .funnel-step:nth-child(4) { background: rgba(200,151,62,0.05); border-left: 3px solid rgba(200,151,62,0.3); }
+    .funnel-step:nth-child(5) { background: rgba(56,161,105,0.1); border-left: 3px solid var(--accent-green); }
+    .funnel-icon { font-size: 1.2rem; width: 30px; text-align: center; flex-shrink: 0; }
+    .funnel-text {}
+    .funnel-label { font-weight: 600; color: var(--ink); font-size: 0.82rem; }
+    .funnel-sub { font-size: 0.72rem; color: var(--subtext); }
+    .funnel-arrow { text-align: center; color: var(--border); font-size: 1rem; }
+
+    /* ── ORG TABLE ── */
+    .org-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.8rem;
+      margin: 1.2rem 0;
+    }
+    .org-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.9rem;
+      font-family: 'Inter', sans-serif;
+    }
+    .org-name { font-size: 0.82rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+    .org-type { font-size: 0.65rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; }
+    .org-fit { font-size: 0.72rem; color: var(--subtext); }
+
+    /* ── QUOTE ── */
+    .quote-block {
+      background: var(--ink);
+      border-radius: 10px;
+      padding: 1.5rem 1.8rem;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+    .quote-block::before {
+      content: '\201C';
+      font-size: 4rem;
+      color: rgba(200,151,62,0.2);
+      position: absolute;
+      top: -0.5rem;
+      left: 1rem;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    .quote-text {
+      font-size: 1rem;
+      color: #fff;
+      line-height: 1.6;
+      padding-left: 1rem;
+    }
+    .quote-attr {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: var(--gold);
+      margin-top: 0.8rem;
+      padding-left: 1rem;
+    }
+
+    /* ── POSITIONING BOX ── */
+    .positioning-box {
+      background: linear-gradient(135deg, var(--ink) 0%, #2d1f08 100%);
+      border: 1px solid rgba(200,151,62,0.3);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .pos-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .pos-statement {
+      font-size: 1.15rem;
+      color: #fff;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .pos-statement strong { color: var(--gold); }
+    .pos-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(253,248,240,0.55);
+      line-height: 1.5;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    /* ── FOOTER DOC ── */
+    .doc-footer {
+      background: var(--ink);
+      color: rgba(253,248,240,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      margin-top: 3rem;
+    }
+    .doc-footer strong { color: var(--gold); }
+
+    @media print {
+      .toc-item { break-inside: avoid; }
+      .section { break-inside: avoid; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .wf-hero { grid-template-columns: 1fr; }
+      .wf-pillars { grid-template-columns: repeat(2, 1fr); }
+      .wf-articles { grid-template-columns: 1fr; }
+      .cover-meta { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── COVER ── -->
+<div class="cover">
+  <div class="cover-label">Confidential · Personal Strategy Document</div>
+  <h1>Website Transformation<br><span>Strategy 2026–2027</span></h1>
+  <p class="cover-sub">drjeevaraj.com · 12-Point Plan for International Positioning</p>
+  <p style="font-family:'Inter',sans-serif;font-size:0.8rem;color:rgba(253,248,240,0.5);max-width:560px;margin:1rem auto 0;line-height:1.6;">
+    A comprehensive digital strategy for Dr. T. Jeevaraj — positioning for remote health informatics,
+    AI evaluation roles, international consulting, and NGO/UN opportunities — while preserving professional
+    constraints as a government civil servant and MD Trainee at PGIM.
+  </p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><strong>12</strong> Strategy Sections</div>
+    <div class="cover-meta-item"><strong>20</strong> Priority Actions</div>
+    <div class="cover-meta-item"><strong>12 Months</strong> Implementation</div>
+    <div class="cover-meta-item"><strong>drjeevaraj.com</strong> Target Site</div>
+  </div>
+</div>
+
+<!-- ── TABLE OF CONTENTS ── -->
+<div class="toc">
+  <div class="toc-title">Contents</div>
+  <div class="toc-grid">
+    <a href="#s1" class="toc-item"><span class="toc-num">1</span>Homepage Strategy</a>
+    <a href="#s2" class="toc-item"><span class="toc-num">2</span>Site Structure</a>
+    <a href="#s3" class="toc-item"><span class="toc-num">3</span>Personal Branding</a>
+    <a href="#s4" class="toc-item"><span class="toc-num">4</span>Portfolio Strategy</a>
+    <a href="#s5" class="toc-item"><span class="toc-num">5</span>Consulting Services</a>
+    <a href="#s6" class="toc-item"><span class="toc-num">6</span>Research &amp; Academic Profile</a>
+    <a href="#s7" class="toc-item"><span class="toc-num">7</span>Remote Work Optimization</a>
+    <a href="#s8" class="toc-item"><span class="toc-num">8</span>Trust &amp; Credibility</a>
+    <a href="#s9" class="toc-item"><span class="toc-num">9</span>SEO Strategy</a>
+    <a href="#s10" class="toc-item"><span class="toc-num">10</span>Conversion Strategy</a>
+    <a href="#s11" class="toc-item"><span class="toc-num">11</span>Homepage Wireframe</a>
+    <a href="#s12" class="toc-item"><span class="toc-num">12</span>Top 20 Priority Changes</a>
+  </div>
+</div>
+
+<!-- ── MAIN ── -->
+<div class="main">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 1: HOMEPAGE STRATEGY               -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title-block">
+        <div class="section-tag">First Impressions</div>
+        <h2>Homepage Strategy</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>A visitor arriving at drjeevaraj.com has <strong>7 seconds to decide whether to stay.</strong> For a WHO programme officer, NHS Digital hiring manager, or AI company recruiter, those 7 seconds must answer three questions: Who is this person? Can they solve my problem? Why should I trust them?</p>
+
+      <div class="callout red">
+        <div class="callout-label">Current Problem</div>
+        The homepage hero leads with "Still Human" — the book title — as the dominant headline. An international recruiter reads this as a literary site, not a professional one. Most will leave within 5 seconds without understanding your credentials.
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">The First 5 Seconds Rule</h3>
+      <p>The hero section — the portion visible without scrolling — must communicate your professional identity immediately. The book cover as a visual anchor is excellent; it signals depth and thought leadership. But the <em>text</em> must lead with credentials.</p>
+
+      <div class="callout green">
+        <div class="callout-label">Recommended Hero Headline</div>
+        <strong style="font-size:1rem;display:block;margin-bottom:0.3rem;">Dr. T. Jeevaraj</strong>
+        Health Informatician · AI Reviewer · Digital Health Consultant<br>
+        <span style="font-size:0.8rem;color:var(--subtext);margin-top:0.4rem;display:block;">Medical Doctor · 20+ Years Clinical Experience · BMJ Open · World Bank · Sri Lanka</span>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Three Primary CTAs (above the fold)</h3>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <h4>Primary CTA — "See My Work"</h4>
+          <p>Links to portfolio.html. Gold button, most prominent. Answers: "Can you do what I need?"</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💼</div>
+          <h4>Secondary CTA — "Work With Me"</h4>
+          <p>Links to services.html. Outlined gold button. For consultants and hiring managers ready to engage.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📄</div>
+          <h4>Tertiary CTA — "Download CV"</h4>
+          <p>Direct PDF download link. For NGO/UN applicants who need a document immediately.</p>
+        </div>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Below-Fold Flow (in order)</h3>
+      <p>After the hero: <strong>Trust bar</strong> (5 credentials as icons) → <strong>What I Do</strong> (4 service pillars) → <strong>Featured Articles</strong> (3 most relevant) → <strong>The Book</strong> (literary anchor) → <strong>Publications &amp; Recognition</strong> → <strong>Work With Me CTA</strong> → Footer.</p>
+
+      <div class="callout">
+        <div class="callout-label">Key Principle</div>
+        The book is your <strong>differentiator</strong>, not your introduction. Show credentials first, then reveal the book as the layer that makes you unforgettable. "A Health Informatician who also wrote a book about AI and humanity" is far more compelling than "An author who also does health informatics."
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 2: SITE STRUCTURE                  -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title-block">
+        <div class="section-tag">Navigation &amp; Architecture</div>
+        <h2>Ideal Site Structure</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>Your current site has 10+ pages competing for nav space. This creates cognitive overload. A focused 6-item primary nav serves international visitors better — they need to find your credentials fast, not navigate a literary archive.</p>
+
+      <div class="callout green">
+        <div class="callout-label">Recommended Primary Navigation (6 Items)</div>
+        <strong>About · Portfolio · Articles · CV · AI Reviewer · Work With Me</strong><br>
+        <span style="font-size:0.8rem;color:var(--subtext);margin-top:0.3rem;display:block;">
+          ✓ This is now live on your site. Each item serves a distinct professional purpose.
+        </span>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">What Each Nav Item Communicates</h3>
+      <div class="card-grid">
+        <div class="card">
+          <h4>About</h4>
+          <p>Dual identity page: the clinician + the author. Your story, your "why," your journey from bedside to informatics. This is where you humanise your credentials.</p>
+        </div>
+        <div class="card">
+          <h4>Portfolio</h4>
+          <p>Technical proof. Projects, publications, case studies. This is where recruiters go to verify your claims. Your BMJ Open paper and World Bank feature live here prominently.</p>
+        </div>
+        <div class="card">
+          <h4>Articles</h4>
+          <p>Thought leadership. 6 articles on healthcare AI, informatics, and human experience. This builds Google authority and demonstrates ongoing intellectual engagement.</p>
+        </div>
+        <div class="card">
+          <h4>CV</h4>
+          <p>The formal credentials document. Optimised for WHO, UN, NHS, and academic employers who need structured qualification proof. Include a PDF download link at the top.</p>
+        </div>
+        <div class="card">
+          <h4>AI Reviewer</h4>
+          <p>A unique specialist page that directly targets AI evaluation companies (Scale AI, Appen, Surge, Anthropic). This is a rare differentiator — very few clinicians offer this.</p>
+        </div>
+        <div class="card">
+          <h4>Work With Me</h4>
+          <p>The consulting conversion page. Highlighted in gold because it's the primary commercial action. Services, rates framing, trust signals, and contact CTA all in one place.</p>
+        </div>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Secondary Content (Footer + Homepage Sections)</h3>
+      <p>The Book, Stories, Memory Witness, and Dev Work remain accessible through the <strong>homepage</strong> (dedicated sections) and <strong>footer links</strong>. They are part of your identity but not the first thing international professionals need to see.</p>
+
+      <div class="callout blue">
+        <div class="callout-label">Future Addition to Consider</div>
+        A dedicated <strong>Research page</strong> (research.html) consolidating ORCID, publications, conference posters, thesis updates, and research interests. This would serve academic collaborators and WHO/UN technical staff who want to assess your research capacity.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 3: PERSONAL BRANDING               -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title-block">
+        <div class="section-tag">International Positioning</div>
+        <h2>Personal Branding</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>Your brand positioning is your single most powerful tool. It must be specific enough to be memorable, broad enough to cover multiple income streams, and honest enough to survive scrutiny from senior WHO technical officers.</p>
+
+      <div class="positioning-box">
+        <div class="pos-label">Recommended Brand Positioning Statement</div>
+        <div class="pos-statement">
+          "The clinician who <strong>builds the systems</strong>, <strong>reviews the AI</strong>,<br>
+          and <strong>writes about what it all means</strong> for human life."
+        </div>
+        <div class="pos-sub">
+          Medical Doctor · Health Informatician · AI Reviewer · Published Author<br>
+          20+ years of clinical experience · Sri Lanka · Remote &amp; International
+        </div>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Your Unique Value Intersection</h3>
+      <p>Most health informatics consultants are either clinicians who learned IT, or IT specialists who learned health. You occupy a rare intersection: <strong>clinical depth + informatics credentials + published AI ethics writing + active AI evaluation experience.</strong> No single competitor has all four.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🏥</div>
+          <h4>Clinical Depth (20+ years)</h4>
+          <p>You understand what happens at the point of care. Most informatics consultants never have. This is irreplaceable.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h4>Informatics Credentials</h4>
+          <p>MSc Biomedical Informatics + MD Health Informatics track. Dual qualification is unusual and highly valued by international employers.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h4>AI Reviewer &amp; Evaluator</h4>
+          <p>Practical experience reviewing AI outputs in a healthcare context. This is exactly what AI companies and regulatory bodies need right now.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">✍️</div>
+          <h4>Published Author &amp; Writer</h4>
+          <p>BMJ Open, World Bank, "Are You Still Human?" — you can communicate complex ideas for non-specialist audiences. Extremely valuable in consulting.</p>
+        </div>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Taglines for Different Audiences</h3>
+      <div class="callout blue">
+        <div class="callout-label">For WHO / UN / NGO Recruiters</div>
+        "Digital health specialist with 20+ years clinical experience, DHIS2 expertise, and published research in health information systems — available for remote consultancies."
+      </div>
+      <div class="callout purple">
+        <div class="callout-label">For AI Companies (Scale AI, Appen, Anthropic)</div>
+        "Medical doctor specialising in AI evaluation for healthcare — with MSc Biomedical Informatics, clinical reasoning depth, and published writing on AI-human interaction."
+      </div>
+      <div class="callout green">
+        <div class="callout-label">For Academic Collaborators</div>
+        "MD Trainee (Health Informatics), PGIM University of Colombo · MSc Biomedical Informatics · ORCID: 0009-0008-5084-0258 · BMJ Open published · seeking international research collaborations."
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Professional Constraint — Important</div>
+        As a government civil servant and MD Trainee, all public-facing content must be framed in your <strong>personal academic capacity</strong>. Avoid any language that could be read as criticism of Sri Lanka's Ministry of Health or current HIS programmes. Frame findings as "what I learned" rather than "what went wrong." This constraint has already been applied to your articles correctly.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 4: PORTFOLIO STRATEGY              -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title-block">
+        <div class="section-tag">Projects &amp; Proof</div>
+        <h2>Portfolio Strategy</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>Your portfolio is where claims become proof. International recruiters and consultancy clients will go here to verify that your credentials match your positioning. Every item needs a clear "so what" — not just what you did, but why it mattered at scale.</p>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Priority Items to Feature (in order of impact)</h3>
+
+      <div class="priority-list">
+        <div class="priority-item">
+          <div class="p-rank">1</div>
+          <div class="p-content">
+            <div class="p-title">BMJ Open Publication <span class="p-badge badge-critical">Highest Impact</span></div>
+            <div class="p-desc">Peer-reviewed international journal. Cite the DOI, abstract, and impact. Signals academic credibility to WHO, UN agencies, and academic institutions worldwide. Should be the first item on your portfolio page.</div>
+          </div>
+        </div>
+        <div class="priority-item">
+          <div class="p-rank">2</div>
+          <div class="p-content">
+            <div class="p-title">World Bank Featured Work 2022 <span class="p-badge badge-critical">Highest Impact</span></div>
+            <div class="p-desc">International recognition by a global institution. This signals that your work is relevant at macro policy level. Add a screenshot or quote from the World Bank page. NGO and UN hiring managers respond strongly to World Bank signals.</div>
+          </div>
+        </div>
+        <div class="priority-item">
+          <div class="p-rank">3</div>
+          <div class="p-content">
+            <div class="p-title">DHIS2 &amp; Health Information System Experience <span class="p-badge badge-high">High Impact</span></div>
+            <div class="p-desc">DHIS2 is the world's most widely used open-source health information system. Specific experience with it is a keyword that WHO, UNICEF, PATH, and MSF actively search for. Create a dedicated portfolio card explaining your DHIS2 work at scale.</div>
+          </div>
+        </div>
+        <div class="priority-item">
+          <div class="p-rank">4</div>
+          <div class="p-content">
+            <div class="p-title">Healthcare AI Article Series (6 articles) <span class="p-badge badge-high">High Impact</span></div>
+            <div class="p-desc">Your 6 published articles on AI in healthcare demonstrate ongoing intellectual engagement. Feature them as a content portfolio — not just links but a brief note on the argument of each. AI companies and academic collaborators value this type of public thinking.</div>
+          </div>
+        </div>
+        <div class="priority-item">
+          <div class="p-rank">5</div>
+          <div class="p-content">
+            <div class="p-title">"Are You Still Human?" — Published Book <span class="p-badge badge-high">High Impact</span></div>
+            <div class="p-desc">A published book on AI and humanity is a powerful differentiator. Feature it prominently but frame it as evidence of thought leadership, not just a personal creative project. "A published exploration of AI's effects on human relationships — drawing on clinical observation" is stronger framing.</div>
+          </div>
+        </div>
+        <div class="priority-item">
+          <div class="p-rank">6</div>
+          <div class="p-content">
+            <div class="p-title">MSc Biomedical Informatics &amp; MD Research <span class="p-badge badge-medium">Medium Impact</span></div>
+            <div class="p-desc">Include your thesis topic, research question, and methodology if publishable or sharable. Academic employers and research collaborators will want to assess this before reaching out.</div>
+          </div>
+        </div>
+        <div class="priority-item">
+          <div class="p-rank">7</div>
+          <div class="p-content">
+            <div class="p-title">AI Evaluation &amp; Review Work <span class="p-badge badge-medium">Medium Impact</span></div>
+            <div class="p-desc">Document your AI reviewing experience in terms of volume, methodology, and clinical domain focus. AI companies like Scale AI and Appen will want to understand your evaluation framework, not just that you "reviewed AI outputs."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Portfolio Card Format</div>
+        Each portfolio item should follow: <strong>Title → One-line impact statement → What you did → Scale/reach → Outcome → Link or evidence.</strong> Avoid vague descriptions like "contributed to" — use specific language: "Designed the data collection framework for X, deployed across Y facilities, serving Z patients."
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 5: CONSULTING SERVICES             -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title-block">
+        <div class="section-tag">Commercial Strategy</div>
+        <h2>Consulting Services Page</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>Your services.html (Work With Me) page is now live. The framework is correct. These notes refine the positioning and add elements that convert international clients.</p>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Six Service Pillars — Refined Framing</h3>
+      <div class="card-grid">
+        <div class="card">
+          <h4>1. Clinical AI Review</h4>
+          <p>Frame as: "AI output evaluation by a practising medical doctor — not just a data scientist." Mention NCCP, diagnostic AI, and clinical pathway AI specifically.</p>
+        </div>
+        <div class="card">
+          <h4>2. DHIS2 Consulting</h4>
+          <p>Frame as: "DHIS2 design, configuration, and training for low-resource settings." Mention that you understand both the technical and clinical workflow sides.</p>
+        </div>
+        <div class="card">
+          <h4>3. Digital Health Development</h4>
+          <p>Frame as: "End-to-end digital health strategy — from needs assessment to deployment." WHO clients want a consultant who can bridge policy and implementation.</p>
+        </div>
+        <div class="card">
+          <h4>4. Medical Writing</h4>
+          <p>Frame as: "Research papers, grant proposals, technical health reports, and policy documents." BMJ Open publication as proof. This is a recurring revenue service.</p>
+        </div>
+        <div class="card">
+          <h4>5. HIS Advisory</h4>
+          <p>Frame carefully due to civil servant constraints: "Health information system assessment and strategy, drawing on MSc research and international best practice." No criticism of current systems.</p>
+        </div>
+        <div class="card">
+          <h4>6. Research Collaboration</h4>
+          <p>Frame as: "Open to co-authorship, guest research roles, and funded collaboration with international institutions." Add your preferred research themes.</p>
+        </div>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">What's Missing from the Page Now</h3>
+      <div class="callout red">
+        <div class="callout-label">Add These to services.html</div>
+        <strong>1. A "Who This Is For" section</strong> — name the types of organisations: WHO regional offices, UNICEF country offices, NHS Digital projects, health-tech startups, AI companies, universities.<br><br>
+        <strong>2. A short FAQ</strong> — "Are you available for short-term consultancies?" "Do you work remotely?" "What countries have you worked with?" These reduce friction significantly.<br><br>
+        <strong>3. A calendar booking link</strong> — Even a simple Calendly link removes the email barrier for international clients in different time zones.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 6: RESEARCH & ACADEMIC PROFILE     -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title-block">
+        <div class="section-tag">Academic Strategy</div>
+        <h2>Research &amp; Academic Profile</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>Academic credibility is your gateway to WHO, UNICEF, and university partnerships. It is also the foundation that makes AI companies trust your evaluation capacity. Your research profile needs to be findable, comprehensive, and consistently presented across all platforms.</p>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Platform Consistency — What You Need on Every Platform</h3>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon" style="color:#A6CE39;font-size:1.5rem;">⬤</div>
+          <h4>ORCID — Already Added ✓</h4>
+          <p>0009-0008-5084-0258 · Now on CV, portfolio, and all 6 articles. Keep updated when new publications appear. ORCID is the universal academic ID — WHO and journals use it to verify authorship.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎓</div>
+          <h4>Google Scholar Profile</h4>
+          <p>Create a public Google Scholar profile and link it prominently from portfolio and CV. This is the first place academic collaborators check. Your BMJ Open paper should appear there automatically once linked.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔗</div>
+          <h4>ResearchGate / Academia.edu</h4>
+          <p>Secondary academic platforms. Worth creating profiles on both. Many researchers in low-to-middle income countries use ResearchGate specifically. Upload your BMJ Open paper and book if allowed.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏛️</div>
+          <h4>PGIM Academic Profile</h4>
+          <p>Ensure your PGIM/University of Colombo profile lists your MSc and ongoing MD research. Some WHO hiring managers will search institutional databases. Link from your CV page.</p>
+        </div>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Create a Dedicated Research Page (Future)</h3>
+      <div class="callout blue">
+        <div class="callout-label">research.html — Recommended Content</div>
+        <strong>Research Interests</strong> (AI in clinical decision support, HIS in low-resource settings, digital health equity, AI ethics in medicine)<br><br>
+        <strong>Publications</strong> (BMJ Open with DOI · Any conference papers · Book chapter if applicable)<br><br>
+        <strong>Current Research</strong> (MD thesis — frame carefully as "in progress, on X topic" without revealing confidential data)<br><br>
+        <strong>Collaborations Sought</strong> (Be specific: "Interested in co-authorship on AI evaluation in LMIC health systems" etc.)<br><br>
+        <strong>Academic Profiles</strong> (ORCID, Google Scholar, ResearchGate links together)
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 7: REMOTE WORK OPTIMIZATION        -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title-block">
+        <div class="section-tag">International Opportunities</div>
+        <h2>Remote Work Optimization</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>Your remote work assessment scored <strong>7.2/10</strong> — strong foundation, specific gaps. This section maps your positioning to specific organisations and tells you exactly what to emphasise for each type of role.</p>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Target Organisations by Category</h3>
+
+      <div style="margin-bottom:1.2rem;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:0.8rem;">UN &amp; Multilateral — Health Informatics / Digital Health</div>
+        <div class="org-grid">
+          <div class="org-card">
+            <div class="org-name">WHO — Digital Health</div>
+            <div class="org-type">UN Agency · Remote Possible</div>
+            <div class="org-fit">Lead with DHIS2, BMJ Open, HIS advisory. Apply via WHO careers portal. Look for SSA (Short-term Staff Agreement) and technical consultancy contracts.</div>
+          </div>
+          <div class="org-card">
+            <div class="org-name">UNICEF — Health Data</div>
+            <div class="org-type">UN Agency · Remote Possible</div>
+            <div class="org-fit">Emphasise data systems in LMIC contexts, child/maternal health informatics. UNICEF is strong in South Asia — your Sri Lanka experience is directly relevant.</div>
+          </div>
+          <div class="org-card">
+            <div class="org-name">World Bank Group</div>
+            <div class="org-type">Development Bank · Already Featured</div>
+            <div class="org-fit">You are already featured by them (2022). This is your strongest door-opener. Apply for STC (Short-Term Consultant) health informatics roles.</div>
+          </div>
+          <div class="org-card">
+            <div class="org-name">UNDP / UNFPA</div>
+            <div class="org-type">UN Agencies</div>
+            <div class="org-fit">Digital health advisory, data collection system design. UNFPA is particularly relevant for reproductive/maternal health informatics in LMICs.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1.2rem;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:0.8rem;">NGOs — Digital Health Implementation</div>
+        <div class="org-grid">
+          <div class="org-card">
+            <div class="org-name">PATH</div>
+            <div class="org-type">Global Health NGO · Strongly Remote</div>
+            <div class="org-fit">Leads global DHIS2 implementation projects. Hiring health informaticians is core to their work. Apply directly and reference your DHIS2 experience prominently.</div>
+          </div>
+          <div class="org-card">
+            <div class="org-name">ThinkWell</div>
+            <div class="org-type">Health Systems Consulting</div>
+            <div class="org-fit">Specialises in health financing and systems strengthening in Asia-Pacific and Africa. Your HIS expertise is directly applicable.</div>
+          </div>
+          <div class="org-card">
+            <div class="org-name">John Snow Inc. (JSI)</div>
+            <div class="org-type">Public Health NGO</div>
+            <div class="org-fit">Large portfolio of digital health and HIS projects in LMICs. Regularly hires remote health informatics consultants for 3–12 month assignments.</div>
+          </div>
+          <div class="org-card">
+            <div class="org-name">Clinton Health Access</div>
+            <div class="org-type">Global Health Initiative</div>
+            <div class="org-fit">Strong focus on supply chain data systems and HIS in LMICs. Look for analytical and advisory roles matching your informatics background.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1.2rem;">
+        <div style="font-family:'Inter',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:0.8rem;">AI Companies — Medical AI Evaluation</div>
+        <div class="org-grid">
+          <div class="org-card">
+            <div class="org-name">Scale AI</div>
+            <div class="org-type">AI Data Platform · Fully Remote</div>
+            <div class="org-fit">Pays premium for medical domain experts to evaluate AI outputs. Apply as a Medical Expert / AI Reviewer. Your clinical depth is exactly what they need.</div>
+          </div>
+          <div class="org-card">
+            <div class="org-name">Appen</div>
+            <div class="org-type">AI Training Data · Remote</div>
+            <div class="org-fit">Regularly recruits medical professionals for health AI evaluation projects. Flexible hours, per-task payment. Good for building a track record.</div>
+          </div>
+          <div class="org-card">
+            <div class="org-name">Surge AI / Labelbox</div>
+            <div class="org-type">AI Annotation · Remote</div>
+            <div class="org-fit">Healthcare AI annotation work. Look for medical QA specialist and clinical NLP annotation roles specifically.</div>
+          </div>
+          <div class="org-card">
+            <div class="org-name">Anthropic / OpenAI</div>
+            <div class="org-type">Foundation AI Labs · Remote</div>
+            <div class="org-fit">Contracted medical domain experts for RLHF and red-teaming. Competitive pay. Your "Are You Still Human?" book is a strong conversation starter here.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout green">
+        <div class="callout-label">Action: Add a "Remote Work Ready" Section to Your CV Page</div>
+        Explicitly state: "Available for remote consultancies, short-term technical assignments, and international collaborations · Time zone: IST (UTC+5:30) · Platforms: Zoom, Teams, Google Meet · Tools: DHIS2, R, Python basics, standard health data platforms."
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 8: TRUST & CREDIBILITY             -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title-block">
+        <div class="section-tag">Social Proof</div>
+        <h2>Trust &amp; Credibility</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>International employers make trust decisions before they read your content. Trust signals must appear <em>within the first scroll</em> on every major page. Your current trust assets are strong — they are just not displayed prominently enough.</p>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Your Existing Trust Assets (Ranked by Impact)</h3>
+      <div class="priority-list">
+        <div class="priority-item">
+          <div class="p-rank" style="color:var(--accent-green);">✓</div>
+          <div class="p-content">
+            <div class="p-title">BMJ Open Publication <span class="p-badge badge-critical">Highest Trust Signal</span></div>
+            <div class="p-desc">The most credible trust signal you have. BMJ is globally recognised. Display the BMJ Open logo badge prominently on homepage, CV, and portfolio. Include the DOI link. This single signal opens doors at WHO and academic institutions.</div>
+          </div>
+        </div>
+        <div class="priority-item">
+          <div class="p-rank" style="color:var(--accent-green);">✓</div>
+          <div class="p-content">
+            <div class="p-title">World Bank Featured 2022 <span class="p-badge badge-critical">Highest Trust Signal</span></div>
+            <div class="p-desc">Being featured by the World Bank is an extraordinary recognition. Use "World Bank Featured" as a badge everywhere. Display the actual World Bank page screenshot on your portfolio. This signals: your work has been validated at the highest level of international development.</div>
+          </div>
+        </div>
+        <div class="priority-item">
+          <div class="p-rank" style="color:var(--accent-green);">✓</div>
+          <div class="p-content">
+            <div class="p-title">PGIM / University of Colombo <span class="p-badge badge-high">Strong Signal</span></div>
+            <div class="p-desc">PGIM is Sri Lanka's premier postgraduate medical institution. For regional and WHO SEARO (South-East Asia Regional Office) contacts, this is a strong institutional signal. Spell out: "Postgraduate Institute of Medicine, University of Colombo."</div>
+          </div>
+        </div>
+        <div class="priority-item">
+          <div class="p-rank" style="color:var(--accent-green);">✓</div>
+          <div class="p-content">
+            <div class="p-title">ORCID iD — 0009-0008-5084-0258 <span class="p-badge badge-high">Strong Signal</span></div>
+            <div class="p-desc">ORCID on every page (now done). This tells academic reviewers you are a serious researcher, not just a practitioner with opinions. Critical for grant applications and co-authorship invitations.</div>
+          </div>
+        </div>
+        <div class="priority-item">
+          <div class="p-rank" style="color:var(--accent-green);">✓</div>
+          <div class="p-content">
+            <div class="p-title">20+ Years Clinical Experience <span class="p-badge badge-medium">Strong Signal</span></div>
+            <div class="p-desc">Depth that most informaticians cannot match. This signal matters most for clinical AI evaluation roles and health systems consulting. Display it numerically — "20+ years" reads as authority.</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Trust Signals Still Missing</h3>
+      <div class="callout red">
+        <div class="callout-label">Add These to Build Full Trust Stack</div>
+        <strong>1. Testimonials / Endorsements</strong> — Even one quote from a WHO officer, a colleague at PGIM, or a client who hired you for consulting changes the trust calculus dramatically. LinkedIn recommendations can be displayed here.<br><br>
+        <strong>2. LinkedIn Endorsements Counter</strong> — Display "X LinkedIn endorsements for Health Informatics" on your homepage or portfolio. Visible social proof.<br><br>
+        <strong>3. Publication Count</strong> — "1 peer-reviewed publication · BMJ Open" displayed clearly. One is enough if it is BMJ.<br><br>
+        <strong>4. Conference / Seminar Appearances</strong> — Any presentation at a recognised health informatics forum, even regional, should be documented as a trust signal.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 9: SEO STRATEGY                    -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-num">09</div>
+      <div class="section-title-block">
+        <div class="section-tag">Search Visibility</div>
+        <h2>SEO Strategy</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>Your site is static HTML on GitHub Pages — clean, fast, and perfectly indexable by Google. With the right keywords in the right places, you can rank for highly specific searches that international employers and collaborators actually use.</p>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Priority Keywords by Target Audience</h3>
+
+      <table class="kw-table">
+        <thead>
+          <tr>
+            <th>Keyword</th>
+            <th>Target Audience</th>
+            <th>Priority</th>
+            <th>Place On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>health informatics consultant Sri Lanka</td>
+            <td>WHO / NGO recruiters</td>
+            <td class="vol-high">HIGH</td>
+            <td>Homepage, About, CV</td>
+          </tr>
+          <tr>
+            <td>DHIS2 consultant</td>
+            <td>WHO, UNICEF, PATH</td>
+            <td class="vol-high">HIGH</td>
+            <td>Services, Portfolio, CV</td>
+          </tr>
+          <tr>
+            <td>digital health consultant remote</td>
+            <td>International clients</td>
+            <td class="vol-high">HIGH</td>
+            <td>Homepage, Services</td>
+          </tr>
+          <tr>
+            <td>clinical AI reviewer</td>
+            <td>Scale AI, Appen, AI labs</td>
+            <td class="vol-high">HIGH</td>
+            <td>AI Reviewer page, Homepage</td>
+          </tr>
+          <tr>
+            <td>medical AI evaluator</td>
+            <td>AI companies</td>
+            <td class="vol-high">HIGH</td>
+            <td>AI Reviewer, Services, About</td>
+          </tr>
+          <tr>
+            <td>health information systems researcher</td>
+            <td>Academic collaborators</td>
+            <td class="vol-med">MED</td>
+            <td>About, Portfolio, Articles</td>
+          </tr>
+          <tr>
+            <td>public health data analyst</td>
+            <td>NHS, public health agencies</td>
+            <td class="vol-med">MED</td>
+            <td>CV, Services, Homepage</td>
+          </tr>
+          <tr>
+            <td>healthcare AI ethics</td>
+            <td>Academic, NGOs, media</td>
+            <td class="vol-med">MED</td>
+            <td>Articles, Book page, About</td>
+          </tr>
+          <tr>
+            <td>AI model evaluator healthcare</td>
+            <td>AI companies specifically</td>
+            <td class="vol-med">MED</td>
+            <td>AI Reviewer, Homepage</td>
+          </tr>
+          <tr>
+            <td>prompt evaluator medical</td>
+            <td>AI labs</td>
+            <td class="vol-med">MED</td>
+            <td>AI Reviewer page</td>
+          </tr>
+          <tr>
+            <td>NLP annotation clinical</td>
+            <td>AI data companies</td>
+            <td class="vol-low">LOW</td>
+            <td>AI Reviewer page</td>
+          </tr>
+          <tr>
+            <td>Dr Jeevaraj Sri Lanka</td>
+            <td>Anyone who heard about you</td>
+            <td class="vol-high">BRAND</td>
+            <td>Every page title &amp; meta</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Meta Tags to Fix Now</h3>
+      <div class="callout">
+        <div class="callout-label">Homepage Meta Description — Recommended</div>
+        <code style="font-family:monospace;font-size:0.78rem;">Dr. T. Jeevaraj — Health Informatician, Clinical AI Reviewer, and Digital Health Consultant with 20+ years experience. BMJ Open published · World Bank featured · Available for remote consultancies. Based in Sri Lanka.</code>
+      </div>
+      <div class="callout">
+        <div class="callout-label">CV Page Meta Description</div>
+        <code style="font-family:monospace;font-size:0.78rem;">Curriculum Vitae — Dr. T. Jeevaraj. Medical Doctor, MSc Biomedical Informatics, MD Trainee (Health Informatics), PGIM University of Colombo. DHIS2 · Health Information Systems · AI Evaluation · Remote consulting available.</code>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Content SEO — Article Topics to Write Next</h3>
+      <p>Your 6 existing articles build authority in healthcare AI. These 4 topics would capture search traffic from your key audiences:</p>
+      <div class="card-grid">
+        <div class="card">
+          <h4>"DHIS2 in Low-Resource Settings: What Works"</h4>
+          <p>Targets WHO/UNICEF/PATH searches. High value keyword. Frame as academic reflection, not criticism.</p>
+        </div>
+        <div class="card">
+          <h4>"How Doctors Can Evaluate AI: A Clinical Reviewer's Guide"</h4>
+          <p>Targets AI companies and clinicians curious about this role. Builds authority for your AI Reviewer page.</p>
+        </div>
+        <div class="card">
+          <h4>"Remote Health Informatics: What International Organisations Actually Want"</h4>
+          <p>Targets job seekers — drives traffic that your brand can speak to, and positions you as an expert in this space.</p>
+        </div>
+        <div class="card">
+          <h4>"What AI Gets Wrong About Clinical Decision Support"</h4>
+          <p>High-value healthcare AI ethics content. Attracts academic and AI lab audiences. Shareable on LinkedIn.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 10: CONVERSION STRATEGY            -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <div class="section-title-block">
+        <div class="section-tag">Turning Visitors into Contacts</div>
+        <h2>Conversion Strategy</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>A visitor who finds you credible but can't easily contact you is a lost opportunity. Your current site makes people work to reach you. Reduce that friction to near-zero.</p>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">The Conversion Funnel</h3>
+      <div class="funnel">
+        <div class="funnel-step">
+          <div class="funnel-icon">🔍</div>
+          <div class="funnel-text">
+            <div class="funnel-label">Discovery</div>
+            <div class="funnel-sub">Google search, LinkedIn, WHO/NGO colleague referral, article share</div>
+          </div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step">
+          <div class="funnel-icon">🏠</div>
+          <div class="funnel-text">
+            <div class="funnel-label">Homepage — First 7 Seconds</div>
+            <div class="funnel-sub">Visitor answers: "Who is this? Can they help me?" → Professional identity strip + hero credentials</div>
+          </div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step">
+          <div class="funnel-icon">📂</div>
+          <div class="funnel-text">
+            <div class="funnel-label">Portfolio / Articles — Proof</div>
+            <div class="funnel-sub">Visitor verifies credentials: BMJ Open, World Bank, DHIS2, AI articles</div>
+          </div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step">
+          <div class="funnel-icon">💼</div>
+          <div class="funnel-text">
+            <div class="funnel-label">Work With Me Page — Decision</div>
+            <div class="funnel-sub">Visitor sees services, confirms fit, decides to reach out</div>
+          </div>
+        </div>
+        <div class="funnel-arrow">↓</div>
+        <div class="funnel-step">
+          <div class="funnel-icon">✅</div>
+          <div class="funnel-text">
+            <div class="funnel-label">Contact / Conversion</div>
+            <div class="funnel-sub">Email, LinkedIn DM, or Calendly booking — <strong>must be one click from any page</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">Friction Points to Remove</h3>
+      <div class="callout red">
+        <div class="callout-label">Current Friction Points</div>
+        <strong>1. No email address visible without navigating to services page</strong> — Put your email in the footer of every page AND in the hero section of the homepage.<br><br>
+        <strong>2. No LinkedIn button on homepage</strong> — LinkedIn is how most international recruiters will reach out. Add a prominent LinkedIn link to the hero and footer.<br><br>
+        <strong>3. No CV download button on homepage</strong> — A "Download CV (PDF)" button in the hero costs nothing and converts visitors who came specifically to assess your qualifications.<br><br>
+        <strong>4. No clear "what happens next" after reading articles</strong> — End every article with a brief author bio and a CTA: "Want to collaborate? See how to work with me →"
+      </div>
+
+      <h3 style="font-size:1rem;color:var(--ink);margin:1.2rem 0 0.6rem;">LinkedIn as Your Primary Conversion Channel</h3>
+      <p>For international opportunities, <strong>LinkedIn is more important than your website</strong> for initial discovery. Your website then closes the trust gap. The optimal sequence is: LinkedIn profile finds you → recruiter visits drjeevaraj.com → your site converts them to a contact. Both need to reinforce the same positioning.</p>
+
+      <div class="callout blue">
+        <div class="callout-label">LinkedIn Profile Checklist</div>
+        Headline: "Health Informatician · AI Reviewer · Digital Health Consultant · BMJ Open · World Bank Featured"<br><br>
+        About section: Must match your website positioning statement exactly<br><br>
+        Featured: Pin BMJ Open paper, World Bank feature, and a link to your website's "Work With Me" page<br><br>
+        Skills: DHIS2, Health Information Systems, AI Evaluation, Medical Writing, Digital Health — get endorsements from colleagues for each
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 11: HOMEPAGE WIREFRAME             -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <div class="section-title-block">
+        <div class="section-tag">Visual Design</div>
+        <h2>Homepage Wireframe — Top to Bottom</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>This wireframe shows the ideal layout for drjeevaraj.com's homepage. Each zone is designed to answer a specific visitor question in sequence.</p>
+
+      <div class="wireframe">
+
+        <!-- Nav -->
+        <div class="wf-nav">
+          <div class="wf-nav-brand">Still Human</div>
+          <div class="wf-nav-links">
+            <span>About</span>
+            <span>Portfolio</span>
+            <span>Articles</span>
+            <span>CV</span>
+            <span>AI Reviewer</span>
+          </div>
+          <div class="wf-nav-cta">Work With Me</div>
+        </div>
+
+        <!-- Professional strip -->
+        <div class="wf-strip">
+          Dr. T. Jeevaraj · Medical Doctor · Health Informatician · AI Reviewer · MSc Biomedical Informatics · MD Trainee, PGIM · 20+ Years Clinical Experience · Sri Lanka
+        </div>
+
+        <!-- Hero -->
+        <div class="wf-hero">
+          <div class="wf-book">📖<br><span style="display:block;margin-top:0.3rem;font-size:0.55rem;">Book Cover<br>Are You Still<br>Human?</span></div>
+          <div class="wf-hero-text">
+            <div class="wf-eyebrow">Health Informatician · AI Reviewer · Digital Health</div>
+            <div class="wf-h1">Dr. T. <span>Jeevaraj</span></div>
+            <div class="wf-tagline">Medical doctor. Health informatician. Author.<br>BMJ Open · World Bank · PGIM · 20+ years clinical experience.<br>The clinician who builds the systems, reviews the AI, and writes about what it means for human life.</div>
+            <div class="wf-ctas">
+              <div class="wf-btn-primary">See My Work →</div>
+              <div class="wf-btn-secondary">Work With Me</div>
+              <div class="wf-btn-secondary">Download CV</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust bar -->
+        <div class="wf-trust">
+          <div class="wf-trust-item"><i class="fas fa-certificate"></i> BMJ Open Published</div>
+          <div class="wf-trust-item"><i class="fas fa-globe"></i> World Bank Featured 2022</div>
+          <div class="wf-trust-item"><i class="fas fa-graduation-cap"></i> PGIM · University of Colombo</div>
+          <div class="wf-trust-item"><i class="fas fa-stethoscope"></i> 20+ Years Clinical</div>
+          <div class="wf-trust-item" style="color:#A6CE39;"><i class="fab fa-orcid"></i> ORCID Verified</div>
+        </div>
+
+        <!-- What I Do -->
+        <div class="wf-section">
+          <div class="wf-section-label">What I Do</div>
+          <div class="wf-pillars">
+            <div class="wf-pillar"><i class="fas fa-database"></i>Health Informatics &amp; DHIS2</div>
+            <div class="wf-pillar"><i class="fas fa-robot"></i>Clinical AI Review</div>
+            <div class="wf-pillar"><i class="fas fa-pen-nib"></i>Medical Writing</div>
+            <div class="wf-pillar"><i class="fas fa-globe-asia"></i>Digital Health Consulting</div>
+          </div>
+        </div>
+
+        <!-- Featured Articles -->
+        <div class="wf-section">
+          <div class="wf-section-label">Recent Articles on Healthcare AI</div>
+          <div class="wf-articles">
+            <div class="wf-article-card">
+              <div class="wf-article-tag">Health Informatics</div>
+              What HIS Taught Me About the Future of Healthcare AI
+            </div>
+            <div class="wf-article-card">
+              <div class="wf-article-tag">Clinical AI</div>
+              AI Consistency and the NCCP Protocol Problem
+            </div>
+            <div class="wf-article-card">
+              <div class="wf-article-tag">AI Ethics</div>
+              When AI Listens Before It Asks
+            </div>
+          </div>
+        </div>
+
+        <!-- The Book -->
+        <div class="wf-section" style="background:rgba(200,151,62,0.04);">
+          <div class="wf-section-label">Published Book</div>
+          <div style="font-size:0.78rem;color:var(--text);">
+            <strong style="color:var(--ink);">Are You Still Human?</strong> — A short book about what artificial intelligence quietly does to ordinary human relationships. Available on Amazon. 37 pages. Literary nonfiction.
+          </div>
+        </div>
+
+        <!-- CTA bar -->
+        <div class="wf-cta-bar">
+          <strong>Available for Remote Consultancies</strong>
+          Digital health advisory · DHIS2 · AI evaluation · Medical writing · Research collaboration
+          <div style="margin-top:0.8rem;display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;">
+            <span style="background:var(--gold);color:var(--ink);font-size:0.65rem;font-weight:700;padding:6px 16px;border-radius:20px;">Work With Me →</span>
+            <span style="border:1px solid rgba(200,151,62,0.5);color:var(--gold);font-size:0.65rem;padding:6px 16px;border-radius:20px;">Email Dr. Jeevaraj</span>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="wf-footer">
+          drjeevaraj.com · © 2026 Dr. T. Jeevaraj · Books · Stories · Memory Witness · Dev Work · LinkedIn · ORCID
+        </div>
+
+      </div>
+
+      <div class="callout">
+        <div class="callout-label">Wireframe Notes</div>
+        This layout prioritises the international professional audience. The book section is present but positioned <strong>below</strong> the professional content. The trust bar with 5 signals appears immediately after the hero — this is the most important change from the current layout. The bottom CTA bar "Available for Remote Consultancies" directly addresses the most commercially valuable opportunity.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- SECTION 12: TOP 20 PRIORITY CHANGES        -->
+  <!-- ─────────────────────────────────────────── -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <div class="section-num">12</div>
+      <div class="section-title-block">
+        <div class="section-tag">Final Recommendation</div>
+        <h2>Top 20 Highest-Impact Changes</h2>
+      </div>
+    </div>
+    <div class="prose">
+      <p>If an international recruiter or consultant looked at your website today, these are the 20 changes — in priority order — that would have the greatest impact on your professional opportunities over the next 12 months.</p>
+
+      <div class="priority-list">
+
+        <div class="priority-item">
+          <div class="p-rank">1</div>
+          <div class="p-content">
+            <div class="p-title">Fix the homepage hero headline <span class="p-badge badge-critical">Critical · Week 1</span></div>
+            <div class="p-desc">Replace "Still Human" as the primary headline with your name and professional title. The book title is not a professional introduction. Add "Dr. T. Jeevaraj — Health Informatician · AI Reviewer · Digital Health Consultant" as the dominant copy above the fold.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">2</div>
+          <div class="p-content">
+            <div class="p-title">Add a homepage trust bar (5 badges immediately below hero) <span class="p-badge badge-critical">Critical · Week 1</span></div>
+            <div class="p-desc">BMJ Open · World Bank Featured · PGIM University of Colombo · 20+ Years Clinical · ORCID Verified. These must be visible within the first scroll on any device. This single change increases perceived credibility by 10x.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">3</div>
+          <div class="p-content">
+            <div class="p-title">Add CV download button to homepage hero <span class="p-badge badge-critical">Critical · Week 1</span></div>
+            <div class="p-desc">A gold "Download CV (PDF)" button in the hero. When a WHO recruiter or NGO hiring manager lands on your site, they often want to download a CV immediately. Don't make them search for it.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">4</div>
+          <div class="p-content">
+            <div class="p-title">Add email address visibly to every page footer <span class="p-badge badge-critical">Critical · Week 1</span></div>
+            <div class="p-desc">Currently your email requires navigating to services.html. Put it in the footer of every page. International contacts often send emails directly rather than using contact forms. Reduce every friction point to zero.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">5</div>
+          <div class="p-content">
+            <div class="p-title">Update LinkedIn profile to match website positioning <span class="p-badge badge-critical">Critical · Week 1</span></div>
+            <div class="p-desc">Your LinkedIn headline must match: "Health Informatician · AI Reviewer · Digital Health Consultant · BMJ Open · World Bank Featured." Pin your BMJ Open paper and website link to Featured. Add ORCID to contact info. LinkedIn is how most opportunities find you — not Google.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">6</div>
+          <div class="p-content">
+            <div class="p-title">Create and verify a Google Scholar profile <span class="p-badge badge-high">High · Week 2</span></div>
+            <div class="p-desc">Link your BMJ Open publication to a public Google Scholar profile. This takes 20 minutes and dramatically increases your academic discoverability. Link from portfolio.html and cv.html. Citation tracking via Google Scholar also builds your h-index over time.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">7</div>
+          <div class="p-content">
+            <div class="p-title">Add a "What I Do" section to the homepage (4 pillars) <span class="p-badge badge-high">High · Week 2</span></div>
+            <div class="p-desc">Four clear service areas in a visual grid: Health Informatics &amp; DHIS2 / Clinical AI Review / Medical Writing / Digital Health Consulting. Visitors should understand what you offer without reading your CV.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">8</div>
+          <div class="p-content">
+            <div class="p-title">Add "Available for Remote Consultancies" bar to homepage <span class="p-badge badge-high">High · Week 2</span></div>
+            <div class="p-desc">A dedicated CTA section near the bottom of the homepage explicitly inviting remote consulting enquiries. List the service types and link to services.html. International clients need to know you are available and remote-capable before reaching out.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">9</div>
+          <div class="p-content">
+            <div class="p-title">Update all page meta descriptions with target keywords <span class="p-badge badge-high">High · Week 2</span></div>
+            <div class="p-desc">Homepage, CV, Portfolio, AI Reviewer, and Services pages all need rewritten meta descriptions targeting: "health informatics consultant," "DHIS2," "clinical AI reviewer," "digital health consultant Sri Lanka." These 5 meta descriptions drive all Google discovery.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">10</div>
+          <div class="p-content">
+            <div class="p-title">Add article end-CTAs linking to Work With Me <span class="p-badge badge-high">High · Week 2</span></div>
+            <div class="p-desc">Every article currently ends without a call to action. Add a small author bio box at the end of each article: "Dr. T. Jeevaraj is a Health Informatician and AI Reviewer. See how to work with me →" This converts article readers into consulting enquiries.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">11</div>
+          <div class="p-content">
+            <div class="p-title">Add DHIS2 expertise prominently to portfolio and services pages <span class="p-badge badge-high">High · Month 1</span></div>
+            <div class="p-desc">DHIS2 is the world's most deployed HIS platform. WHO, UNICEF, PATH, and MSF all specifically search for DHIS2 experience. Create a dedicated portfolio card describing your DHIS2 work. This single keyword could generate multiple consultancy enquiries per year.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">12</div>
+          <div class="p-content">
+            <div class="p-title">Apply to Scale AI / Appen as a Medical Expert Reviewer <span class="p-badge badge-high">High · Month 1</span></div>
+            <div class="p-desc">These platforms pay $50–150/hr for medical AI evaluation in English. Your clinical background + informatics credentials + AI reviewing experience make you ideal. Apply directly and reference your website as your portfolio. This is immediate remote income while building your profile.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">13</div>
+          <div class="p-content">
+            <div class="p-title">Write 7th article: "How Doctors Can Evaluate AI" <span class="p-badge badge-medium">Medium · Month 1</span></div>
+            <div class="p-desc">This article targets both AI companies (building trust in your evaluation credentials) and clinicians considering AI reviewer roles (positioning you as a guide in this space). It drives SEO traffic for "clinical AI reviewer" and "medical AI evaluator" — your most commercially valuable search terms.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">14</div>
+          <div class="p-content">
+            <div class="p-title">Add "Remote Work Ready" section to CV page <span class="p-badge badge-medium">Medium · Month 1</span></div>
+            <div class="p-desc">Explicitly state availability for remote work, time zone (IST, UTC+5:30), platforms used, and languages. International employers from the UK, USA, Canada, and Australia want to know immediately whether remote engagement is feasible. Don't make them guess.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">15</div>
+          <div class="p-content">
+            <div class="p-title">Create ResearchGate and Academia.edu profiles <span class="p-badge badge-medium">Medium · Month 1</span></div>
+            <div class="p-desc">Upload your BMJ Open paper (check copyright — most BMJ papers allow author post-prints). Academic collaborators from low-income countries specifically use ResearchGate. These platforms increase your research discoverability beyond Google Scholar.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">16</div>
+          <div class="p-content">
+            <div class="p-title">Add a "Who This Is For" section to services.html <span class="p-badge badge-medium">Medium · Month 2</span></div>
+            <div class="p-desc">Name the types of clients you serve: WHO regional offices, UNICEF country offices, health-tech startups, AI companies, universities, NGOs. When a WHO programme officer sees their organisation named, the conversion rate jumps. Generic services pages convert poorly; specific ones convert well.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">17</div>
+          <div class="p-content">
+            <div class="p-title">Collect and display one LinkedIn testimonial on website <span class="p-badge badge-medium">Medium · Month 2</span></div>
+            <div class="p-desc">Ask one respected colleague, a PGIM supervisor, or a past consulting client for a LinkedIn recommendation, then display it on your services page. Even one well-worded quote from a credible person dramatically increases trust for international clients who have never met you.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">18</div>
+          <div class="p-content">
+            <div class="p-title">Submit a WHO ITO / short-term consultant application <span class="p-badge badge-medium">Medium · Month 2–3</span></div>
+            <div class="p-desc">WHO hires Short-Term Staff (STS) and consultants for 3–11 month remote contracts. Search WHO careers for "digital health" and "health informatics" roles under SEARO (South-East Asia Regional Office) first. Your World Bank feature and BMJ publication are strong differentiators.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">19</div>
+          <div class="p-content">
+            <div class="p-title">Create a dedicated Research page (research.html) <span class="p-badge badge-medium">Medium · Month 3</span></div>
+            <div class="p-desc">A single page consolidating: ORCID, Google Scholar, publications, current MD research interests, research themes, and a "collaborations sought" section. This page serves academic and institutional audiences who want to assess your research capacity before reaching out.</div>
+          </div>
+        </div>
+
+        <div class="priority-item">
+          <div class="p-rank">20</div>
+          <div class="p-content">
+            <div class="p-title">Add a Calendly or booking link to services.html <span class="p-badge badge-quick">Quick Win · Month 1</span></div>
+            <div class="p-desc">A Calendly link (free tier available) removes the email barrier entirely for international contacts in different time zones. They can book a 30-minute discovery call directly. This is the single fastest way to increase consulting conversions from website visitors. Takes 10 minutes to set up.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout green">
+        <div class="callout-label">12-Month Implementation Summary</div>
+        <strong>Weeks 1–2 (Critical)</strong>: Items 1–10 — hero headline, trust bar, CV download, email in footer, LinkedIn update, Google Scholar, homepage sections, meta tags, article CTAs<br><br>
+        <strong>Month 1 (High Impact)</strong>: Items 11–15 — DHIS2 portfolio, Scale AI/Appen application, article 7, CV remote section, ResearchGate<br><br>
+        <strong>Months 2–3 (Growth)</strong>: Items 16–20 — services WHO section, testimonial, WHO application, research page, Calendly<br><br>
+        <strong>Ongoing</strong>: 2 new articles per quarter · LinkedIn posting 2x per week · WHO/UNICEF job alert monitoring · Annual CV and portfolio update
+      </div>
+    </div>
+  </div>
+
+</div><!-- end .main -->
+
+<!-- ── CLOSING QUOTE ── -->
+<div style="max-width:860px;margin:0 auto 4rem;padding:0 2rem;">
+  <div class="quote-block">
+    <div class="quote-text">
+      Your website should not make international recruiters work to understand you.<br>
+      It should make them feel they have already made the right decision — before they even read the CV.
+    </div>
+    <div class="quote-attr">— Website Transformation Strategy · Dr. T. Jeevaraj · 2026</div>
+  </div>
+</div>
+
+<!-- ── DOC FOOTER ── -->
+<div class="doc-footer">
+  <strong>Dr. T. Jeevaraj</strong> · drjeevaraj.com · ORCID: 0009-0008-5084-0258<br>
+  <span style="display:block;margin-top:0.4rem;">Website Transformation Strategy Document · Prepared June 2026 · For personal professional use</span>
+  <span style="display:block;margin-top:0.4rem;font-size:0.65rem;">All strategic content reflects the author's personal academic and professional capacity as an MD Trainee in Health Informatics at PGIM, University of Colombo. It does not constitute criticism of any government institution, programme, or policy.</span>
+</div>
+
+</body>
+</html>
