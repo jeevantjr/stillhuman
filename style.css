@@ -284,7 +284,7 @@ section.dark .section-sub { color: var(--hero-sub); }
 
 .hero-center { text-align: center; }
 .hero-eyebrow {
-  display: inline-block; font-family: var(--font-ui); font-size: 0.6rem; font-weight: 600; letter-spacing: 5px; text-transform: uppercase;
+  display: inline-block; font-family: var(--font-ui); font-size: 0.72rem; font-weight: 600; letter-spacing: 5px; text-transform: uppercase;
   color: var(--gold); border: 1px solid rgba(200,151,62,0.32); padding: 6px 16px; margin-bottom: 1.8rem;
   border-radius: 2px;
 }
@@ -732,7 +732,7 @@ footer {
 /* ── INNER PAGE ─────────────────────────────────────────────── */
 .inner-hero { padding: calc(var(--nav-h) + 3.5rem) 0 3rem; border-bottom: 1px solid var(--border-light); }
 .inner-hero h1 { font-family: var(--font-display); font-size: 3.6rem; font-weight: 400; letter-spacing: 3px; color: var(--ink); line-height: 1.1; margin-bottom: 0.8rem; }
-.page-label { display: block; font-family: var(--font-ui); font-size: 0.58rem; font-weight: 600; letter-spacing: 4.5px; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 1.2rem; }
+.page-label { display: block; font-family: var(--font-ui); font-size: 0.70rem; font-weight: 600; letter-spacing: 4.5px; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 1.2rem; }
 .page-sub { font-family: var(--font-display); font-size: 1.12rem; font-style: italic; color: var(--ink-light); line-height: 1.65; margin-top: 0.6rem; }
 .inner-hero-rule { width: 50px; height: 1px; background: var(--gold); margin-top: 2.5rem; opacity: 0.45; }
 

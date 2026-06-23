@@ -1,2116 +1,845 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr. Thangarasa Jeevaraaj | AI Reviewer · Health Informatician</title>
-<meta name="description" content="Physician, Health Informatics Specialist, AI Reviewer, Digital Health Developer — Sri Lanka">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<style>
-/* ── DESIGN TOKENS ───────────────────────────────────────────── */
-:root {
-  --bg:          #0A192F;
-  --bg2:         #112240;
-  --bg3:         #1D3461;
-  --surface:     rgba(17,34,64,0.75);
-  --border:      rgba(100,255,218,0.12);
-  --text:        #CCD6F6;
-  --subtext:     #8892B0;
-  --heading:     #E6F1FF;
-  --mint:        #64FFDA;
-  --blue:        #00D4FF;
-  --purple:      #7B5EA7;
-  --danger:      #FF6B6B;
-  --card-bg:     rgba(17,34,64,0.8);
-  --nav-bg:      rgba(10,25,47,0.92);
-  --glow:        0 0 30px rgba(100,255,218,0.15);
-  --shadow:      0 20px 60px rgba(0,0,0,0.4);
-  --radius:      16px;
-  --transition:  0.35s cubic-bezier(0.4,0,0.2,1);
-}
-[data-theme="light"] {
-  --bg:          #F0F4FF;
-  --bg2:         #FFFFFF;
-  --bg3:         #E8EEFF;
-  --surface:     rgba(255,255,255,0.85);
-  --border:      rgba(15,76,129,0.15);
-  --text:        #1E293B;
-  --subtext:     #64748B;
-  --heading:     #0F172A;
-  --mint:        #0F4C81;
-  --blue:        #00A8E8;
-  --purple:      #7B5EA7;
-  --card-bg:     rgba(255,255,255,0.9);
-  --nav-bg:      rgba(240,244,255,0.95);
-  --glow:        0 0 30px rgba(15,76,129,0.1);
-  --shadow:      0 20px 60px rgba(0,0,0,0.1);
-}
-/* ── RESET ───────────────────────────────────────────────────── */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; font-size:16px; }
-body {
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.7;
-  overflow-x:hidden;
-  transition:background var(--transition), color var(--transition);
-}
-a { text-decoration:none; color:inherit; }
-img { max-width:100%; display:block; }
-ul { list-style:none; }
-/* ── PARTICLES CANVAS ────────────────────────────────────────── */
-#particles-canvas {
-  position:fixed;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  opacity:0.4;
-}
-/* ── NAV ─────────────────────────────────────────────────────── */
-nav {
-  position:fixed;
-  top:0; left:0; right:0;
-  z-index:1000;
-  background:var(--nav-bg);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  padding:0 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  height:68px;
-  transition:background var(--transition);
-}
-.nav-logo {
-  font-size:1.1rem;
-  font-weight:700;
-  color:var(--mint);
-  letter-spacing:-0.5px;
-}
-.nav-links {
-  display:flex;
-  gap:32px;
-  align-items:center;
-}
-.nav-links a {
-  color:var(--subtext);
-  font-size:0.88rem;
-  font-weight:500;
-  letter-spacing:0.5px;
-  text-transform:uppercase;
-  transition:color var(--transition);
-  position:relative;
-}
-.nav-links a::after {
-  content:'';
-  position:absolute;
-  bottom:-4px; left:0;
-  width:0; height:2px;
-  background:var(--mint);
-  border-radius:2px;
-  transition:width var(--transition);
-}
-.nav-links a:hover { color:var(--mint); }
-.nav-links a:hover::after { width:100%; }
-/* Theme toggle */
-.theme-toggle {
-  width:44px; height:44px;
-  border-radius:50%;
-  border:1.5px solid var(--border);
-  background:transparent;
-  color:var(--mint);
-  cursor:pointer;
-  font-size:1.1rem;
-  display:flex; align-items:center; justify-content:center;
-  transition:all var(--transition);
-}
-.theme-toggle:hover {
-  background:var(--mint);
-  color:var(--bg);
-  transform:rotate(20deg);
-}
-/* ── FLOATING SOCIAL SIDEBAR ─────────────────────────────────── */
-.social-float {
-  position:fixed;
-  left:24px;
-  bottom:0;
-  z-index:900;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:14px;
-}
-.social-float::after {
-  content:'';
-  width:1px;
-  height:80px;
-  background:var(--subtext);
-  margin-top:8px;
-}
-.social-float a {
-  color:var(--subtext);
-  font-size:1.1rem;
-  transition:all var(--transition);
-  transform:translateY(0);
-}
-.social-float a:hover {
-  color:var(--mint);
-  transform:translateY(-4px);
-}
-.email-float {
-  position:fixed;
-  right:24px;
-  bottom:0;
-  z-index:900;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:14px;
-}
-.email-float::after {
-  content:'';
-  width:1px;
-  height:80px;
-  background:var(--subtext);
-  margin-top:8px;
-}
-.email-float a {
-  font-size:0.78rem;
-  letter-spacing:2px;
-  writing-mode:vertical-rl;
-  color:var(--subtext);
-  transition:all var(--transition);
-  font-family:'Fira Code',monospace;
-}
-.email-float a:hover {
-  color:var(--mint);
-  transform:translateY(-4px);
-}
-/* ── DOWNLOAD CV BUTTON ──────────────────────────────────────── */
-.cv-float {
-  position:fixed;
-  top:84px;
-  right:24px;
-  z-index:900;
-}
-.cv-btn {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  background:transparent;
-  border:1.5px solid var(--mint);
-  color:var(--mint);
-  padding:10px 18px;
-  border-radius:50px;
-  font-size:0.82rem;
-  font-weight:600;
-  cursor:pointer;
-  transition:all var(--transition);
-  font-family:'Inter',sans-serif;
-  letter-spacing:0.3px;
-}
-.cv-btn:hover {
-  background:rgba(100,255,218,0.1);
-  box-shadow:0 0 20px rgba(100,255,218,0.2);
-  transform:translateY(-2px);
-}
-/* ── SECTION BASE ─────────────────────────────────────────────── */
-section { position:relative; z-index:1; }
-.container {
-  width:90%;
-  max-width:1160px;
-  margin:auto;
-}
-.section-pad { padding:100px 0; }
-.section-label {
-  font-family:'Fira Code',monospace;
-  color:var(--mint);
-  font-size:0.85rem;
-  letter-spacing:1px;
-  margin-bottom:8px;
-  display:block;
-}
-.section-heading {
-  font-size:2.4rem;
-  font-weight:800;
-  color:var(--heading);
-  line-height:1.2;
-}
-.section-heading span { color:var(--mint); }
-.section-divider {
-  width:60px; height:4px;
-  background:linear-gradient(90deg, var(--mint), var(--blue));
-  border-radius:4px;
-  margin:16px 0 50px;
-}
-/* ── HERO ────────────────────────────────────────────────────── */
-#hero {
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  padding-top:68px;
-  position:relative;
-  overflow:hidden;
-}
-.hero-inner {
-  display:grid;
-  grid-template-columns:1fr 340px;
-  gap:60px;
-  align-items:center;
-  width:90%;
-  max-width:1160px;
-  margin:auto;
-  padding:60px 0;
-}
-.hero-greeting {
-  font-family:'Fira Code',monospace;
-  color:var(--mint);
-  font-size:1rem;
-  margin-bottom:20px;
-  opacity:0;
-  animation:fadeUp 0.6s 0.2s forwards;
-}
-.hero-name {
-  font-size:clamp(2.4rem,5vw,4.2rem);
-  font-weight:900;
-  color:var(--heading);
-  line-height:1.05;
-  letter-spacing:-1px;
-  margin-bottom:12px;
-  opacity:0;
-  animation:fadeUp 0.6s 0.4s forwards;
-}
-.hero-name .accent { color:var(--mint); }
-.hero-title {
-  font-size:clamp(1.1rem,2.5vw,1.5rem);
-  color:var(--subtext);
-  font-weight:400;
-  margin-bottom:24px;
-  opacity:0;
-  animation:fadeUp 0.6s 0.6s forwards;
-}
-.hero-desc {
-  color:var(--subtext);
-  max-width:540px;
-  line-height:1.8;
-  margin-bottom:36px;
-  opacity:0;
-  animation:fadeUp 0.6s 0.8s forwards;
-}
-.hero-badges {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:36px;
-  opacity:0;
-  animation:fadeUp 0.6s 1s forwards;
-}
-.hero-badge {
-  font-family:'Fira Code',monospace;
-  font-size:0.78rem;
-  padding:6px 14px;
-  border:1px solid var(--mint);
-  color:var(--mint);
-  border-radius:50px;
-  letter-spacing:0.5px;
-}
-.hero-badge.highlight {
-  background:rgba(100,255,218,0.12);
-  font-weight:600;
-}
-.hero-buttons {
-  display:flex;
-  gap:16px;
-  flex-wrap:wrap;
-  opacity:0;
-  animation:fadeUp 0.6s 1.2s forwards;
-}
-.btn-hero-primary {
-  padding:14px 28px;
-  background:var(--mint);
-  color:var(--bg);
-  border-radius:8px;
-  font-weight:700;
-  font-size:0.95rem;
-  transition:all var(--transition);
-  border:none;
-  cursor:pointer;
-}
-.btn-hero-primary:hover {
-  transform:translateY(-3px);
-  box-shadow:0 10px 30px rgba(100,255,218,0.3);
-}
-.btn-hero-outline {
-  padding:14px 28px;
-  border:1.5px solid var(--mint);
-  color:var(--mint);
-  border-radius:8px;
-  font-weight:600;
-  font-size:0.95rem;
-  transition:all var(--transition);
-  background:transparent;
-  cursor:pointer;
-}
-.btn-hero-outline:hover {
-  background:rgba(100,255,218,0.08);
-  transform:translateY(-3px);
-}
-/* Hero photo */
-.hero-photo-wrap {
-  position:relative;
-  opacity:0;
-  animation:fadeLeft 0.8s 0.6s forwards;
-}
-.hero-photo-wrap::before {
-  content:'';
-  position:absolute;
-  inset:-6px;
-  border-radius:50%;
-  background:linear-gradient(135deg, var(--mint), var(--blue), var(--purple));
-  z-index:-1;
-  animation:rotate 8s linear infinite;
-}
-.hero-photo-wrap::after {
-  content:'';
-  position:absolute;
-  inset:-18px;
-  border-radius:50%;
-  border:1px dashed rgba(100,255,218,0.3);
-  animation:rotate 20s linear infinite reverse;
-}
-.hero-photo {
-  width:320px;
-  height:320px;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid var(--bg2);
-  display:block;
-}
-.hero-photo-placeholder {
-  width:320px;
-  height:320px;
-  border-radius:50%;
-  background:linear-gradient(135deg, var(--bg3), var(--bg2));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:7rem;
-  color:var(--mint);
-  border:4px solid var(--bg2);
-}
-@keyframes rotate { to { transform:rotate(360deg); } }
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(30px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-@keyframes fadeLeft {
-  from { opacity:0; transform:translateX(40px); }
-  to   { opacity:1; transform:translateX(0); }
-}
-/* Scroll indicator */
-.scroll-indicator {
-  position:absolute;
-  bottom:32px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:8px;
-  color:var(--subtext);
-  font-size:0.75rem;
-  letter-spacing:2px;
-  animation:bounce 2s infinite;
-}
-.scroll-indicator i { font-size:1rem; }
-@keyframes bounce {
-  0%,100% { transform:translateX(-50%) translateY(0); }
-  50%      { transform:translateX(-50%) translateY(8px); }
-}
-/* ── STATS ───────────────────────────────────────────────────── */
-#stats {
-  background:transparent;
-  padding:0 0 80px;
-}
-.stats-grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-.stat-card {
-  background:var(--card-bg);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:32px 24px;
-  text-align:center;
-  transition:all var(--transition);
-  position:relative;
-  overflow:hidden;
-}
-.stat-card::before {
-  content:'';
-  position:absolute;
-  top:0; left:0; right:0;
-  height:3px;
-  background:linear-gradient(90deg, var(--mint), var(--blue));
-}
-.stat-card:hover {
-  transform:translateY(-6px);
-  box-shadow:var(--glow);
-  border-color:var(--mint);
-}
-.stat-number {
-  font-size:3rem;
-  font-weight:900;
-  color:var(--mint);
-  font-family:'Fira Code',monospace;
-  line-height:1;
-  margin-bottom:8px;
-}
-.stat-label {
-  color:var(--subtext);
-  font-size:0.85rem;
-  letter-spacing:0.5px;
-  text-transform:uppercase;
-  font-weight:500;
-}
-/* ── ABOUT ───────────────────────────────────────────────────── */
-#about { background:var(--bg2); }
-.about-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:start;
-}
-.about-text p {
-  color:var(--text);
-  margin-bottom:16px;
-  line-height:1.9;
-}
-.about-text p:first-child { font-size:1.05rem; }
-.about-highlights {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-top:28px;
-}
-.highlight-item {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:var(--subtext);
-  font-size:0.9rem;
-  font-family:'Fira Code',monospace;
-}
-.highlight-item i { color:var(--mint); width:16px; }
-.about-cards { display:flex; flex-direction:column; gap:16px; }
-.about-mini-card {
-  background:var(--card-bg);
-  backdrop-filter:blur(10px);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:20px 24px;
-  display:flex;
-  gap:16px;
-  align-items:center;
-  transition:all var(--transition);
-}
-.about-mini-card:hover {
-  border-color:var(--mint);
-  transform:translateX(6px);
-}
-.about-mini-icon {
-  width:48px; height:48px;
-  border-radius:12px;
-  background:rgba(100,255,218,0.1);
-  display:flex; align-items:center; justify-content:center;
-  color:var(--mint);
-  font-size:1.3rem;
-  flex-shrink:0;
-}
-.about-mini-card h4 { font-size:0.95rem; color:var(--heading); margin-bottom:2px; }
-.about-mini-card p  { font-size:0.8rem; color:var(--subtext); }
-/* ── RADAR CHART / SKILLS ───────────────────────────────────── */
-#skills { background:var(--bg); }
-.skills-layout {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-.radar-wrap {
-  background:var(--card-bg);
-  backdrop-filter:blur(20px);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:32px;
-  max-width:460px;
-  margin:auto;
-}
-.radar-wrap h3 {
-  text-align:center;
-  color:var(--heading);
-  margin-bottom:20px;
-  font-size:1.1rem;
-}
-.skills-list { display:flex; flex-direction:column; gap:18px; }
-.skill-row { }
-.skill-row-header {
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:6px;
-}
-.skill-row-header span { font-size:0.88rem; }
-.skill-row-header span:first-child { color:var(--text); font-weight:500; }
-.skill-row-header span:last-child  { color:var(--mint); font-family:'Fira Code',monospace; }
-.skill-bar {
-  height:6px;
-  background:var(--bg3);
-  border-radius:6px;
-  overflow:hidden;
-}
-.skill-fill {
-  height:100%;
-  border-radius:6px;
-  background:linear-gradient(90deg,var(--mint),var(--blue));
-  width:0%;
-  transition:width 1.2s cubic-bezier(0.4,0,0.2,1);
-}
-/* ── PROJECTS ────────────────────────────────────────────────── */
-#projects { background:var(--bg2); }
-.projects-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:24px;
-}
-.project-card {
-  background:var(--card-bg);
-  backdrop-filter:blur(20px);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  overflow:hidden;
-  transition:all var(--transition);
-  display:flex;
-  flex-direction:column;
-}
-.project-card:hover {
-  transform:translateY(-8px);
-  border-color:var(--mint);
-  box-shadow:var(--shadow);
-}
-.project-thumb {
-  height:180px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:3.5rem;
-  position:relative;
-  overflow:hidden;
-}
-.project-thumb::after {
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom, transparent 40%, rgba(17,34,64,0.8));
-}
-.project-card-body { padding:24px; flex:1; display:flex; flex-direction:column; }
-.project-number {
-  font-family:'Fira Code',monospace;
-  color:var(--mint);
-  font-size:0.8rem;
-  margin-bottom:8px;
-}
-.project-card-body h3 {
-  font-size:1.15rem;
-  color:var(--heading);
-  margin-bottom:10px;
-}
-.project-card-body p {
-  color:var(--subtext);
-  font-size:0.88rem;
-  line-height:1.7;
-  flex:1;
-}
-.project-tech {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:16px;
-}
-.project-tech span {
-  font-family:'Fira Code',monospace;
-  font-size:0.75rem;
-  padding:4px 10px;
-  background:rgba(100,255,218,0.08);
-  color:var(--mint);
-  border-radius:4px;
-  border:1px solid rgba(100,255,218,0.2);
-}
-.project-footer {
-  display:flex;
-  gap:12px;
-  margin-top:20px;
-  padding-top:20px;
-  border-top:1px solid var(--border);
-}
-.project-link {
-  display:flex;
-  align-items:center;
-  gap:6px;
-  font-size:0.82rem;
-  color:var(--subtext);
-  transition:color var(--transition);
-  font-weight:500;
-}
-.project-link:hover { color:var(--mint); }
-/* ── PUBLICATIONS ────────────────────────────────────────────── */
-#publications { background:var(--bg); }
-.pub-grid { display:flex; flex-direction:column; gap:24px; }
-.pub-card {
-  background:var(--card-bg);
-  backdrop-filter:blur(20px);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:32px;
-  display:grid;
-  grid-template-columns:auto 1fr;
-  gap:28px;
-  transition:all var(--transition);
-  position:relative;
-  overflow:hidden;
-}
-.pub-card::before {
-  content:'';
-  position:absolute;
-  left:0; top:0; bottom:0;
-  width:4px;
-  background:linear-gradient(180deg,var(--mint),var(--blue));
-}
-.pub-card:hover {
-  transform:translateX(6px);
-  border-color:var(--mint);
-}
-.pub-journal-badge {
-  writing-mode:vertical-rl;
-  text-orientation:mixed;
-  transform:rotate(180deg);
-  font-family:'Fira Code',monospace;
-  font-size:0.75rem;
-  font-weight:600;
-  color:var(--mint);
-  letter-spacing:2px;
-  text-transform:uppercase;
-  padding:8px 0;
-}
-.pub-info {}
-.pub-type {
-  font-family:'Fira Code',monospace;
-  font-size:0.75rem;
-  color:var(--blue);
-  letter-spacing:1px;
-  text-transform:uppercase;
-  margin-bottom:8px;
-}
-.pub-info h3 {
-  font-size:1.1rem;
-  color:var(--heading);
-  margin-bottom:10px;
-  line-height:1.5;
-}
-.pub-authors {
-  font-size:0.85rem;
-  color:var(--subtext);
-  margin-bottom:8px;
-  font-style:italic;
-}
-.pub-authors strong { color:var(--text); font-style:normal; }
-.pub-meta {
-  font-size:0.82rem;
-  color:var(--subtext);
-  font-family:'Fira Code',monospace;
-  margin-bottom:14px;
-}
-.pub-abstract {
-  font-size:0.88rem;
-  color:var(--subtext);
-  line-height:1.7;
-  margin-bottom:16px;
-}
-.pub-tags { display:flex; flex-wrap:wrap; gap:8px; }
-.pub-tag {
-  font-size:0.75rem;
-  padding:4px 10px;
-  background:rgba(0,212,255,0.08);
-  color:var(--blue);
-  border-radius:4px;
-  border:1px solid rgba(0,212,255,0.2);
-}
-.pub-links { display:flex; gap:12px; margin-top:16px; }
-.pub-link {
-  font-size:0.82rem;
-  color:var(--mint);
-  display:flex;
-  align-items:center;
-  gap:6px;
-  font-weight:600;
-  transition:all var(--transition);
-}
-.pub-link:hover { color:var(--blue); }
-/* ── TIMELINE ────────────────────────────────────────────────── */
-#timeline { background:var(--bg2); }
-.timeline-wrap {
-  position:relative;
-  max-width:840px;
-  margin:auto;
-  padding:20px 0;
-}
-.timeline-wrap::before {
-  content:'';
-  position:absolute;
-  left:50%;
-  top:0; bottom:0;
-  width:2px;
-  background:linear-gradient(180deg, var(--mint), var(--blue), transparent);
-  transform:translateX(-50%);
-}
-.tl-item {
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  gap:0;
-  align-items:start;
-  margin-bottom:48px;
-  opacity:0;
-  transform:translateY(30px);
-  transition:opacity 0.6s ease, transform 0.6s ease;
-}
-.tl-item.visible {
-  opacity:1;
-  transform:translateY(0);
-}
-.tl-left  { text-align:right; padding-right:40px; }
-.tl-right { padding-left:40px; }
-.tl-center {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding-top:4px;
-}
-.tl-dot {
-  width:18px; height:18px;
-  border-radius:50%;
-  background:var(--mint);
-  border:3px solid var(--bg2);
-  box-shadow:0 0 0 3px var(--mint);
-  flex-shrink:0;
-  position:relative;
-  z-index:1;
-}
-.tl-year {
-  font-family:'Fira Code',monospace;
-  font-size:0.8rem;
-  color:var(--mint);
-  margin-bottom:4px;
-}
-.tl-card {
-  background:var(--card-bg);
-  backdrop-filter:blur(10px);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:18px 20px;
-  transition:all var(--transition);
-}
-.tl-card:hover {
-  border-color:var(--mint);
-  transform:scale(1.02);
-}
-.tl-card h4 {
-  color:var(--heading);
-  font-size:0.95rem;
-  font-weight:600;
-  margin-bottom:6px;
-}
-.tl-card p { font-size:0.84rem; color:var(--text); line-height:1.6; }
-.tl-card .tl-meta { font-size:0.75rem; color:var(--mint); font-family:'Fira Code',monospace; margin-top:5px; display:block; }
-.tl-item:nth-child(odd)  .tl-right { visibility:hidden; }
-.tl-item:nth-child(even) .tl-left  { visibility:hidden; }
-/* ── GITHUB ACTIVITY ─────────────────────────────────────────── */
-#github { background:var(--bg); }
-.github-card {
-  background:var(--card-bg);
-  backdrop-filter:blur(20px);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:40px;
-}
-.github-header {
-  display:flex;
-  align-items:center;
-  gap:16px;
-  margin-bottom:32px;
-}
-.github-avatar {
-  width:56px; height:56px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--mint),var(--blue));
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.5rem;
-  color:var(--bg);
-  font-weight:700;
-}
-.github-header-info h3 { color:var(--heading); margin-bottom:2px; }
-.github-header-info a { color:var(--mint); font-family:'Fira Code',monospace; font-size:0.85rem; }
-.github-stats {
-  display:flex;
-  gap:32px;
-  margin-bottom:32px;
-  flex-wrap:wrap;
-}
-.gh-stat { text-align:center; }
-.gh-stat-num { font-size:1.8rem; font-weight:700; color:var(--heading); font-family:'Fira Code',monospace; }
-.gh-stat-label { font-size:0.75rem; color:var(--subtext); text-transform:uppercase; letter-spacing:1px; }
-.heatmap-label {
-  font-size:0.8rem;
-  color:var(--subtext);
-  margin-bottom:10px;
-  font-family:'Fira Code',monospace;
-}
-.heatmap {
-  display:flex;
-  gap:3px;
-  overflow-x:auto;
-  padding-bottom:8px;
-}
-.heatmap-col { display:flex; flex-direction:column; gap:3px; }
-.heatmap-cell {
-  width:13px; height:13px;
-  border-radius:2px;
-  background:var(--bg3);
-  transition:all 0.2s;
-  cursor:pointer;
-}
-.heatmap-cell:hover { transform:scale(1.4); }
-.h0 { background:var(--bg3); }
-.h1 { background:rgba(100,255,218,0.2); }
-.h2 { background:rgba(100,255,218,0.4); }
-.h3 { background:rgba(100,255,218,0.6); }
-.h4 { background:rgba(100,255,218,0.9); }
-.heatmap-legend {
-  display:flex;
-  align-items:center;
-  gap:6px;
-  margin-top:10px;
-  font-size:0.75rem;
-  color:var(--subtext);
-}
-.heatmap-legend div { width:13px; height:13px; border-radius:2px; }
-.pinned-repos {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-  margin-top:28px;
-}
-.pinned-card {
-  background:rgba(255,255,255,0.03);
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:16px;
-  transition:all var(--transition);
-}
-.pinned-card:hover { border-color:var(--mint); }
-.pinned-card-header { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
-.pinned-card-header i { color:var(--subtext); }
-.pinned-card-header a {
-  color:var(--blue);
-  font-weight:600;
-  font-size:0.88rem;
-  transition:color var(--transition);
-}
-.pinned-card-header a:hover { color:var(--mint); }
-.pinned-card p { font-size:0.8rem; color:var(--subtext); line-height:1.6; margin-bottom:10px; }
-.pinned-meta { display:flex; gap:12px; font-size:0.75rem; color:var(--subtext); }
-.pinned-meta span { display:flex; align-items:center; gap:4px; }
-.lang-dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
-/* ── CONTACT ─────────────────────────────────────────────────── */
-#contact {
-  background:var(--bg2);
-  text-align:center;
-}
-.contact-glass {
-  background:var(--card-bg);
-  backdrop-filter:blur(30px);
-  border:1px solid var(--border);
-  border-radius:24px;
-  padding:60px;
-  max-width:700px;
-  margin:auto;
-  position:relative;
-  overflow:hidden;
-}
-.contact-glass::before {
-  content:'';
-  position:absolute;
-  top:-100px; right:-100px;
-  width:300px; height:300px;
-  background:radial-gradient(circle, rgba(100,255,218,0.08) 0%, transparent 70%);
-  pointer-events:none;
-}
-.contact-glass::after {
-  content:'';
-  position:absolute;
-  bottom:-100px; left:-100px;
-  width:300px; height:300px;
-  background:radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 70%);
-  pointer-events:none;
-}
-.contact-glass h2 { font-size:2rem; color:var(--heading); margin-bottom:8px; }
-.contact-glass > p { color:var(--subtext); margin-bottom:36px; line-height:1.8; max-width:480px; margin-left:auto; margin-right:auto; }
-.contact-links {
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-  position:relative;
-  z-index:1;
-}
-.contact-link-item {
-  display:flex;
-  align-items:center;
-  gap:16px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:16px 20px;
-  transition:all var(--transition);
-  text-align:left;
-}
-.contact-link-item:hover {
-  border-color:var(--mint);
-  background:rgba(100,255,218,0.05);
-  transform:translateX(4px);
-}
-.contact-link-icon {
-  width:44px; height:44px;
-  border-radius:10px;
-  background:rgba(100,255,218,0.1);
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.2rem;
-  color:var(--mint);
-  flex-shrink:0;
-}
-.contact-link-text { flex:1; }
-.contact-link-text .clabel { font-size:0.75rem; color:var(--subtext); text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; }
-.contact-link-text .cvalue { color:var(--heading); font-weight:600; font-size:0.95rem; }
-.contact-link-text .cvalue a { color:var(--heading); transition:color var(--transition); }
-.contact-link-text .cvalue a:hover { color:var(--mint); }
-/* ── FOOTER ──────────────────────────────────────────────────── */
-footer {
-  background:var(--bg);
-  border-top:1px solid var(--border);
-  padding:28px;
-  text-align:center;
-  color:var(--subtext);
-  font-size:0.82rem;
-  font-family:'Fira Code',monospace;
-  position:relative;
-  z-index:1;
-}
-footer span { color:var(--mint); }
-/* ── SCROLL REVEAL ───────────────────────────────────────────── */
-.reveal {
-  opacity:0;
-  transform:translateY(40px);
-  transition:opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity:1;
-  transform:translateY(0);
-}
-.reveal-left {
-  opacity:0;
-  transform:translateX(-40px);
-  transition:opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal-left.visible {
-  opacity:1;
-  transform:translateX(0);
-}
-.reveal-right {
-  opacity:0;
-  transform:translateX(40px);
-  transition:opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal-right.visible {
-  opacity:1;
-  transform:translateX(0);
-}
-.delay-1 { transition-delay:0.1s; }
-.delay-2 { transition-delay:0.2s; }
-.delay-3 { transition-delay:0.3s; }
-.delay-4 { transition-delay:0.4s; }
-.delay-5 { transition-delay:0.5s; }
-/* ── MOBILE ──────────────────────────────────────────────────── */
-@media(max-width:900px) {
-  .hero-inner { grid-template-columns:1fr; text-align:center; }
-  .hero-photo-wrap { margin:auto; order:-1; }
-  .hero-photo, .hero-photo-placeholder { width:220px; height:220px; }
-  .hero-badges { justify-content:center; }
-  .hero-buttons { justify-content:center; }
-  .hero-desc { margin:auto auto 28px; }
-  .stats-grid { grid-template-columns:repeat(2,1fr); }
-  .about-grid { grid-template-columns:1fr; }
-  .skills-layout { grid-template-columns:1fr; }
-  .tl-item { grid-template-columns:auto 1fr; }
-  .tl-item:nth-child(odd) .tl-right,
-  .tl-item:nth-child(even) .tl-left { display:none; }
-  .tl-left { display:none; }
-  .tl-right, .tl-item:nth-child(even) .tl-right { visibility:visible !important; padding-left:20px; }
-  .tl-center { padding-top:4px; }
-  .social-float, .email-float { display:none; }
-  .cv-float { top:76px; right:12px; }
-  .contact-glass { padding:36px 24px; }
-  .pinned-repos { grid-template-columns:1fr; }
-  .pub-card { grid-template-columns:1fr; }
-  .pub-journal-badge { writing-mode:horizontal-tb; transform:none; }
-  nav { padding:0 4%; }
-  .nav-links { display:none; }
-}
-@media(max-width:600px) {
-  .stats-grid { grid-template-columns:1fr 1fr; }
-  .github-stats { gap:16px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9EW1LVGWZP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9EW1LVGWZP');
+  </script>
+  <title>Development Portfolio — Dr. T. Jeevaraj · Publications · DHIS2 · Digital Health Systems · Research</title>
+  <meta name="description" content="Portfolio of Dr. T. Jeevaraj — BMJ Open published researcher, World Bank featured, DHIS2 certified consultant. MBBS, MCGP, MSc Biomedical Informatics, MD Health Informatics Trainee. Digital health specialist available for remote consulting worldwide.">
+  <meta name="author" content="Dr. T. Jeevaraj" />
+  <link rel="canonical" href="https://drjeevaraj.com/portfolio.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portfolio — Dr. T. Jeevaraj · Health Informatics & Digital Health" />
+  <meta property="og:description" content="BMJ Open published · World Bank featured · DHIS2 certified · Clinical AI reviewer · 20+ years medicine. Portfolio of research, publications, digital health systems, and written work." />
+  <meta property="og:url" content="https://drjeevaraj.com/portfolio.html" />
+  <meta property="og:image" content="https://drjeevaraj.com/T.%20Jeevaraj.jpg" />
+  <meta property="og:site_name" content="Dr. T. Jeevaraj — Still Human" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ── Portfolio layout ─────────────────────── */
+    .port-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 0 5rem;
+    }
+
+    /* ── Section header ──────────────────────── */
+    .port-sec-head {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.75rem;
+      margin-bottom: 2rem;
+      margin-top: 3.5rem;
+    }
+    .port-sec-head i { font-size: 0.7rem; color: var(--gold); }
+    .port-sec-head.psh-teal  { color: var(--teal);   border-color: rgba(26,110,110,0.3); }
+    .port-sec-head.psh-blue  { color: #3D6E8C;       border-color: rgba(61,110,140,0.3); }
+    .port-sec-head.psh-green { color: #4F7D52;       border-color: rgba(79,125,82,0.3); }
+    .port-sec-head.psh-teal i  { color: var(--teal); }
+    .port-sec-head.psh-blue i  { color: #3D6E8C; }
+    .port-sec-head.psh-green i { color: #4F7D52; }
+
+    /* ── Impact badge ────────────────────────── */
+    .impact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-ui);
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 2px;
+      margin-bottom: 0.8rem;
+    }
+    .impact-highest {
+      background: rgba(200,151,62,0.12);
+      color: var(--gold-deep);
+      border: 1px solid rgba(200,151,62,0.35);
+    }
+    .impact-high {
+      background: rgba(26,110,110,0.08);
+      color: var(--teal);
+      border: 1px solid rgba(26,110,110,0.25);
+    }
+    .impact-medium {
+      background: rgba(61,110,140,0.08);
+      color: #3D6E8C;
+      border: 1px solid rgba(61,110,140,0.25);
+    }
+
+    /* ── Portfolio card ──────────────────────── */
+    .port-card {
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.4rem;
+      transition: box-shadow var(--t), transform var(--t);
+    }
+    .port-card:hover { box-shadow: var(--shadow-md); transform: translateX(3px); }
+    .port-card.pc-teal   { border-left-color: var(--teal); }
+    .port-card.pc-blue   { border-left-color: #3D6E8C; }
+    .port-card.pc-green  { border-left-color: #4F7D52; }
+    .port-card.pc-copper { border-left-color: var(--copper); }
+
+    .port-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .port-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.3;
+      margin: 0;
+      flex: 1;
+    }
+    .port-meta {
+      font-family: var(--font-ui);
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding-top: 0.15rem;
+    }
+
+    .port-impact-line {
+      font-family: var(--font-display);
+      font-size: 0.97rem;
+      font-style: italic;
+      color: var(--ink-mid);
+      margin-bottom: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .port-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .port-detail-label {
+      font-family: var(--font-ui);
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .port-detail-value {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      color: var(--ink-light);
+      line-height: 1.55;
+    }
+
+    .port-card-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .port-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-family: var(--font-ui);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--copper-light);
+      border: 1px solid var(--border);
+      padding: 3px 11px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all var(--t);
+    }
+    .port-link:hover { background: rgba(200,151,62,0.08); border-color: var(--gold); color: var(--gold-deep); }
+
+    /* ── Articles mini-cards ─────────────────── */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .article-mini {
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-top: 2px solid var(--teal);
+      border-radius: var(--radius-md);
+      padding: 1.2rem 1.4rem;
+      transition: box-shadow var(--t), transform var(--t);
+    }
+    .article-mini:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .article-mini-num {
+      font-family: var(--font-ui);
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .article-mini h4 {
+      font-family: var(--font-display);
+      font-size: 0.97rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
+    }
+    .article-mini p {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--ink-light);
+      line-height: 1.55;
+      margin-bottom: 0.7rem;
+    }
+
+    /* ── Trust strip ─────────────────────────── */
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .trust-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      padding: 0.3rem 0.9rem;
+    }
+    .trust-chip i { color: var(--gold-deep); font-size: 0.6rem; }
+
+    /* ── CTA ─────────────────────────────────── */
+    .port-cta {
+      background: linear-gradient(115deg, rgba(200,151,62,0.10) 0%, rgba(242,232,210,0.4) 100%);
+      border: 1px solid rgba(200,151,62,0.25);
+      border-radius: var(--radius-md);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      margin-top: 3.5rem;
+    }
+    .port-cta h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+    .port-cta p {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--ink-mid);
+      max-width: 520px;
+      margin: 0 auto 1.8rem;
+      line-height: 1.8;
+    }
+    .port-cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+    }
+    .port-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold-deep);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all var(--t);
+    }
+    .port-btn-primary:hover { background: var(--copper); color: #fff; box-shadow: var(--shadow-md); }
+    .port-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--gold-deep);
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border: 1.5px solid var(--gold-deep);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all var(--t);
+    }
+    .port-btn-secondary:hover { background: rgba(200,151,62,0.08); }
+
+    /* ── Responsive ──────────────────────────── */
+    @media (max-width: 640px) {
+      .port-detail-grid { grid-template-columns: 1fr; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .port-card-header { flex-direction: column; }
+    }
+  </style>
 </head>
-<body>
-<!-- Particles -->
-<canvas id="particles-canvas"></canvas>
-<!-- Floating Socials -->
-<div class="social-float">
-  <a href="https://github.com/jeevantjr" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-  <a href="https://linkedin.com/in/drjeevaraj" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-  <a href="https://drjeevaraj.com" target="_blank" title="Website"><i class="fas fa-globe"></i></a>
-  <a href="https://x.com/drjeevaraj" target="_blank" title="X / Twitter"><i class="fab fa-x-twitter"></i></a>
-  <a href="https://www.researchgate.net/profile/Jeevaraaj-Thangarasa" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
-  <a href="https://scholar.google.com/citations?user=iUkxMpUAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-</div>
-<div class="email-float">
-  <a href="mailto:tjeevaraj78@gmail.com">tjeevaraj78@gmail.com</a>
-</div>
-<!-- CV Download Button -->
-<div class="cv-float">
-  <a href="https://drive.google.com/file/d/1nz5RmU6JnYjtmrKb-l-e82BzJwPaMYKE/view?usp=drive_link" target="_blank" class="cv-btn">
-    <i class="fas fa-download"></i> Download CV
-  </a>
-</div>
-<!-- NAV -->
-<nav>
-  <div style="display:flex;align-items:center;gap:1rem;">
-    <a href="index.html" style="font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:600;color:rgba(100,255,218,0.6);letter-spacing:1px;text-decoration:none;text-transform:uppercase;">Still Human</a>
-    <span style="color:rgba(100,255,218,0.25);font-size:0.7rem;">·</span>
-    <div class="nav-logo">Dr. TJ<span style="color:var(--blue)">.</span></div>
-  </div>
-  <div class="nav-links">
-    <a href="about.html">About</a>
-    <a href="portfolio.html" style="color:var(--mint);border-bottom:2px solid var(--mint);padding-bottom:2px;">Portfolio</a>
-    <a href="notes.html">Articles</a>
-    <a href="cv.html">CV</a>
-    <a href="ai-reviewer.html">AI Reviewer</a>
-    <a href="services.html" style="color:#c8973e;font-weight:600;">Work With Me</a>
-  </div>
-  <button class="theme-toggle" id="themeToggle" title="Toggle theme">
-    <i class="fas fa-moon" id="themeIcon"></i>
+<body class="inner-page">
+
+<nav id="main-nav" class="solid">
+  <a href="index.html" class="nav-title">Still Human</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
   </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="portfolio.html" class="active" style="color:var(--gold-deep);font-weight:600;">Portfolio</a></li>
+    <li><a href="notes.html">Articles</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="ai-reviewer.html">AI Reviewer</a></li>
+    <li><a href="services.html">Work With Me</a></li>
+  </ul>
 </nav>
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-inner">
-    <div>
-      <p class="hero-greeting">// Hello, World! I am</p>
-      <h1 class="hero-name">Dr. Thangarasa<br><span class="accent">Jeevaraaj</span></h1>
-      <!-- ★ FIXED: includes MD Health Informatics Trainee -->
-      <p class="hero-title">Physician · <span style="color:var(--mint)">MD Health Informatics Trainee</span> · AI Reviewer</p>
-      <p class="hero-desc">
-        Bridging 20+ years of clinical medicine with cutting-edge health informatics,
-        AI evaluation expertise, and digital health development — currently training as
-        MD Health Informatics Trainee (Batch 9, PGIM) while building systems that
-        transform public health in Sri Lanka and beyond.
+
+<!-- ── PAGE HEADER ─────────────────────────────── -->
+<div class="container">
+  <div class="inner-hero">
+    <span class="page-label">What I have built</span>
+    <h1>Development Portfolio</h1>
+    <p class="page-sub">Peer-Reviewed Publications · Research · Digital Health Systems · Written Work</p>
+  </div>
+</div>
+
+<!-- ── TRUST STRIP ──────────────────────────────── -->
+<div class="container">
+  <div class="trust-strip fade-in">
+    <span class="trust-chip"><i class="fa-solid fa-flask"></i> BMJ Open Published · 2020</span>
+    <span class="trust-chip"><i class="fa-solid fa-earth-asia"></i> World Bank Featured · 2022</span>
+    <span class="trust-chip"><i class="fa-solid fa-database"></i> DHIS2 Certified · HISP/Oslo</span>
+    <span class="trust-chip"><i class="fa-solid fa-stethoscope"></i> 20+ Years Clinical Experience</span>
+    <span class="trust-chip"><i class="fa-brands fa-orcid" style="color:#A6CE39;"></i> ORCID Registered</span>
+    <span class="trust-chip"><i class="fa-solid fa-globe"></i> Remote · Worldwide</span>
+  </div>
+</div>
+
+<!-- ── PORTFOLIO CONTENT ─────────────────────────── -->
+<section style="padding-top: 0;">
+  <div class="container">
+    <div class="port-wrap">
+
+      <!-- ════════════════════════════════════════
+           SECTION 1: PEER-REVIEWED PUBLICATIONS
+           ════════════════════════════════════════ -->
+      <div class="port-sec-head">
+        <i class="fa-solid fa-microscope"></i> Peer-Reviewed Publications
+      </div>
+
+      <!-- BMJ Open -->
+      <div class="port-card fade-in">
+        <div class="impact-badge impact-highest"><i class="fa-solid fa-star"></i> Highest Impact</div>
+        <div class="port-card-header">
+          <h3>Imputing HbA1c from capillary blood glucose levels in patients with type 2 diabetes in Sri Lanka</h3>
+          <span class="port-meta">BMJ Open &nbsp;·&nbsp; 2020</span>
+        </div>
+        <p class="port-impact-line">International peer-reviewed publication in one of the world's most widely read open-access medical journals — in collaboration with the University of Michigan.</p>
+        <div class="port-detail-grid">
+          <div>
+            <span class="port-detail-label">What I Did</span>
+            <span class="port-detail-value">Field data collection in Sri Lanka; co-author on the analysis team with the University of Michigan, Division of Metabolism, Endocrinology &amp; Diabetes.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Scale &amp; Reach</span>
+            <span class="port-detail-value">BMJ Open — indexed in PubMed, PubMed Central (full text), and internationally distributed. PMID: 32690534.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Research Question</span>
+            <span class="port-detail-value">Can HbA1c values be reliably imputed from point-of-care capillary blood glucose in a resource-constrained South Asian diabetes population?</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Outcome</span>
+            <span class="port-detail-value">Published July 2020. Demonstrates capacity for rigorous quantitative clinical research and international academic collaboration. Free full-text via PMC.</span>
+          </div>
+        </div>
+        <div class="port-card-links">
+          <a href="https://doi.org/10.1136/bmjopen-2020-038148" target="_blank" rel="noopener" class="port-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> BMJ Open</a>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/32690534/" target="_blank" rel="noopener" class="port-link"><i class="fa-solid fa-flask"></i> PubMed</a>
+          <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7371026/" target="_blank" rel="noopener" class="port-link"><i class="fa-solid fa-unlock"></i> PMC Full Text</a>
+          <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener" class="port-link"><i class="fa-brands fa-orcid" style="color:#A6CE39;"></i> ORCID</a>
+        </div>
+      </div>
+
+      <!-- Jaffna Medical Journal -->
+      <div class="port-card fade-in delay-1">
+        <div class="impact-badge impact-high">Peer-Reviewed · 2024</div>
+        <div class="port-card-header">
+          <h3>Correlation Between Global Longitudinal Strain by Speckle Tracking Echocardiography and Coronary Angiogram Finding in Patients with Suspected Chronic Stable Angina</h3>
+          <span class="port-meta">Jaffna Medical Journal</span>
+        </div>
+        <p class="port-impact-line">Multi-centre clinical study across three major teaching and district hospitals in Sri Lanka, evaluating a diagnostic imaging technique for coronary artery disease.</p>
+        <div class="port-detail-grid">
+          <div>
+            <span class="port-detail-label">What I Did</span>
+            <span class="port-detail-value">Data collection at District General Hospital Trincomalee; co-author. Part of a three-centre collaboration with Teaching Hospitals Kandy and Jaffna.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Scale &amp; Reach</span>
+            <span class="port-detail-value">78 patients. Jaffna Medical Journal Vol. 36, Issue 2, December 2024. doi: 10.4038/jmj.v36i2.221.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Outcome</span>
+            <span class="port-detail-value">GLS cutoff of −19 demonstrated clinically useful diagnostic performance for CAD detection. Peer-reviewed. Published December 2024.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Co-Authors</span>
+            <span class="port-detail-value">Jeyakanth T, Mayurathan G, Kularatne A, Prashanthi J, Abeysingha T.</span>
+          </div>
+        </div>
+        <div class="port-card-links">
+          <a href="https://doi.org/10.4038/jmj.v36i2.221" target="_blank" rel="noopener" class="port-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Article</a>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           SECTION 2: INTERNATIONAL RECOGNITION
+           ════════════════════════════════════════ -->
+      <div class="port-sec-head psh-blue">
+        <i class="fa-solid fa-earth-asia"></i> International Recognition
+      </div>
+
+      <!-- World Bank -->
+      <div class="port-card pc-blue fade-in">
+        <div class="impact-badge impact-highest"><i class="fa-solid fa-star"></i> Highest Impact</div>
+        <div class="port-card-header">
+          <h3>Sri Lanka: Making Strides Towards a Healthier Future</h3>
+          <span class="port-meta">World Bank &nbsp;·&nbsp; March 2022</span>
+        </div>
+        <p class="port-impact-line">Featured in a World Bank publication for achieving one of the highest NCD screening rates in Sri Lanka under the Primary Healthcare System Strengthening Project (PSSP).</p>
+        <div class="port-detail-grid">
+          <div>
+            <span class="port-detail-label">What I Did</span>
+            <span class="port-detail-value">Served as Medical Officer In Charge at Divisional Hospital Thampalakamam (2019–2022) under the World Bank PSSP. Designed and led the NCD screening programme from the ground up.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Scale &amp; Reach</span>
+            <span class="port-detail-value">43% of the local population over 35 screened. Feature article published on the World Bank's international news platform — worldwide audience.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Context</span>
+            <span class="port-detail-value">Thampalakamam, Trincomalee District — a post-conflict peripheral health setting with limited specialist support and constrained resources.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Outcome</span>
+            <span class="port-detail-value">Named individually in the World Bank article. Real-world programme impact in a hard-to-reach community. Demonstrates leadership in public health at peripheral level.</span>
+          </div>
+        </div>
+        <div class="port-card-links">
+          <a href="https://www.worldbank.org/en/news/feature/2022/03/28/sri-lanka-making-strides-towards-a-healthier-future" target="_blank" rel="noopener" class="port-link"><i class="fa-solid fa-earth-asia"></i> World Bank Article</a>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           SECTION 3: DHIS2 & DIGITAL HEALTH
+           ════════════════════════════════════════ -->
+      <div class="port-sec-head psh-teal">
+        <i class="fa-solid fa-database"></i> DHIS2 &amp; Digital Health Systems
+      </div>
+
+      <!-- DHIS2 -->
+      <div class="port-card pc-teal fade-in">
+        <div class="impact-badge impact-high">Certified · HISP Centre / Oslo</div>
+        <div class="port-card-header">
+          <h3>DHIS2 Implementation &amp; Health Information Systems</h3>
+          <span class="port-meta">2023 – 2025</span>
+        </div>
+        <p class="port-impact-line">DHIS2-certified health information system specialist, with practical experience in aggregate data capture, tracker, analytics, and dashboard design — grounded in real peripheral health contexts.</p>
+        <div class="port-detail-grid">
+          <div>
+            <span class="port-detail-label">What I Did</span>
+            <span class="port-detail-value">Completed three HISP Centre (University of Oslo) DHIS2 certifications: Introduction to DHIS2, Aggregate Data Capture &amp; Validation, Aggregate Data Analysis. Applied in MSc Biomedical Informatics coursework and health system contexts.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Certifications</span>
+            <span class="port-detail-value">Introduction to DHIS2 (2023), Aggregate Data Capture &amp; Validation (2024), Aggregate Data Analysis (2025) — all via HISP Centre, University of Oslo.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Practical Context</span>
+            <span class="port-detail-value">15+ years working in Sri Lanka's peripheral public health system — district, divisional, and primary care level. Understands what works when connectivity is intermittent and staffing is thin.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Available For</span>
+            <span class="port-detail-value">HIS needs assessment, DHIS2 aggregate and tracker configuration, dashboard design, data entry training, gap analysis, participatory design facilitation.</span>
+          </div>
+        </div>
+        <div class="port-card-links">
+          <a href="services.html" class="port-link"><i class="fa-solid fa-briefcase"></i> DHIS2 Services</a>
+          <a href="cv.html" class="port-link"><i class="fa-solid fa-file-lines"></i> Full CV</a>
+        </div>
+      </div>
+
+      <!-- Digital Health Systems -->
+      <div class="port-card pc-teal fade-in delay-1">
+        <div class="impact-badge impact-medium">8 Systems Deployed</div>
+        <div class="port-card-header">
+          <h3>Digital Health System Development — 8 Tools Built &amp; Deployed</h3>
+          <span class="port-meta">2015 – Present</span>
+        </div>
+        <p class="port-impact-line">Clinician-developer who builds the health tools he actually uses — disease surveillance, disaster response, cancer registry support, fleet management, and public health analytics.</p>
+        <div class="port-detail-grid">
+          <div>
+            <span class="port-detail-label">What I Built</span>
+            <span class="port-detail-value">OutbreakWatch (disease surveillance), FloodTrackerApp (disaster response PWA), District Health Stats PWA (offline-first analytics), Health Fleet Manager (RDHS Trincomalee), and additional tools.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Technology</span>
+            <span class="port-detail-value">Offline-first PWA (Service Worker / IndexedDB), JavaScript, Python, Django, REST APIs, Chart.js, D3.js — designed for low-bandwidth, low-resource settings.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Context</span>
+            <span class="port-detail-value">All tools built during active clinical duties in peripheral health settings. Not academic prototypes — built to function under real operational constraints.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Deployment</span>
+            <span class="port-detail-value">All tools deployed on GitHub Pages with live demos. Source code publicly available at github.com/jeevantjr and github.com/tjeevan.</span>
+          </div>
+        </div>
+        <div class="port-card-links">
+          <a href="https://jeevantjr.github.io/OutbreakWatch-main/" target="_blank" rel="noopener" class="port-link"><i class="fa-solid fa-virus"></i> OutbreakWatch</a>
+          <a href="https://jeevantjr.github.io/FloodTrackerApp-main/" target="_blank" rel="noopener" class="port-link"><i class="fa-solid fa-water"></i> FloodTracker</a>
+          <a href="https://jeevantjr.github.io/rdhs-stats-pwa-main/" target="_blank" rel="noopener" class="port-link"><i class="fa-solid fa-chart-bar"></i> Health Stats</a>
+          <a href="https://github.com/jeevantjr" target="_blank" rel="noopener" class="port-link"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           SECTION 4: HEALTHCARE & AI ARTICLES
+           ════════════════════════════════════════ -->
+      <div class="port-sec-head psh-teal">
+        <i class="fa-solid fa-pen-nib"></i> Articles on Healthcare &amp; AI
+      </div>
+
+      <p style="font-family:var(--font-ui);font-size:0.82rem;color:var(--ink-light);line-height:1.7;margin-bottom:1.5rem;" class="fade-in">
+        Six published essays examining AI in clinical contexts — written from lived experience as a practising physician and health informatician. Not academic abstracts. Physician observations translated into accessible language for health systems professionals, AI developers, and policy makers.
       </p>
-      <div class="hero-badges">
-        <span class="hero-badge">MBBS</span>
-        <span class="hero-badge">MCGP</span>
-        <span class="hero-badge">MSc Biomedical Informatics</span>
-        <!-- ★ FIXED: clearly says Trainee Batch 9 -->
-        <span class="hero-badge highlight">MD Health Informatics Trainee · Batch 9</span>
-        <span class="hero-badge">AI Reviewer</span>
-        <a href="https://www.worldbank.org/en/news/feature/2022/03/28/sri-lanka-making-strides-towards-a-healthier-future" target="_blank" rel="noopener" class="hero-badge" style="background:rgba(200,151,62,0.15);border-color:rgba(200,151,62,0.5);color:#c8973e;text-decoration:none;">🌍 World Bank Featured 2022</a>
-        <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener" class="hero-badge" style="background:rgba(166,206,57,0.12);border-color:rgba(166,206,57,0.4);color:#5a8a00;text-decoration:none;">ORCID 0009-0008-5084-0258</a>
-      </div>
-      <div class="hero-buttons">
-        <a class="btn-hero-primary" href="#projects">View Projects</a>
-        <a class="btn-hero-outline" href="#contact">Get In Touch</a>
-      </div>
-    </div>
-    <div class="hero-photo-wrap">
-      <img src="T. Jeevaraj.jpg" alt="Dr. Thangarasa Jeevaraaj" class="hero-photo"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="hero-photo-placeholder" style="display:none">
-        <i class="fas fa-user-md"></i>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-indicator">
-    <span>SCROLL</span>
-    <i class="fas fa-chevron-down"></i>
-  </div>
-</section>
-<!-- STATS -->
-<section id="stats">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-card reveal delay-1">
-        <div class="stat-number" data-target="20">0</div>
-        <div class="stat-label">Years in Medicine</div>
-      </div>
-      <div class="stat-card reveal delay-2">
-        <div class="stat-number" data-target="8">0</div>
-        <div class="stat-label">Health Systems Built</div>
-      </div>
-      <div class="stat-card reveal delay-3">
-        <div class="stat-number" data-target="9">0</div>
-        <div class="stat-label">Published Works</div>
-      </div>
-      <div class="stat-card reveal delay-4">
-        <div class="stat-number" data-target="8">0</div>
-        <div class="stat-label">Awards &amp; Recognitions</div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ABOUT -->
-<section id="about" class="section-pad">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text reveal-left">
-        <span class="section-label">01. about me</span>
-        <h2 class="section-heading">Physician who<br>speaks <span>code</span></h2>
-        <div class="section-divider"></div>
-        <!-- ★ FIXED: current role is MD Health Informatics Trainee, not NCCP -->
-        <p>
-          Medical Doctor and Health Informatics specialist with over two decades of
-          front-line healthcare experience. Currently an <strong style="color:var(--mint)">MD Health Informatics
-          Trainee (Batch 9)</strong> at the Postgraduate Institute of Medicine, University of
-          Colombo, completing structured Ministry of Health rotations.
-        </p>
-        <p>
-          My dual expertise enables me to evaluate AI-generated medical content with
-          genuine clinical insight — identifying subtle errors, reasoning gaps, and
-          ethical concerns that pure data scientists often miss.
-        </p>
-        <p>
-          I design and build digital health platforms for real-world public health
-          environments across Sri Lanka, from outbreak surveillance to disaster
-          response systems.
-        </p>
-        <div class="about-highlights">
-          <div class="highlight-item"><i class="fas fa-check"></i> Clinical AI Review</div>
-          <div class="highlight-item"><i class="fas fa-check"></i> Health Data Analytics</div>
-          <div class="highlight-item"><i class="fas fa-check"></i> Digital Health Dev</div>
-          <div class="highlight-item"><i class="fas fa-check"></i> Public Health Systems</div>
-          <div class="highlight-item"><i class="fas fa-check"></i> Research &amp; Writing</div>
-          <div class="highlight-item"><i class="fas fa-check"></i> Medical Informatics</div>
+
+      <div class="articles-grid fade-in delay-1">
+
+        <div class="article-mini">
+          <span class="article-mini-num">Article 01</span>
+          <h4>Why Centralised Health Information Systems Fail in Peripheral Care Settings</h4>
+          <p>A physician-developer's account of what actually happens when national HIS design meets village-level reality. The gap is not technical — it is conceptual.</p>
+          <a href="health-informatics-peripheral-failure.html" class="port-link"><i class="fa-solid fa-arrow-right"></i> Read</a>
         </div>
+
+        <div class="article-mini">
+          <span class="article-mini-num">Article 02</span>
+          <h4>The Clinician in the Loop: Why AI Supervision in Healthcare Cannot Be Delegated</h4>
+          <p>On what it actually means to supervise AI in clinical settings — and why the assumption that any doctor can do it needs to be questioned.</p>
+          <a href="ai-supervision-governance.html" class="port-link"><i class="fa-solid fa-arrow-right"></i> Read</a>
+        </div>
+
+        <div class="article-mini">
+          <span class="article-mini-num">Article 03</span>
+          <h4>What Doctors Actually Know That AI Doesn't: The Missing Layer in Medical AI</h4>
+          <p>Tacit clinical knowledge — the kind that forms over years of bedside practice — is not in any training dataset. This article names what that means.</p>
+          <a href="ai-health-advice-human-connection.html" class="port-link"><i class="fa-solid fa-arrow-right"></i> Read</a>
+        </div>
+
+        <div class="article-mini">
+          <span class="article-mini-num">Article 04</span>
+          <h4>Before the Algorithm Decides: The Case for Clinical AI Governance in South Asia</h4>
+          <p>AI governance frameworks are being written without the populations most affected. A ground-level argument for why South Asian clinical contexts need their own voice.</p>
+          <a href="ai-consistency-nccp.html" class="port-link"><i class="fa-solid fa-arrow-right"></i> Read</a>
+        </div>
+
+        <div class="article-mini">
+          <span class="article-mini-num">Article 05</span>
+          <h4>Listening Before Asking: What Clinical History-Taking Can Teach AI</h4>
+          <p>The art of clinical history-taking is not data collection. This article examines what that distinction means for how medical AI prompts and interprets patient input.</p>
+          <a href="ai-listening-first.html" class="port-link"><i class="fa-solid fa-arrow-right"></i> Read</a>
+        </div>
+
+        <div class="article-mini">
+          <span class="article-mini-num">Article 06</span>
+          <h4>The Peripheral Paradox: When Digital Health Reaches Places That Weren't Ready</h4>
+          <p>Digital health tools deployed in settings without the infrastructure to support them create a specific kind of failure. This is a physician's account of what that looks like from inside.</p>
+          <a href="ai-empathy-illusion.html" class="port-link"><i class="fa-solid fa-arrow-right"></i> Read</a>
+        </div>
+
       </div>
-      <div class="about-cards reveal-right">
-        <div class="about-mini-card" style="border-color:rgba(100,255,218,0.3);">
-          <div class="about-mini-icon"><i class="fas fa-graduation-cap"></i></div>
+
+      <div style="margin-top:1rem;" class="fade-in delay-2">
+        <a href="notes.html" class="port-link" style="font-size:0.65rem;"><i class="fa-solid fa-arrow-right"></i> All Articles</a>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           SECTION 5: BOOK
+           ════════════════════════════════════════ -->
+      <div class="port-sec-head psh-green">
+        <i class="fa-solid fa-book-open"></i> Published Book
+      </div>
+
+      <div class="port-card pc-green fade-in">
+        <div class="impact-badge" style="background:rgba(79,125,82,0.08);color:#4F7D52;border:1px solid rgba(79,125,82,0.25);">Published · Amazon Kindle · 2026</div>
+        <div class="port-card-header">
+          <h3>Are You Still Human? — Literary Nonfiction</h3>
+          <span class="port-meta">English &nbsp;·&nbsp; Amazon Kindle</span>
+        </div>
+        <p class="port-impact-line">A short literary nonfiction work examining what AI quietly does to human relationships — not through dramatic transformation, but through patterns that accumulate unnoticed. Three true stories, ten patterns, one quiet choice.</p>
+        <div class="port-detail-grid">
           <div>
-            <h4>Current Role</h4>
-            <p>MD Health Informatics Trainee — Batch 9<br>PGIM, University of Colombo · Ministry of Health Rotations, Sri Lanka<br><span style="color:var(--mint);font-size:0.75rem;font-family:'Fira Code',monospace;">From 6 April 2026</span></p>
+            <span class="port-detail-label">What I Did</span>
+            <span class="port-detail-value">Wrote and published the first English-language book examining AI's impact on human connection through clinical narratives and personal observation. Combines physician perspective with literary craft.</span>
           </div>
-        </div>
-        <div class="about-mini-card">
-          <div class="about-mini-icon"><i class="fas fa-university"></i></div>
           <div>
-            <h4>Education</h4>
-            <p>MBBS 2006 — University of Jaffna<br>MCGP 2014–2016 — CGPSL<br>MSc Biomedical Informatics — PGIM Batch 12 (2022–2024)</p>
+            <span class="port-detail-label">Reach</span>
+            <span class="port-detail-value">Available on Amazon Kindle worldwide. $2.99 · Free with Kindle Unlimited. Amazon Author Page: B0H33ZVCT9.</span>
           </div>
-        </div>
-        <div class="about-mini-card">
-          <div class="about-mini-icon"><i class="fas fa-robot"></i></div>
           <div>
-            <h4>AI Reviewer</h4>
-            <p>Clinical validation of medical AI outputs · Fact-checking · Hallucination detection · QA</p>
+            <span class="port-detail-label">Context</span>
+            <span class="port-detail-value">One of nine published works by the author. State Literary Award 2023 (Ministry of University &amp; Cultural Affairs), Best Book Awards 2022 &amp; 2023.</span>
           </div>
-        </div>
-        <div class="about-mini-card">
-          <div class="about-mini-icon"><i class="fas fa-map-marker-alt"></i></div>
           <div>
-            <h4>Location</h4>
-            <p>Sri Lanka · Available for remote collaboration worldwide</p>
+            <span class="port-detail-label">Audience</span>
+            <span class="port-detail-value">Healthcare professionals, AI practitioners, and anyone asking whether the optimisation of work and decision-making has quietly reshaped how they relate to the people around them.</span>
           </div>
         </div>
+        <div class="port-card-links">
+          <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" class="port-link"><i class="fa-brands fa-amazon"></i> Amazon Kindle</a>
+          <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener" class="port-link"><i class="fa-solid fa-user-pen"></i> Author Page</a>
+        </div>
       </div>
-    </div>
+
+      <!-- ════════════════════════════════════════
+           SECTION 6: ACADEMIC TRAINING
+           ════════════════════════════════════════ -->
+      <div class="port-sec-head psh-blue">
+        <i class="fa-solid fa-graduation-cap"></i> Academic Research &amp; Training
+      </div>
+
+      <div class="port-card pc-blue fade-in">
+        <div class="impact-badge impact-medium">Completed · PGIM Batch 12</div>
+        <div class="port-card-header">
+          <h3>MSc Biomedical Informatics — Postgraduate Institute of Medicine, University of Colombo</h3>
+          <span class="port-meta">October 2022 – October 2024</span>
+        </div>
+        <p class="port-impact-line">Two-year full-time postgraduate research programme covering health information systems, clinical informatics, biomedical data science, and research methodology.</p>
+        <div class="port-detail-grid">
+          <div>
+            <span class="port-detail-label">What I Did</span>
+            <span class="port-detail-value">Completed 24-month structured programme including coursework, DHIS2 certifications, and research work. Batch 12 of the MSc Biomedical Informatics programme at PGIM.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Institution</span>
+            <span class="port-detail-value">Postgraduate Institute of Medicine (PGIM), University of Colombo — the premier postgraduate medical training institution in Sri Lanka.</span>
+          </div>
+        </div>
+        <div class="port-card-links">
+          <a href="cv.html" class="port-link"><i class="fa-solid fa-file-lines"></i> Full CV</a>
+        </div>
+      </div>
+
+      <div class="port-card pc-blue fade-in delay-1">
+        <div class="impact-badge impact-high">Current · April 2026 – April 2027</div>
+        <div class="port-card-header">
+          <h3>MD Health Informatics Trainee — Postgraduate Institute of Medicine, Batch 9</h3>
+          <span class="port-meta">PGIM &nbsp;·&nbsp; University of Colombo</span>
+        </div>
+        <p class="port-impact-line">Selected at the MD Health Informatics Selection Examination (January 2026). Currently on structured Ministry of Health rotations with weekly PGIM lectures and research.</p>
+        <div class="port-detail-grid">
+          <div>
+            <span class="port-detail-label">Rotations</span>
+            <span class="port-detail-value">PD Office Western Province → Health Informatics Unit (Ministry of Health) → Epidemiology Unit → Family Health Bureau → Medical Statistics Unit.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Research Focus</span>
+            <span class="port-detail-value">Health information systems in peripheral and primary care settings. AI implementation in resource-constrained clinical environments. Digital health governance in South Asia.</span>
+          </div>
+        </div>
+        <div class="port-card-links">
+          <a href="cv.html" class="port-link"><i class="fa-solid fa-file-lines"></i> Full CV</a>
+          <a href="research.html" class="port-link"><i class="fa-solid fa-flask"></i> Research Profile</a>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════════════
+           SECTION 7: CLINICAL AI EVALUATION
+           ════════════════════════════════════════ -->
+      <div class="port-sec-head psh-teal">
+        <i class="fa-solid fa-robot"></i> Clinical AI Evaluation Work
+      </div>
+
+      <div class="port-card pc-copper fade-in">
+        <div class="impact-badge impact-medium">Remote · Available Now</div>
+        <div class="port-card-header">
+          <h3>Clinical AI Review &amp; Medical Content Quality Assurance</h3>
+          <span class="port-meta">Ongoing</span>
+        </div>
+        <p class="port-impact-line">Physician-level evaluation of AI-generated health content — combining 20+ years of clinical decision-making with formal health informatics training. The combination AI companies need and rarely find.</p>
+        <div class="port-detail-grid">
+          <div>
+            <span class="port-detail-label">What I Do</span>
+            <span class="port-detail-value">Medical accuracy review of AI training data and outputs, clinical reasoning evaluation for LLM responses, hallucination detection, red-teaming health AI products, annotation and labelling of clinical datasets.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">What Makes This Different</span>
+            <span class="port-detail-value">20+ years active clinical practice across primary care, emergency medicine, ICU, and public health. Not a data scientist reviewing medical content. A doctor who also understands AI systems.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Platforms</span>
+            <span class="port-detail-value">Available for contracts with Scale AI, Appen, Surge AI, and health AI companies requiring qualified clinicians for content QA and model evaluation.</span>
+          </div>
+          <div>
+            <span class="port-detail-label">Related Writing</span>
+            <span class="port-detail-value">Six published articles specifically addressing AI evaluation, clinical AI governance, and the limitations of AI in health contexts — available on the Articles page.</span>
+          </div>
+        </div>
+        <div class="port-card-links">
+          <a href="ai-reviewer.html" class="port-link"><i class="fa-solid fa-robot"></i> AI Reviewer Page</a>
+          <a href="services.html" class="port-link"><i class="fa-solid fa-briefcase"></i> Work With Me</a>
+          <a href="notes.html" class="port-link"><i class="fa-solid fa-pen-nib"></i> AI Articles</a>
+        </div>
+      </div>
+
+      <!-- ── CTA ─────────────────────────────── -->
+      <div class="port-cta fade-in">
+        <h2>Verify the Credentials</h2>
+        <p>Everything here is documented and linkable. For formal verification, the full CV includes complete details of every qualification, role, and publication listed above.</p>
+        <div class="port-cta-btns">
+          <a href="services.html" class="port-btn-primary">
+            <i class="fa-solid fa-briefcase"></i> Work With Me
+          </a>
+          <a href="cv.html" class="port-btn-secondary">
+            <i class="fa-solid fa-file-lines"></i> Full CV
+          </a>
+          <a href="mailto:tjeevaraj78@gmail.com" class="port-btn-secondary">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /.port-wrap -->
   </div>
 </section>
-<!-- SKILLS & RADAR -->
-<section id="skills" class="section-pad">
-  <div class="container">
-    <div style="text-align:center; margin-bottom:50px;" class="reveal">
-      <span class="section-label">02. expertise</span>
-      <h2 class="section-heading">AI Reviewer <span>Competencies</span></h2>
-      <div class="section-divider" style="margin:16px auto 0;"></div>
-    </div>
-    <div class="skills-layout">
-      <div class="radar-wrap reveal-left">
-        <h3>Competency Radar</h3>
-        <canvas id="radarChart" height="300"></canvas>
-      </div>
-      <div class="skills-list reveal-right">
-        <div class="skill-row">
-          <div class="skill-row-header">
-            <span>Clinical Knowledge &amp; Validation</span>
-            <span>95%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-header">
-            <span>AI Output Evaluation &amp; QA</span>
-            <span>90%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-header">
-            <span>Research Methodology</span>
-            <span>88%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-header">
-            <span>Public Health &amp; Epidemiology</span>
-            <span>92%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-header">
-            <span>Digital Health Development</span>
-            <span>82%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-header">
-            <span>AI Ethics &amp; Bias Detection</span>
-            <span>87%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="87"></div></div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-row-header">
-            <span>Data Analytics &amp; Visualisation</span>
-            <span>80%</span>
-          </div>
-          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-        </div>
-      </div>
-    </div>
+
+<footer style="text-align:center;">
+  <span class="footer-ornament">· · ·</span>
+  <p class="footer-title">Still Human</p>
+  <p class="footer-tagline">Human stories in the age of artificial intelligence.</p>
+
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem 1.4rem;margin:1.2rem 0 0.8rem;font-family:var(--font-ui);font-size:0.72rem;">
+    <a href="mailto:tjeevaraj78@gmail.com" style="display:flex;align-items:center;gap:0.35rem;color:var(--ink-light);text-decoration:none;"><i class="fa-solid fa-envelope" style="color:var(--gold-deep);font-size:0.7rem;"></i>tjeevaraj78@gmail.com</a>
+    <a href="https://www.linkedin.com/in/drjeevaraj/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.35rem;color:var(--ink-light);text-decoration:none;"><i class="fa-brands fa-linkedin" style="color:var(--gold-deep);font-size:0.7rem;"></i>LinkedIn</a>
+    <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.35rem;color:var(--ink-light);text-decoration:none;"><i class="fa-brands fa-orcid" style="color:#A6CE39;font-size:0.7rem;"></i>ORCID</a>
   </div>
-</section>
-<!-- PROJECTS -->
-<section id="projects" class="section-pad">
-  <div class="container">
-    <div style="text-align:center; margin-bottom:50px;" class="reveal">
-      <span class="section-label">03. projects</span>
-      <h2 class="section-heading">Featured <span>Digital Health</span> Systems</h2>
-      <div class="section-divider" style="margin:16px auto 0;"></div>
-    </div>
-    <div class="projects-grid">
-      <div class="project-card reveal delay-1">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#0a192f,#1a3a5c);">
-          <span style="position:relative;z-index:1">🦠</span>
-        </div>
-        <div class="project-card-body">
-          <div class="project-number">01.</div>
-          <h3>OutbreakWatch</h3>
-          <p>Disease surveillance and outbreak early-warning system for public health monitoring. Real-time alerts, epidemiological trend analysis, and reporting dashboards.</p>
-          <div class="project-tech">
-            <span>Python</span><span>Django</span><span>PostgreSQL</span><span>Chart.js</span>
-          </div>
-          <div class="project-footer">
-            <a class="project-link" href="https://jeevantjr.github.io/OutbreakWatch-main/" target="_blank">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-            <a class="project-link" href="https://github.com/jeevantjr" target="_blank">
-              <i class="fab fa-github"></i> Code
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="project-card reveal delay-2">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#0d2137,#1a3d5e);">
-          <span style="position:relative;z-index:1">🌊</span>
-        </div>
-        <div class="project-card-body">
-          <div class="project-number">02.</div>
-          <h3>FloodTrackerApp</h3>
-          <p>Disaster response and emergency management PWA for coordinating health resources, tracking flood-affected areas, and dispatching medical teams in real time.</p>
-          <div class="project-tech">
-            <span>React</span><span>Node.js</span><span>PWA</span><span>Maps API</span>
-          </div>
-          <div class="project-footer">
-            <a class="project-link" href="https://jeevantjr.github.io/FloodTrackerApp-main/" target="_blank">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-            <a class="project-link" href="https://github.com/jeevantjr" target="_blank">
-              <i class="fab fa-github"></i> Code
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="project-card reveal delay-3">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#0a1f35,#16355a);">
-          <span style="position:relative;z-index:1">📊</span>
-        </div>
-        <div class="project-card-body">
-          <div class="project-number">03.</div>
-          <h3>District Health Stats PWA</h3>
-          <p>Interactive analytics dashboard for RDHS district-level health statistics. Offline-first PWA with visualisation of maternal health, immunisation, and disease burden data.</p>
-          <div class="project-tech">
-            <span>PWA</span><span>IndexedDB</span><span>D3.js</span><span>Service Worker</span>
-          </div>
-          <div class="project-footer">
-            <a class="project-link" href="https://jeevantjr.github.io/rdhs-stats-pwa-main/" target="_blank">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-            <a class="project-link" href="https://github.com/jeevantjr" target="_blank">
-              <i class="fab fa-github"></i> Code
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="project-card reveal delay-4">
-        <div class="project-thumb" style="background:linear-gradient(135deg,#0c1f34,#18324e);">
-          <span style="position:relative;z-index:1">🚐</span>
-        </div>
-        <div class="project-card-body">
-          <div class="project-number">04.</div>
-          <h3>Health Fleet Manager</h3>
-          <p>Fleet scheduling and logistics management system for RDHS Trincomalee. Tracks vehicle assignments, maintenance, driver rosters, and fuel consumption analytics.</p>
-          <div class="project-tech">
-            <span>JavaScript</span><span>Bootstrap</span><span>Firebase</span><span>REST API</span>
-          </div>
-          <div class="project-footer">
-            <a class="project-link" href="https://jeevantjr.github.io/vmsrdhstrinco-main/" target="_blank">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-            <a class="project-link" href="https://github.com/jeevantjr" target="_blank">
-              <i class="fab fa-github"></i> Code
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+
+  <div class="social-links" style="margin-bottom:1rem;">
+    <a href="mailto:tjeevaraj78@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.linkedin.com/in/drjeevaraj/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://scholar.google.com/citations?user=iUkxMpUAAAAJ&hl=en" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Scholar</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.researchgate.net/profile/Jeevaraaj-Thangarasa" target="_blank" rel="noopener"><i class="fa-brands fa-researchgate"></i> ResearchGate</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener"><i class="fa-brands fa-orcid" style="color:#A6CE39;"></i> ORCID</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener"><i class="fa-brands fa-amazon"></i> Amazon</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://substack.com/@drtjeevaraaj" target="_blank" rel="noopener"><i class="fa-solid fa-rss"></i> Substack</a>
   </div>
-</section>
-<!-- PUBLICATIONS -->
-<section id="publications" class="section-pad">
-  <div class="container">
-    <div style="text-align:center; margin-bottom:50px;" class="reveal">
-      <span class="section-label">04. research</span>
-      <h2 class="section-heading">Research <span>Publications</span></h2>
-      <div class="section-divider" style="margin:16px auto 0;"></div>
-    </div>
-    <div class="pub-grid">
-      <div class="pub-card reveal delay-1">
-        <div class="pub-journal-badge">BMJ Open</div>
-        <div class="pub-info">
-          <div class="pub-type">Original Research · Peer Reviewed · PMID: 32690534</div>
-          <h3>Imputing HbA1c from capillary blood glucose levels in patients with type 2 diabetes in Sri Lanka: a cross-sectional study</h3>
-          <div class="pub-authors">Choo M, Hoy GE, Dugan SP, McEwen LN, Gunaratnam N, Wyckoff J, <strong>Jeevaraaj T</strong>, Saththiyaseelan A, Ganeikabahu B, Katulanda P, Balis U, Herman WH, Saha AK.</div>
-          <div class="pub-meta">BMJ Open · July 2020 · doi:10.1136/bmjopen-2020-038148</div>
-          <div class="pub-abstract">
-            International multi-centre collaboration with the University of Michigan, Division of Metabolism,
-            Endocrinology &amp; Diabetes. Field data collected in Sri Lanka by Dr Jeevaraaj. Investigated
-            whether HbA1c values can be reliably derived from point-of-care capillary blood glucose readings
-            in a resource-constrained South Asian diabetes population.
-          </div>
-          <div class="pub-tags">
-            <span class="pub-tag">Diabetes · T2DM</span>
-            <span class="pub-tag">HbA1c Imputation</span>
-            <span class="pub-tag">Sri Lanka</span>
-            <span class="pub-tag">International Collaboration</span>
-          </div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://doi.org/10.1136/bmjopen-2020-038148" target="_blank">
-              <i class="fas fa-external-link-alt"></i> BMJ Open
-            </a>
-            <a class="pub-link" href="https://pubmed.ncbi.nlm.nih.gov/32690534/" target="_blank">
-              <i class="fas fa-file-medical"></i> PubMed
-            </a>
-            <a class="pub-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7371026/" target="_blank">
-              <i class="fas fa-unlock"></i> PMC Full Text
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="pub-card reveal delay-2">
-        <div class="pub-journal-badge">Jaffna Med J</div>
-        <div class="pub-info">
-          <div class="pub-type">Original Research · Peer Reviewed · Multi-Centre Study</div>
-          <h3>The Correlation Between Global Longitudinal Strain by Speckle Tracking Echocardiography and Coronary Angiogram Finding in Patients with Suspected Chronic Stable Angina Pectoris</h3>
-          <div class="pub-authors">Jeyakanth T, Mayurathan G, Kularatne A, <strong>Jeevaraj T</strong>, Prashanthi J, Abeysingha T.</div>
-          <div class="pub-meta">Jaffna Medical Journal · Volume 36, Issue 2 · December 2024 · doi:10.4038/jmj.v36i2.221</div>
-          <div class="pub-abstract">
-            Multi-centre study across Teaching Hospital Kandy, District General Hospital Trincomalee
-            (Dr Jeevaraaj), and Teaching Hospital Jaffna. Evaluated whether Global Longitudinal Strain (GLS)
-            by speckle-tracking echocardiography predicts significant coronary artery disease in 78 patients
-            with chronic stable angina and normal LV function. GLS cutoff of −19 demonstrated useful
-            diagnostic performance for CAD detection.
-          </div>
-          <div class="pub-tags">
-            <span class="pub-tag">Echocardiography</span>
-            <span class="pub-tag">Coronary Artery Disease</span>
-            <span class="pub-tag">Cardiology</span>
-            <span class="pub-tag">Angina Pectoris</span>
-          </div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://doi.org/10.4038/jmj.v36i2.221" target="_blank">
-              <i class="fas fa-external-link-alt"></i> View Article
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="pub-card reveal delay-3">
-        <div class="pub-journal-badge">Books</div>
-        <div class="pub-info">
-          <div class="pub-type">7 Published Books · Tamil &amp; English · 2013 – 2026</div>
-          <h3>Author: Literary Nonfiction, History &amp; Poetry</h3>
-          <div class="pub-authors"><strong>T. Jeevaraj</strong></div>
-          <div class="pub-meta">Noolaham Digital Library &nbsp;·&nbsp; Amazon Kindle &nbsp;·&nbsp; State Literary Award Winner 2023</div>
-          <div class="pub-abstract">
-            Seven published works spanning literary nonfiction (English), Tamil history, toponymy, epigraphy,
-            poetry, and religious scholarship. Includes <em>Are You Still Human?</em> (Kindle, 2026) — an
-            examination of AI's impact on human relationships through clinical narratives. Historical works
-            document the Eastern Province of Sri Lanka and are archived at the Noolaham Digital Library.
-            Recipient of the State Literary Award 2023 (Ministry of University &amp; Cultural Affairs) and
-            two Eastern Province Tamil Literary Festival Best Book Awards.
-          </div>
-          <div class="pub-tags">
-            <span class="pub-tag">Literary Nonfiction</span>
-            <span class="pub-tag">Tamil History</span>
-            <span class="pub-tag">Epigraphy</span>
-            <span class="pub-tag">AI &amp; Society</span>
-            <span class="pub-tag">State Literary Award 2023</span>
-          </div>
-          <div class="pub-links">
-            <a class="pub-link" href="https://www.amazon.com/dp/B0H333G41P" target="_blank">
-              <i class="fab fa-amazon"></i> Amazon Kindle
-            </a>
-            <a class="pub-link" href="https://drjeevaraj.com/books.html" target="_blank">
-              <i class="fas fa-book-open"></i> All Books
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- TIMELINE -->
-<section id="timeline" class="section-pad">
-  <div class="container">
-    <div style="text-align:center; margin-bottom:60px;" class="reveal">
-      <span class="section-label">05. journey</span>
-      <h2 class="section-heading">Career <span>Timeline</span></h2>
-      <div class="section-divider" style="margin:16px auto 0;"></div>
-    </div>
-    <div class="timeline-wrap">
-      <!-- 1 -->
-      <div class="tl-item">
-        <div class="tl-left">
-          <div class="tl-year">2006</div>
-          <div class="tl-card">
-            <h4>MBBS — University of Jaffna</h4>
-            <p>Bachelor of Medicine &amp; Surgery, Faculty of Medicine, University of Jaffna.</p>
-            <span class="tl-meta">Foundation in clinical medicine &amp; patient care</span>
-          </div>
-        </div>
-        <div class="tl-center"><div class="tl-dot"></div></div>
-        <div class="tl-right"></div>
-      </div>
-      <!-- 2 -->
-      <div class="tl-item">
-        <div class="tl-left"></div>
-        <div class="tl-center"><div class="tl-dot" style="background:var(--blue);box-shadow:0 0 0 3px var(--blue);"></div></div>
-        <div class="tl-right">
-          <div class="tl-year">2007 – 2013</div>
-          <div class="tl-card">
-            <h4>Medical Officer — General Hospital Trincomalee</h4>
-            <p>Gynaecology &amp; Obstetrics Unit (2007–2008), then Medical Unit, Emergency Care Unit &amp; Medical ICU (2008–2013). Managed 80–100 inpatients; acute medical, surgical, paediatric &amp; obstetric emergencies; MICU &amp; mass casualty response.</p>
-            <span class="tl-meta">5 yrs acute hospital medicine · MICU · Emergency Care</span>
-          </div>
-        </div>
-      </div>
-      <!-- 3 -->
-      <div class="tl-item">
-        <div class="tl-left">
-          <div class="tl-year">2013 – 2017</div>
-          <div class="tl-card">
-            <h4>General Practitioner — Kappalthurai Primary Care</h4>
-            <p>First GP posting post-MCGP. Chronic disease management, NCD detection, minor surgery, and community health education at Primary Medical Care Unit, Kappalthurai, Trincomalee.</p>
-            <span class="tl-meta">MCGP qualified 2014–2016 · CGPSL</span>
-          </div>
-        </div>
-        <div class="tl-center"><div class="tl-dot"></div></div>
-        <div class="tl-right"></div>
-      </div>
-      <!-- 4 -->
-      <div class="tl-item">
-        <div class="tl-left"></div>
-        <div class="tl-center"><div class="tl-dot" style="background:var(--blue);box-shadow:0 0 0 3px var(--blue);"></div></div>
-        <div class="tl-right">
-          <div class="tl-year">2017 – 2022</div>
-          <div class="tl-card">
-            <h4>GP &amp; MOIC — Selvanayagapuram &amp; Thampalakamam</h4>
-            <p>General Practitioner at Primary Medical Care Unit, Selvanayagapuram (2017–2022) and concurrently Medical Officer In Charge, Divisional Hospital Thampalakamam (2019–2022) under the World Bank PSSP. NCD screening reached 43% of local population over 35. Featured in World Bank publication, March 2022.</p>
-            <span class="tl-meta">World Bank Featured · 2022 · NCD Champion</span>
-          </div>
-        </div>
-      </div>
-      <!-- 5 -->
-      <div class="tl-item">
-        <div class="tl-left">
-          <div class="tl-year">2022 – 2024</div>
-          <div class="tl-card">
-            <h4>MSc Biomedical Informatics — PGIM Batch 12</h4>
-            <p>Full-time 24-month postgraduate programme at the Postgraduate Institute of Medicine, University of Colombo. Covered health information systems, clinical informatics, biomedical data science, and research methodology. DHIS2 certified.</p>
-            <span class="tl-meta">PGIM · University of Colombo · Oct 2022 – Oct 2024</span>
-          </div>
-        </div>
-        <div class="tl-center"><div class="tl-dot"></div></div>
-        <div class="tl-right"></div>
-      </div>
-      <!-- 6 -->
-      <div class="tl-item">
-        <div class="tl-left"></div>
-        <div class="tl-center"><div class="tl-dot" style="background:var(--blue);box-shadow:0 0 0 3px var(--blue);"></div></div>
-        <div class="tl-right">
-          <div class="tl-year">2025</div>
-          <div class="tl-card">
-            <h4>Medical Officer — RDHS Office, Trincomalee</h4>
-            <p>Return posting at the Regional Director of Health Services Office following completion of the MSc. Statistical work and health information management functions in regional health administration.</p>
-            <span class="tl-meta">2025 – December 2025</span>
-          </div>
-        </div>
-      </div>
-      <!-- 7 -->
-      <div class="tl-item">
-        <div class="tl-left">
-          <div class="tl-year">Jan – Apr 2026</div>
-          <div class="tl-card">
-            <h4>Medical Officer — National Cancer Control Programme</h4>
-            <p>MO at NCCP, Colombo, supporting CanReg5 cancer registry data operations, quality assurance, early cancer detection initiatives, and internal IT improvements. Served as parent station for PGIM MD Batch 9 rotations.</p>
-            <span class="tl-meta">Ministry of Health · Public Health Complex, Colombo 05</span>
-          </div>
-        </div>
-        <div class="tl-center"><div class="tl-dot"></div></div>
-        <div class="tl-right"></div>
-      </div>
-      <!-- 8 — CURRENT -->
-      <div class="tl-item">
-        <div class="tl-left"></div>
-        <div class="tl-center"><div class="tl-dot" style="background:var(--mint);box-shadow:0 0 0 3px var(--mint),0 0 20px var(--mint);"></div></div>
-        <div class="tl-right">
-          <div class="tl-year">6 Apr 2026 →</div>
-          <div class="tl-card" style="border-color:var(--mint);">
-            <h4>MD Health Informatics Trainee — PGIM Batch 9 ✦ Current</h4>
-            <p>Selected at the MD Health Informatics Selection Examination (Jan 2026). Five structured Ministry of Health rotations with weekly PGIM lectures: PD Office Western Province → HIU Ministry of Health → Epidemiology Unit → Family Health Bureau → Medical Statistics Unit.</p>
-            <span class="tl-meta">PGIM · University of Colombo · Apr 2026 – Apr 2027</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- GITHUB -->
-<section id="github" class="section-pad">
-  <div class="container">
-    <div style="text-align:center; margin-bottom:50px;" class="reveal">
-      <span class="section-label">06. open source</span>
-      <h2 class="section-heading">GitHub <span>Activity</span></h2>
-      <div class="section-divider" style="margin:16px auto 0;"></div>
-    </div>
-    <div class="github-card reveal">
-      <div class="github-header">
-        <div class="github-avatar">TJ</div>
-        <div class="github-header-info">
-          <h3>Dr. Thangarasa Jeevaraaj</h3>
-          <a href="https://github.com/jeevantjr" target="_blank">@jeevantjr</a>
-          &nbsp;·&nbsp;
-          <a href="https://github.com/tjeevan" target="_blank" style="color:var(--subtext);font-family:'Fira Code',monospace;font-size:0.85rem;">@tjeevan</a>
-        </div>
-      </div>
-      <div class="github-stats">
-        <div class="gh-stat">
-          <div class="gh-stat-num">13</div>
-          <div class="gh-stat-label">Repositories</div>
-        </div>
-        <div class="gh-stat">
-          <div class="gh-stat-num">9</div>
-          <div class="gh-stat-label">Open-Source Tools</div>
-        </div>
-        <div class="gh-stat">
-          <div class="gh-stat-num">2</div>
-          <div class="gh-stat-label">GitHub Accounts</div>
-        </div>
-        <div class="gh-stat">
-          <div class="gh-stat-num">4+</div>
-          <div class="gh-stat-label">Stars Earned</div>
-        </div>
-      </div>
-      <div class="heatmap-label">Contribution activity · Past year</div>
-      <div class="heatmap" id="heatmap"></div>
-      <div class="heatmap-legend">
-        <span>Less</span>
-        <div class="h0"></div>
-        <div class="h1"></div>
-        <div class="h2"></div>
-        <div class="h3"></div>
-        <div class="h4"></div>
-        <span>More</span>
-      </div>
-      <div class="pinned-repos">
-        <div class="pinned-card">
-          <div class="pinned-card-header">
-            <i class="fas fa-book"></i>
-            <a href="https://jeevantjr.github.io/OutbreakWatch-main/" target="_blank">OutbreakWatch</a>
-          </div>
-          <p>Disease surveillance and outbreak early warning system for public health monitoring in Sri Lanka.</p>
-          <div class="pinned-meta">
-            <span><span class="lang-dot" style="background:#3572A5"></span> Python</span>
-            <span><i class="fas fa-star"></i> 2</span>
-            <span><i class="fas fa-code-branch"></i> 1</span>
-          </div>
-        </div>
-        <div class="pinned-card">
-          <div class="pinned-card-header">
-            <i class="fas fa-book"></i>
-            <a href="https://jeevantjr.github.io/FloodTrackerApp-main/" target="_blank">FloodTrackerApp</a>
-          </div>
-          <p>Disaster response and emergency management PWA for coordinating health resources.</p>
-          <div class="pinned-meta">
-            <span><span class="lang-dot" style="background:#f0db4f"></span> JavaScript</span>
-            <span><i class="fas fa-star"></i> 1</span>
-            <span><i class="fas fa-code-branch"></i> 0</span>
-          </div>
-        </div>
-        <div class="pinned-card">
-          <div class="pinned-card-header">
-            <i class="fas fa-book"></i>
-            <a href="https://jeevantjr.github.io/rdhs-stats-pwa-main/" target="_blank">rdhs-stats-pwa</a>
-          </div>
-          <p>Interactive district health analytics PWA with offline-first capability.</p>
-          <div class="pinned-meta">
-            <span><span class="lang-dot" style="background:#e34c26"></span> HTML</span>
-            <span><i class="fas fa-star"></i> 1</span>
-            <span><i class="fas fa-code-branch"></i> 0</span>
-          </div>
-        </div>
-        <div class="pinned-card">
-          <div class="pinned-card-header">
-            <i class="fas fa-book"></i>
-            <a href="https://jeevantjr.github.io/vmsrdhstrinco-main/" target="_blank">Health-Fleet-Manager</a>
-          </div>
-          <p>Fleet scheduling and logistics system for RDHS Trincomalee health vehicles.</p>
-          <div class="pinned-meta">
-            <span><span class="lang-dot" style="background:#f0db4f"></span> JavaScript</span>
-            <span><i class="fas fa-star"></i> 0</span>
-            <span><i class="fas fa-code-branch"></i> 0</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- CONTACT -->
-<section id="contact" class="section-pad">
-  <div class="container">
-    <div class="contact-glass reveal">
-      <span class="section-label" style="display:block; margin-bottom:8px;">07. contact</span>
-      <h2 style="font-size:2.2rem; color:var(--heading); margin-bottom:12px;">Let's Work <span style="color:var(--mint)">Together</span></h2>
-      <p style="color:var(--subtext); margin-bottom:36px; line-height:1.8;">
-        Open to AI reviewer roles, health informatics consulting, digital health
-        development projects, and research collaborations. Let's build something meaningful.
-      </p>
-      <div class="contact-links">
-        <a href="mailto:tjeevaraj78@gmail.com" class="contact-link-item">
-          <div class="contact-link-icon"><i class="fas fa-envelope"></i></div>
-          <div class="contact-link-text">
-            <div class="clabel">Email</div>
-            <div class="cvalue">tjeevaraj78@gmail.com</div>
-          </div>
-          <i class="fas fa-arrow-right" style="color:var(--subtext);"></i>
-        </a>
-        <a href="https://linkedin.com/in/drjeevaraj" target="_blank" class="contact-link-item">
-          <div class="contact-link-icon" style="background:rgba(0,119,181,0.15); color:#0077B5;">
-            <i class="fab fa-linkedin-in"></i>
-          </div>
-          <div class="contact-link-text">
-            <div class="clabel">LinkedIn</div>
-            <div class="cvalue">linkedin.com/in/drjeevaraj</div>
-          </div>
-          <i class="fas fa-arrow-right" style="color:var(--subtext);"></i>
-        </a>
-        <a href="https://drjeevaraj.com" target="_blank" class="contact-link-item">
-          <div class="contact-link-icon" style="background:rgba(100,255,218,0.1); color:var(--mint);">
-            <i class="fas fa-globe"></i>
-          </div>
-          <div class="contact-link-text">
-            <div class="clabel">Portfolio Website</div>
-            <div class="cvalue">www.drjeevaraj.com</div>
-          </div>
-          <i class="fas fa-arrow-right" style="color:var(--subtext);"></i>
-        </a>
-        <a href="https://github.com/jeevantjr" target="_blank" class="contact-link-item">
-          <div class="contact-link-icon" style="background:rgba(255,255,255,0.08); color:var(--text);">
-            <i class="fab fa-github"></i>
-          </div>
-          <div class="contact-link-text">
-            <div class="clabel">GitHub</div>
-            <div class="cvalue">github.com/jeevantjr</div>
-          </div>
-          <i class="fas fa-arrow-right" style="color:var(--subtext);"></i>
-        </a>
-        <a href="https://www.researchgate.net/profile/Jeevaraaj-Thangarasa" target="_blank" class="contact-link-item">
-          <div class="contact-link-icon" style="background:rgba(0,124,130,0.15); color:#00848e;">
-            <i class="fab fa-researchgate"></i>
-          </div>
-          <div class="contact-link-text">
-            <div class="clabel">ResearchGate</div>
-            <div class="cvalue">researchgate.net/profile/Jeevaraaj-Thangarasa</div>
-          </div>
-          <i class="fas fa-arrow-right" style="color:var(--subtext);"></i>
-        </a>
-        <a href="https://scholar.google.com/citations?user=iUkxMpUAAAAJ&hl=en" target="_blank" class="contact-link-item">
-          <div class="contact-link-icon" style="background:rgba(66,133,244,0.15); color:#4285f4;">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <div class="contact-link-text">
-            <div class="clabel">Google Scholar</div>
-            <div class="cvalue">scholar.google.com — Jeevaraaj Thangarasa</div>
-          </div>
-          <i class="fas fa-arrow-right" style="color:var(--subtext);"></i>
-        </a>
-        <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" class="contact-link-item">
-          <div class="contact-link-icon" style="background:rgba(166,206,57,0.15); color:#A6CE39;">
-            <i class="fab fa-orcid"></i>
-          </div>
-          <div class="contact-link-text">
-            <div class="clabel">ORCID iD</div>
-            <div class="cvalue">0009-0008-5084-0258</div>
-          </div>
-          <i class="fas fa-arrow-right" style="color:var(--subtext);"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-<footer>
-  <p>Designed &amp; built by <span>Dr. Thangarasa Jeevaraaj</span> · © 2026</p>
-  <p style="margin-top:6px; font-size:0.72rem; opacity:0.6;">
-    MD Health Informatics Trainee · AI Reviewer · Health Informatician · Digital Health Developer · Physician
+
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="notes.html">Articles</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="ai-reviewer.html">AI Reviewer</a></li>
+    <li><a href="services.html">Work With Me</a></li>
+    <li><a href="research.html">Research</a></li>
+  </ul>
+
+  <p style="font-family:var(--font-ui);font-size:0.65rem;color:var(--ink-light);max-width:580px;margin:1.2rem auto 0.5rem;line-height:1.7;opacity:0.7;">
+    All content on this website reflects the personal views, analyses, and creative work of the author. It is published in a personal capacity and does not represent the views, positions, or endorsements of any affiliated institution, employer, or organization. The content is intended solely for informational and academic discussion purposes.
   </p>
-  <div style="margin-top:16px; display:flex; flex-wrap:wrap; justify-content:center; gap:20px; font-size:0.78rem; opacity:0.55;">
-    <a href="index.html" style="color:var(--mint); text-decoration:none;">Still Human</a>
-    <a href="books.html" style="color:var(--mint); text-decoration:none;">The Book</a>
-    <a href="dev.html" style="color:var(--mint); text-decoration:none;">Dev Work</a>
-    <a href="cv.html" style="color:var(--mint); text-decoration:none;">CV</a>
-    <a href="ai-reviewer.html" style="color:var(--mint); text-decoration:none;">AI Reviewer</a>
-    <a href="about.html" style="color:var(--mint); text-decoration:none;">About</a>
-  </div>
-  <p style="margin-top:10px; font-size:0.7rem; opacity:0.35;">
-    <a href="https://drjeevaraj.com" style="color:inherit; text-decoration:none;">drjeevaraj.com</a>
-  </p>
+  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human &nbsp;&middot;&nbsp; Sri Lanka</p>
 </footer>
-<!-- ═══════════════════════════════════════════════════════════ -->
-<!--  JAVASCRIPT                                                 -->
-<!-- ═══════════════════════════════════════════════════════════ -->
+
 <script>
-/* ── PARTICLES ─────────────────────────────────────────────── */
-(function() {
-  const canvas = document.getElementById('particles-canvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, particles = [];
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-  function isDark() {
-    return document.documentElement.getAttribute('data-theme') !== 'light';
-  }
-  class Particle {
-    constructor() { this.reset(); }
-    reset() {
-      this.x  = Math.random() * W;
-      this.y  = Math.random() * H;
-      this.vx = (Math.random() - 0.5) * 0.4;
-      this.vy = (Math.random() - 0.5) * 0.4;
-      this.r  = Math.random() * 1.5 + 0.5;
-      this.a  = Math.random() * 0.6 + 0.2;
-    }
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
-      if (this.x < 0 || this.x > W) this.vx *= -1;
-      if (this.y < 0 || this.y > H) this.vy *= -1;
-    }
-    draw() {
-      const c = isDark() ? `rgba(100,255,218,${this.a})` : `rgba(15,76,129,${this.a * 0.5})`;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = c;
-      ctx.fill();
-    }
-  }
-  function connect() {
-    const dist = 120;
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const d  = Math.sqrt(dx*dx + dy*dy);
-        if (d < dist) {
-          const op = (1 - d/dist) * 0.3;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = isDark()
-            ? `rgba(100,255,218,${op})`
-            : `rgba(15,76,129,${op * 0.5})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
-      }
-    }
-  }
-  function init() {
-    particles = [];
-    const n = Math.min(Math.floor(W * H / 12000), 80);
-    for (let i = 0; i < n; i++) particles.push(new Particle());
-  }
-  function animate() {
-    ctx.clearRect(0, 0, W, H);
-    particles.forEach(p => { p.update(); p.draw(); });
-    connect();
-    requestAnimationFrame(animate);
-  }
-  window.addEventListener('resize', () => { resize(); init(); });
-  resize(); init(); animate();
-})();
-/* ── THEME TOGGLE ───────────────────────────────────────────── */
-(function() {
-  const toggle = document.getElementById('themeToggle');
-  const icon   = document.getElementById('themeIcon');
-  const html   = document.documentElement;
-  let dark = true;
-  function apply() {
-    html.setAttribute('data-theme', dark ? 'dark' : 'light');
-    icon.className = dark ? 'fas fa-moon' : 'fas fa-sun';
-    if (window._radarChart) {
-      const c = dark ? 'rgba(100,255,218,0.15)' : 'rgba(15,76,129,0.1)';
-      const b = dark ? 'rgba(100,255,218,0.8)' : 'rgba(15,76,129,0.8)';
-      window._radarChart.data.datasets[0].backgroundColor = c;
-      window._radarChart.data.datasets[0].borderColor = b;
-      window._radarChart.options.scales.r.grid.color = dark ? 'rgba(100,255,218,0.1)' : 'rgba(15,76,129,0.1)';
-      window._radarChart.options.scales.r.pointLabels.color = dark ? '#CCD6F6' : '#1E293B';
-      window._radarChart.options.scales.r.ticks.color = dark ? '#8892B0' : '#64748B';
-      window._radarChart.update();
-    }
-  }
-  toggle.addEventListener('click', () => { dark = !dark; apply(); });
-  apply();
-})();
-/* ── COUNTER ANIMATION ──────────────────────────────────────── */
-(function() {
-  function animateCounter(el) {
-    const target = parseInt(el.getAttribute('data-target'));
-    const dur    = 1800;
-    const step   = 16;
-    const inc    = target / (dur / step);
-    let current  = 0;
-    const timer  = setInterval(() => {
-      current += inc;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
-      el.textContent = Math.floor(current) + (target >= 10 ? '+' : '');
-    }, step);
-  }
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const nums = e.target.querySelectorAll('.stat-number[data-target]');
-        nums.forEach(n => { if (!n._counted) { n._counted=true; animateCounter(n); } });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.3 });
-  const statsEl = document.getElementById('stats');
-  if (statsEl) observer.observe(statsEl);
-})();
-/* ── SCROLL REVEAL ──────────────────────────────────────────── */
-(function() {
-  const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        revealObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin:'0px 0px -60px 0px' });
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
-    revealObs.observe(el);
-  });
-})();
-/* ── TIMELINE ANIMATIONS ────────────────────────────────────── */
-(function() {
-  const tlObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        tlObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  document.querySelectorAll('.tl-item').forEach((item, i) => {
-    item.style.transitionDelay = (i * 0.12) + 's';
-    tlObs.observe(item);
-  });
-})();
-/* ── SKILL BARS ─────────────────────────────────────────────── */
-(function() {
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.querySelectorAll('.skill-fill').forEach(fill => {
-          setTimeout(() => {
-            fill.style.width = fill.getAttribute('data-width') + '%';
-          }, 200);
-        });
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  const skillsSection = document.getElementById('skills');
-  if (skillsSection) obs.observe(skillsSection);
-})();
-/* ── RADAR CHART ────────────────────────────────────────────── */
-(function() {
-  const ctx = document.getElementById('radarChart').getContext('2d');
-  const labels = [
-    'Clinical Knowledge',
-    'AI Evaluation',
-    'Research',
-    'Public Health',
-    'Digital Health',
-    'Ethics & Bias',
-    'Data Analytics'
-  ];
-  const data = [95, 90, 88, 92, 82, 87, 80];
-  window._radarChart = new Chart(ctx, {
-    type: 'radar',
-    data: {
-      labels,
-      datasets: [{
-        label: 'Competency',
-        data,
-        backgroundColor: 'rgba(100,255,218,0.15)',
-        borderColor:     'rgba(100,255,218,0.8)',
-        borderWidth:     2,
-        pointBackgroundColor: 'rgba(100,255,218,1)',
-        pointRadius:     4,
-        pointHoverRadius:6,
-      }]
-    },
-    options: {
-      responsive:true,
-      plugins: { legend:{ display:false } },
-      scales: {
-        r: {
-          min:60, max:100,
-          grid:      { color:'rgba(100,255,218,0.1)' },
-          angleLines:{ color:'rgba(100,255,218,0.1)' },
-          pointLabels:{
-            color:'#CCD6F6',
-            font:{ size:11, family:"'Inter',sans-serif" }
-          },
-          ticks:{
-            color:'#8892B0',
-            backdropColor:'transparent',
-            font:{ size:9 }
-          }
-        }
-      },
-      animation:{ duration:1200, easing:'easeInOutQuart' }
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+  }
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('javascript')) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.add('page-exit');
+        setTimeout(() => { window.location.href = href; }, 320);
+      });
     }
   });
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { window._radarChart.update(); obs.unobserve(e.target); } });
-  }, { threshold:0.4 });
-  obs.observe(document.getElementById('skills'));
-})();
-/* ── GITHUB HEATMAP ─────────────────────────────────────────── */
-(function() {
-  const container = document.getElementById('heatmap');
-  const weeks = 52;
-  const days  = 7;
-  const activityPattern = Array.from({length: weeks * days}, (_, i) => {
-    const week = Math.floor(i / 7);
-    const day  = i % 7;
-    if (day === 0 || day === 6) return Math.random() < 0.15 ? Math.floor(Math.random() * 2) : 0;
-    const sprintWeeks = [8,9,10,22,23,24,36,37,38,49,50,51];
-    if (sprintWeeks.includes(week)) {
-      return Math.floor(Math.random() * 4) + 1;
-    }
-    return Math.random() < 0.5 ? Math.floor(Math.random() * 3) : 0;
-  });
-  for (let w = 0; w < weeks; w++) {
-    const col = document.createElement('div');
-    col.className = 'heatmap-col';
-    for (let d = 0; d < days; d++) {
-      const cell = document.createElement('div');
-      const val  = activityPattern[w * 7 + d];
-      cell.className = `heatmap-cell h${Math.min(val, 4)}`;
-      cell.title = `${val} contribution${val !== 1 ? 's' : ''}`;
-      col.appendChild(cell);
-    }
-    container.appendChild(col);
-  }
-})();
-/* ── SMOOTH NAV ACTIVE ──────────────────────────────────────── */
-(function() {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 100) current = s.id;
-    });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current
-        ? 'var(--mint)'
-        : '';
-    });
-  });
-})();
 </script>
+
 </body>
 </html>

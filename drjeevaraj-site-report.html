@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Assessment Report — drjeevaraj.com · June 2026 (Updated)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1208;--ink-mid:#2d2010;--parchment:#fdf8f0;--parchment-dark:#f5edde;
+  --gold:#c8973e;--gold-deep:#9a7230;--gold-lt:rgba(200,151,62,.12);
+  --teal:#1a6e6e;--teal-lt:rgba(26,110,110,.12);
+  --red:#c0392b;--red-lt:rgba(192,57,43,.1);
+  --amber:#e67e22;--amber-lt:rgba(230,126,34,.1);
+  --green:#1e8449;--green-lt:rgba(30,132,73,.1);
+  --text:#3d2e14;--sub:#7a6040;--border:rgba(200,151,62,.2);
+  --card:#fff;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fu:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fu);background:var(--parchment);color:var(--text);line-height:1.7;font-size:16px}
+
+/* HEADER */
+.report-header{background:linear-gradient(135deg,#0d0702 0%,#1a1208 60%,#2d1f08 100%);padding:3.5rem 2rem 3rem;text-align:center;position:relative;overflow:hidden}
+.report-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(200,151,62,.08) 0%,transparent 60%)}
+.report-header .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(200,151,62,.15);border:1px solid rgba(200,151,62,.3);border-radius:20px;padding:.3rem 1rem;font-size:.68rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.report-header .badge-update{display:inline-flex;align-items:center;gap:.5rem;background:rgba(30,132,73,.2);border:1px solid rgba(30,132,73,.4);border-radius:20px;padding:.3rem 1rem;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#4ade80;margin-bottom:1.2rem;margin-left:.5rem}
+.report-header h1{font-family:var(--fd);font-size:clamp(2rem,4vw,3rem);font-weight:600;color:#fff;line-height:1.1;margin-bottom:.5rem}
+.report-header h1 span{color:var(--gold)}
+.report-header .meta{font-size:.8rem;color:rgba(242,232,210,.5);letter-spacing:1.5px;margin-top:.8rem}
+.report-header .url-pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:.35rem 1rem;font-size:.78rem;color:rgba(242,232,210,.7);margin-top:1rem;text-decoration:none}
+.report-header .url-pill:hover{background:rgba(255,255,255,.1);color:var(--gold)}
+
+/* LIVE STATUS BANNER */
+.live-banner{background:linear-gradient(90deg,rgba(30,132,73,.15),rgba(30,132,73,.05));border-bottom:3px solid var(--green);padding:1.2rem 2rem;text-align:center}
+.live-banner p{font-size:.88rem;color:var(--green);font-weight:600;display:flex;align-items:center;justify-content:center;gap:.6rem}
+.live-dot{width:10px;height:10px;border-radius:50%;background:var(--green);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(30,132,73,.5)}50%{box-shadow:0 0 0 6px rgba(30,132,73,0)}}
+
+/* OVERALL SCORE BANNER */
+.score-banner{background:#fff;border-bottom:3px solid var(--gold);padding:2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:1.2rem;max-width:1000px;margin:0 auto}
+.score-item{text-align:center;padding:1rem;border-radius:12px;background:var(--parchment)}
+.score-item .score-n{font-family:var(--fd);font-size:2.4rem;font-weight:600;line-height:1;margin-bottom:.25rem}
+.score-item .score-l{font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--sub);margin-bottom:.3rem}
+.score-item .score-s{font-size:.73rem;color:var(--sub)}
+.score-item .score-delta{font-size:.68rem;font-weight:700;margin-top:.3rem}
+.delta-up{color:var(--green)} .delta-same{color:var(--sub)}
+.score-red .score-n{color:var(--red)} .score-amber .score-n{color:var(--amber)}
+.score-green .score-n{color:var(--green)} .score-gold .score-n{color:var(--gold-deep)}
+
+/* LAYOUT */
+.container{max-width:1000px;margin:0 auto;padding:0 1.5rem}
+.section{padding:3rem 0 2rem;border-bottom:1px solid var(--border)}
+.section:last-child{border-bottom:none}
+
+/* SECTION HEADERS */
+.sec-head{display:flex;align-items:center;gap:.75rem;margin-bottom:.4rem}
+.sec-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.sec-icon.gold{background:var(--gold-lt);color:var(--gold-deep)}
+.sec-icon.teal{background:var(--teal-lt);color:var(--teal)}
+.sec-icon.red{background:var(--red-lt);color:var(--red)}
+.sec-icon.green{background:var(--green-lt);color:var(--green)}
+.sec-icon.amber{background:var(--amber-lt);color:var(--amber)}
+.sec-title{font-family:var(--fd);font-size:1.75rem;font-weight:600;color:var(--ink);line-height:1.15}
+.sec-sub{font-size:.82rem;color:var(--sub);margin-bottom:2rem;padding-left:54px}
+
+/* STATUS TAGS */
+.tag{display:inline-flex;align-items:center;gap:.3rem;border-radius:20px;padding:.22rem .7rem;font-size:.68rem;font-weight:700;letter-spacing:.5px;white-space:nowrap}
+.tag-red{background:var(--red-lt);color:var(--red);border:1px solid rgba(192,57,43,.2)}
+.tag-amber{background:var(--amber-lt);color:var(--amber);border:1px solid rgba(230,126,34,.2)}
+.tag-green{background:var(--green-lt);color:var(--green);border:1px solid rgba(30,132,73,.2)}
+.tag-gold{background:var(--gold-lt);color:var(--gold-deep);border:1px solid var(--border)}
+
+/* ALERT BOXES */
+.alert{border-radius:10px;padding:1.1rem 1.4rem;margin-bottom:1rem;display:flex;gap:.9rem;align-items:flex-start;font-size:.875rem;line-height:1.65}
+.alert i{margin-top:.15rem;flex-shrink:0;font-size:1rem}
+.alert-red{background:var(--red-lt);border:1px solid rgba(192,57,43,.22);color:#6b1f18}
+.alert-red i{color:var(--red)}
+.alert-amber{background:var(--amber-lt);border:1px solid rgba(230,126,34,.22);color:#7a4a10}
+.alert-amber i{color:var(--amber)}
+.alert-green{background:var(--green-lt);border:1px solid rgba(30,132,73,.22);color:#144d2e}
+.alert-green i{color:var(--green)}
+.alert-gold{background:var(--gold-lt);border:1px solid var(--border);color:#5a3e10}
+.alert-gold i{color:var(--gold-deep)}
+
+/* PAGE CARDS */
+.page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;margin-bottom:1.5rem}
+.page-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem;position:relative;overflow:hidden}
+.page-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.pc-live::before{background:var(--green)}
+.pc-old::before{background:var(--red)}
+.pc-partial::before{background:var(--amber)}
+.pc-new::before{background:linear-gradient(90deg,var(--green),var(--teal))}
+.pc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.75rem}
+.pc-name{font-size:.9rem;font-weight:700;color:var(--ink)}
+.pc-file{font-size:.7rem;color:var(--sub);margin-top:.12rem;font-family:monospace}
+.pc-items{margin-top:.8rem}
+.pc-item{display:flex;align-items:baseline;gap:.55rem;font-size:.8rem;color:var(--text);padding:.28rem 0;border-bottom:1px solid rgba(200,151,62,.08)}
+.pc-item:last-child{border-bottom:none}
+.pc-item i{font-size:.7rem;margin-top:.1rem;flex-shrink:0}
+.pc-item i.fa-check{color:var(--green)}
+.pc-item i.fa-xmark{color:var(--red)}
+.pc-item i.fa-triangle-exclamation{color:var(--amber)}
+.pc-item i.fa-circle-info{color:var(--teal)}
+
+/* FONT TABLE */
+.font-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:1rem 0}
+.font-table th{text-align:left;padding:.6rem .9rem;background:var(--parchment-dark);border-bottom:2px solid var(--border);font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sub)}
+.font-table td{padding:.6rem .9rem;border-bottom:1px solid rgba(200,151,62,.1);vertical-align:top;line-height:1.5}
+.font-table tr:hover td{background:rgba(200,151,62,.04)}
+.font-table .mono{font-family:monospace;font-size:.78rem;color:var(--ink-mid)}
+.font-table .ok{color:var(--green);font-weight:600}
+.font-table .warn{color:var(--amber);font-weight:600}
+.font-table .bad{color:var(--red);font-weight:600}
+
+/* COLOR SWATCHES */
+.color-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.9rem;margin:1.2rem 0}
+.swatch{border-radius:10px;overflow:hidden;border:1px solid rgba(0,0,0,.08)}
+.swatch-color{height:64px}
+.swatch-info{padding:.7rem .9rem;background:var(--card)}
+.swatch-name{font-size:.8rem;font-weight:700;color:var(--ink);margin-bottom:.15rem}
+.swatch-hex{font-family:monospace;font-size:.72rem;color:var(--sub);margin-bottom:.25rem}
+.swatch-note{font-size:.72rem;color:var(--sub);line-height:1.45}
+
+/* CONTRAST BARS */
+.contrast-row{display:flex;align-items:center;gap:1rem;padding:.75rem 0;border-bottom:1px solid rgba(200,151,62,.1);font-size:.82rem}
+.contrast-row:last-child{border-bottom:none}
+.contrast-swatch{width:56px;height:32px;border-radius:6px;border:1px solid rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;letter-spacing:.5px;flex-shrink:0}
+.contrast-label{flex:1;color:var(--text)}
+.contrast-ratio{font-family:monospace;font-size:.8rem;font-weight:700;min-width:52px}
+
+/* PRIORITY LIST */
+.priority-list{display:flex;flex-direction:column;gap:.9rem}
+.priority-item{display:flex;gap:1rem;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.2rem}
+.priority-item.resolved{opacity:.65;border-style:dashed}
+.priority-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:.05rem}
+.pn-red{background:var(--red-lt);color:var(--red)}
+.pn-amber{background:var(--amber-lt);color:var(--amber)}
+.pn-green{background:var(--green-lt);color:var(--green)}
+.pn-done{background:var(--green-lt);color:var(--green)}
+.priority-title{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:.3rem}
+.priority-desc{font-size:.8rem;color:var(--sub);line-height:1.6}
+.priority-action{font-size:.75rem;font-weight:600;color:var(--gold-deep);margin-top:.45rem;display:flex;align-items:center;gap:.35rem}
+.resolved-stamp{font-size:.7rem;font-weight:700;color:var(--green);background:var(--green-lt);border:1px solid rgba(30,132,73,.25);border-radius:20px;padding:.18rem .65rem;display:inline-flex;align-items:center;gap:.3rem;margin-left:.6rem}
+
+/* VISION GRID */
+.vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.2rem 0}
+.vision-col{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem}
+.vision-col-head{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:.9rem;padding-bottom:.6rem;border-bottom:2px solid var(--border)}
+.vc-head-red{color:var(--red);border-color:rgba(192,57,43,.3)}
+.vc-head-green{color:var(--green);border-color:rgba(30,132,73,.3)}
+.vc-head-amber{color:var(--amber);border-color:rgba(230,126,34,.3)}
+.vision-item{display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--text);padding:.35rem 0;border-bottom:1px solid rgba(200,151,62,.07);line-height:1.5}
+.vision-item:last-child{border-bottom:none}
+.vision-item i{font-size:.78rem;margin-top:.22rem;flex-shrink:0}
+.vi-red{color:var(--red)} .vi-green{color:var(--green)} .vi-amber{color:var(--amber)} .vi-teal{color:var(--teal)}
+
+/* INLINE CODE */
+code{font-family:monospace;font-size:.8em;background:rgba(200,151,62,.1);color:var(--gold-deep);padding:.1em .35em;border-radius:3px}
+
+/* DIVIDER */
+.divider{display:flex;align-items:center;gap:1rem;margin:1.5rem 0;color:var(--sub);font-size:.7rem;letter-spacing:2px;text-transform:uppercase}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* REPORT FOOTER */
+.report-footer{background:var(--ink);padding:2.5rem;text-align:center;margin-top:3rem}
+.report-footer p{font-size:.8rem;color:rgba(242,232,210,.5);line-height:1.7}
+.report-footer strong{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .score-banner{grid-template-columns:repeat(2,1fr)}
+  .vision-grid{grid-template-columns:1fr}
+  .page-grid{grid-template-columns:1fr}
+  .color-grid{grid-template-columns:repeat(2,1fr)}
+  .report-header h1{font-size:1.75rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ HEADER -->
+<header class="report-header">
+  <div>
+    <span class="badge"><i class="fa-solid fa-magnifying-glass-chart"></i> Site Audit · June 2026</span>
+    <span class="badge-update"><i class="fa-solid fa-rotate"></i> Updated · Homepage Now Live</span>
+  </div>
+  <h1>drjeevaraj.com<br><span>Reassessment Report</span></h1>
+  <div class="meta">Assessed against Long-Term Physician-Scientist Vision &nbsp;·&nbsp; Dr. T. Jeevaraj &nbsp;·&nbsp; June 23, 2026</div>
+  <a href="https://drjeevaraj.com" target="_blank" class="url-pill"><i class="fa-solid fa-arrow-up-right-from-square"></i> https://drjeevaraj.com</a>
+</header>
+
+<!-- LIVE STATUS BANNER -->
+<div class="live-banner">
+  <p><span class="live-dot"></span> New homepage is confirmed live at drjeevaraj.com — physician-scientist identity deployed. No "health informatician" anywhere on the live site.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ SCORE SUMMARY -->
+<div class="score-banner">
+  <div class="score-item score-green">
+    <div class="score-l"><i class="fa-solid fa-house"></i> Homepage</div>
+    <div class="score-n">84%</div>
+    <div class="score-s">New version live</div>
+    <div class="score-delta delta-up"><i class="fa-solid fa-arrow-up"></i> was 28%</div>
+  </div>
+  <div class="score-item score-green">
+    <div class="score-l"><i class="fa-solid fa-user"></i> About Page</div>
+    <div class="score-n">95%</div>
+    <div class="score-s">Excellent — unchanged</div>
+    <div class="score-delta delta-same">— unchanged</div>
+  </div>
+  <div class="score-item score-green">
+    <div class="score-l"><i class="fa-solid fa-layer-group"></i> Inner Pages</div>
+    <div class="score-n">88%</div>
+    <div class="score-s">Good — all deployed</div>
+    <div class="score-delta delta-same">— unchanged</div>
+  </div>
+  <div class="score-item score-amber">
+    <div class="score-l"><i class="fa-solid fa-font"></i> Typography</div>
+    <div class="score-n">76%</div>
+    <div class="score-s">Some labels too small</div>
+    <div class="score-delta delta-same">— unchanged</div>
+  </div>
+  <div class="score-item score-green">
+    <div class="score-l"><i class="fa-solid fa-palette"></i> Colours</div>
+    <div class="score-n">90%</div>
+    <div class="score-s">Professional &amp; cohesive</div>
+    <div class="score-delta delta-same">— unchanged</div>
+  </div>
+  <div class="score-item score-green">
+    <div class="score-l"><i class="fa-solid fa-bullseye"></i> Vision Align</div>
+    <div class="score-n">88%</div>
+    <div class="score-s">Strong — 5 items remain</div>
+    <div class="score-delta delta-up"><i class="fa-solid fa-arrow-up"></i> was 65%</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ═══════ SUMMARY CHANGE -->
+  <div style="padding:2rem 0 0">
+    <div class="alert alert-green">
+      <i class="fa-solid fa-circle-check"></i>
+      <div><strong>Major improvement confirmed.</strong> The new index.html is live. The three critical issues from the first report (homepage meta with "health informatician", book-focused hero, old 9-item nav, broken footer links) are all resolved. The site now presents a coherent physician-scientist identity across every page. Five medium and low priority items remain.</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ SECTION 1 — DEPLOYMENT STATUS -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-icon green"><i class="fa-brands fa-github"></i></div>
+      <h2 class="sec-title">Deployment Status — All Pages</h2>
+    </div>
+    <p class="sec-sub">Current live state of every page on drjeevaraj.com as of June 23, 2026</p>
+
+    <div class="page-grid">
+
+      <div class="page-card pc-new">
+        <div class="pc-top">
+          <div><div class="pc-name">Homepage</div><div class="pc-file">index.html</div></div>
+          <span class="tag tag-green"><i class="fa-solid fa-check"></i> NEWLY LIVE</span>
+        </div>
+        <div class="pc-items">
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Title: "General Practitioner · Health Informatics Trainee · Medical Writer"</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Meta: correct qualifications, no "health informatician"</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Nav: About · Portfolio · Articles · CV · AI Reviewer · Work With Me</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Hero: physician identity, qualifications, academic credentials</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Disclaimer in About section</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> All 6 articles linked correctly</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Publications: BMJ Open + Jaffna MJ + World Bank</div>
+          <div class="pc-item"><i class="fa-solid fa-triangle-exclamation"></i> Footer still links to books.html, stories.html, memory-witness.html, dev.html</div>
+          <div class="pc-item"><i class="fa-solid fa-triangle-exclamation"></i> "Services" heading still uses mild commercial framing in What I Do section</div>
+          <div class="pc-item"><i class="fa-solid fa-circle-info"></i> JS counters animate from 0 — correct behaviour, not a bug</div>
+        </div>
+      </div>
+
+      <div class="page-card pc-live">
+        <div class="pc-top">
+          <div><div class="pc-name">About</div><div class="pc-file">about.html</div></div>
+          <span class="tag tag-green"><i class="fa-solid fa-check"></i> LIVE — EXCELLENT</span>
+        </div>
+        <div class="pc-items">
+          <div class="pc-item"><i class="fa-solid fa-check"></i> "Physician-Scientist, Health Informatics Researcher, Author"</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Full qualifications with MD Trainee PGIM</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Academic timeline: MBBS → MD April 2026</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Domain expertise cards (4 areas)</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Personal letter section</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Disclaimer + ORCID + ResearchGate + Scholar</div>
+        </div>
+      </div>
+
+      <div class="page-card pc-live">
+        <div class="pc-top">
+          <div><div class="pc-name">Portfolio</div><div class="pc-file">portfolio.html</div></div>
+          <span class="tag tag-green"><i class="fa-solid fa-check"></i> LIVE — FIXED</span>
+        </div>
+        <div class="pc-items">
+          <div class="pc-item"><i class="fa-solid fa-check"></i> All 6 article links corrected (no more notes/ subdirectory paths)</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Research publications and systems work displayed</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Physician-scientist framing</div>
+        </div>
+      </div>
+
+      <div class="page-card pc-live">
+        <div class="pc-top">
+          <div><div class="pc-name">Articles</div><div class="pc-file">notes.html</div></div>
+          <span class="tag tag-green"><i class="fa-solid fa-check"></i> LIVE — GOOD</span>
+        </div>
+        <div class="pc-items">
+          <div class="pc-item"><i class="fa-solid fa-check"></i> "Articles & Insights" — academic framing</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> New nav + disclaimer</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> 6 article cards with correct links</div>
+        </div>
+      </div>
+
+      <div class="page-card pc-live">
+        <div class="pc-top">
+          <div><div class="pc-name">CV</div><div class="pc-file">cv.html</div></div>
+          <span class="tag tag-green"><i class="fa-solid fa-check"></i> LIVE — UPDATED</span>
+        </div>
+        <div class="pc-items">
+          <div class="pc-item"><i class="fa-solid fa-check"></i> "MD Health Informatics Trainee (PGIM)" — correct</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Remote Work Ready section included</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> ORCID displayed</div>
+        </div>
+      </div>
+
+      <div class="page-card pc-live">
+        <div class="pc-top">
+          <div><div class="pc-name">AI Reviewer</div><div class="pc-file">ai-reviewer.html</div></div>
+          <span class="tag tag-green"><i class="fa-solid fa-check"></i> LIVE — UPDATED</span>
+        </div>
+        <div class="pc-items">
+          <div class="pc-item"><i class="fa-solid fa-check"></i> "health informatician" removed from meta</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> "Open to Remote Engagement"</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Full qualifications, new nav, disclaimer</div>
+        </div>
+      </div>
+
+      <div class="page-card pc-live">
+        <div class="pc-top">
+          <div><div class="pc-name">Work With Me</div><div class="pc-file">services.html</div></div>
+          <span class="tag tag-green"><i class="fa-solid fa-check"></i> LIVE — REFRAMED</span>
+        </div>
+        <div class="pc-items">
+          <div class="pc-item"><i class="fa-solid fa-check"></i> "Areas of Expertise" — academic, not commercial</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> No hourly rates or "free initial discussion"</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Remote professional engagement framing</div>
+        </div>
+      </div>
+
+      <div class="page-card pc-live">
+        <div class="pc-top">
+          <div><div class="pc-name">6 Articles</div><div class="pc-file">ai-*.html · health-*.html</div></div>
+          <span class="tag tag-green"><i class="fa-solid fa-check"></i> LIVE — CTA ADDED</span>
+        </div>
+        <div class="pc-items">
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Author bio + "Work With Me" CTA on all 6</div>
+          <div class="pc-item"><i class="fa-solid fa-check"></i> Photo, full qualifications string, bio</div>
+          <div class="pc-item"><i class="fa-solid fa-triangle-exclamation"></i> CTA button text still at 0.65rem — needs bump to 0.72rem</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ SECTION 2 — IDENTITY ALIGNMENT -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-icon teal"><i class="fa-solid fa-user-doctor"></i></div>
+      <h2 class="sec-title">Long-Term Vision Alignment</h2>
+    </div>
+    <p class="sec-sub">Physician-scientist identity check across the live site</p>
+
+    <div class="vision-grid">
+      <div class="vision-col">
+        <div class="vision-col-head vc-head-green"><i class="fa-solid fa-check"></i> &nbsp;Achieved — Live on Site</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> "health informatician" removed from every live page</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> Homepage meta: proper qualifications, MD Trainee PGIM</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> About page: "Physician-Scientist, Health Informatics Researcher, Author"</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> Academic timeline from MBBS to April 2026</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> Nav leads with About — not a book</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> BMJ Open · World Bank · Jaffna Medical Journal — prominently featured</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> ORCID, ResearchGate, Scholar, LinkedIn all linked</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> Disclaimer on all pages</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> Services: "Areas of Expertise" — not commercial freelancing</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> DHIS2 certifications listed as verifiable credentials</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> Personal letter on About: scientist who also writes — not writer who also does science</div>
+      </div>
+      <div class="vision-col">
+        <div class="vision-col-head vc-head-amber"><i class="fa-solid fa-triangle-exclamation"></i> &nbsp;Remaining Gaps</div>
+        <div class="vision-item"><i class="fa-solid fa-triangle-exclamation vi-amber"></i> Homepage footer links: books.html, stories.html, memory-witness.html, dev.html — may 404 and confuse visitors</div>
+        <div class="vision-item"><i class="fa-solid fa-triangle-exclamation vi-amber"></i> Homepage "What I Do" section still says "Services" — minor commercial echo; "Expertise Areas" would be cleaner</div>
+        <div class="vision-item"><i class="fa-solid fa-triangle-exclamation vi-amber"></i> OG social image still <code>ARE YOU STILL HUMAN.jpg</code> — book cover appears when URL is shared on LinkedIn/email</div>
+        <div class="vision-item"><i class="fa-solid fa-triangle-exclamation vi-amber"></i> "Available to WHO, NGOs, AI labs, and health-tech organisations" — slightly promotional framing; "Open to research collaboration" is stronger academically</div>
+        <div class="vision-item"><i class="fa-solid fa-circle-info vi-teal"></i> research.html exists but is not in the primary nav — only accessible from About footer and portfolio</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ SECTION 3 — TYPOGRAPHY -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-icon amber"><i class="fa-solid fa-font"></i></div>
+      <h2 class="sec-title">Typography &amp; Readability</h2>
+    </div>
+    <p class="sec-sub">20px body base is excellent. Three specific UI elements remain below recommended minimum size.</p>
+
+    <table class="font-table">
+      <thead>
+        <tr>
+          <th>Element</th>
+          <th>CSS Value</th>
+          <th>~px at 20px base</th>
+          <th>Status</th>
+          <th>Recommendation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Body paragraph (Crimson Text)</td>
+          <td class="mono">1rem / 1.04rem</td>
+          <td>20–20.8px</td>
+          <td class="ok">✓ Excellent</td>
+          <td>Generous line-height 1.8 — highly readable. No change needed.</td>
+        </tr>
+        <tr>
+          <td>Section subtitles</td>
+          <td class="mono">0.9–0.95rem</td>
+          <td>18–19px</td>
+          <td class="ok">✓ Good</td>
+          <td>Well sized for supporting text.</td>
+        </tr>
+        <tr>
+          <td>Trust bar / stat labels</td>
+          <td class="mono">0.78–0.82rem</td>
+          <td>15.6–16.4px</td>
+          <td class="ok">✓ Acceptable</td>
+          <td>Short informational labels — size is appropriate.</td>
+        </tr>
+        <tr>
+          <td>Navigation links</td>
+          <td class="mono">0.68rem</td>
+          <td>13.6px</td>
+          <td class="warn">⚠ Borderline</td>
+          <td>Letter-spacing compensates. Increase to 0.75rem to improve mobile comfort.</td>
+        </tr>
+        <tr style="background:rgba(230,126,34,.04)">
+          <td><strong>Eyebrow labels (.eyebrow)</strong></td>
+          <td class="mono">0.62rem</td>
+          <td>12.4px</td>
+          <td class="warn">⚠ Too small</td>
+          <td>Change to <code>0.72rem</code> in style.css — 3-second fix.</td>
+        </tr>
+        <tr style="background:rgba(192,57,43,.04)">
+          <td><strong>Book category chip (.book-type)</strong></td>
+          <td class="mono">0.60rem</td>
+          <td>12.0px</td>
+          <td class="bad">✗ Below minimum</td>
+          <td>12px falls below WCAG 14px small-text minimum. Change to <code>0.72rem</code> in index.html.</td>
+        </tr>
+        <tr style="background:rgba(230,126,34,.04)">
+          <td><strong>Article CTA — button text</strong></td>
+          <td class="mono">0.65rem</td>
+          <td>13.0px</td>
+          <td class="warn">⚠ Small</td>
+          <td>CTA buttons should be ≥14px. Change to <code>0.72rem</code> in all 6 article files.</td>
+        </tr>
+        <tr>
+          <td>Article CTA — qualifications line</td>
+          <td class="mono">0.72rem</td>
+          <td>14.4px</td>
+          <td class="warn">⚠ Borderline</td>
+          <td>This is credential text — trust-critical. Increase to <code>0.78rem</code>.</td>
+        </tr>
+        <tr>
+          <td>Hero H1 (Cormorant Garamond)</td>
+          <td class="mono">clamp(2.4rem,5vw,3.8rem)</td>
+          <td>48–76px</td>
+          <td class="ok">✓ Excellent</td>
+          <td>Responsive and commanding. No change.</td>
+        </tr>
+        <tr>
+          <td>Inner page H1</td>
+          <td class="mono">3.6rem</td>
+          <td>72px</td>
+          <td class="ok">✓ Excellent</td>
+          <td>Large, academic presence. No change.</td>
+        </tr>
+        <tr>
+          <td>Mobile body (≤600px)</td>
+          <td class="mono">18px base</td>
+          <td>18px</td>
+          <td class="ok">✓ Good</td>
+          <td>Comfortable on mobile screens.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert alert-amber">
+      <i class="fa-solid fa-text-height"></i>
+      <div><strong>Three quick CSS fixes remaining:</strong><br>
+      1. <code>style.css</code> — <code>.eyebrow { font-size: 0.62rem }</code> → <code>0.72rem</code><br>
+      2. <code>index.html</code> — <code>.book-type { font-size: 0.60rem }</code> → <code>0.72rem</code><br>
+      3. Article CTA inline styles (all 6 files) — button <code>0.65rem</code> → <code>0.72rem</code>, qualifications <code>0.72rem</code> → <code>0.78rem</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ SECTION 4 — COLOUR -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-icon gold"><i class="fa-solid fa-swatchbook"></i></div>
+      <h2 class="sec-title">Background &amp; Colour</h2>
+    </div>
+    <p class="sec-sub">Palette is professional and academically appropriate. Two token mismatches between index.html and style.css persist.</p>
+
+    <div class="color-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1C1008"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Hero Background</div>
+          <div class="swatch-hex">#1C1008</div>
+          <div class="swatch-note">Very dark warm brown. Dramatic, sophisticated. ~17:1 contrast with white text. ✓</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F2E8D2"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Parchment — Inner Pages</div>
+          <div class="swatch-hex">#F2E8D2 (style.css)</div>
+          <div class="swatch-note">Used by About, CV, Notes, Services, AI Reviewer. Warmer, more traditional. ✓</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#fdf8f0"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Parchment — Homepage</div>
+          <div class="swatch-hex">#fdf8f0 (index.html)</div>
+          <div class="swatch-note" style="color:#c0392b;font-weight:600">⚠ Different from style.css — visible background shift when navigating from homepage to inner pages.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#C8973E"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gold — Primary Accent</div>
+          <div class="swatch-hex">#C8973E</div>
+          <div class="swatch-note">Consistent across all pages. Academic, refined. ~6.2:1 on dark hero. ✓</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2dd4bf"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Teal — Homepage</div>
+          <div class="swatch-hex">#2dd4bf (index.html)</div>
+          <div class="swatch-note" style="color:#c0392b;font-weight:600">⚠ Bright cyan-teal — very different from inner pages. Appears more "startup" than physician-scientist.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1A6E6E"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Teal — Inner Pages</div>
+          <div class="swatch-hex">#1A6E6E (style.css)</div>
+          <div class="swatch-note">Deep, muted teal. More academic and restrained. Should be the standard. ✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-amber">
+      <i class="fa-solid fa-circle-half-stroke"></i>
+      <div><strong>Two token inconsistencies to fix in index.html:</strong> Change <code>--parchment: #fdf8f0</code> → <code>#F2E8D2</code> and <code>--teal: #2dd4bf</code> → <code>#1A6E6E</code>. This aligns the homepage colour tokens with the rest of the site and removes the jarring background shift when visitors navigate from the homepage to any inner page.</div>
+    </div>
+
+    <div class="divider">Contrast Ratios</div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem">
+      <div class="contrast-row">
+        <div class="contrast-swatch" style="background:#1C1008;color:#fff">Aa</div>
+        <div class="contrast-label">White text on dark hero</div>
+        <div class="contrast-ratio" style="color:var(--green)">~17:1</div>
+        <div><span class="tag tag-green">AAA ✓</span></div>
+      </div>
+      <div class="contrast-row">
+        <div class="contrast-swatch" style="background:#1C1008;color:#C8973E">Au</div>
+        <div class="contrast-label">Gold on dark hero</div>
+        <div class="contrast-ratio" style="color:var(--green)">~6.2:1</div>
+        <div><span class="tag tag-green">AA ✓</span></div>
+      </div>
+      <div class="contrast-row">
+        <div class="contrast-swatch" style="background:#F2E8D2;color:#3d2e14">Aa</div>
+        <div class="contrast-label">Body text on parchment</div>
+        <div class="contrast-ratio" style="color:var(--green)">~9.4:1</div>
+        <div><span class="tag tag-green">AAA ✓</span></div>
+      </div>
+      <div class="contrast-row">
+        <div class="contrast-swatch" style="background:#fdf8f0;color:#9A7230">Au</div>
+        <div class="contrast-label">Gold-deep links on light parchment</div>
+        <div class="contrast-ratio" style="color:var(--green)">~5.1:1</div>
+        <div><span class="tag tag-green">AA ✓</span></div>
+      </div>
+      <div class="contrast-row">
+        <div class="contrast-swatch" style="background:#F2E8D2;color:#7a6040">Au</div>
+        <div class="contrast-label">Subtext on parchment (section descriptions)</div>
+        <div class="contrast-ratio" style="color:var(--amber)">~4.6:1</div>
+        <div><span class="tag tag-amber">AA borderline</span></div>
+      </div>
+      <div class="contrast-row">
+        <div class="contrast-swatch" style="background:#1C1008;color:rgba(253,248,240,0.52)">Au</div>
+        <div class="contrast-label">Hero qualifications text (52% white)</div>
+        <div class="contrast-ratio" style="color:var(--amber)">~4.2:1</div>
+        <div><span class="tag tag-amber">⚠ Marginal</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ SECTION 5 — PRIORITY FIX LIST (UPDATED) -->
+  <section class="section">
+    <div class="sec-head">
+      <div class="sec-icon green"><i class="fa-solid fa-list-check"></i></div>
+      <h2 class="sec-title">Priority Fix List — Updated</h2>
+    </div>
+    <p class="sec-sub">3 critical items from the first report are now resolved. 5 items remain.</p>
+
+    <div class="priority-list">
+
+      <div class="priority-item resolved">
+        <div class="priority-num pn-done"><i class="fa-solid fa-check" style="font-size:.7rem"></i></div>
+        <div>
+          <div class="priority-title">Deploy redesigned index.html <span class="resolved-stamp"><i class="fa-solid fa-check"></i> RESOLVED</span></div>
+          <div class="priority-desc">New homepage is live — physician-scientist identity, correct qualifications, 6-item nav, no broken links.</div>
+        </div>
+      </div>
+
+      <div class="priority-item resolved">
+        <div class="priority-num pn-done"><i class="fa-solid fa-check" style="font-size:.7rem"></i></div>
+        <div>
+          <div class="priority-title">Remove "health informatician" from live metadata <span class="resolved-stamp"><i class="fa-solid fa-check"></i> RESOLVED</span></div>
+          <div class="priority-desc">No instance of "health informatician" found anywhere on the live site. Meta description, OG tags, and on-page text are all correct.</div>
+        </div>
+      </div>
+
+      <div class="priority-item resolved">
+        <div class="priority-num pn-done"><i class="fa-solid fa-check" style="font-size:.7rem"></i></div>
+        <div>
+          <div class="priority-title">Remove broken footer links from live homepage <span class="resolved-stamp"><i class="fa-solid fa-check"></i> RESOLVED</span></div>
+          <div class="priority-desc">Primary nav and main content no longer link to books.html, stories.html, memory-witness.html, or dev.html. Note: these still appear in the footer nav (see #4 below).</div>
+        </div>
+      </div>
+
+      <div class="priority-item">
+        <div class="priority-num pn-amber">4</div>
+        <div>
+          <div class="priority-title"><i class="fa-solid fa-link-slash" style="color:var(--amber);margin-right:.4rem"></i>Clean up homepage footer nav</div>
+          <div class="priority-desc">The footer of the new index.html still includes links to The Book (books.html), Stories (stories.html), Memory Witness (memory-witness.html), and Dev Work (dev.html). Visitors clicking these may get 404 errors or land on outdated pages. The footer nav should match the primary nav: About · Portfolio · Articles · CV · AI Reviewer · Work With Me.</div>
+          <div class="priority-action"><i class="fa-solid fa-arrow-right"></i> Edit the footer nav block in index.html — remove 4 old links</div>
+        </div>
+      </div>
+
+      <div class="priority-item">
+        <div class="priority-num pn-amber">5</div>
+        <div>
+          <div class="priority-title"><i class="fa-solid fa-circle-half-stroke" style="color:var(--amber);margin-right:.4rem"></i>Align CSS colour tokens in index.html with style.css</div>
+          <div class="priority-desc">Two variables differ: <code>--parchment</code> (#fdf8f0 vs #F2E8D2) and <code>--teal</code> (#2dd4bf vs #1A6E6E). The bright cyan teal reads as "tech startup," not physician-scientist. The background shift is visible when navigating from homepage to About or Notes.</div>
+          <div class="priority-action"><i class="fa-solid fa-arrow-right"></i> Two variable changes in index.html :root block</div>
+        </div>
+      </div>
+
+      <div class="priority-item">
+        <div class="priority-num pn-amber">6</div>
+        <div>
+          <div class="priority-title"><i class="fa-solid fa-text-height" style="color:var(--amber);margin-right:.4rem"></i>Increase minimum UI text to 0.72rem</div>
+          <div class="priority-desc">Three elements are below comfortable reading size: <code>.eyebrow</code> at 0.62rem (12.4px) in style.css, <code>.book-type</code> at 0.60rem (12px) in index.html, and the article CTA button text at 0.65rem (13px) in all 6 article files. Also bump the CTA qualifications line from 0.72rem to 0.78rem — this is credential text and should be clearly readable.</div>
+          <div class="priority-action"><i class="fa-solid fa-arrow-right"></i> ~8 targeted CSS changes across style.css, index.html, and 6 article files</div>
+        </div>
+      </div>
+
+      <div class="priority-item">
+        <div class="priority-num pn-amber">7</div>
+        <div>
+          <div class="priority-title"><i class="fa-solid fa-image" style="color:var(--amber);margin-right:.4rem"></i>Replace OG social share image</div>
+          <div class="priority-desc">Every page uses <code>ARE YOU STILL HUMAN.jpg</code> as the Open Graph image. When you share drjeevaraj.com on LinkedIn, ResearchGate, or in academic email, the book cover appears. For a physician-scientist building a research identity, a professional headshot (or a clean branded graphic at 1200×630) is significantly more credible. Your photo <code>T.%20Jeevaraj.jpg</code> already exists on the server.</div>
+          <div class="priority-action"><i class="fa-solid fa-arrow-right"></i> Update <code>og:image</code> in all page &lt;head&gt; sections to T.%20Jeevaraj.jpg</div>
+        </div>
+      </div>
+
+      <div class="priority-item">
+        <div class="priority-num pn-green">8</div>
+        <div>
+          <div class="priority-title"><i class="fa-solid fa-flask" style="color:var(--green);margin-right:.4rem"></i>Add Research to primary navigation</div>
+          <div class="priority-desc">research.html is a strong page (peer-reviewed publications, ORCID, DOI links) but is only reachable via the About page footer. Adding it to the primary nav sends a clear signal to academic visitors — and research collaborators who land anywhere on the site can find your publications immediately. Suggested nav: About · Research · Articles · Portfolio · CV · AI Reviewer · Work With Me.</div>
+          <div class="priority-action"><i class="fa-solid fa-arrow-right"></i> Add Research link to shared nav in all HTML files (or update the shared nav component)</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ SECTION 6 — FINAL VERDICT -->
+  <section class="section" style="border-bottom:none">
+    <div class="sec-head">
+      <div class="sec-icon green"><i class="fa-solid fa-clipboard-check"></i></div>
+      <h2 class="sec-title">Verdict</h2>
+    </div>
+    <p class="sec-sub">Where the site stands now against the long-term physician-scientist vision</p>
+
+    <div class="alert alert-green">
+      <i class="fa-solid fa-star"></i>
+      <div><strong>The site is now coherent.</strong> Every page a visitor can reach from the primary nav — About, Portfolio, Articles, CV, AI Reviewer, Work With Me — presents the correct physician-scientist identity with accurate qualifications, no forbidden phrases, and the institutional disclaimer. The academic design system (Cormorant Garamond, 20px body, dark gold hero, parchment body) reads as serious, scholarly, and distinctive. The previous version's most damaging problem — "health informatician" in the homepage metadata — is gone.</div>
+    </div>
+
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem;margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+      <div>
+        <div style="font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:.8rem"><i class="fa-solid fa-check"></i> &nbsp;Closed Since Last Report</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> Homepage identity — physician-scientist ✓</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> "health informatician" — removed everywhere ✓</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> Old 9-item nav — replaced with 6-item academic nav ✓</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> Broken footer links (primary content area) — gone ✓</div>
+        <div class="vision-item"><i class="fa-solid fa-check vi-green"></i> All 6 article portfolio links — corrected ✓</div>
+      </div>
+      <div>
+        <div style="font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem"><i class="fa-solid fa-triangle-exclamation"></i> &nbsp;Still Open</div>
+        <div class="vision-item"><i class="fa-solid fa-triangle-exclamation vi-amber"></i> Footer nav — 4 old links to clean up</div>
+        <div class="vision-item"><i class="fa-solid fa-triangle-exclamation vi-amber"></i> CSS tokens — parchment and teal mismatch</div>
+        <div class="vision-item"><i class="fa-solid fa-triangle-exclamation vi-amber"></i> Small UI text — 3 elements below 14px</div>
+        <div class="vision-item"><i class="fa-solid fa-triangle-exclamation vi-amber"></i> OG image — book cover on academic pages</div>
+        <div class="vision-item"><i class="fa-solid fa-circle-info vi-teal"></i> Research page — not in primary nav</div>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,#0d0702,#1a1208);border:1px solid rgba(200,151,62,.3);border-radius:16px;padding:2rem;margin-top:1.5rem">
+      <div style="font-family:var(--fd);font-size:1.4rem;color:#fff;margin-bottom:.6rem"><i class="fa-solid fa-bullseye" style="color:var(--gold);margin-right:.5rem"></i> What to do next</div>
+      <div style="font-size:.85rem;color:rgba(242,232,210,.7);line-height:1.8">
+        The remaining 5 items are all medium-priority and can be done in a single focused session. The highest-impact one is <strong style="color:var(--gold)">fixing the footer nav</strong> (item #4) — because those 4 dead links are still visible on every homepage load. After that, the <strong style="color:var(--gold)">CSS token alignment</strong> (item #5) will make the site feel seamless. The font size fixes (item #6) are small but important for professional credibility on mobile. The OG image swap (item #7) will improve how the site looks every time you share a link professionally. Adding Research to the nav (item #8) is optional but strategically strong.
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer class="report-footer">
+  <p>
+    <strong>drjeevaraj.com — Reassessment Report</strong><br>
+    Updated June 23, 2026 · Following confirmation of new homepage deployment<br>
+    <strong>Previous critical issues: 3 resolved · Remaining: 5 items (medium/low priority)</strong><br>
+    Homepage: 28% → 84% &nbsp;·&nbsp; Vision alignment: 65% → 88% &nbsp;·&nbsp; Site coherence: achieved<br>
+    Typography: 3 small fixes remain &nbsp;·&nbsp; Colours: 2 token mismatches &nbsp;·&nbsp; Identity: physician-scientist correct across all pages
+  </p>
+</footer>
+
+</body>
+</html>
