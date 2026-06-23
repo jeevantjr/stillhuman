@@ -11,18 +11,15 @@
     gtag('js', new Date());
     gtag('config', 'G-9EW1LVGWZP');
   </script>
-  <title>About — Dr. T. Jeevaraj · Still Human</title>
-  <meta name="description" content="Dr. T. Jeevaraj — medical doctor, health informatician, and author of Are You Still Human? A physician who builds AI systems and writes about what those systems quietly do to human life.">
+  <title>About — Dr. T. Jeevaraj · Physician-Scientist · Health Informatics · Digital Health Researcher</title>
+  <meta name="description" content="Dr. T. Jeevaraj — MBBS, MCGP, MSc Biomedical Informatics, MD Health Informatics Trainee (PGIM). Clinical physician, digital health researcher, DHIS2 specialist, clinical AI reviewer, and author. Sri Lanka.">
   <meta name="author" content="Dr. T. Jeevaraj" />
   <link rel="canonical" href="https://drjeevaraj.com/about.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="About Dr. T. Jeevaraj — Physician, Author & Digital Health Researcher" />
-  <meta property="og:description" content="Dr. T. Jeevaraj is a medical doctor, health informatician, and author. He builds AI systems and writes about what those systems quietly do to human life." />
+  <meta property="og:title" content="About Dr. T. Jeevaraj — Physician-Scientist, Health Informatics Researcher, Author" />
+  <meta property="og:description" content="Dr. T. Jeevaraj is a physician, health informatics researcher, clinical AI reviewer, and author. He builds digital health systems, evaluates AI, and writes about what intelligent systems quietly do to human life." />
   <meta property="og:url" content="https://drjeevaraj.com/about.html" />
   <meta property="og:image" content="https://drjeevaraj.com/ARE%20YOU%20STILL%20HUMAN.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Are You Still Human? — book cover by Dr. T. Jeevaraj" />
   <meta property="og:site_name" content="Dr. T. Jeevaraj — Still Human" />
   <script type="application/ld+json">
   {
@@ -30,12 +27,310 @@
     "@type": "Person",
     "name": "Dr. T. Jeevaraj",
     "url": "https://drjeevaraj.com",
-    "jobTitle": "General Practitioner & Health Informatics Researcher",
-    "description": "Medical doctor, health informatician, and author. MBBS, MCGP, MSc Biomedical Informatics, MD Trainee Health Informatics. Sri Lanka.",
-    "sameAs": ["https://www.amazon.com/dp/B0H333G41P"]
+    "jobTitle": "Physician-Scientist & MD Health Informatics Trainee",
+    "description": "MBBS, MCGP, MSc Biomedical Informatics, MD Health Informatics Trainee (PGIM). Clinical physician, digital health researcher, clinical AI reviewer, and author. Sri Lanka.",
+    "sameAs": [
+      "https://orcid.org/0009-0008-5084-0258",
+      "https://scholar.google.com/citations?user=iUkxMpUAAAAJ&hl=en",
+      "https://www.researchgate.net/profile/Jeevaraaj-Thangarasa",
+      "https://www.linkedin.com/in/drjeevaraj/",
+      "https://www.amazon.com/dp/B0H333G41P"
+    ]
   }
   </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ── Identity Hero ──────────────────────── */
+    .about-hero {
+      padding: 5rem 0 4rem;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .about-hero .page-label {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+      margin-bottom: 1.8rem;
+    }
+    .about-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+    }
+    .about-hero .qualifications {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+      margin-bottom: 2rem;
+    }
+    .discipline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .discipline-tag {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      background: var(--parchment-light);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.85rem;
+      border-radius: 2rem;
+    }
+    .discipline-tag.dt-gold { border-color: rgba(200,151,62,0.5); color: var(--gold-deep); }
+    .discipline-tag.dt-teal { border-color: rgba(45,212,191,0.4); color: #0d9488; }
+
+    /* ── Photo + Identity ──────────────────── */
+    .identity-block {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 2rem;
+      align-items: flex-start;
+      max-width: 680px;
+      margin: 0 auto 3rem;
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+    }
+    .identity-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      display: block;
+    }
+    .identity-name {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .identity-quals {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+      margin-bottom: 0.8rem;
+      line-height: 1.8;
+    }
+    .identity-bio {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      color: var(--ink-mid);
+      line-height: 1.75;
+    }
+
+    /* ── Pull Quote ──────────────────────── */
+    .pull-quote {
+      background: linear-gradient(115deg, rgba(200,151,62,0.06) 0%, rgba(45,212,191,0.04) 100%);
+      border: 1px solid rgba(200,151,62,0.2);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 2rem 2.4rem;
+      max-width: 640px;
+      margin: 0 auto 3rem;
+    }
+    .pull-quote p {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.75;
+      margin: 0 0 1rem;
+    }
+    .pull-quote cite {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-style: normal;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+    }
+
+    /* ── Section head ────────────────────── */
+    .ab-sec-head {
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--label-ink);
+      margin-bottom: 1.8rem;
+      display: block;
+    }
+
+    /* ── Timeline ────────────────────────── */
+    .timeline {
+      max-width: 640px;
+      margin: 0 auto 3rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.35rem;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), var(--teal));
+      opacity: 0.3;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -1.75rem;
+      top: 0.45rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--parchment);
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+    .tl-item.tl-teal::before { background: var(--teal); box-shadow: 0 0 0 2px var(--teal); }
+    .tl-item.tl-blue::before { background: #3D6E8C; box-shadow: 0 0 0 2px #3D6E8C; }
+    .tl-year {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 0.3rem;
+    }
+    .tl-item.tl-teal .tl-year { color: #0d9488; }
+    .tl-item.tl-blue .tl-year { color: #3D6E8C; }
+    .tl-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .tl-desc {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      color: var(--ink-light);
+      line-height: 1.65;
+    }
+
+    /* ── Domain cards ─────────────────────── */
+    .domain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      max-width: 720px;
+      margin: 0 auto 3rem;
+    }
+    .domain-card {
+      background: var(--parchment-light);
+      border: 1px solid var(--border-light);
+      border-top: 3px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+    .domain-card.dc-teal { border-top-color: var(--teal); }
+    .domain-card.dc-blue { border-top-color: #3D6E8C; }
+    .domain-card.dc-green { border-top-color: #4ade80; }
+    .domain-card i {
+      font-size: 1rem;
+      color: var(--gold-deep);
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+    .domain-card.dc-teal i { color: #0d9488; }
+    .domain-card.dc-blue i { color: #3D6E8C; }
+    .domain-card.dc-green i { color: #16a34a; }
+    .domain-card h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .domain-card p {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      color: var(--ink-light);
+      line-height: 1.65;
+    }
+
+    /* ── Work list ──────────────────────── */
+    .work-list {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .work-item {
+      border-bottom: 1px solid var(--border-light);
+      padding: 1.5rem 0;
+    }
+    .work-item:last-child { border-bottom: none; }
+    .work-item-head {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      margin-bottom: 0.4rem;
+    }
+    .work-item-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .work-item-year {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      color: var(--label-ink);
+      letter-spacing: 1px;
+      font-style: italic;
+    }
+    .work-item p {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+      margin-bottom: 0.6rem;
+    }
+    .work-item-link {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--copper);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+    }
+
+    @media (max-width: 600px) {
+      .identity-block { grid-template-columns: 1fr; text-align: center; }
+      .identity-photo { margin: 0 auto; }
+      .domain-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body class="inner-page">
 
@@ -55,58 +350,73 @@
 </nav>
 
 <div class="container">
-  <div class="inner-hero">
-    <span class="page-label">A personal letter</span>
-    <h1>About the Author</h1>
-    <p class="page-sub">Not a curriculum vitae.<br>An explanation of how I arrived here.</p>
+  <div class="about-hero fade-in">
+    <span class="page-label">Who I am</span>
+    <h1>Dr. T. Jeevaraj</h1>
+    <p class="qualifications">MBBS &middot; MCGP &middot; MSc Biomedical Informatics &middot; MD Health Informatics Trainee (PGIM)</p>
+    <p style="font-family:var(--font-display);font-size:1.1rem;font-style:italic;color:var(--ink-mid);line-height:1.7;">
+      Physician. Health Informatics Researcher. Clinical AI Reviewer. Author.
+    </p>
+    <div class="discipline-tags">
+      <span class="discipline-tag dt-gold">Clinical Medicine</span>
+      <span class="discipline-tag dt-teal">Health Informatics</span>
+      <span class="discipline-tag dt-gold">DHIS2 &amp; Digital Health</span>
+      <span class="discipline-tag dt-teal">Clinical AI Evaluation</span>
+      <span class="discipline-tag">Scientific Writing</span>
+      <span class="discipline-tag">Public Health Systems</span>
+    </div>
   </div>
 </div>
 
-<section style="padding-top: 0;">
+<section style="padding-top:0;padding-bottom:0;">
   <div class="container">
 
-    <!-- Author photo + intro -->
-    <div class="fade-in" style="max-width: 640px; margin: 0 auto;">
-      <div class="author-photo-wrap" style="margin-bottom: 2.5rem;">
-        <img src="T.%20Jeevaraj.jpg" alt="Dr. T. Jeevaraj" />
-        <div>
-          <p style="font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:500; color:var(--ink); margin-bottom:0.3rem;">Dr. T. Jeevaraj</p>
-          <p style="font-size:0.78rem; color:var(--label-ink); letter-spacing:1.5px; text-transform:uppercase;">Physician &middot; Health Informatician &middot; Author</p>
-          <p style="font-size:0.8rem; color:var(--ink-light); margin-top:0.5rem;">Sri Lanka &middot; 2026</p>
-        </div>
+    <!-- Identity block -->
+    <div class="identity-block fade-in delay-1">
+      <img src="T.%20Jeevaraj.jpg" alt="Dr. T. Jeevaraj" class="identity-photo">
+      <div>
+        <p class="identity-name">Dr. T. Jeevaraj</p>
+        <p class="identity-quals">MBBS &middot; MCGP &middot; MSc Biomedical Informatics<br>MD Health Informatics Trainee (PGIM)</p>
+        <p class="identity-bio">A physician-scientist based in Sri Lanka. Twenty years of clinical practice across public hospitals, peripheral care, and public health settings. Postgraduate training in biomedical informatics and health informatics. Published in BMJ Open and Jaffna Medical Journal. Featured by the World Bank. Certified in DHIS2. Author of literary nonfiction on AI and human relationships. Available for remote collaboration in digital health research, DHIS2 implementation, and clinical AI review.</p>
       </div>
     </div>
 
-    <!-- Mission Statement -->
-    <div class="mission-box fade-in delay-1">
-      <span class="mission-label">Author's Mission</span>
-      <p>
-        A physician who builds health information systems, writes literary nonfiction about what those systems quietly do to human relationships, and is still practising both.
-      </p>
+    <!-- Pull quote -->
+    <div class="pull-quote fade-in delay-1">
+      <p>&ldquo;The clinician who builds the systems, reviews the AI, and writes about what it all means for human life.&rdquo;</p>
+      <cite>Sri Lanka &nbsp;&middot;&nbsp; 2026</cite>
     </div>
 
-    <!-- Letter -->
-    <div class="letter-full fade-in delay-1">
+  </div>
+</section>
 
+<!-- Personal letter -->
+<section style="padding: 3rem 0;">
+  <div class="container">
+    <div class="fade-in" style="max-width: 640px; margin: 0 auto;">
+      <span class="ab-sec-head">A personal letter</span>
+    </div>
+
+    <div class="letter-full fade-in delay-1">
       <p class="letter-salutation">If you have come this far, then perhaps these questions interest you too.</p>
 
-      <p>I am a medical doctor. I trained in clinical medicine, and have since worked in public health information systems, digital health program development, and health informatics. I hold qualifications in MBBS, MCGP, and MSc in Biomedical Informatics, and I am currently an MD Trainee in Health Informatics at the Postgraduate Institute of Medicine, University of Colombo.</p>
+      <p>I am a medical doctor. I trained in clinical medicine and have since worked in public health information systems, digital health programme development, and health informatics. I hold qualifications in MBBS, MCGP, and MSc in Biomedical Informatics, and I am currently an MD Trainee in Health Informatics at the Postgraduate Institute of Medicine, University of Colombo.</p>
 
-      <p>Much of my working life takes place inside systems &mdash; health data platforms, AI applications, governance frameworks. I believe these tools can genuinely strengthen healthcare. I have spent years building them and advocating for them. This is not a website written by someone who fears technology.</p>
+      <p>Much of my working life takes place inside systems — health data platforms, AI applications, governance frameworks. I believe these tools can genuinely strengthen healthcare. I have spent years building them and advocating for them. This is not a website written by someone who fears technology.</p>
 
       <p>But over the years, a different question began to interest me.</p>
 
       <p>What happens when the habits we develop around technology begin to shape the way we think, remember, grieve, decide, and relate to one another? Not through dramatic transformation, but through small, almost invisible changes that accumulate quietly over time?</p>
 
-      <p>After years of refining prompts, analysing data, and managing digital systems for long hours each day, I started noticing something. The way a conversation with a friend became a scheduling calculation. The way a question to a child started to sound like a query. The way certainty was borrowed from a screen rather than felt from within. The way a person could spend a decade optimising everything at work, and then discover that grief &mdash; which does not optimise &mdash; had been quietly pre-empted along with everything else.</p>
+      <p>After years of refining prompts, analysing data, and managing digital systems for long hours each day, I started noticing something. The way a conversation with a friend became a scheduling calculation. The way a question to a child started to sound like a query. The way certainty was borrowed from a screen rather than felt from within. The way a person could spend a decade optimising everything at work, and then discover that grief — which does not optimise — had been quietly pre-empted along with everything else.</p>
 
       <p>These observations did not fit into clinical papers or technical reports. They needed a different form. So I began to write.</p>
 
-      <p>Before writing in English, I published books and essays in Tamil on history and archaeology &mdash; rooted in a long interest in memory, place, and the way the past persists inside ordinary life. That background has shaped how I approach these newer questions. I tend to think about technology the way an archaeologist thinks about artefacts: as evidence of how people actually live, not how they are supposed to.</p>
+      <p>Before writing in English, I published books and essays in Tamil on history and archaeology — rooted in a long interest in memory, place, and the way the past persists inside ordinary life. That background has shaped how I approach these newer questions. I tend to think about technology the way an archaeologist thinks about artefacts: as evidence of how people actually live, not how they are supposed to.</p>
 
       <p>This website is not a technology blog. It is not a medical column. It is a collection of stories and reflections from someone who works with intelligent systems every day and is still trying to understand what they are quietly doing to ordinary human life.</p>
 
-      <p>I write here between clinical work, research, and training &mdash; slowly, and when time allows. The writing grows from lived experience rather than intention. It does not try to solve the question it raises. It tries to name it clearly enough that you recognise it in your own life.</p>
+      <p>I write here between clinical work, research, and training — slowly, and when time allows. The writing grows from lived experience rather than intention. It does not try to solve the question it raises. It tries to name it clearly enough that you recognise it in your own life.</p>
 
       <p>If that interests you, I am glad you are here.</p>
 
@@ -114,149 +424,270 @@
         <p class="sig-name">Dr. T. Jeevaraj</p>
         <p class="sig-title">Sri Lanka &nbsp;&middot;&nbsp; 2026</p>
       </div>
+    </div>
+  </div>
+</section>
 
+<!-- Academic & Career Timeline -->
+<section style="padding: 3rem 0; background: var(--parchment);">
+  <div class="container">
+    <div class="fade-in" style="max-width: 640px; margin: 0 auto 2.5rem;">
+      <span class="ab-sec-head">Academic &amp; professional journey</span>
+      <p style="font-family:var(--font-display);font-size:1.1rem;font-style:italic;color:var(--ink-mid);line-height:1.7;">From peripheral clinic to postgraduate research — a path built across twenty years of clinical practice and informatics.</p>
     </div>
 
-    <hr class="section-rule">
+    <div class="timeline fade-in delay-1">
 
-    <!-- Why I Wrote This -->
-    <div class="fade-in" style="max-width: 640px; margin: 0 auto 3rem;">
-      <span style="display:block; font-size:0.65rem; letter-spacing:4px; text-transform:uppercase; color:var(--label-ink); margin-bottom:1.5rem;">Why I wrote this</span>
-      <p style="font-family:'Cormorant Garamond',serif; font-size:1.18rem; font-style:italic; color:var(--ink); line-height:1.8; margin-bottom:1.2rem;">
-        &ldquo;I had spent ten years building systems to make healthcare smarter and faster. Then I looked up and noticed what those ten years had quietly done to me &mdash; and to the people around me. There was no dramatic moment. There was just a question, arriving late.&rdquo;
-      </p>
-      <p style="font-size:0.95rem; color:var(--ink-mid); line-height:1.9;">
-        <em>Are You Still Human?</em> began not with a thesis, but with three observations I could not stop thinking about. A friend who became a calculation. A son who could name what his father was doing. A colleague who could not find her grief. I wrote the book to understand what those observations had in common &mdash; and to give the reader a chance to recognise the same thing in their own life.
-      </p>
+      <div class="tl-item">
+        <p class="tl-year">MBBS — Clinical Medicine</p>
+        <p class="tl-title">Bachelor of Medicine and Surgery</p>
+        <p class="tl-desc">Foundation in clinical medicine. Two decades of practice across public hospitals, peripheral care, and community health settings in Sri Lanka.</p>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-year">MCGP — College Membership</p>
+        <p class="tl-title">Member, College of General Practitioners</p>
+        <p class="tl-desc">General practice qualification. Extended work in primary care and preventive health across diverse populations.</p>
+      </div>
+
+      <div class="tl-item tl-teal">
+        <p class="tl-year">MSc — Postgraduate</p>
+        <p class="tl-title">MSc Biomedical Informatics</p>
+        <p class="tl-desc">Postgraduate research training at the intersection of medicine and data science. Focus on health information systems, clinical data management, and digital health implementation.</p>
+      </div>
+
+      <div class="tl-item tl-blue">
+        <p class="tl-year">2020</p>
+        <p class="tl-title">BMJ Open Publication</p>
+        <p class="tl-desc">Peer-reviewed research published in BMJ Open (University of Michigan collaboration). Establishing a foundation in published academic literature.</p>
+      </div>
+
+      <div class="tl-item tl-teal">
+        <p class="tl-year">2022</p>
+        <p class="tl-title">World Bank Recognition</p>
+        <p class="tl-desc">Research and implementation work recognised and featured in World Bank publications on digital health in South Asia.</p>
+      </div>
+
+      <div class="tl-item tl-blue">
+        <p class="tl-year">2023–2025</p>
+        <p class="tl-title">DHIS2 Certifications</p>
+        <p class="tl-desc">Three formal DHIS2 certifications: Introduction (2023), Aggregate Data Capture (2024), Aggregate Data Analysis (2025). Practical implementation of national health information systems.</p>
+      </div>
+
+      <div class="tl-item">
+        <p class="tl-year">2024</p>
+        <p class="tl-title">Jaffna Medical Journal Publication</p>
+        <p class="tl-desc">Second peer-reviewed publication in Jaffna Medical Journal. Continued contribution to the Sri Lankan medical literature.</p>
+      </div>
+
+      <div class="tl-item tl-teal">
+        <p class="tl-year">April 2026 — Present</p>
+        <p class="tl-title">MD Health Informatics Trainee (PGIM)</p>
+        <p class="tl-desc">Current postgraduate training at the Postgraduate Institute of Medicine (PGIM), University of Colombo. Batch 9. Clinical rotations across health informatics specialties with focus on digital health systems and AI governance in South Asian contexts.</p>
+      </div>
+
     </div>
+  </div>
+</section>
 
-    <!-- Credentials -->
+<!-- Credentials block -->
+<section style="padding: 3rem 0;">
+  <div class="container">
+    <div class="fade-in" style="max-width: 640px; margin: 0 auto 2rem;">
+      <span class="ab-sec-head">Credentials &amp; recognition</span>
+    </div>
     <div class="credentials-block fade-in delay-1">
       <span class="cred-label">Professional Credentials</span>
       <ul class="credentials-list">
         <li>MBBS — Bachelor of Medicine and Surgery</li>
         <li>MCGP — Member, College of General Practitioners</li>
         <li>MSc Biomedical Informatics</li>
-        <li>MD Trainee, Health Informatics — PGIM, University of Colombo</li>
-        <li>Disease surveillance system development</li>
+        <li>MD Trainee, Health Informatics — PGIM, University of Colombo (Batch 9, 2026)</li>
+        <li>DHIS2 Certified — Introduction (2023), Aggregate Data Capture (2024), Aggregate Data Analysis (2025)</li>
+        <li>Published — BMJ Open (2020), Jaffna Medical Journal (2024)</li>
+        <li>World Bank featured — Digital Health, South Asia (2022)</li>
+        <li>Disease surveillance system development — Sri Lanka</li>
         <li>Emergency response &amp; disaster health applications</li>
-        <li>Public health data platforms, Sri Lanka</li>
         <li>Author — Tamil works on history, archaeology, epigraphy &amp; poetry</li>
         <li>State Literary Award 2023 &nbsp;&middot;&nbsp; Best Book Awards 2022 &amp; 2023</li>
+        <li>ORCID iD: 0009-0008-5084-0258</li>
       </ul>
     </div>
-
-    <hr class="section-rule">
-
-    <!-- Work summary -->
-    <div class="fade-in delay-1" style="max-width: 640px; margin: 0 auto;">
-      <span style="display:block; font-size:0.65rem; letter-spacing:4px; text-transform:uppercase; color:var(--label-ink); margin-bottom:1.5rem;">The work</span>
-
-      <div style="border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 1.5rem;">
-        <p style="font-size:0.97rem; color:var(--ink); margin-bottom:0.3rem;"><strong>Are You Still Human?</strong> <span style="font-style:italic; color:var(--ink-light);">(2026)</span></p>
-        <p style="font-size:0.9rem; color:var(--ink-light); margin-bottom:0.8rem;">First English book &mdash; a short literary nonfiction work. Three true stories, ten patterns, one quiet choice.</p>
-        <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" class="amazon-btn-primary" style="font-size:0.78rem; padding:0.55rem 1.4rem;">
-          Read on Amazon Kindle &rarr;
-        </a>
-        <span style="display:inline-block; margin-left:0.8rem; font-size:0.68rem; color:var(--label-ink); letter-spacing:1px;">$2.99 · Free with KU</span>
-      </div>
-
-      <div style="border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 1.5rem;">
-        <p style="font-size:0.97rem; color:var(--ink); margin-bottom:0.3rem;"><strong>The Memory Witness</strong> <span style="font-style:italic; color:var(--ink-light);">(in development)</span></p>
-        <p style="font-size:0.9rem; color:var(--ink-light); margin-bottom:0.5rem;">A psychological novel set in near-future Sri Lanka. Alzheimer&rsquo;s disease, AI memory reconstruction, and a fifty-year family secret.</p>
-        <a href="memory-witness.html" style="font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:var(--copper); text-decoration:none; border-bottom:1px solid var(--border); padding-bottom:2px;">
-          Development journal &rarr;
-        </a>
-      </div>
-
-      <div style="border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 1.5rem;">
-        <p style="font-size:0.97rem; color:var(--ink); margin-bottom:0.3rem;"><strong>Stories &amp; Notes</strong></p>
-        <p style="font-size:0.9rem; color:var(--ink-light); margin-bottom:0.5rem;">Ongoing writing published freely on this website &mdash; short stories, observations, and literary reflections.</p>
-        <a href="stories.html" style="font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:var(--copper); text-decoration:none; border-bottom:1px solid var(--border); padding-bottom:2px;">
-          Browse the collection &rarr;
-        </a>
-      </div>
-
-      <div>
-        <p style="font-size:0.97rem; color:var(--ink); margin-bottom:0.3rem;"><strong>Digital Health Projects</strong></p>
-        <p style="font-size:0.9rem; color:var(--ink-light); margin-bottom:0.5rem;">Disease surveillance, emergency response tools, public health data platforms, and more &mdash; built and deployed in Sri Lanka.</p>
-        <a href="dev.html" style="font-size:0.72rem; letter-spacing:2px; text-transform:uppercase; color:var(--copper); text-decoration:none; border-bottom:1px solid var(--border); padding-bottom:2px;">
-          View developer portfolio &rarr;
-        </a>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- Connect section -->
+<!-- Domains of expertise -->
+<section style="padding: 3rem 0; background: var(--parchment);">
+  <div class="container">
+    <div class="fade-in" style="max-width: 720px; margin: 0 auto 2rem;">
+      <span class="ab-sec-head">Domains of expertise</span>
+      <p style="font-family:var(--font-display);font-size:1.1rem;font-style:italic;color:var(--ink-mid);line-height:1.7;">The work spans four interconnected domains — each grounded in clinical practice, each shaped by twenty years of ground-level experience.</p>
+    </div>
+
+    <div class="domain-grid fade-in delay-1">
+
+      <div class="domain-card">
+        <i class="fa-solid fa-database"></i>
+        <h4>Health Information Systems</h4>
+        <p>DHIS2 implementation and evaluation. National disease surveillance. Public health data platforms. Experience across design, deployment, and frontline reality in Sri Lankan health systems.</p>
+      </div>
+
+      <div class="domain-card dc-teal">
+        <i class="fa-solid fa-robot"></i>
+        <h4>Clinical AI Evaluation</h4>
+        <p>Medical review and quality assurance of AI-generated clinical content. Annotation, assessment, and governance of healthcare AI tools. Experienced evaluator for platforms requiring physician-level clinical reasoning.</p>
+      </div>
+
+      <div class="domain-card dc-blue">
+        <i class="fa-solid fa-microscope"></i>
+        <h4>Research &amp; Academic Publishing</h4>
+        <p>Peer-reviewed research in BMJ Open and Jaffna Medical Journal. World Bank–featured implementation work. Postgraduate training at PGIM. Focus on digital health, health informatics, and implementation science.</p>
+      </div>
+
+      <div class="domain-card dc-green">
+        <i class="fa-solid fa-pen-nib"></i>
+        <h4>Scientific Communication &amp; Writing</h4>
+        <p>Articles on clinical AI, digital health governance, and health informatics — written from the perspective of a practising physician. Author of literary nonfiction in both English and Tamil. State Literary Award 2023.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Published work -->
+<section style="padding: 3rem 0;">
+  <div class="container">
+    <div class="fade-in" style="max-width: 640px; margin: 0 auto 2rem;">
+      <span class="ab-sec-head">Published work &amp; projects</span>
+    </div>
+    <div class="work-list fade-in delay-1">
+
+      <div class="work-item">
+        <div class="work-item-head">
+          <span class="work-item-title">Are You Still Human?</span>
+          <span class="work-item-year">2026</span>
+        </div>
+        <p>First English book — a short literary nonfiction work. Three true stories, ten patterns, one quiet choice. What intelligent systems are quietly doing to ordinary human life.</p>
+        <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" class="work-item-link">Read on Amazon Kindle &rarr;</a>
+      </div>
+
+      <div class="work-item">
+        <div class="work-item-head">
+          <span class="work-item-title">BMJ Open Publication</span>
+          <span class="work-item-year">2020</span>
+        </div>
+        <p>Peer-reviewed original research. Collaborative work with University of Michigan. Available with full DOI on ORCID profile.</p>
+        <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener" class="work-item-link">View on ORCID &rarr;</a>
+      </div>
+
+      <div class="work-item">
+        <div class="work-item-head">
+          <span class="work-item-title">Jaffna Medical Journal</span>
+          <span class="work-item-year">2024</span>
+        </div>
+        <p>Second peer-reviewed publication. Contributing to the Sri Lankan medical research literature on digital health and health informatics.</p>
+        <a href="portfolio.html" class="work-item-link">See full portfolio &rarr;</a>
+      </div>
+
+      <div class="work-item">
+        <div class="work-item-head">
+          <span class="work-item-title">Digital Health Systems — Sri Lanka</span>
+          <span class="work-item-year">Ongoing</span>
+        </div>
+        <p>Disease surveillance, emergency response tools, public health data platforms. Eight systems built and deployed across public health programmes in Sri Lanka.</p>
+        <a href="portfolio.html" class="work-item-link">View development portfolio &rarr;</a>
+      </div>
+
+      <div class="work-item">
+        <div class="work-item-head">
+          <span class="work-item-title">Articles &amp; Insights</span>
+          <span class="work-item-year">2024–2026</span>
+        </div>
+        <p>Six published articles on clinical AI, health informatics, and digital health governance — written for a thinking general audience by a practising physician.</p>
+        <a href="notes.html" class="work-item-link">Read the articles &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Connect -->
 <section class="alt" style="padding: 4rem 0;">
   <div class="container">
     <div class="section-heading fade-in" style="margin-bottom: 2.5rem;">
       <span class="section-ornament">&#10022;</span>
       <h2>Connect</h2>
       <div class="gold-rule"></div>
+      <p class="sec-sub">The writing and the work live across several platforms. You are welcome to follow, connect, or read wherever you prefer.</p>
     </div>
 
     <div class="fade-in delay-1" style="max-width: 580px; margin: 0 auto; text-align: center;">
-      <p style="font-size: 0.95rem; color: var(--ink-mid); line-height: 1.9; margin-bottom: 2.5rem;">
-        The writing and the work live across several platforms.<br>
-        You are welcome to follow, connect, or read wherever you prefer.
-      </p>
-
       <div class="social-links light" style="gap: 0.8rem 2rem; font-size: 0.75rem;">
-        <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener">X &nbsp;/&nbsp; Twitter</a>
         <a href="https://www.linkedin.com/in/drjeevaraj/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener">Amazon Author Page</a>
-        <a href="https://medium.com/@geevanathy12045tv" target="_blank" rel="noopener">Medium</a>
+        <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://scholar.google.com/citations?user=iUkxMpUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.researchgate.net/profile/Jeevaraaj-Thangarasa" target="_blank" rel="noopener">ResearchGate</a>
+        <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener">Amazon Author</a>
         <a href="https://substack.com/@drtjeevaraaj" target="_blank" rel="noopener">Substack</a>
         <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener">GitHub</a>
       </div>
 
       <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border);">
-        <p style="font-size: 0.85rem; color: var(--ink-light); margin-bottom: 1rem; font-style: italic;">
-          New writing arrives by email, when it is ready.
-        </p>
-        <a href="https://substack.com/@drtjeevaraaj" target="_blank" rel="noopener"
-           style="display: inline-block; font-family: 'Crimson Text', serif; font-size: 0.82rem; letter-spacing: 2px; text-transform: uppercase; color: var(--ink); text-decoration: none; padding: 0.7rem 1.8rem; border: 1px solid var(--border); transition: all 0.25s;">
-          Subscribe on Substack &rarr;
+        <a href="research.html" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-ui);font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-deep);border:1.5px solid var(--gold-deep);padding:0.85rem 2rem;border-radius:var(--radius-sm);text-decoration:none;margin-right:0.8rem;">
+          <i class="fa-solid fa-microscope"></i> Research Profile
+        </a>
+        <a href="portfolio.html" style="display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-ui);font-size:0.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mid);border:1.5px solid var(--border);padding:0.85rem 2rem;border-radius:var(--radius-sm);text-decoration:none;">
+          <i class="fa-solid fa-layer-group"></i> Full Portfolio
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
+<footer style="text-align:center;">
+  <span class="footer-ornament">· · ·</span>
   <p class="footer-title">Still Human</p>
   <p class="footer-tagline">Human stories in the age of artificial intelligence.</p>
+
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem 1.4rem;margin:1.2rem 0 0.8rem;font-family:var(--font-ui);font-size:0.72rem;">
+    <a href="mailto:tjeevaraj78@gmail.com" style="display:flex;align-items:center;gap:0.35rem;color:var(--ink-light);text-decoration:none;"><i class="fa-solid fa-envelope" style="color:var(--gold-deep);font-size:0.7rem;"></i>tjeevaraj78@gmail.com</a>
+    <a href="https://www.linkedin.com/in/drjeevaraj/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.35rem;color:var(--ink-light);text-decoration:none;"><i class="fa-brands fa-linkedin" style="color:var(--gold-deep);font-size:0.7rem;"></i>LinkedIn</a>
+    <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:0.35rem;color:var(--ink-light);text-decoration:none;"><i class="fa-brands fa-orcid" style="color:#A6CE39;font-size:0.7rem;"></i>ORCID</a>
+  </div>
+
+  <div class="social-links" style="margin-bottom:1rem;">
+    <a href="mailto:tjeevaraj78@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.linkedin.com/in/drjeevaraj/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://scholar.google.com/citations?user=iUkxMpUAAAAJ&hl=en" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Scholar</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.researchgate.net/profile/Jeevaraaj-Thangarasa" target="_blank" rel="noopener"><i class="fa-brands fa-researchgate"></i> ResearchGate</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener"><i class="fa-brands fa-orcid" style="color:#A6CE39;"></i> ORCID</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener"><i class="fa-brands fa-amazon"></i> Amazon</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://substack.com/@drtjeevaraaj" target="_blank" rel="noopener"><i class="fa-solid fa-rss"></i> Substack</a>
+  </div>
+
   <ul class="footer-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="books.html">The Book</a></li>
-    <li><a href="stories.html">Stories</a></li>
-    <li><a href="notes.html">Articles</a></li>
-    <li><a href="memory-witness.html">Memory Witness</a></li>
-    <li><a href="dev.html">Dev Work</a></li>
-    <li><a href="ai-reviewer.html">AI Reviewer</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="notes.html">Articles</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="ai-reviewer.html">AI Reviewer</a></li>
+    <li><a href="services.html">Work With Me</a></li>
+    <li><a href="research.html">Research</a></li>
   </ul>
-  <div class="social-links">
-    <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener">X / Twitter</a>
-    <span class="social-divider">&middot;</span>
-    <a href="https://www.linkedin.com/in/drjeevaraj/" target="_blank" rel="noopener">LinkedIn</a>
-    <span class="social-divider">&middot;</span>
-    <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener">Amazon Author</a>
-    <span class="social-divider">&middot;</span>
-    <a href="https://medium.com/@geevanathy12045tv" target="_blank" rel="noopener">Medium</a>
-    <span class="social-divider">&middot;</span>
-    <a href="https://substack.com/@drtjeevaraaj" target="_blank" rel="noopener">Substack</a>
-    <span class="social-divider">&middot;</span>
-    <a href="https://jeevantjr.github.io/github.io/" target="_blank" rel="noopener">GitHub</a>
-    <span class="social-divider">&middot;</span>
-    <a href="https://www.researchgate.net/profile/Jeevaraaj-Thangarasa" target="_blank" rel="noopener">ResearchGate</a>
-    <span class="social-divider">&middot;</span>
-    <a href="https://scholar.google.com/citations?user=iUkxMpUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-  </div>
-  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human</p>
+
+  <p style="font-family:var(--font-ui);font-size:0.65rem;color:var(--ink-light);max-width:580px;margin:1.2rem auto 0.5rem;line-height:1.7;opacity:0.7;">
+    All content on this website reflects the personal views, analyses, and creative work of the author. It is published in a personal capacity and does not represent the views, positions, or endorsements of any affiliated institution, employer, or organization. The content is intended solely for informational and academic discussion purposes.
+  </p>
+  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human &nbsp;&middot;&nbsp; Sri Lanka</p>
 </footer>
 
 <script>
