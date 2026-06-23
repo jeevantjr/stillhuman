@@ -25,6 +25,106 @@
   <link rel="stylesheet" href="style.css">
   <style>
 
+    /* ── HERO ──────────────────────────────────── */
+    .port-hero {
+      background: linear-gradient(135deg, #1a1208 0%, #2c1f0e 40%, #1A6E6E 100%);
+      padding: 4.5rem 0 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .port-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(200,151,62,0.18) 1px, transparent 0);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+    .port-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--teal), var(--gold));
+    }
+    .port-hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .port-hero-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .port-hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 300;
+      color: #F2E8D2;
+      line-height: 1.1;
+      margin: 0 0 0.8rem;
+      letter-spacing: -0.01em;
+    }
+    .port-hero-sub {
+      font-family: var(--font-body);
+      font-size: 0.97rem;
+      color: rgba(242,232,210,0.75);
+      max-width: 560px;
+      line-height: 1.8;
+      margin: 0 0 2.5rem;
+    }
+
+    /* ── Hero stat row ───────────────────────── */
+    .port-hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(200,151,62,0.3);
+      border-radius: 6px;
+      overflow: hidden;
+      width: fit-content;
+      max-width: 100%;
+    }
+    .phs-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 1.8rem;
+      gap: 0.2rem;
+    }
+    .phs-item:not(:last-child) {
+      border-right: 1px solid rgba(200,151,62,0.2);
+    }
+    .phs-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .phs-label {
+      font-family: var(--font-ui);
+      font-size: 0.56rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(242,232,210,0.65);
+      text-align: center;
+      line-height: 1.4;
+    }
+
     /* ── Portfolio layout ─────────────────────── */
     .port-wrap {
       max-width: 880px;
@@ -32,29 +132,73 @@
       padding: 0 0 5rem;
     }
 
-    /* ── Section header ──────────────────────── */
-    .port-sec-head {
+    /* ── Section band ────────────────────────── */
+    .port-sec-band {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 1rem;
+      padding: 1.1rem 1.6rem;
+      border-radius: 6px;
+      margin-bottom: 1.8rem;
+      margin-top: 3.5rem;
+    }
+    .port-sec-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+    }
+    .port-sec-label {
       font-family: var(--font-ui);
       font-size: 0.6rem;
       font-weight: 700;
-      letter-spacing: 5px;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--gold-deep);
-      border-bottom: 1px solid var(--border-light);
-      padding-bottom: 0.75rem;
-      margin-bottom: 2rem;
-      margin-top: 3.5rem;
     }
-    .port-sec-head i { font-size: 0.7rem; color: var(--gold); }
-    .port-sec-head.psh-teal  { color: var(--teal);   border-color: rgba(26,110,110,0.3); }
-    .port-sec-head.psh-blue  { color: #3D6E8C;       border-color: rgba(61,110,140,0.3); }
-    .port-sec-head.psh-green { color: #4F7D52;       border-color: rgba(79,125,82,0.3); }
-    .port-sec-head.psh-teal i  { color: var(--teal); }
-    .port-sec-head.psh-blue i  { color: #3D6E8C; }
-    .port-sec-head.psh-green i { color: #4F7D52; }
+    /* gold band */
+    .psb-gold {
+      background: linear-gradient(90deg, rgba(200,151,62,0.12) 0%, rgba(200,151,62,0.04) 100%);
+      border: 1px solid rgba(200,151,62,0.22);
+      border-left: 4px solid var(--gold);
+    }
+    .psb-gold .port-sec-icon { background: rgba(200,151,62,0.15); color: var(--gold-deep); }
+    .psb-gold .port-sec-label { color: var(--gold-deep); }
+    /* teal band */
+    .psb-teal {
+      background: linear-gradient(90deg, rgba(26,110,110,0.10) 0%, rgba(26,110,110,0.03) 100%);
+      border: 1px solid rgba(26,110,110,0.2);
+      border-left: 4px solid var(--teal);
+    }
+    .psb-teal .port-sec-icon { background: rgba(26,110,110,0.12); color: var(--teal); }
+    .psb-teal .port-sec-label { color: var(--teal); }
+    /* blue band */
+    .psb-blue {
+      background: linear-gradient(90deg, rgba(61,110,140,0.10) 0%, rgba(61,110,140,0.03) 100%);
+      border: 1px solid rgba(61,110,140,0.2);
+      border-left: 4px solid #3D6E8C;
+    }
+    .psb-blue .port-sec-icon { background: rgba(61,110,140,0.12); color: #3D6E8C; }
+    .psb-blue .port-sec-label { color: #3D6E8C; }
+    /* green band */
+    .psb-green {
+      background: linear-gradient(90deg, rgba(79,125,82,0.10) 0%, rgba(79,125,82,0.03) 100%);
+      border: 1px solid rgba(79,125,82,0.2);
+      border-left: 4px solid #4F7D52;
+    }
+    .psb-green .port-sec-icon { background: rgba(79,125,82,0.12); color: #4F7D52; }
+    .psb-green .port-sec-label { color: #4F7D52; }
+    /* copper band */
+    .psb-copper {
+      background: linear-gradient(90deg, rgba(168,120,48,0.10) 0%, rgba(168,120,48,0.03) 100%);
+      border: 1px solid rgba(168,120,48,0.2);
+      border-left: 4px solid var(--copper);
+    }
+    .psb-copper .port-sec-icon { background: rgba(168,120,48,0.12); color: var(--copper); }
+    .psb-copper .port-sec-label { color: var(--copper); }
 
     /* ── Impact badge ────────────────────────── */
     .impact-badge {
@@ -88,19 +232,34 @@
 
     /* ── Portfolio card ──────────────────────── */
     .port-card {
-      background: var(--parchment-light);
+      background: linear-gradient(135deg, #fffef9 0%, var(--parchment-light) 100%);
       border: 1px solid var(--border-light);
       border-left: 4px solid var(--gold);
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
       padding: 1.8rem 2rem;
       margin-bottom: 1.4rem;
       transition: box-shadow var(--t), transform var(--t);
+      position: relative;
+      overflow: hidden;
     }
-    .port-card:hover { box-shadow: var(--shadow-md); transform: translateX(3px); }
+    .port-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,151,62,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .port-card:hover { box-shadow: 0 6px 24px rgba(26,18,8,0.10); transform: translateX(3px); }
     .port-card.pc-teal   { border-left-color: var(--teal); }
+    .port-card.pc-teal::before   { background: radial-gradient(circle, rgba(26,110,110,0.06) 0%, transparent 70%); }
     .port-card.pc-blue   { border-left-color: #3D6E8C; }
+    .port-card.pc-blue::before   { background: radial-gradient(circle, rgba(61,110,140,0.06) 0%, transparent 70%); }
     .port-card.pc-green  { border-left-color: #4F7D52; }
+    .port-card.pc-green::before  { background: radial-gradient(circle, rgba(79,125,82,0.06) 0%, transparent 70%); }
     .port-card.pc-copper { border-left-color: var(--copper); }
+    .port-card.pc-copper::before { background: radial-gradient(circle, rgba(168,120,48,0.06) 0%, transparent 70%); }
 
     .port-card-header {
       display: flex;
@@ -143,8 +302,14 @@
     .port-detail-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.6rem 1.5rem;
+      gap: 0.8rem 1.5rem;
       margin-bottom: 1.2rem;
+    }
+    .port-detail-item {
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(200,151,62,0.1);
+      border-radius: 4px;
+      padding: 0.65rem 0.9rem;
     }
     .port-detail-label {
       font-family: var(--font-ui);
@@ -154,7 +319,7 @@
       text-transform: uppercase;
       color: var(--label-ink);
       display: block;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
     }
     .port-detail-value {
       font-family: var(--font-ui);
@@ -181,28 +346,47 @@
       text-transform: uppercase;
       color: var(--copper-light);
       border: 1px solid var(--border);
-      padding: 3px 11px;
+      padding: 4px 12px;
       border-radius: 2px;
       text-decoration: none;
       transition: all var(--t);
     }
     .port-link:hover { background: rgba(200,151,62,0.08); border-color: var(--gold); color: var(--gold-deep); }
 
-    /* ── Articles mini-cards ─────────────────── */
+    /* ── Articles grid ───────────────────────── */
     .articles-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
     .article-mini {
-      background: var(--parchment-light);
+      background: linear-gradient(145deg, #fffef9, var(--parchment-light));
       border: 1px solid var(--border-light);
-      border-top: 2px solid var(--teal);
       border-radius: var(--radius-md);
-      padding: 1.2rem 1.4rem;
+      padding: 1.3rem 1.4rem;
       transition: box-shadow var(--t), transform var(--t);
+      position: relative;
+      overflow: hidden;
     }
-    .article-mini:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .article-mini::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), rgba(26,110,110,0.3));
+    }
+    .article-mini:hover { box-shadow: 0 4px 18px rgba(26,18,8,0.09); transform: translateY(-2px); }
+    .article-mini-icon {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(26,110,110,0.1);
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
     .article-mini-num {
       font-family: var(--font-ui);
       font-size: 0.52rem;
@@ -210,7 +394,7 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--teal);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
       display: block;
     }
     .article-mini h4 {
@@ -226,7 +410,7 @@
       font-size: 0.72rem;
       color: var(--ink-light);
       line-height: 1.55;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.8rem;
     }
 
     /* ── Trust strip ─────────────────────────── */
@@ -235,7 +419,7 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       justify-content: center;
-      margin: 2rem 0;
+      margin: 0 0 0.5rem;
     }
     .trust-chip {
       display: inline-flex;
@@ -249,39 +433,80 @@
       color: var(--ink-light);
       border: 1px solid var(--border-light);
       border-radius: 20px;
-      padding: 0.3rem 0.9rem;
+      padding: 0.35rem 1rem;
+      background: rgba(255,255,255,0.7);
     }
     .trust-chip i { color: var(--gold-deep); font-size: 0.6rem; }
 
+    /* ── Callout box ─────────────────────────── */
+    .port-callout {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: linear-gradient(90deg, rgba(26,110,110,0.07), rgba(26,110,110,0.02));
+      border: 1px solid rgba(26,110,110,0.18);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 6px 6px 0;
+      padding: 1.1rem 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .port-callout i { color: var(--teal); font-size: 1rem; margin-top: 0.1rem; flex-shrink: 0; }
+    .port-callout p {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      margin: 0;
+    }
+
     /* ── CTA ─────────────────────────────────── */
     .port-cta {
-      background: linear-gradient(115deg, rgba(200,151,62,0.10) 0%, rgba(242,232,210,0.4) 100%);
-      border: 1px solid rgba(200,151,62,0.25);
+      background: linear-gradient(135deg, #1a1208 0%, #2c1f0e 60%, rgba(26,110,110,0.5) 100%);
       border-radius: var(--radius-md);
-      padding: 2.5rem 2rem;
+      padding: 3rem 2.5rem;
       text-align: center;
       margin-top: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .port-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(200,151,62,0.15) 1px, transparent 0);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    .port-cta::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--teal), var(--gold));
     }
     .port-cta h2 {
       font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 0.6rem;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #F2E8D2;
+      margin-bottom: 0.7rem;
+      position: relative;
     }
     .port-cta p {
       font-family: var(--font-body);
       font-size: 0.95rem;
-      color: var(--ink-mid);
+      color: rgba(242,232,210,0.75);
       max-width: 520px;
-      margin: 0 auto 1.8rem;
+      margin: 0 auto 2rem;
       line-height: 1.8;
+      position: relative;
     }
     .port-cta-btns {
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
       justify-content: center;
+      position: relative;
     }
     .port-btn-primary {
       display: inline-flex;
@@ -299,31 +524,35 @@
       text-decoration: none;
       transition: all var(--t);
     }
-    .port-btn-primary:hover { background: var(--copper); color: #fff; box-shadow: var(--shadow-md); }
+    .port-btn-primary:hover { background: var(--copper); color: #fff; box-shadow: 0 4px 20px rgba(200,151,62,0.4); }
     .port-btn-secondary {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       background: transparent;
-      color: var(--gold-deep);
+      color: var(--gold);
       font-family: var(--font-ui);
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
       padding: 0.85rem 2rem;
-      border: 1.5px solid var(--gold-deep);
+      border: 1.5px solid rgba(200,151,62,0.5);
       border-radius: var(--radius-sm);
       text-decoration: none;
       transition: all var(--t);
     }
-    .port-btn-secondary:hover { background: rgba(200,151,62,0.08); }
+    .port-btn-secondary:hover { background: rgba(200,151,62,0.12); border-color: var(--gold); }
 
     /* ── Responsive ──────────────────────────── */
     @media (max-width: 640px) {
+      .port-hero { padding: 3rem 0 2.5rem; }
+      .phs-item { padding: 0.8rem 1rem; }
+      .phs-num { font-size: 1.5rem; }
       .port-detail-grid { grid-template-columns: 1fr; }
       .articles-grid { grid-template-columns: 1fr; }
       .port-card-header { flex-direction: column; }
+      .port-hero-stats { width: 100%; }
     }
   </style>
 </head>
@@ -345,37 +574,68 @@
   </ul>
 </nav>
 
-<!-- ── PAGE HEADER ─────────────────────────────── -->
-<div class="container">
-  <div class="inner-hero">
-    <span class="page-label">What I have built</span>
-    <h1>Development Portfolio</h1>
-    <p class="page-sub">Peer-Reviewed Publications · Research · Digital Health Systems · Written Work</p>
+<!-- ── HERO ────────────────────────────────────── -->
+<div class="port-hero">
+  <div class="port-hero-inner">
+    <div class="port-hero-eyebrow">
+      <i class="fa-solid fa-layer-group"></i> Development Portfolio
+    </div>
+    <h1 class="port-hero-h1">Evidence of Practice</h1>
+    <p class="port-hero-sub">Peer-reviewed publications, international recognition, digital health systems, clinical AI evaluation, and six years of published analysis — all built during active clinical service in Sri Lanka.</p>
+
+    <div class="port-hero-stats">
+      <div class="phs-item">
+        <span class="phs-num">2</span>
+        <span class="phs-label">Peer-Reviewed<br>Publications</span>
+      </div>
+      <div class="phs-item">
+        <span class="phs-num">1</span>
+        <span class="phs-label">World Bank<br>Feature</span>
+      </div>
+      <div class="phs-item">
+        <span class="phs-num">8</span>
+        <span class="phs-label">Digital Health<br>Tools Built</span>
+      </div>
+      <div class="phs-item">
+        <span class="phs-num">20<span style="font-size:1.2rem">+</span></span>
+        <span class="phs-label">Years in<br>Medicine</span>
+      </div>
+      <div class="phs-item">
+        <span class="phs-num">6</span>
+        <span class="phs-label">Published<br>Articles</span>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- ── TRUST STRIP ──────────────────────────────── -->
-<div class="container">
-  <div class="trust-strip fade-in">
-    <span class="trust-chip"><i class="fa-solid fa-flask"></i> BMJ Open Published · 2020</span>
-    <span class="trust-chip"><i class="fa-solid fa-earth-asia"></i> World Bank Featured · 2022</span>
-    <span class="trust-chip"><i class="fa-solid fa-database"></i> DHIS2 Certified · HISP/Oslo</span>
-    <span class="trust-chip"><i class="fa-solid fa-stethoscope"></i> 20+ Years Clinical Experience</span>
-    <span class="trust-chip"><i class="fa-brands fa-orcid" style="color:#A6CE39;"></i> ORCID Registered</span>
-    <span class="trust-chip"><i class="fa-solid fa-globe"></i> Remote · Worldwide</span>
+<div style="background:var(--parchment);border-bottom:1px solid var(--border-light);padding:1.2rem 0;">
+  <div class="container">
+    <div class="trust-strip">
+      <span class="trust-chip"><i class="fa-solid fa-flask"></i> BMJ Open Published · 2020</span>
+      <span class="trust-chip"><i class="fa-solid fa-earth-asia"></i> World Bank Featured · 2022</span>
+      <span class="trust-chip"><i class="fa-solid fa-database"></i> DHIS2 Certified · HISP/Oslo</span>
+      <span class="trust-chip"><i class="fa-solid fa-stethoscope"></i> 20+ Years Clinical Experience</span>
+      <span class="trust-chip"><i class="fa-brands fa-orcid" style="color:#A6CE39;"></i> ORCID Registered</span>
+      <span class="trust-chip"><i class="fa-solid fa-globe"></i> Remote · Worldwide</span>
+    </div>
   </div>
 </div>
 
 <!-- ── PORTFOLIO CONTENT ─────────────────────────── -->
-<section style="padding-top: 0;">
+<section style="padding-top: 0; background: #fafaf6;">
   <div class="container">
     <div class="port-wrap">
 
       <!-- ════════════════════════════════════════
            SECTION 1: PEER-REVIEWED PUBLICATIONS
            ════════════════════════════════════════ -->
-      <div class="port-sec-head">
-        <i class="fa-solid fa-microscope"></i> Peer-Reviewed Publications
+      <div class="port-sec-band psb-gold fade-in">
+        <div class="port-sec-icon"><i class="fa-solid fa-microscope"></i></div>
+        <div>
+          <div class="port-sec-label">Section 01</div>
+          <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--ink);margin-top:0.1rem;">Peer-Reviewed Publications</div>
+        </div>
       </div>
 
       <!-- BMJ Open -->
@@ -387,20 +647,20 @@
         </div>
         <p class="port-impact-line">International peer-reviewed publication in one of the world's most widely read open-access medical journals — in collaboration with the University of Michigan.</p>
         <div class="port-detail-grid">
-          <div>
-            <span class="port-detail-label">What I Did</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-user-pen" style="margin-right:4px;color:var(--gold-deep);"></i>What I Did</span>
             <span class="port-detail-value">Field data collection in Sri Lanka; co-author on the analysis team with the University of Michigan, Division of Metabolism, Endocrinology &amp; Diabetes.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Scale &amp; Reach</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-chart-line" style="margin-right:4px;color:var(--gold-deep);"></i>Scale &amp; Reach</span>
             <span class="port-detail-value">BMJ Open — indexed in PubMed, PubMed Central (full text), and internationally distributed. PMID: 32690534.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Research Question</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-circle-question" style="margin-right:4px;color:var(--gold-deep);"></i>Research Question</span>
             <span class="port-detail-value">Can HbA1c values be reliably imputed from point-of-care capillary blood glucose in a resource-constrained South Asian diabetes population?</span>
           </div>
-          <div>
-            <span class="port-detail-label">Outcome</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-check-circle" style="margin-right:4px;color:var(--gold-deep);"></i>Outcome</span>
             <span class="port-detail-value">Published July 2020. Demonstrates capacity for rigorous quantitative clinical research and international academic collaboration. Free full-text via PMC.</span>
           </div>
         </div>
@@ -414,27 +674,27 @@
 
       <!-- Jaffna Medical Journal -->
       <div class="port-card fade-in delay-1">
-        <div class="impact-badge impact-high">Peer-Reviewed · 2024</div>
+        <div class="impact-badge impact-high"><i class="fa-solid fa-hospital"></i> Peer-Reviewed · 2024</div>
         <div class="port-card-header">
           <h3>Correlation Between Global Longitudinal Strain by Speckle Tracking Echocardiography and Coronary Angiogram Finding in Patients with Suspected Chronic Stable Angina</h3>
           <span class="port-meta">Jaffna Medical Journal</span>
         </div>
         <p class="port-impact-line">Multi-centre clinical study across three major teaching and district hospitals in Sri Lanka, evaluating a diagnostic imaging technique for coronary artery disease.</p>
         <div class="port-detail-grid">
-          <div>
-            <span class="port-detail-label">What I Did</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-user-pen" style="margin-right:4px;color:var(--teal);"></i>What I Did</span>
             <span class="port-detail-value">Data collection at District General Hospital Trincomalee; co-author. Part of a three-centre collaboration with Teaching Hospitals Kandy and Jaffna.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Scale &amp; Reach</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-chart-line" style="margin-right:4px;color:var(--teal);"></i>Scale &amp; Reach</span>
             <span class="port-detail-value">78 patients. Jaffna Medical Journal Vol. 36, Issue 2, December 2024. doi: 10.4038/jmj.v36i2.221.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Outcome</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-check-circle" style="margin-right:4px;color:var(--teal);"></i>Outcome</span>
             <span class="port-detail-value">GLS cutoff of −19 demonstrated clinically useful diagnostic performance for CAD detection. Peer-reviewed. Published December 2024.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Co-Authors</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-users" style="margin-right:4px;color:var(--teal);"></i>Co-Authors</span>
             <span class="port-detail-value">Jeyakanth T, Mayurathan G, Kularatne A, Prashanthi J, Abeysingha T.</span>
           </div>
         </div>
@@ -446,8 +706,12 @@
       <!-- ════════════════════════════════════════
            SECTION 2: INTERNATIONAL RECOGNITION
            ════════════════════════════════════════ -->
-      <div class="port-sec-head psh-blue">
-        <i class="fa-solid fa-earth-asia"></i> International Recognition
+      <div class="port-sec-band psb-blue fade-in">
+        <div class="port-sec-icon"><i class="fa-solid fa-earth-asia"></i></div>
+        <div>
+          <div class="port-sec-label">Section 02</div>
+          <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--ink);margin-top:0.1rem;">International Recognition</div>
+        </div>
       </div>
 
       <!-- World Bank -->
@@ -459,20 +723,20 @@
         </div>
         <p class="port-impact-line">Featured in a World Bank publication for achieving one of the highest NCD screening rates in Sri Lanka under the Primary Healthcare System Strengthening Project (PSSP).</p>
         <div class="port-detail-grid">
-          <div>
-            <span class="port-detail-label">What I Did</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-user-pen" style="margin-right:4px;color:#3D6E8C;"></i>What I Did</span>
             <span class="port-detail-value">Served as Medical Officer In Charge at Divisional Hospital Thampalakamam (2019–2022) under the World Bank PSSP. Designed and led the NCD screening programme from the ground up.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Scale &amp; Reach</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-chart-line" style="margin-right:4px;color:#3D6E8C;"></i>Scale &amp; Reach</span>
             <span class="port-detail-value">43% of the local population over 35 screened. Feature article published on the World Bank's international news platform — worldwide audience.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Context</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-location-dot" style="margin-right:4px;color:#3D6E8C;"></i>Context</span>
             <span class="port-detail-value">Thampalakamam, Trincomalee District — a post-conflict peripheral health setting with limited specialist support and constrained resources.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Outcome</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-check-circle" style="margin-right:4px;color:#3D6E8C;"></i>Outcome</span>
             <span class="port-detail-value">Named individually in the World Bank article. Real-world programme impact in a hard-to-reach community. Demonstrates leadership in public health at peripheral level.</span>
           </div>
         </div>
@@ -484,33 +748,37 @@
       <!-- ════════════════════════════════════════
            SECTION 3: DHIS2 & DIGITAL HEALTH
            ════════════════════════════════════════ -->
-      <div class="port-sec-head psh-teal">
-        <i class="fa-solid fa-database"></i> DHIS2 &amp; Digital Health Systems
+      <div class="port-sec-band psb-teal fade-in">
+        <div class="port-sec-icon"><i class="fa-solid fa-database"></i></div>
+        <div>
+          <div class="port-sec-label">Section 03</div>
+          <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--ink);margin-top:0.1rem;">DHIS2 &amp; Digital Health Systems</div>
+        </div>
       </div>
 
       <!-- DHIS2 -->
       <div class="port-card pc-teal fade-in">
-        <div class="impact-badge impact-high">Certified · HISP Centre / Oslo</div>
+        <div class="impact-badge impact-high"><i class="fa-solid fa-certificate"></i> Certified · HISP Centre / Oslo</div>
         <div class="port-card-header">
           <h3>DHIS2 Implementation &amp; Health Information Systems</h3>
           <span class="port-meta">2023 – 2025</span>
         </div>
         <p class="port-impact-line">DHIS2-certified health information system specialist, with practical experience in aggregate data capture, tracker, analytics, and dashboard design — grounded in real peripheral health contexts.</p>
         <div class="port-detail-grid">
-          <div>
-            <span class="port-detail-label">What I Did</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-user-pen" style="margin-right:4px;color:var(--teal);"></i>What I Did</span>
             <span class="port-detail-value">Completed three HISP Centre (University of Oslo) DHIS2 certifications: Introduction to DHIS2, Aggregate Data Capture &amp; Validation, Aggregate Data Analysis. Applied in MSc Biomedical Informatics coursework and health system contexts.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Certifications</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-graduation-cap" style="margin-right:4px;color:var(--teal);"></i>Certifications</span>
             <span class="port-detail-value">Introduction to DHIS2 (2023), Aggregate Data Capture &amp; Validation (2024), Aggregate Data Analysis (2025) — all via HISP Centre, University of Oslo.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Practical Context</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-location-dot" style="margin-right:4px;color:var(--teal);"></i>Practical Context</span>
             <span class="port-detail-value">15+ years working in Sri Lanka's peripheral public health system — district, divisional, and primary care level. Understands what works when connectivity is intermittent and staffing is thin.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Available For</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-briefcase" style="margin-right:4px;color:var(--teal);"></i>Available For</span>
             <span class="port-detail-value">HIS needs assessment, DHIS2 aggregate and tracker configuration, dashboard design, data entry training, gap analysis, participatory design facilitation.</span>
           </div>
         </div>
@@ -522,27 +790,27 @@
 
       <!-- Digital Health Systems -->
       <div class="port-card pc-teal fade-in delay-1">
-        <div class="impact-badge impact-medium">8 Systems Deployed</div>
+        <div class="impact-badge impact-medium"><i class="fa-solid fa-code"></i> 8 Systems Deployed</div>
         <div class="port-card-header">
           <h3>Digital Health System Development — 8 Tools Built &amp; Deployed</h3>
           <span class="port-meta">2015 – Present</span>
         </div>
         <p class="port-impact-line">Clinician-developer who builds the health tools he actually uses — disease surveillance, disaster response, cancer registry support, fleet management, and public health analytics.</p>
         <div class="port-detail-grid">
-          <div>
-            <span class="port-detail-label">What I Built</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-wrench" style="margin-right:4px;color:var(--teal);"></i>What I Built</span>
             <span class="port-detail-value">OutbreakWatch (disease surveillance), FloodTrackerApp (disaster response PWA), District Health Stats PWA (offline-first analytics), Health Fleet Manager (RDHS Trincomalee), and additional tools.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Technology</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-microchip" style="margin-right:4px;color:var(--teal);"></i>Technology</span>
             <span class="port-detail-value">Offline-first PWA (Service Worker / IndexedDB), JavaScript, Python, Django, REST APIs, Chart.js, D3.js — designed for low-bandwidth, low-resource settings.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Context</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-location-dot" style="margin-right:4px;color:var(--teal);"></i>Context</span>
             <span class="port-detail-value">All tools built during active clinical duties in peripheral health settings. Not academic prototypes — built to function under real operational constraints.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Deployment</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-brands fa-github" style="margin-right:4px;color:var(--teal);"></i>Deployment</span>
             <span class="port-detail-value">All tools deployed on GitHub Pages with live demos. Source code publicly available at github.com/jeevantjr and github.com/tjeevan.</span>
           </div>
         </div>
@@ -557,17 +825,23 @@
       <!-- ════════════════════════════════════════
            SECTION 4: HEALTHCARE & AI ARTICLES
            ════════════════════════════════════════ -->
-      <div class="port-sec-head psh-teal">
-        <i class="fa-solid fa-pen-nib"></i> Articles on Healthcare &amp; AI
+      <div class="port-sec-band psb-teal fade-in">
+        <div class="port-sec-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <div>
+          <div class="port-sec-label">Section 04</div>
+          <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--ink);margin-top:0.1rem;">Articles on Healthcare &amp; AI</div>
+        </div>
       </div>
 
-      <p style="font-family:var(--font-ui);font-size:0.82rem;color:var(--ink-light);line-height:1.7;margin-bottom:1.5rem;" class="fade-in">
-        Six published essays examining AI in clinical contexts — written from lived experience as a practising physician and health informatician. Not academic abstracts. Physician observations translated into accessible language for health systems professionals, AI developers, and policy makers.
-      </p>
+      <div class="port-callout fade-in">
+        <i class="fa-solid fa-quote-left"></i>
+        <p>Six published essays examining AI in clinical contexts — written from lived experience as a practising physician and health informatician. Not academic abstracts. Physician observations translated into accessible language for health systems professionals, AI developers, and policy makers.</p>
+      </div>
 
       <div class="articles-grid fade-in delay-1">
 
         <div class="article-mini">
+          <div class="article-mini-icon"><i class="fa-solid fa-network-wired"></i></div>
           <span class="article-mini-num">Article 01</span>
           <h4>Why Centralised Health Information Systems Fail in Peripheral Care Settings</h4>
           <p>A physician-developer's account of what actually happens when national HIS design meets village-level reality. The gap is not technical — it is conceptual.</p>
@@ -575,6 +849,7 @@
         </div>
 
         <div class="article-mini">
+          <div class="article-mini-icon"><i class="fa-solid fa-eye"></i></div>
           <span class="article-mini-num">Article 02</span>
           <h4>The Clinician in the Loop: Why AI Supervision in Healthcare Cannot Be Delegated</h4>
           <p>On what it actually means to supervise AI in clinical settings — and why the assumption that any doctor can do it needs to be questioned.</p>
@@ -582,6 +857,7 @@
         </div>
 
         <div class="article-mini">
+          <div class="article-mini-icon"><i class="fa-solid fa-brain"></i></div>
           <span class="article-mini-num">Article 03</span>
           <h4>What Doctors Actually Know That AI Doesn't: The Missing Layer in Medical AI</h4>
           <p>Tacit clinical knowledge — the kind that forms over years of bedside practice — is not in any training dataset. This article names what that means.</p>
@@ -589,6 +865,7 @@
         </div>
 
         <div class="article-mini">
+          <div class="article-mini-icon"><i class="fa-solid fa-scale-balanced"></i></div>
           <span class="article-mini-num">Article 04</span>
           <h4>Before the Algorithm Decides: The Case for Clinical AI Governance in South Asia</h4>
           <p>AI governance frameworks are being written without the populations most affected. A ground-level argument for why South Asian clinical contexts need their own voice.</p>
@@ -596,6 +873,7 @@
         </div>
 
         <div class="article-mini">
+          <div class="article-mini-icon"><i class="fa-solid fa-ear-listen"></i></div>
           <span class="article-mini-num">Article 05</span>
           <h4>Listening Before Asking: What Clinical History-Taking Can Teach AI</h4>
           <p>The art of clinical history-taking is not data collection. This article examines what that distinction means for how medical AI prompts and interprets patient input.</p>
@@ -603,6 +881,7 @@
         </div>
 
         <div class="article-mini">
+          <div class="article-mini-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
           <span class="article-mini-num">Article 06</span>
           <h4>The Peripheral Paradox: When Digital Health Reaches Places That Weren't Ready</h4>
           <p>Digital health tools deployed in settings without the infrastructure to support them create a specific kind of failure. This is a physician's account of what that looks like from inside.</p>
@@ -611,39 +890,43 @@
 
       </div>
 
-      <div style="margin-top:1rem;" class="fade-in delay-2">
-        <a href="notes.html" class="port-link" style="font-size:0.65rem;"><i class="fa-solid fa-arrow-right"></i> All Articles</a>
+      <div style="margin-top:1.2rem;" class="fade-in delay-2">
+        <a href="notes.html" class="port-link" style="font-size:0.65rem;"><i class="fa-solid fa-arrow-right"></i> All Articles on Notes Page</a>
       </div>
 
       <!-- ════════════════════════════════════════
            SECTION 5: BOOK
            ════════════════════════════════════════ -->
-      <div class="port-sec-head psh-green">
-        <i class="fa-solid fa-book-open"></i> Published Book
+      <div class="port-sec-band psb-green fade-in">
+        <div class="port-sec-icon"><i class="fa-solid fa-book-open"></i></div>
+        <div>
+          <div class="port-sec-label">Section 05</div>
+          <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--ink);margin-top:0.1rem;">Published Book</div>
+        </div>
       </div>
 
       <div class="port-card pc-green fade-in">
-        <div class="impact-badge" style="background:rgba(79,125,82,0.08);color:#4F7D52;border:1px solid rgba(79,125,82,0.25);">Published · Amazon Kindle · 2026</div>
+        <div class="impact-badge" style="background:rgba(79,125,82,0.08);color:#4F7D52;border:1px solid rgba(79,125,82,0.25);"><i class="fa-brands fa-amazon"></i> Published · Amazon Kindle · 2026</div>
         <div class="port-card-header">
           <h3>Are You Still Human? — Literary Nonfiction</h3>
           <span class="port-meta">English &nbsp;·&nbsp; Amazon Kindle</span>
         </div>
         <p class="port-impact-line">A short literary nonfiction work examining what AI quietly does to human relationships — not through dramatic transformation, but through patterns that accumulate unnoticed. Three true stories, ten patterns, one quiet choice.</p>
         <div class="port-detail-grid">
-          <div>
-            <span class="port-detail-label">What I Did</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-pen-nib" style="margin-right:4px;color:#4F7D52;"></i>What I Did</span>
             <span class="port-detail-value">Wrote and published the first English-language book examining AI's impact on human connection through clinical narratives and personal observation. Combines physician perspective with literary craft.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Reach</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-globe" style="margin-right:4px;color:#4F7D52;"></i>Reach</span>
             <span class="port-detail-value">Available on Amazon Kindle worldwide. $2.99 · Free with Kindle Unlimited. Amazon Author Page: B0H33ZVCT9.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Context</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-trophy" style="margin-right:4px;color:#4F7D52;"></i>Context</span>
             <span class="port-detail-value">One of nine published works by the author. State Literary Award 2023 (Ministry of University &amp; Cultural Affairs), Best Book Awards 2022 &amp; 2023.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Audience</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-users" style="margin-right:4px;color:#4F7D52;"></i>Audience</span>
             <span class="port-detail-value">Healthcare professionals, AI practitioners, and anyone asking whether the optimisation of work and decision-making has quietly reshaped how they relate to the people around them.</span>
           </div>
         </div>
@@ -656,24 +939,28 @@
       <!-- ════════════════════════════════════════
            SECTION 6: ACADEMIC TRAINING
            ════════════════════════════════════════ -->
-      <div class="port-sec-head psh-blue">
-        <i class="fa-solid fa-graduation-cap"></i> Academic Research &amp; Training
+      <div class="port-sec-band psb-blue fade-in">
+        <div class="port-sec-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div>
+          <div class="port-sec-label">Section 06</div>
+          <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--ink);margin-top:0.1rem;">Academic Research &amp; Training</div>
+        </div>
       </div>
 
       <div class="port-card pc-blue fade-in">
-        <div class="impact-badge impact-medium">Completed · PGIM Batch 12</div>
+        <div class="impact-badge impact-medium"><i class="fa-solid fa-check-circle"></i> Completed · PGIM Batch 12</div>
         <div class="port-card-header">
           <h3>MSc Biomedical Informatics — Postgraduate Institute of Medicine, University of Colombo</h3>
           <span class="port-meta">October 2022 – October 2024</span>
         </div>
         <p class="port-impact-line">Two-year full-time postgraduate research programme covering health information systems, clinical informatics, biomedical data science, and research methodology.</p>
         <div class="port-detail-grid">
-          <div>
-            <span class="port-detail-label">What I Did</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-user-pen" style="margin-right:4px;color:#3D6E8C;"></i>What I Did</span>
             <span class="port-detail-value">Completed 24-month structured programme including coursework, DHIS2 certifications, and research work. Batch 12 of the MSc Biomedical Informatics programme at PGIM.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Institution</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-university" style="margin-right:4px;color:#3D6E8C;"></i>Institution</span>
             <span class="port-detail-value">Postgraduate Institute of Medicine (PGIM), University of Colombo — the premier postgraduate medical training institution in Sri Lanka.</span>
           </div>
         </div>
@@ -683,19 +970,19 @@
       </div>
 
       <div class="port-card pc-blue fade-in delay-1">
-        <div class="impact-badge impact-high">Current · April 2026 – April 2027</div>
+        <div class="impact-badge impact-high"><i class="fa-solid fa-circle-dot"></i> Current · April 2026 – April 2027</div>
         <div class="port-card-header">
           <h3>MD Health Informatics Trainee — Postgraduate Institute of Medicine, Batch 9</h3>
           <span class="port-meta">PGIM &nbsp;·&nbsp; University of Colombo</span>
         </div>
         <p class="port-impact-line">Selected at the MD Health Informatics Selection Examination (January 2026). Currently on structured Ministry of Health rotations with weekly PGIM lectures and research.</p>
         <div class="port-detail-grid">
-          <div>
-            <span class="port-detail-label">Rotations</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-rotate" style="margin-right:4px;color:#3D6E8C;"></i>Rotations</span>
             <span class="port-detail-value">PD Office Western Province → Health Informatics Unit (Ministry of Health) → Epidemiology Unit → Family Health Bureau → Medical Statistics Unit.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Research Focus</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-flask" style="margin-right:4px;color:#3D6E8C;"></i>Research Focus</span>
             <span class="port-detail-value">Health information systems in peripheral and primary care settings. AI implementation in resource-constrained clinical environments. Digital health governance in South Asia.</span>
           </div>
         </div>
@@ -708,32 +995,36 @@
       <!-- ════════════════════════════════════════
            SECTION 7: CLINICAL AI EVALUATION
            ════════════════════════════════════════ -->
-      <div class="port-sec-head psh-teal">
-        <i class="fa-solid fa-robot"></i> Clinical AI Evaluation Work
+      <div class="port-sec-band psb-copper fade-in">
+        <div class="port-sec-icon"><i class="fa-solid fa-robot"></i></div>
+        <div>
+          <div class="port-sec-label">Section 07</div>
+          <div style="font-family:var(--font-display);font-size:1.1rem;color:var(--ink);margin-top:0.1rem;">Clinical AI Evaluation Work</div>
+        </div>
       </div>
 
       <div class="port-card pc-copper fade-in">
-        <div class="impact-badge impact-medium">Remote · Available Now</div>
+        <div class="impact-badge impact-medium"><i class="fa-solid fa-wifi"></i> Remote · Available Now</div>
         <div class="port-card-header">
           <h3>Clinical AI Review &amp; Medical Content Quality Assurance</h3>
           <span class="port-meta">Ongoing</span>
         </div>
         <p class="port-impact-line">Physician-level evaluation of AI-generated health content — combining 20+ years of clinical decision-making with formal health informatics training. The combination AI companies need and rarely find.</p>
         <div class="port-detail-grid">
-          <div>
-            <span class="port-detail-label">What I Do</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-magnifying-glass" style="margin-right:4px;color:var(--copper);"></i>What I Do</span>
             <span class="port-detail-value">Medical accuracy review of AI training data and outputs, clinical reasoning evaluation for LLM responses, hallucination detection, red-teaming health AI products, annotation and labelling of clinical datasets.</span>
           </div>
-          <div>
-            <span class="port-detail-label">What Makes This Different</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-star-half-stroke" style="margin-right:4px;color:var(--copper);"></i>What Makes This Different</span>
             <span class="port-detail-value">20+ years active clinical practice across primary care, emergency medicine, ICU, and public health. Not a data scientist reviewing medical content. A doctor who also understands AI systems.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Platforms</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-building" style="margin-right:4px;color:var(--copper);"></i>Platforms</span>
             <span class="port-detail-value">Available for contracts with Scale AI, Appen, Surge AI, and health AI companies requiring qualified clinicians for content QA and model evaluation.</span>
           </div>
-          <div>
-            <span class="port-detail-label">Related Writing</span>
+          <div class="port-detail-item">
+            <span class="port-detail-label"><i class="fa-solid fa-pen-nib" style="margin-right:4px;color:var(--copper);"></i>Related Writing</span>
             <span class="port-detail-value">Six published articles specifically addressing AI evaluation, clinical AI governance, and the limitations of AI in health contexts — available on the Articles page.</span>
           </div>
         </div>
