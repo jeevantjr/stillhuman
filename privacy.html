@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9EW1LVGWZP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -28,91 +27,328 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    .privacy-hero {
-      padding: 5rem 0 3rem;
+    /* ── HERO ── */
+    .priv-hero {
       text-align: center;
-      max-width: 680px;
-      margin: 0 auto;
+      padding: 5rem 1rem 2.5rem;
     }
-    .privacy-hero .page-label {
-      display: block;
+    .priv-hero .eyebrow {
       font-family: var(--font-ui);
-      font-size: 0.62rem;
-      letter-spacing: 4px;
+      font-size: 0.6rem;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      color: var(--label-ink);
-      margin-bottom: 1.4rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
     }
-    .privacy-hero h1 {
+    .priv-hero h1 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 600;
       color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.15;
     }
-    .privacy-hero .updated {
+    .priv-hero .subtitle {
       font-family: var(--font-ui);
-      font-size: 0.72rem;
-      letter-spacing: 1px;
+      font-size: 0.8rem;
       color: var(--label-ink);
+      letter-spacing: 1px;
     }
 
-    .privacy-body {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 0 0 4rem;
+    /* ── SUMMARY CARDS ── */
+    .priv-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 860px;
+      margin: 2rem auto 3rem;
+      padding: 0 1rem;
     }
-    .privacy-body section {
-      margin-bottom: 2.5rem;
-      padding-bottom: 2.5rem;
-      border-bottom: 1px solid var(--border-light);
+    .priv-summary-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.6rem 1.4rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(26,18,8,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .privacy-body section:last-child {
-      border-bottom: none;
+    .priv-summary-card:hover {
+      box-shadow: 0 6px 24px rgba(26,18,8,0.1);
+      transform: translateY(-2px);
     }
-    .privacy-body h2 {
-      font-family: var(--font-display);
+    .priv-summary-card .icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
       font-size: 1.3rem;
+    }
+    .icon-wrap.teal  { background: rgba(26,110,110,0.12); color: var(--teal); }
+    .icon-wrap.gold  { background: rgba(200,151,62,0.14); color: var(--gold); }
+    .icon-wrap.slate { background: rgba(26,18,8,0.08); color: var(--ink-mid); }
+    .priv-summary-card h3 {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .priv-summary-card p {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      color: var(--ink-mid);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ── BODY ── */
+    .priv-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem 5rem;
+    }
+
+    /* ── SECTION CARDS ── */
+    .priv-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 10px rgba(26,18,8,0.05);
+    }
+    .priv-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .priv-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .ci-teal   { background: rgba(26,110,110,0.1);  color: var(--teal); }
+    .ci-gold   { background: rgba(200,151,62,0.12); color: #a07020; }
+    .ci-blue   { background: rgba(29,78,216,0.08);  color: #1d4ed8; }
+    .ci-green  { background: rgba(21,128,61,0.08);  color: #15803d; }
+    .ci-purple { background: rgba(109,40,217,0.08); color: #7c3aed; }
+    .ci-slate  { background: rgba(26,18,8,0.07);    color: var(--ink-mid); }
+    .ci-red    { background: rgba(185,28,28,0.08);  color: #b91c1c; }
+
+    .priv-card-header h2 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 0.8rem;
+      margin: 0;
     }
-    .privacy-body p {
-      font-family: var(--font-ui);
-      font-size: 0.95rem;
-      color: var(--ink-mid);
-      line-height: 1.8;
-      margin-bottom: 0.9rem;
-    }
-    .privacy-body ul {
-      margin: 0.6rem 0 0.9rem 1.5rem;
-    }
-    .privacy-body ul li {
+    .priv-card p {
       font-family: var(--font-ui);
       font-size: 0.93rem;
       color: var(--ink-mid);
+      line-height: 1.85;
+      margin-bottom: 0.85rem;
+    }
+    .priv-card p:last-child { margin-bottom: 0; }
+
+    /* ── BULLET LIST ── */
+    .priv-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0.9rem;
+    }
+    .priv-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      color: var(--ink-mid);
       line-height: 1.75;
-      margin-bottom: 0.4rem;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(26,18,8,0.05);
     }
-    .info-box {
-      background: var(--parchment-light);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--gold);
-      border-radius: var(--radius-sm);
-      padding: 1.2rem 1.5rem;
-      margin: 1.2rem 0;
-    }
-    .info-box p {
-      margin-bottom: 0;
-      font-size: 0.88rem !important;
-    }
-    .contact-link {
+    .priv-list li:last-child { border-bottom: none; }
+    .priv-list li .li-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(26,110,110,0.1);
       color: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    /* ── THIRD-PARTY SERVICE CHIPS ── */
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin: 0.8rem 0;
+    }
+    .service-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.75rem 1rem;
+      background: var(--parchment-light, #fdf9f3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: box-shadow 0.18s, transform 0.18s;
+    }
+    .service-chip:hover {
+      box-shadow: 0 4px 14px rgba(26,18,8,0.1);
+      transform: translateY(-1px);
+    }
+    .service-chip .sc-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+    .sc-google { background: rgba(234,67,53,0.1);  color: #ea4335; }
+    .sc-cf     { background: rgba(249,137,44,0.12); color: #f9892c; }
+    .sc-gh     { background: rgba(26,18,8,0.08);    color: #1a1208; }
+    .sc-font   { background: rgba(29,78,216,0.08);  color: #1d4ed8; }
+    .service-chip .sc-text strong {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.1rem;
+    }
+    .service-chip .sc-text span {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--label-ink);
+    }
+    .chip-arrow {
+      margin-left: auto;
+      color: var(--label-ink);
+      font-size: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    /* ── NOTICE BOX ── */
+    .notice-box {
+      background: linear-gradient(135deg, rgba(26,110,110,0.06), rgba(200,151,62,0.06));
+      border: 1px solid rgba(26,110,110,0.18);
+      border-left: 4px solid var(--teal);
+      border-radius: 10px;
+      padding: 1.1rem 1.4rem;
+      margin: 1rem 0 0;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+    .notice-box .nb-icon {
+      color: var(--teal);
+      font-size: 1rem;
+      margin-top: 0.15rem;
+      flex-shrink: 0;
+    }
+    .notice-box p {
+      font-size: 0.87rem !important;
+      margin: 0 !important;
+      line-height: 1.7 !important;
+    }
+
+    /* ── CONTACT CARD ── */
+    .contact-strip {
+      background: var(--ink);
+      border-radius: 16px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: var(--parchment);
+    }
+    .contact-strip .cs-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(200,151,62,0.2);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .contact-strip h2 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--parchment);
+      margin: 0 0 0.3rem;
+    }
+    .contact-strip p {
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      color: rgba(242,232,210,0.7);
+      margin: 0;
+      line-height: 1.6;
+    }
+    .contact-strip a {
+      color: var(--gold);
       text-decoration: none;
     }
-    .contact-link:hover {
-      text-decoration: underline;
+    .contact-strip a:hover { text-decoration: underline; }
+
+    /* ── OPT-OUT BUTTON ── */
+    .optout-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(26,110,110,0.09);
+      color: var(--teal);
+      border: 1px solid rgba(26,110,110,0.25);
+      border-radius: 8px;
+      padding: 0.55rem 1.1rem;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 0.8rem;
+      transition: background 0.2s;
+    }
+    .optout-btn:hover {
+      background: rgba(26,110,110,0.16);
+      text-decoration: none;
+    }
+
+    a.contact-link { color: var(--teal); text-decoration: none; }
+    a.contact-link:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .priv-summary { grid-template-columns: 1fr; }
+      .service-grid { grid-template-columns: 1fr; }
+      .priv-card { padding: 1.4rem 1.2rem; }
+      .contact-strip { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -134,102 +370,158 @@
 </nav>
 
 <div class="container">
-  <div class="privacy-hero fade-in">
-    <span class="page-label">Legal</span>
+
+  <!-- HERO -->
+  <div class="priv-hero fade-in">
+    <span class="eyebrow">Legal &nbsp;&middot;&nbsp; drjeevaraj.com</span>
     <h1>Privacy Policy</h1>
-    <p class="updated">drjeevaraj.com &nbsp;&middot;&nbsp; Last updated: June 2026</p>
+    <p class="subtitle">Last updated: June 2026</p>
   </div>
 
-  <div class="privacy-body fade-in delay-1">
+  <!-- SUMMARY CARDS -->
+  <div class="priv-summary fade-in delay-1">
+    <div class="priv-summary-card">
+      <div class="icon-wrap teal"><i class="fa-solid fa-shield-halved"></i></div>
+      <h3>No Personal Data</h3>
+      <p>This site collects no names, emails, or identifiable information from visitors.</p>
+    </div>
+    <div class="priv-summary-card">
+      <div class="icon-wrap gold"><i class="fa-solid fa-chart-bar"></i></div>
+      <h3>Analytics Only</h3>
+      <p>Google Analytics 4 is used with IP anonymisation to understand site usage in aggregate.</p>
+    </div>
+    <div class="priv-summary-card">
+      <div class="icon-wrap slate"><i class="fa-solid fa-ban"></i></div>
+      <h3>No Ads, No Tracking</h3>
+      <p>No advertising cookies, no cross-site tracking, no data sold to third parties.</p>
+    </div>
+  </div>
 
-    <section>
-      <h2>About this website</h2>
-      <p>
-        This is a personal academic website maintained by Dr. T. Jeevaraj (MBBS, MCGP, MSc Biomedical Informatics, MD Health Informatics Trainee). It is not a commercial website. No goods or services are sold here. The site exists to share research, writing, and professional information in an academic and personal capacity.
-      </p>
-      <div class="info-box">
-        <p>All content reflects the personal views of the author. It does not represent the views, positions, or endorsements of any affiliated institution, employer, or organization.</p>
+  <!-- BODY CARDS -->
+  <div class="priv-body fade-in delay-2">
+
+    <!-- About this website -->
+    <div class="priv-card">
+      <div class="priv-card-header">
+        <div class="priv-card-icon ci-teal"><i class="fa-solid fa-house-user"></i></div>
+        <h2>About this website</h2>
       </div>
-    </section>
+      <p>This is a personal academic website maintained by Dr. T. Jeevaraj (MBBS, MCGP, MSc Biomedical Informatics, MD Health Informatics Trainee). It is not a commercial website. No goods or services are sold here. The site exists to share research, writing, and professional information in an academic and personal capacity.</p>
+      <div class="notice-box">
+        <i class="fa-solid fa-circle-info nb-icon"></i>
+        <p>All content reflects the personal views of the author and does not represent the views, positions, or endorsements of any affiliated institution, employer, or organization.</p>
+      </div>
+    </div>
 
-    <section>
-      <h2>What data is collected</h2>
-      <p>
-        This website uses <strong>Google Analytics 4 (GA4)</strong> to understand how visitors interact with the site. GA4 may collect:
-      </p>
-      <ul>
-        <li>Pages visited and time spent on each page</li>
-        <li>Approximate geographic location (country and city level, derived from IP address)</li>
-        <li>Device type (desktop, mobile, tablet) and browser</li>
-        <li>Referral source (how you arrived at the site — e.g., search engine, direct link)</li>
-        <li>Aggregate visitor counts</li>
+    <!-- What data is collected -->
+    <div class="priv-card">
+      <div class="priv-card-header">
+        <div class="priv-card-icon ci-blue"><i class="fa-solid fa-database"></i></div>
+        <h2>What data is collected</h2>
+      </div>
+      <p>This website uses <strong>Google Analytics 4 (GA4)</strong> to understand how visitors interact with the site. GA4 may collect:</p>
+      <ul class="priv-list">
+        <li><span class="li-icon"><i class="fa-solid fa-check"></i></span>Pages visited and time spent on each page</li>
+        <li><span class="li-icon"><i class="fa-solid fa-check"></i></span>Approximate geographic location (country/city level, derived from anonymised IP)</li>
+        <li><span class="li-icon"><i class="fa-solid fa-check"></i></span>Device type (desktop, mobile, tablet) and browser</li>
+        <li><span class="li-icon"><i class="fa-solid fa-check"></i></span>Referral source — how you arrived at the site</li>
+        <li><span class="li-icon"><i class="fa-solid fa-check"></i></span>Aggregate visitor counts</li>
       </ul>
-      <p>
-        IP addresses are anonymised before processing. No personally identifiable information is collected. This website does not use any forms, user accounts, or comment systems that collect your name, email, or other personal data.
-      </p>
-    </section>
+      <p>IP addresses are anonymised before processing. No personally identifiable information is collected. This website has no forms, user accounts, or comment systems that collect your name, email, or any personal data.</p>
+    </div>
 
-    <section>
-      <h2>Cookies</h2>
-      <p>
-        Google Analytics uses cookies to distinguish returning visitors and track session activity. These are first-party analytics cookies stored in your browser. No advertising or tracking cookies from third parties are used.
-      </p>
-      <p>
-        You can control cookies through your browser settings. You may also opt out of Google Analytics tracking using the <a href="https://tools.google.com/dlpage/gaoptout" class="contact-link" target="_blank" rel="noopener noreferrer">Google Analytics opt-out browser add-on</a>.
-      </p>
-    </section>
+    <!-- Cookies -->
+    <div class="priv-card">
+      <div class="priv-card-header">
+        <div class="priv-card-icon ci-gold"><i class="fa-solid fa-cookie-bite"></i></div>
+        <h2>Cookies</h2>
+      </div>
+      <p>Google Analytics uses cookies to distinguish returning visitors and track session activity. These are first-party analytics cookies stored in your browser. No advertising or tracking cookies from third parties are used.</p>
+      <p>You can control cookies through your browser settings, or opt out of Google Analytics entirely:</p>
+      <a href="https://tools.google.com/dlpage/gaoptout" class="optout-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> Google Analytics opt-out add-on
+      </a>
+    </div>
 
-    <section>
-      <h2>How data is used</h2>
-      <p>
-        Analytics data is used only to understand which content is helpful to readers — for example, which articles are read, where visitors come from, and whether the site works properly on mobile devices. It informs improvements to the site's content and structure.
-      </p>
-      <p>
-        No data is sold, shared with third parties for commercial purposes, or used for advertising targeting.
-      </p>
-    </section>
-
-    <section>
-      <h2>Third-party services</h2>
-      <p>This website uses the following third-party services that may set their own cookies or collect data under their own privacy policies:</p>
-      <ul>
-        <li><strong>Google Analytics 4</strong> — website analytics. See <a href="https://policies.google.com/privacy" class="contact-link" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</li>
-        <li><strong>Google Fonts</strong> — typography served from Google's CDN. See <a href="https://policies.google.com/privacy" class="contact-link" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</li>
-        <li><strong>Font Awesome (Cloudflare CDN)</strong> — icons. See <a href="https://www.cloudflare.com/privacypolicy/" class="contact-link" target="_blank" rel="noopener noreferrer">Cloudflare Privacy Policy</a>.</li>
-        <li><strong>GitHub Pages</strong> — website hosting. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.</li>
+    <!-- How data is used -->
+    <div class="priv-card">
+      <div class="priv-card-icon ci-green" style="display:inline-flex;margin-bottom:1rem;">
+        <i class="fa-solid fa-magnifying-glass-chart"></i>
+      </div>
+      <div class="priv-card-header" style="margin-bottom:0.8rem;">
+        <div class="priv-card-icon ci-green"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <h2>How data is used</h2>
+      </div>
+      <p>Analytics data is used only to understand which content is helpful to readers — which articles are read, where visitors come from, and whether the site works properly on mobile devices. It informs improvements to the site's content and structure.</p>
+      <ul class="priv-list">
+        <li><span class="li-icon" style="background:rgba(185,28,28,0.1);color:#b91c1c;"><i class="fa-solid fa-xmark"></i></span>Data is never sold to third parties</li>
+        <li><span class="li-icon" style="background:rgba(185,28,28,0.1);color:#b91c1c;"><i class="fa-solid fa-xmark"></i></span>Data is never used for advertising targeting</li>
+        <li><span class="li-icon" style="background:rgba(185,28,28,0.1);color:#b91c1c;"><i class="fa-solid fa-xmark"></i></span>Data is never shared for commercial purposes</li>
       </ul>
-      <p>External links to ORCID, Google Scholar, ResearchGate, LinkedIn, and Amazon are provided for reference. Visiting these sites is subject to their respective privacy policies.</p>
-    </section>
+    </div>
 
-    <section>
-      <h2>Your rights</h2>
-      <p>
-        Because this website does not collect personally identifiable information directly, there is no personal data stored about you that can be retrieved or deleted upon request. For data held by Google Analytics, you may use the <a href="https://tools.google.com/dlpage/gaoptout" class="contact-link" target="_blank" rel="noopener noreferrer">Google Analytics opt-out tool</a>.
-      </p>
-      <p>
-        If you are a resident of the European Economic Area (EEA) or the United Kingdom and have questions about your rights under GDPR or UK GDPR, you may contact the author at the address below.
-      </p>
-    </section>
+    <!-- Third-party services -->
+    <div class="priv-card">
+      <div class="priv-card-header">
+        <div class="priv-card-icon ci-purple"><i class="fa-solid fa-puzzle-piece"></i></div>
+        <h2>Third-party services</h2>
+      </div>
+      <p>This website uses the following services, which may set their own cookies under their own privacy policies:</p>
+      <div class="service-grid">
+        <a href="https://policies.google.com/privacy" class="service-chip" target="_blank" rel="noopener noreferrer">
+          <div class="sc-icon sc-google"><i class="fa-brands fa-google"></i></div>
+          <div class="sc-text"><strong>Google Analytics 4</strong><span>Website analytics</span></div>
+          <i class="fa-solid fa-arrow-up-right-from-square chip-arrow"></i>
+        </a>
+        <a href="https://policies.google.com/privacy" class="service-chip" target="_blank" rel="noopener noreferrer">
+          <div class="sc-icon sc-font"><i class="fa-solid fa-font"></i></div>
+          <div class="sc-text"><strong>Google Fonts</strong><span>Typography CDN</span></div>
+          <i class="fa-solid fa-arrow-up-right-from-square chip-arrow"></i>
+        </a>
+        <a href="https://www.cloudflare.com/privacypolicy/" class="service-chip" target="_blank" rel="noopener noreferrer">
+          <div class="sc-icon sc-cf"><i class="fa-solid fa-cloud"></i></div>
+          <div class="sc-text"><strong>Font Awesome / Cloudflare</strong><span>Icons CDN</span></div>
+          <i class="fa-solid fa-arrow-up-right-from-square chip-arrow"></i>
+        </a>
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" class="service-chip" target="_blank" rel="noopener noreferrer">
+          <div class="sc-icon sc-gh"><i class="fa-brands fa-github"></i></div>
+          <div class="sc-text"><strong>GitHub Pages</strong><span>Website hosting</span></div>
+          <i class="fa-solid fa-arrow-up-right-from-square chip-arrow"></i>
+        </a>
+      </div>
+      <p style="margin-top:1rem;">External links to ORCID, Google Scholar, ResearchGate, LinkedIn, and Amazon are provided for reference only and are subject to their respective privacy policies.</p>
+    </div>
 
-    <section>
-      <h2>Contact</h2>
-      <p>
-        For questions about this privacy policy or how data is handled on this website, you may reach the author via the contact details provided on the <a href="about.html" class="contact-link">About page</a>.
-      </p>
-      <p>
-        SLMC Registration No. 23293 &nbsp;&middot;&nbsp; Sri Lanka
-      </p>
-    </section>
+    <!-- Your rights -->
+    <div class="priv-card">
+      <div class="priv-card-header">
+        <div class="priv-card-icon ci-slate"><i class="fa-solid fa-scale-balanced"></i></div>
+        <h2>Your rights</h2>
+      </div>
+      <p>Because this website does not collect personally identifiable information directly, there is no personal data stored about you that can be retrieved or deleted upon request.</p>
+      <p>For data held by Google Analytics, you may use the <a href="https://tools.google.com/dlpage/gaoptout" class="contact-link" target="_blank" rel="noopener noreferrer">Google Analytics opt-out tool</a>. If you are a resident of the EEA or UK and have questions about your rights under GDPR or UK GDPR, you may contact the author using the details below.</p>
+    </div>
 
-    <section>
-      <h2>Changes to this policy</h2>
-      <p>
-        This policy may be updated occasionally to reflect changes to the website or applicable legal requirements. The "last updated" date at the top of this page indicates when the most recent revision was made.
-      </p>
-    </section>
+    <!-- Changes -->
+    <div class="priv-card">
+      <div class="priv-card-header">
+        <div class="priv-card-icon ci-teal"><i class="fa-solid fa-rotate"></i></div>
+        <h2>Changes to this policy</h2>
+      </div>
+      <p>This policy may be updated occasionally to reflect changes to the website or applicable legal requirements. The "last updated" date at the top of this page indicates when the most recent revision was made.</p>
+    </div>
 
-  </div>
-</div>
+    <!-- Contact card -->
+    <div class="contact-strip">
+      <div class="cs-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+      <div>
+        <h2>Questions?</h2>
+        <p>For questions about this privacy policy or how data is handled on this website, reach the author via the <a href="about.html">About page</a>.<br>SLMC Registration No. 23293 &nbsp;&middot;&nbsp; Sri Lanka</p>
+      </div>
+    </div>
+
+  </div><!-- /priv-body -->
+</div><!-- /container -->
 
 <footer>
   <a href="index.html" class="nav-title" style="display:block;margin-bottom:1rem;font-size:1.1rem;">Still Human</a>
@@ -241,11 +533,10 @@
     <li><a href="books.html">Books</a></li>
     <li><a href="cv.html">CV</a></li>
   </ul>
-
   <p style="font-family:var(--font-ui);font-size:0.65rem;color:rgba(242,232,210,0.60);max-width:580px;margin:1.2rem auto 0.5rem;line-height:1.7;">
     All content on this website reflects the personal views, analyses, and creative work of the author. It is published in a personal capacity and does not represent the views, positions, or endorsements of any affiliated institution, employer, or organization. The content is intended solely for informational and academic discussion purposes.
   </p>
-  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human &nbsp;&middot;&nbsp; Sri Lanka</p>
+  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human &nbsp;&middot;&nbsp; Sri Lanka &nbsp;&middot;&nbsp; <a href="privacy.html" style="color:inherit;text-decoration:none;opacity:0.75;">Privacy Policy</a></p>
 </footer>
 
 <script>
