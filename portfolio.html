@@ -1092,7 +1092,7 @@
     <li><a href="cv.html">CV</a></li>
   </ul>
 
-  <p style="font-family:var(--font-ui);font-size:0.65rem;color:var(--ink-light);max-width:580px;margin:1.2rem auto 0.5rem;line-height:1.7;opacity:0.7;">
+  <p style="font-family:var(--font-ui);font-size:0.65rem;color:rgba(242,232,210,0.60);max-width:580px;margin:1.2rem auto 0.5rem;line-height:1.7;">
     All content on this website reflects the personal views, analyses, and creative work of the author. It is published in a personal capacity and does not represent the views, positions, or endorsements of any affiliated institution, employer, or organization. The content is intended solely for informational and academic discussion purposes.
   </p>
   <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human &nbsp;&middot;&nbsp; Sri Lanka</p>
@@ -1125,6 +1125,9 @@
         setTimeout(() => { window.location.href = href; }, 320);
       });
     }
+  });
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) document.body.classList.remove('page-exit');
   });
 </script>
 

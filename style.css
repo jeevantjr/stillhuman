@@ -719,7 +719,7 @@ footer {
 .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 2.4rem; margin-bottom: 2rem; }
 .footer-links a { font-family: var(--font-ui); font-size: 0.78rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(242,232,210,0.60); transition: color var(--t); }
 .footer-links a:hover { color: var(--gold-light); }
-.footer-copy { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 1.5px; color: rgba(242,232,210,0.38); margin-top: 2rem; }
+.footer-copy { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 1.5px; color: rgba(242,232,210,0.60); margin-top: 2rem; }
 
 /* ── SOCIAL LINKS ───────────────────────────────────────────── */
 .social-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.4rem 1.4rem; margin-bottom: 1rem; }

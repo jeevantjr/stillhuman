@@ -181,6 +181,9 @@
       });
     }
   });
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) document.body.classList.remove('page-exit');
+  });
   const hamburger = document.getElementById('nav-hamburger');
   const navLinks = document.getElementById('nav-links');
   if (hamburger && navLinks) {
