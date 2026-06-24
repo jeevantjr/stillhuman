@@ -832,6 +832,16 @@ footer {
   section { padding: 3.8rem 0; }
   .sticky-buy-inner { flex-wrap: wrap; gap: 0.8rem; }
   .sticky-title { flex-basis: 100%; }
+
+  /* ── Books page readability ── */
+  .page-label { font-size: 0.70rem; letter-spacing: 2px; }
+  .meta-label { font-size: 0.75rem; letter-spacing: 1.5px; }
+  .book-at-a-glance { padding: 1.2rem 1.4rem; }
+  .book-at-a-glance ul { gap: 0.8rem 1.6rem; }
+  .book-at-a-glance li { font-size: 1rem; }
+  .page-sub { font-size: 1.08rem; line-height: 1.75; }
+  .pull-quote { padding: 1.4rem 1.6rem; }
+  .pull-quote p { font-size: 1.06rem; }
 }
 
 /* ── MOBILE READABILITY — dark sections ─────────────────────────
