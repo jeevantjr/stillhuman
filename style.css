@@ -812,6 +812,7 @@ footer {
   .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 }
 @media (max-width: 600px) {
+  html { font-size: 18px; }
   body { font-size: 18px; }
   :root { --container-pad: 1.3rem; }
   .nav-hamburger { display: flex; }
