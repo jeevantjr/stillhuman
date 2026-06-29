@@ -92,7 +92,7 @@ English literary nonfiction on Amazon · Tamil historical, epigraphic, and liter
 | 💼 LinkedIn | [linkedin.com/in/drjeevaraj](https://www.linkedin.com/in/drjeevaraj/) |
 | 🤖 AI Reviewer | [drjeevaraj.com/ai-reviewer](https://drjeevaraj.com/ai-reviewer.html) |
 | 📖 Portfolio | [drjeevaraj.com/portfolio](https://drjeevaraj.com/portfolio.html) |
-| 📧 Email | tjeevaraj78@gmail.com |
+| 📧 Email | drtjeevaraj@gmail.com |
 | 📚 Books | [Amazon Author Page](https://www.amazon.com/stores/author/B0H33ZVCT9/about) |
 | 🗃️ Tamil Works | [Noolaham Digital Library](https://www.noolaham.org/wiki/index.php/%E0%AE%AA%E0%AE%95%E0%AF%81%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AF%81:%E0%AE%9C%E0%AF%80%E0%AE%B5%E0%AE%B0%E0%AE%BE%E0%AE%9C%E0%AF%8D,_%E0%AE%A4.) |
 
