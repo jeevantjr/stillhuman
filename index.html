@@ -25,31 +25,16 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Dr. Thangarasa Jeevaraaj","url":"https://drjeevaraj.com","jobTitle":"General Practitioner & MD Health Informatics Trainee","description":"MBBS, MCGP, MSc Biomedical Informatics, MD Health Informatics Trainee at PGIM, University of Colombo. BMJ Open co-author. Based in Sri Lanka.","sameAs":["https://orcid.org/0009-0008-5084-0258","https://www.linkedin.com/in/drjeevaraj/"]}</script>
 
 <style>
-/* ── RESET & TOKENS ─────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
 :root {
-  --gold:      #c8973e;
-  --gold-deep: #a87830;
-  --gold-lt:   rgba(200,151,62,0.13);
-  --teal:      #1A6E6E;
-  --teal-lt:   rgba(26,110,110,0.13);
-  --ink:       #1a1208;
-  --ink-mid:   #2d2010;
-  --parchment: #F2E8D2;
-  --card:      #fffdf7;
-  --text:      #3d2e14;
-  --sub:       #7a6040;
-  --border:    rgba(200,151,62,0.2);
-  --fd: 'Cormorant Garamond', Georgia, serif;
-  --fu: 'Inter', system-ui, sans-serif;
-  --nav-h: 68px;
+  --gold: #c8973e; --gold-deep: #a87830; --gold-lt: rgba(200,151,62,0.13);
+  --teal: #1A6E6E; --teal-lt: rgba(26,110,110,0.13);
+  --ink: #1a1208; --ink-mid: #2d2010; --parchment: #F2E8D2; --card: #fffdf7;
+  --text: #3d2e14; --sub: #7a6040; --border: rgba(200,151,62,0.2);
+  --fd: 'Cormorant Garamond', Georgia, serif; --fu: 'Inter', system-ui, sans-serif; --nav-h: 68px;
 }
-
 body { font-family: var(--fu); background: var(--parchment); color: var(--text); line-height: 1.65; overflow-x: hidden; }
-
-/* Shared layout */
 .w { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 .eyebrow { font-size: 0.62rem; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.45rem; display: block; }
 .sec-title { font-family: var(--fd); font-size: clamp(1.7rem,3vw,2.3rem); font-weight: 600; color: var(--ink); line-height: 1.18; }
@@ -58,13 +43,9 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 .lp-dark .sec-title { color: #fff; }
 .lp-dark .sec-sub { color: rgba(253,248,240,0.5); }
 .lp-dark .eyebrow { color: rgba(200,151,62,0.8); }
-
-/* Fade-in */
 .f { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .f.on { opacity: 1; transform: translateY(0); }
 .f.d1 { transition-delay:.1s } .f.d2 { transition-delay:.2s } .f.d3 { transition-delay:.3s } .f.d4 { transition-delay:.4s } .f.d5 { transition-delay:.5s }
-
-/* Buttons */
 .btn-g  { display:inline-flex;align-items:center;gap:.4rem;background:var(--gold);color:var(--ink);font-family:var(--fu);font-size:.85rem;font-weight:700;padding:.75rem 1.6rem;border-radius:28px;text-decoration:none;transition:all .2s;letter-spacing:.1px }
 .btn-g:hover  { background:#d4a84e;transform:translateY(-1px);box-shadow:0 5px 20px rgba(200,151,62,.38) }
 .btn-o  { display:inline-flex;align-items:center;gap:.4rem;background:transparent;color:var(--gold);font-family:var(--fu);font-size:.85rem;font-weight:600;padding:.72rem 1.5rem;border-radius:28px;border:1.5px solid rgba(200,151,62,.5);text-decoration:none;transition:all .2s }
@@ -76,52 +57,19 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 .btn-sm { font-size:.75rem!important;padding:.48rem 1.05rem!important }
 .arr { font-size:.78rem;font-weight:600;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:.38rem;transition:gap .2s }
 .arr:hover { gap:.58rem }
-
-/* Badge / chips */
 .chip { display:inline-flex;align-items:center;gap:.3rem;background:var(--gold-lt);border:1px solid rgba(200,151,62,.22);border-radius:20px;padding:.28rem .8rem;font-size:.73rem;font-weight:500;color:var(--gold-deep) }
-
-/* ── NAV OVERRIDE (force dark bg + readable links on landing page) ── */
-#main-nav {
-  background: rgba(10, 7, 3, 0.97) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
-  border-bottom: 1px solid rgba(200,151,62,0.18) !important;
-  box-shadow: 0 2px 24px rgba(0,0,0,0.55) !important;
-}
-#main-nav .nav-title {
-  color: var(--gold) !important;
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
-  font-size: 1.25rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 5px !important;
-  text-transform: uppercase !important;
-}
+#main-nav { background: rgba(10, 7, 3, 0.97) !important; backdrop-filter: blur(14px) !important; -webkit-backdrop-filter: blur(14px) !important; border-bottom: 1px solid rgba(200,151,62,0.18) !important; box-shadow: 0 2px 24px rgba(0,0,0,0.55) !important; }
+#main-nav .nav-title { color: var(--gold) !important; font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 1.25rem !important; font-weight: 700 !important; letter-spacing: 5px !important; text-transform: uppercase !important; }
 #main-nav .nav-links a { color: rgba(242,232,210,0.75) !important; letter-spacing: 2px; }
-#main-nav .nav-links a:hover,
-#main-nav .nav-links a.active { color: var(--gold) !important; border-bottom-color: var(--gold) !important; }
-
-/* ── IDENTITY STRIP ─────────────────────────── */
+#main-nav .nav-links a:hover, #main-nav .nav-links a.active { color: var(--gold) !important; border-bottom-color: var(--gold) !important; }
 .id-strip { background:#1a1208;border-bottom:1px solid rgba(200,151,62,.22);padding:.6rem 0;text-align:center;margin-top:var(--nav-h) }
 .id-strip p { font-size:.78rem;font-weight:500;letter-spacing:1.6px;color:rgba(200,151,62,.82);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 1rem }
 .id-strip strong { color:var(--gold) }
 .id-strip a.strip-btn { display:inline-block;margin-left:.9rem;color:var(--gold);border:1px solid rgba(200,151,62,.38);padding:3px 13px;border-radius:20px;font-size:.7rem;font-weight:600;letter-spacing:1px;text-decoration:none;transition:background .2s;vertical-align:middle }
 .id-strip a.strip-btn:hover { background:rgba(200,151,62,.12) }
-
-/* ── HERO ──────────────────────────────────── */
-.lp-hero {
-  background: linear-gradient(135deg,#0d0702 0%,#1a1208 55%,#2d1f08 100%);
-  padding: 5rem 0 4.5rem;
-  position: relative;
-  overflow: hidden;
-}
-.lp-hero::before {
-  content:'';position:absolute;inset:0;
-  background: radial-gradient(ellipse at 68% 38%,rgba(200,151,62,.07) 0%,transparent 56%),
-              radial-gradient(ellipse at 22% 72%,rgba(45,212,191,.04) 0%,transparent 50%);
-}
+.lp-hero { background: linear-gradient(135deg,#0d0702 0%,#1a1208 55%,#2d1f08 100%); padding: 5rem 0 4.5rem; position: relative; overflow: hidden; }
+.lp-hero::before { content:'';position:absolute;inset:0; background: radial-gradient(ellipse at 68% 38%,rgba(200,151,62,.07) 0%,transparent 56%), radial-gradient(ellipse at 22% 72%,rgba(45,212,191,.04) 0%,transparent 50%); }
 .hero-grid { display:grid;grid-template-columns:220px 1fr;gap:3.5rem;align-items:center;position:relative }
-
-/* Photo / book column */
 .hero-vis { display:flex;flex-direction:column;align-items:center;gap:1.5rem }
 .hero-photo { width:130px;height:162px;border-radius:10px;object-fit:cover;object-position:top;border:2px solid rgba(200,151,62,.45);box-shadow:0 10px 38px rgba(0,0,0,.55);display:block }
 .hero-photo-ph { width:130px;height:162px;border-radius:10px;background:linear-gradient(135deg,#2d1f08,#1a1208);border:2px solid rgba(200,151,62,.3);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:2.4rem;color:var(--gold);box-shadow:0 10px 38px rgba(0,0,0,.5) }
@@ -129,8 +77,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 .hero-book-badge { display:inline-block;background:rgba(200,151,62,.18);border:1px solid rgba(200,151,62,.32);border-radius:20px;padding:3px 12px;font-family:var(--fu);font-size:.62rem;font-weight:700;letter-spacing:1.2px;color:var(--gold);text-transform:uppercase;margin-bottom:.5rem }
 .hero-book-img { width:140px;border-radius:6px;display:block;margin:0 auto;box-shadow:8px 10px 32px rgba(0,0,0,.6);transition:transform .3s }
 .hero-book-img:hover { transform:translateY(-5px) scale(1.03) }
-
-/* Text column */
 .hero-eyebrow { font-size:.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:.65rem }
 .hero-name { font-family:var(--fd);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:600;color:#fff;line-height:1.06;margin-bottom:.35rem }
 .hero-name span { color:var(--gold) }
@@ -141,16 +87,12 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 #hero-role { font-family:var(--fu);font-size:.95rem;font-weight:400;color:rgba(253,248,240,.7);transition:opacity .33s }
 .hero-mission { font-family:var(--fd);font-size:1.08rem;font-style:italic;color:rgba(253,248,240,.58);line-height:1.6;margin-bottom:1.8rem;max-width:510px;border-left:2px solid rgba(200,151,62,.35);padding-left:1.1rem }
 .hero-ctas { display:flex;gap:.75rem;flex-wrap:wrap }
-
-/* ── TRUST BAR ──────────────────────────────── */
 .trust { background:#fff;border-bottom:1px solid var(--border) }
 .trust-row { display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap }
 .trust-item { display:flex;align-items:center;gap:.6rem;padding:1.1rem 1.6rem;border-right:1px solid var(--border);font-size:.82rem;color:var(--sub);font-weight:500 }
 .trust-item:last-child { border-right:none }
 .trust-item i { color:var(--gold);font-size:.95rem }
 .trust-item strong { color:var(--text) }
-
-/* ── ABOUT ──────────────────────────────────── */
 .about-sec { padding:4.5rem 0 }
 .about-grid { display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start }
 .about-text p { font-size:1rem;color:var(--text);line-height:1.82;margin-bottom:.95rem }
@@ -160,28 +102,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 .stat-ico { width:42px;height:42px;border-radius:10px;background:rgba(200,151,62,.2);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.95rem;flex-shrink:0 }
 .stat-val { font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:.12rem }
 .stat-lbl { font-size:.75rem;color:var(--sub) }
-
-/* ── WHAT I DO ──────────────────────────────── */
-.whatido { padding:4rem 0;background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border) }
-.pillars { display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem }
-.pillar { background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.8rem 1.2rem;text-align:center;transition:all .25s;position:relative;overflow:hidden }
-.pillar::after { content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),rgba(200,151,62,.2));transform:scaleX(0);transition:transform .3s;transform-origin:left }
-.pillar:hover { border-color:rgba(200,151,62,.38);transform:translateY(-4px);box-shadow:0 10px 28px rgba(200,151,62,.1) }
-.pillar:hover::after { transform:scaleX(1) }
-.pil-ico { width:56px;height:56px;border-radius:14px;background:var(--gold-lt);display:flex;align-items:center;justify-content:center;margin:0 auto .95rem;font-size:1.4rem;color:var(--gold) }
-.pil-name { font-size:.92rem;font-weight:600;color:var(--ink);margin-bottom:.45rem }
-.pil-desc { font-size:.8rem;color:var(--sub);line-height:1.55 }
-
-/* ── DEV GRID ───────────────────────────────── */
-.dev-sec { padding:4rem 0 }
-.dev-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem }
-.dev-card { background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.4rem;transition:all .25s }
-.dev-card:hover { border-color:var(--gold);box-shadow:0 4px 18px rgba(200,151,62,.08) }
-.dev-ico { font-size:1.5rem;color:var(--gold);margin-bottom:.75rem }
-.dev-name { font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.38rem }
-.dev-desc { font-size:.78rem;color:var(--sub);line-height:1.55;margin-bottom:.9rem }
-
-/* ── BOOKS ──────────────────────────────────── */
 .books-sec { padding:5rem 0;background:linear-gradient(135deg,#0f0703 0%,#1a1208 100%) }
 .books-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem }
 .book-card { background:rgba(255,255,255,.03);border:1px solid rgba(200,151,62,.18);border-radius:16px;padding:1.8rem 1.4rem;text-align:center;transition:all .25s }
@@ -191,17 +111,13 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 .book-type { font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.45rem }
 .book-name { font-family:var(--fd);font-size:1.05rem;font-weight:600;color:#fff;line-height:1.28;margin-bottom:.38rem }
 .book-blurb { font-size:.78rem;color:rgba(253,248,240,.48);line-height:1.48;margin-bottom:1.1rem }
-
-/* ── AI REVIEWER ────────────────────────────── */
 .ai-sec { padding:4rem 0;background:var(--card);border-top:1px solid var(--border) }
-.ai-card { background:linear-gradient(135deg,#081410 0%,#0c1a18 100%);border:1px solid rgba(26,110,110,.25);border-radius:18px;padding:2.6rem 2.2rem;display:grid;grid-template-columns:auto 1fr auto;gap:2.2rem;align-items:center }
+.ai-card { background:linear-gradient(135deg,#081410 0%,#0c1a18 100%);border:1px solid rgba(26,110,110,.25);border-radius:18px;padding:2.6rem 2.2rem;display:grid;grid-template-columns:auto 1fr;gap:2.2rem;align-items:center }
 .ai-ico { width:72px;height:72px;border-radius:18px;background:rgba(26,110,110,.12);border:1px solid rgba(26,110,110,.25);display:flex;align-items:center;justify-content:center;font-size:1.85rem;color:var(--teal);flex-shrink:0 }
 .ai-title { font-family:var(--fd);font-size:1.5rem;font-weight:600;color:#fff;margin-bottom:.45rem }
 .ai-desc { font-size:.88rem;color:rgba(253,248,240,.6);line-height:1.6;margin-bottom:.9rem }
 .ai-tags { display:flex;flex-wrap:wrap;gap:.42rem }
 .ai-tag { font-size:.64rem;font-weight:600;padding:4px 10px;border-radius:20px;background:rgba(26,110,110,.1);border:1px solid rgba(26,110,110,.2);color:var(--teal) }
-
-/* ── PUBLICATIONS ───────────────────────────── */
 .pubs-sec { padding:4rem 0 }
 .pub-list { display:flex;flex-direction:column;gap:.8rem }
 .pub { background:var(--card);border:1px solid var(--border);border-radius:11px;padding:1.3rem 1.5rem;display:grid;grid-template-columns:58px 1fr auto;gap:1.2rem;align-items:start;transition:border-color .2s;text-decoration:none;color:inherit }
@@ -210,31 +126,16 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 .pub-name { font-size:.92rem;font-weight:600;color:var(--ink);margin-bottom:.28rem;line-height:1.38 }
 .pub-journal { font-size:.78rem;color:var(--sub) }
 .pub-cat { font-size:.6rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:var(--gold-lt);color:var(--gold-deep);white-space:nowrap;margin-top:.12rem }
-
-/* ── ARTICLES ───────────────────────────────── */
 .arts-sec { padding:4.5rem 0;background:linear-gradient(160deg,#0f0703 0%,#1a1208 100%) }
 .art-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem }
-.art-card {
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(200,151,62,.18);
-  border-top:3px solid var(--gold);
-  border-radius:13px;padding:1.6rem;
-  transition:all .28s;text-decoration:none;display:block;
-  position:relative;overflow:hidden;
-}
-.art-card::before {
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(200,151,62,.06) 0%,transparent 60%);
-  opacity:0;transition:opacity .28s;
-}
+.art-card { background:rgba(255,255,255,.04); border:1px solid rgba(200,151,62,.18); border-top:3px solid var(--gold); border-radius:13px;padding:1.6rem; transition:all .28s;text-decoration:none;display:block; position:relative;overflow:hidden; }
+.art-card::before { content:'';position:absolute;inset:0; background:linear-gradient(135deg,rgba(200,151,62,.06) 0%,transparent 60%); opacity:0;transition:opacity .28s; }
 .art-card:hover { border-color:var(--gold);transform:translateY(-4px);box-shadow:0 10px 32px rgba(200,151,62,.18) }
 .art-card:hover::before { opacity:1 }
 .art-tag { font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(200,151,62,.75);margin-bottom:.65rem;display:block }
 .art-title { font-family:'Cormorant Garamond',Georgia,serif;font-size:1.12rem;font-weight:600;color:#fff;line-height:1.35;margin-bottom:.6rem }
 .art-desc { font-size:.78rem;color:rgba(253,248,240,.5);line-height:1.58;margin-bottom:1rem }
 .arr { color:rgba(200,151,62,.8) }
-
-/* ── FUTURE NOVELS ──────────────────────────── */
 .novels-sec { padding:5rem 0;background:linear-gradient(160deg,#0f0703 0%,#1a1208 60%,#0f2022 100%) }
 .novels-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem }
 .novel { background:rgba(255,255,255,.03);border:1px solid rgba(200,151,62,.14);border-radius:13px;padding:1.6rem;transition:all .25s }
@@ -242,8 +143,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 .novel-ico { font-size:1.5rem;margin-bottom:.7rem }
 .novel-name { font-family:var(--fd);font-size:1.05rem;font-weight:600;color:#fff;margin-bottom:.38rem }
 .novel-desc { font-size:.78rem;color:rgba(253,248,240,.5);line-height:1.52 }
-
-/* ── QUALIFICATIONS ─────────────────────────── */
 .quals-sec { padding:4.5rem 0 }
 .quals-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem }
 .qual { background:var(--card);border:1px solid var(--border);border-radius:13px;padding:1.4rem;display:flex;align-items:flex-start;gap:.95rem;transition:border-color .2s }
@@ -251,21 +150,15 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 .qual-ico { width:44px;height:44px;border-radius:10px;background:var(--gold-lt);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1rem;flex-shrink:0 }
 .qual-name { font-size:.9rem;font-weight:600;color:var(--ink);margin-bottom:.24rem }
 .qual-sub { font-size:.76rem;color:var(--sub);line-height:1.45 }
-
-/* ── COUNTERS ───────────────────────────────── */
 .counts-sec { padding:4rem 0;background:var(--ink) }
 .counts-grid { display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(200,151,62,.12);border-radius:16px;overflow:hidden }
 .count { background:rgba(255,255,255,.02);padding:2.5rem 1rem;text-align:center }
 .count-num { font-family:var(--fd);font-size:3rem;font-weight:600;color:var(--gold);line-height:1;margin-bottom:.4rem }
 .count-lbl { font-size:.78rem;color:rgba(253,248,240,.45);line-height:1.35 }
-
-/* ── CTA ────────────────────────────────────── */
 .cta-sec { padding:4.5rem 0;background:linear-gradient(135deg,#1a1208 0%,#2d1f08 100%);border-top:1px solid rgba(200,151,62,.18);text-align:center }
 .cta-title { font-family:var(--fd);font-size:clamp(1.55rem,3vw,2.2rem);font-weight:600;color:#fff;margin-bottom:.5rem }
 .cta-sub { font-size:.92rem;color:rgba(253,248,240,.5);margin-bottom:1.7rem }
 .cta-btns { display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap }
-
-/* ── FOOTER ─────────────────────────────────── */
 .lp-footer { background:#0c0801;border-top:1px solid rgba(200,151,62,.12);padding:3.5rem 0 2rem }
 .foot-top { text-align:center;margin-bottom:2rem }
 .foot-brand { font-family:var(--fd);font-size:1.7rem;color:var(--gold);margin-bottom:.4rem }
@@ -275,7 +168,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 .foot-ci i { color:var(--gold);width:16px;text-align:center;font-size:.82rem }
 .foot-ci a { color:rgba(253,248,240,.82);text-decoration:none;transition:color .2s }
 .foot-ci a:hover { color:var(--gold) }
-
 .foot-social-section { padding:2rem 0;border-top:1px solid rgba(200,151,62,.18);border-bottom:1px solid rgba(200,151,62,.18);margin-bottom:2rem;text-align:center }
 .foot-social-label { font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(200,151,62,.90);margin-bottom:1.2rem }
 .foot-social { display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap }
@@ -286,22 +178,16 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 .soc-btn.soc-orcid i { color:#A6CE39 }
 .soc-btn.soc-orcid:hover { border-color:rgba(166,206,57,.45) }
 .soc-btn.soc-orcid:hover i { color:#A6CE39 }
-
 .foot-nav-row { display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem }
 .foot-nav-row a { font-size:.74rem;color:rgba(253,248,240,.55);text-decoration:none;transition:color .2s }
 .foot-nav-row a:hover { color:var(--gold) }
-
 .foot-copy { text-align:center;font-size:.7rem;color:rgba(242,232,210,0.78);line-height:1.6 }
 .foot-disclaimer { text-align:center;font-size:.68rem;color:rgba(242,232,210,0.65);max-width:640px;margin:.6rem auto 0;line-height:1.55;font-style:italic }
-
-/* ── RESPONSIVE ─────────────────────────────── */
 @media(max-width:960px){
   .hero-grid { grid-template-columns:1fr;text-align:center;gap:2.2rem }
   .hero-vis { flex-direction:row;justify-content:center }
   .hero-mission { margin-left:auto;margin-right:auto }
   .hero-ctas,.hero-role-wrap { justify-content:center }
-  .pillars { grid-template-columns:repeat(2,1fr) }
-  .dev-grid { grid-template-columns:repeat(2,1fr) }
   .books-grid { grid-template-columns:repeat(2,1fr) }
   .novels-grid { grid-template-columns:repeat(2,1fr) }
   .quals-grid { grid-template-columns:1fr }
@@ -315,8 +201,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
   .trust-item { border-right:none;border-bottom:1px solid var(--border);width:50%;justify-content:center }
 }
 @media(max-width:580px){
-  .pillars { grid-template-columns:1fr }
-  .dev-grid { grid-template-columns:1fr }
   .books-grid { grid-template-columns:1fr }
   .novels-grid { grid-template-columns:1fr }
   .counts-grid { grid-template-columns:repeat(2,1fr) }
@@ -328,23 +212,18 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
 </head>
 <body>
 
-<!-- ── NAV ──────────────────────────────────── -->
 <nav id="main-nav" class="solid">
   <a href="index.html" class="nav-title">Still Human</a>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="nav-links">
-    <li><a href="about.html">About</a></li>
-    <li><a href="research.html">Research</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
     <li><a href="notes.html">Articles</a></li>
     <li><a href="books.html">Books</a></li>
     <li><a href="cv.html">CV</a></li>
   </ul>
 </nav>
 
-<!-- ── IDENTITY STRIP ──────────────────────── -->
 <div class="id-strip">
   <p>
     <strong>Dr. T. Jeevaraj</strong>
@@ -353,14 +232,9 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
   </p>
 </div>
 
-<!-- ══════════════════════════════════════════
-     HERO
-══════════════════════════════════════════ -->
 <section class="lp-hero">
   <div class="w">
     <div class="hero-grid">
-
-      <!-- Visuals column -->
       <div class="hero-vis f">
         <div>
           <img src="images/T. Jeevaraj.jpg" alt="Dr. T. Jeevaraj" class="hero-photo"
@@ -375,35 +249,26 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
         </div>
       </div>
 
-      <!-- Text column -->
       <div class="f d1">
         <h1 class="hero-name">Dr. T.&nbsp;<span>Jeevaraj</span></h1>
         <div class="hero-quals">MBBS · MCGP · MSc Biomedical Informatics · MD Health Informatics Trainee</div>
-
-        <!-- Animated role -->
         <div class="hero-role-wrap">
           <div class="role-dot"></div>
           <span id="hero-role">General Practitioner — 20+ Years Clinical Experience</span>
         </div>
-
         <p class="hero-mission">
           "Bridging frontline clinical experience, health information systems, artificial intelligence evaluation, and scientific communication."
         </p>
-
         <div class="hero-ctas">
           <a href="cv.html" class="btn-g"><i class="fas fa-file-alt"></i> View Full CV</a>
-          <a href="portfolio.html" class="btn-o"><i class="fas fa-briefcase"></i> Explore My Work</a>
+          <a href="notes.html" class="btn-o"><i class="fas fa-newspaper"></i> Read My Articles</a>
           <a href="https://drive.google.com/file/d/1nz5RmU6JnYjtmrKb-l-e82BzJwPaMYKE/view?usp=drive_link" target="_blank" rel="noopener" class="btn-gh"><i class="fas fa-download"></i> Download CV</a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     TRUST BAR
-══════════════════════════════════════════ -->
 <div class="trust">
   <div class="w">
     <div class="trust-row">
@@ -416,9 +281,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     ABOUT
-══════════════════════════════════════════ -->
 <section class="about-sec f">
   <div class="w">
     <div class="about-grid">
@@ -435,7 +297,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
           <span class="chip"><i class="fas fa-pen-nib"></i> Published Author</span>
           <span class="chip"><i class="fas fa-flag"></i> Sri Lanka</span>
         </div>
-        <a href="about.html" class="btn-g btn-sm" style="margin-top:.5rem">Read Full Biography →</a>
       </div>
       <div class="stat-rows f d2">
         <div class="stat-row">
@@ -478,101 +339,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     WHAT I DO
-══════════════════════════════════════════ -->
-<section class="whatido">
-  <div class="w">
-    <div class="sec-hd f">
-      <span class="eyebrow">Expertise</span>
-      <h2 class="sec-title">Areas of Focus</h2>
-      <p class="sec-sub">Combining 20+ years of clinical practice with postgraduate health informatics training — across clinical AI evaluation, medical writing, health information systems, and digital health research.</p>
-    </div>
-    <div class="pillars">
-      <div class="pillar f d1">
-        <div class="pil-ico"><i class="fas fa-database"></i></div>
-        <div class="pil-name">Health Informatics & DHIS2</div>
-        <div class="pil-desc">Health information system analysis, DHIS2 familiarity, and data management for health programmes in LMICs.</div>
-      </div>
-      <div class="pillar f d2">
-        <div class="pil-ico"><i class="fas fa-robot"></i></div>
-        <div class="pil-name">Clinical AI Evaluation</div>
-        <div class="pil-desc">AI output review by a practising medical doctor — clinical reasoning, diagnostic AI, and healthcare NLP annotation.</div>
-      </div>
-      <div class="pillar f d3">
-        <div class="pil-ico"><i class="fas fa-pen-nib"></i></div>
-        <div class="pil-name">Medical Writing</div>
-        <div class="pil-desc">Research articles, health reports, grant proposals, and policy documents — with BMJ Open and JMJ track records.</div>
-      </div>
-      <div class="pillar f d4">
-        <div class="pil-ico"><i class="fas fa-book-open"></i></div>
-        <div class="pil-name">Book & AI Reviews</div>
-        <div class="pil-desc">Critical review of health and AI publications — from a clinician who both practises medicine and writes on AI.</div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:2rem">
-      <a href="portfolio.html" class="btn-g">View Portfolio →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     SYSTEMS & DEV
-══════════════════════════════════════════ -->
-<section class="dev-sec f">
-  <div class="w">
-    <div class="sec-hd">
-      <span class="eyebrow">Digital Health Work</span>
-      <h2 class="sec-title">Health Information Systems</h2>
-      <p class="sec-sub">Digital health tools and information systems work in public health and primary care settings across Sri Lanka.</p>
-    </div>
-    <div class="dev-grid">
-      <div class="dev-card f d1">
-        <div class="dev-ico"><i class="fas fa-chart-line"></i></div>
-        <div class="dev-name">Disease Surveillance</div>
-        <div class="dev-desc">Real-time communicable disease reporting and outbreak monitoring at district health authority level.</div>
-        <a href="portfolio.html" class="arr">View Portfolio <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="dev-card f d2">
-        <div class="dev-ico"><i class="fas fa-boxes"></i></div>
-        <div class="dev-name">Inventory Management</div>
-        <div class="dev-desc">Medical supply tracking solutions for health facilities and regional health networks.</div>
-        <a href="portfolio.html" class="arr">View Portfolio <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="dev-card f d3">
-        <div class="dev-ico"><i class="fas fa-database"></i></div>
-        <div class="dev-name">DHIS2 & HIS Work</div>
-        <div class="dev-desc">Configuration and operational work with DHIS2-based health information systems aligned to national reporting.</div>
-        <a href="portfolio.html" class="arr">View Portfolio <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="dev-card f d1">
-        <div class="dev-ico"><i class="fas fa-users-between-lines"></i></div>
-        <div class="dev-name">NCD Screening Programme</div>
-        <div class="dev-desc">Population-level NCD screening at Thampalakamam — 43% of adults over 35 screened. Featured by the World Bank (2022).</div>
-        <a href="portfolio.html" class="arr">View Portfolio <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="dev-card f d2">
-        <div class="dev-ico"><i class="fas fa-mobile-alt"></i></div>
-        <div class="dev-name">Clinical Data PWA</div>
-        <div class="dev-desc">Progressive web application for offline-first clinical data collection, designed for low-connectivity, low-resource settings.</div>
-        <a href="dev.html" class="arr">View Dev Work <i class="fas fa-arrow-right"></i></a>
-      </div>
-      <div class="dev-card f d3">
-        <div class="dev-ico"><i class="fas fa-ribbon"></i></div>
-        <div class="dev-name">Cancer Early Detection Registry</div>
-        <div class="dev-desc">Patient registration and screening workflow system for cancer early detection clinics, with cancer registry data operations support.</div>
-        <a href="portfolio.html" class="arr">View Portfolio <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:2rem">
-      <a href="portfolio.html" class="btn-o">View Full Portfolio →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     BOOKS
-══════════════════════════════════════════ -->
 <section class="books-sec lp-dark">
   <div class="w">
     <div class="sec-hd f">
@@ -588,10 +354,8 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
         <div class="book-blurb">Three true stories. Ten observed patterns. One quiet question about what AI does to ordinary human life. 37 pages. Kindle eBook.</div>
         <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" class="btn-g btn-sm"><i class="fab fa-amazon"></i> Amazon Kindle — $2.99</a>
       </div>
-      <!-- Future book: articles collection -->
       <div class="book-card f d2" style="border:1px solid rgba(200,151,62,.22);border-top:3px solid rgba(200,151,62,.55)">
         <div class="book-ph" style="background:linear-gradient(135deg,rgba(200,151,62,.12),rgba(200,151,62,.04));border:1px solid rgba(200,151,62,.22);position:relative">
-          <!-- Stack of pages icon -->
           <span style="font-size:2.6rem;line-height:1">
             <i class="fas fa-layer-group" style="color:rgba(200,151,62,.55)"></i>
           </span>
@@ -604,8 +368,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
         <div class="book-blurb">Six published articles on healthcare and AI — expanded, revised, and extended into a full book with new chapters and clinical reflection. Title to be announced.</div>
         <a href="notes.html" class="btn-o btn-sm" style="color:rgba(200,151,62,.8);border-color:rgba(200,151,62,.3)"><i class="fas fa-newspaper" style="font-size:.7rem"></i> Read the Articles →</a>
       </div>
-
-      <!-- The Memory Witness -->
       <div class="book-card f d3" style="border:1px solid rgba(45,212,191,.15);border-top:3px solid rgba(45,212,191,.4)">
         <div class="book-ph" style="background:linear-gradient(135deg,rgba(45,212,191,.1),rgba(15,32,34,.5));border:1px solid rgba(45,212,191,.18);position:relative;flex-direction:column;gap:.5rem">
           <i class="fas fa-brain" style="font-size:2.8rem;color:rgba(45,212,191,.55)"></i>
@@ -625,9 +387,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     AI REVIEWER
-══════════════════════════════════════════ -->
 <section class="ai-sec">
   <div class="w">
     <div class="sec-hd f">
@@ -648,14 +407,10 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
           <span class="ai-tag">Prompt & Response Evaluation</span>
         </div>
       </div>
-      <a href="portfolio.html" class="btn-t">See Portfolio <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     RESEARCH PUBLICATIONS
-══════════════════════════════════════════ -->
 <section class="pubs-sec f">
   <div class="w">
     <div class="sec-hd">
@@ -664,8 +419,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
       <p class="sec-sub">Published research contributions in international and national medical journals. ORCID: 0009-0008-5084-0258</p>
     </div>
     <div class="pub-list">
-
-      <!-- Jaffna Medical Journal 2024 -->
       <a href="https://doi.org/10.4038/jmj.v36i2.221" target="_blank" rel="noopener" class="pub f d1">
         <div class="pub-yr">2024</div>
         <div>
@@ -678,8 +431,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
         </div>
         <div class="pub-cat">Jaffna Med J</div>
       </a>
-
-      <!-- BMJ Open 2020 -->
       <a href="https://doi.org/10.1136/bmjopen-2020-038148" target="_blank" rel="noopener" class="pub f d2">
         <div class="pub-yr">2020</div>
         <div>
@@ -692,8 +443,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
         </div>
         <div class="pub-cat">BMJ Open</div>
       </a>
-
-      <!-- World Bank -->
       <a href="https://www.worldbank.org/en/news/feature/2022/03/28/sri-lanka-making-strides-towards-a-healthier-future" target="_blank" rel="noopener" class="pub f d3">
         <div class="pub-yr">2022</div>
         <div>
@@ -705,17 +454,10 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
         </div>
         <div class="pub-cat">World Bank</div>
       </a>
-
-    </div>
-    <div style="text-align:center;margin-top:2rem">
-      <a href="portfolio.html" class="btn-g">Full Research Portfolio →</a>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     FEATURED ARTICLES
-══════════════════════════════════════════ -->
 <section class="arts-sec">
   <div class="w">
     <div class="sec-hd f">
@@ -767,9 +509,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     FUTURE NOVELS
-══════════════════════════════════════════ -->
 <section class="novels-sec lp-dark">
   <div class="w">
     <div class="sec-hd f">
@@ -800,9 +539,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     QUALIFICATIONS
-══════════════════════════════════════════ -->
 <section class="quals-sec f">
   <div class="w">
     <div class="sec-hd">
@@ -860,9 +596,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     COUNTERS
-══════════════════════════════════════════ -->
 <section class="counts-sec f" id="lp-counts">
   <div class="w">
     <div class="sec-hd" style="margin-bottom:2.5rem">
@@ -894,9 +627,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     CONTACT CTA
-══════════════════════════════════════════ -->
 <section class="cta-sec">
   <div class="w">
     <div class="f">
@@ -907,7 +637,7 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
         Open to academic correspondence, research discussion, and professional networking.
       </div>
       <div class="cta-btns">
-        <a href="portfolio.html" class="btn-g">Portfolio →</a>
+        <a href="notes.html" class="btn-g">Articles →</a>
         <a href="mailto:drtjeevaraj@gmail.com" class="btn-o">Email Dr. Jeevaraj</a>
         <a href="cv.html" class="btn-gh">View CV</a>
       </div>
@@ -915,13 +645,8 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════ -->
 <footer class="lp-footer">
   <div class="w">
-
-    <!-- Top: centred brand + contact -->
     <div class="foot-top">
       <div class="foot-brand">Dr. T. Jeevaraj</div>
       <div class="foot-quals">
@@ -937,7 +662,6 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
       </div>
     </div>
 
-    <!-- Social links -->
     <div class="foot-social-section">
       <div class="foot-social-label">Find Me Online</div>
       <div class="foot-social">
@@ -968,33 +692,24 @@ body { font-family: var(--fu); background: var(--parchment); color: var(--text);
       </div>
     </div>
 
-    <!-- Page nav -->
     <div class="foot-nav-row">
-      <a href="about.html">About</a>
-      <a href="research.html">Research</a>
-      <a href="portfolio.html">Portfolio</a>
       <a href="notes.html">Articles</a>
       <a href="books.html">Books</a>
       <a href="cv.html">CV</a>
     </div>
 
-    <!-- Copyright -->
     <div class="foot-copy">© 2026 Dr. T. Jeevaraj &nbsp;·&nbsp; drjeevaraj.com &nbsp;·&nbsp; Still Human &nbsp;·&nbsp; <a href="privacy.html" style="color:inherit;text-decoration:none;opacity:0.75;">Privacy Policy</a></div>
     <div class="foot-disclaimer">All content on this website reflects the personal views, analyses, and creative work of the author. It is published in a personal capacity and does not represent the views, positions, or endorsements of any affiliated institution, employer, or organization. The content is intended solely for informational and academic discussion purposes.</div>
-
   </div>
 </footer>
 
 <script>
-/* Hamburger */
 const ham = document.getElementById('nav-hamburger');
 const navLinks = document.getElementById('nav-links');
 if (ham && navLinks) {
   ham.addEventListener('click', () => { navLinks.classList.toggle('open'); ham.classList.toggle('active'); });
   document.addEventListener('click', e => { if (!ham.contains(e.target) && !navLinks.contains(e.target)) { navLinks.classList.remove('open'); ham.classList.remove('active'); } });
 }
-
-/* Rotating roles */
 const roles = [
   'General Practitioner — 20+ Years Clinical Experience',
   'MSc Biomedical Informatics (PGIM, Completed 2024)',
@@ -1011,15 +726,11 @@ if (roleEl) {
     setTimeout(() => { ri = (ri + 1) % roles.length; roleEl.textContent = roles[ri]; roleEl.style.opacity = '1'; }, 360);
   }, 3000);
 }
-
-/* Fade-in on scroll */
 const fadeEls = document.querySelectorAll('.f');
 const fadeObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); fadeObs.unobserve(e.target); } });
 }, { threshold: 0.08 });
 fadeEls.forEach(el => fadeObs.observe(el));
-
-/* Animated counters */
 function animCounter(el) {
   const target = parseInt(el.dataset.target, 10);
   const suffix = el.dataset.suffix || '';
