@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. T. Jeevaraj — Physician · Writer · Health Informatics · Sri Lanka</title>
+  <meta name="description" content="Dr. T. Jeevaraj — General Practitioner, MD Health Informatics Trainee (PGIM), and writer on AI in healthcare, digital health, and what technology does to human life. Sri Lanka.">
+  <meta name="author" content="Dr. T. Jeevaraj">
+  <link rel="canonical" href="https://drjeevaraj.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dr. T. Jeevaraj — Physician · Writer · Health Informatics">
+  <meta property="og:description" content="Writing on AI in healthcare, digital health, and what technology quietly does to human life.">
+  <meta property="og:url" content="https://drjeevaraj.com/">
+  <meta property="og:image" content="https://drjeevaraj.com/T.%20Jeevaraj.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dr. T. Jeevaraj — Physician · Writer · Health Informatics">
+  <meta name="twitter:description" content="Writing on AI in healthcare, digital health, and what technology quietly does to human life.">
+  <meta name="twitter:image" content="https://drjeevaraj.com/T.%20Jeevaraj.jpg">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Dr. T. Jeevaraj","url":"https://drjeevaraj.com","jobTitle":"General Practitioner & MD Health Informatics Trainee","description":"MBBS, MCGP, MSc Biomedical Informatics, MD Health Informatics Trainee at PGIM, University of Colombo. Writer on healthcare, AI, and human experience.","sameAs":["https://orcid.org/0009-0008-5084-0258","https://www.linkedin.com/in/drjeevaraj/","https://www.amazon.com/stores/author/B0H33ZVCT9/about"]}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  /* Palette — real contrast, not all beige */
+  --white:      #FFFFFF;
+  --off-white:  #FAF8F4;
+  --warm-gray:  #F0EBE2;
+  --mid-gray:   #E2DAD0;
+  --charcoal:   #1A1612;
+  --charcoal-2: #2C2820;
+  --ink:        #3A3228;
+  --ink-light:  #6B5E4A;
+  --ink-faint:  #9A8E7E;
+
+  /* Gold — single accent, used with discipline */
+  --gold:       #A07830;
+  --gold-deep:  #7A5820;
+  --gold-lt:    rgba(160,120,48,0.10);
+  --gold-br:    rgba(160,120,48,0.25);
+  --gold-glow:  rgba(160,120,48,0.18);
+
+  /* Type */
+  --serif: 'Lora', Georgia, serif;
+  --sans:  'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --nav-h: 64px;
+  --max:   700px;
+  --wide:  1040px;
+
+  /* Effects */
+  --shadow-sm: 0 2px 8px rgba(26,22,18,0.08);
+  --shadow-md: 0 8px 32px rgba(26,22,18,0.12);
+  --shadow-lg: 0 20px 60px rgba(26,22,18,0.18);
+  --t: 0.22s ease;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--ink);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════════════════════════════════════════
+   SKIP LINK (accessibility)
+═══════════════════════════════════════════════ */
+.skip-link {
+  position: absolute;
+  top: -99px;
+  left: 1rem;
+  background: var(--gold);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  z-index: 999;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--mid-gray);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+}
+.nav-brand {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color var(--t);
+}
+.nav-brand:hover { color: var(--gold); }
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  text-decoration: none;
+  transition: color var(--t);
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t);
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO — full-viewport, luxury whitespace
+═══════════════════════════════════════════════ */
+.hero {
+  min-height: 100svh;
+  padding-top: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background texture — thin vertical gold line as signature element */
+.hero::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-br) 30%, var(--gold-br) 70%, transparent);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 5rem;
+  align-items: center;
+  max-width: var(--wide);
+  padding: 5rem 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Portrait */
+.hero-portrait-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.hero-photo {
+  width: 210px;
+  height: 265px;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border: 2px solid var(--gold-br);
+  box-shadow: 0 24px 64px rgba(26,22,18,0.20), 0 4px 16px rgba(26,22,18,0.10);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.hero-photo:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 36px 80px rgba(26,22,18,0.24), 0 4px 16px rgba(26,22,18,0.10);
+}
+
+/* Book thumbnail in hero */
+.hero-book-link {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+}
+.hero-book-cover {
+  width: 100px;
+  border-radius: 6px;
+  box-shadow: 6px 8px 28px rgba(26,22,18,0.30);
+  display: block;
+  margin: 0 auto 0.6rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.hero-book-link:hover .hero-book-cover {
+  transform: translateY(-4px) rotate(-1.5deg);
+  box-shadow: 8px 14px 36px rgba(26,22,18,0.38);
+}
+.hero-book-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Hero text */
+.hero-text {}
+.hero-eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.6rem;
+}
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.06;
+  margin-bottom: 1rem;
+}
+.hero-roles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1.8rem;
+}
+.hero-role-line {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--ink-light);
+  line-height: 1.4;
+}
+.hero-rule {
+  width: 52px;
+  height: 2px;
+  background: var(--gold);
+  border: none;
+  margin: 0 0 1.8rem;
+}
+.hero-tagline {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  color: var(--ink-light);
+  line-height: 1.85;
+  max-width: 440px;
+  margin-bottom: 2.5rem;
+}
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Scroll hint */
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  animation: bounce 2.4s ease-in-out infinite;
+}
+.scroll-hint svg { color: var(--gold); }
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+  50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.85rem 1.9rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s, border-color 0.18s;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+.btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.btn-primary {
+  background: var(--gold);
+  color: #fff;
+  box-shadow: 0 4px 16px var(--gold-glow);
+}
+.btn-primary:hover {
+  background: var(--gold-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(160,120,48,0.32);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--gold-br);
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  background: var(--gold-lt);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.btn-dark {
+  background: rgba(255,255,255,0.10);
+  color: rgba(250,248,244,0.88);
+  border: 1.5px solid rgba(255,255,255,0.18);
+}
+.btn-dark:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.35);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════
+   TRUST BAR — charcoal background for contrast
+═══════════════════════════════════════════════ */
+.trust {
+  background: var(--charcoal);
+  padding: 1.1rem 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.trust-inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(250,248,244,0.55);
+  padding: 0.35rem 1.6rem;
+  border-right: 1px solid rgba(255,255,255,0.09);
+  letter-spacing: 0.03em;
+}
+.trust-item:last-child { border-right: none; }
+.trust-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(160,120,48,0.18);
+  border: 1px solid rgba(160,120,48,0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+}
+.trust-item strong { color: rgba(250,248,244,0.85); font-weight: 600; }
+
+/* ═══════════════════════════════════════════════
+   UTILITY
+═══════════════════════════════════════════════ */
+.section-label {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.18;
+  margin-bottom: 0.7rem;
+}
+.section-sub {
+  font-size: 0.93rem;
+  color: var(--ink-light);
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+/* ═══════════════════════════════════════════════
+   BOOK SECTION — dark, cinematic
+═══════════════════════════════════════════════ */
+.book-section {
+  background: var(--charcoal-2);
+  padding: 7rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+/* Signature background element — faint waveform */
+.book-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 55%;
+  height: 70%;
+  background: radial-gradient(ellipse at 80% 50%, rgba(160,120,48,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.book-inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.book-cover-wrap {
+  position: relative;
+}
+.book-cover {
+  width: 100%;
+  max-width: 240px;
+  border-radius: 8px;
+  box-shadow: 16px 20px 60px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.3);
+  display: block;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.book-cover:hover {
+  transform: translateY(-8px) rotate(-1.5deg);
+  box-shadow: 22px 30px 72px rgba(0,0,0,0.65), 0 6px 20px rgba(0,0,0,0.3);
+}
+.book-badge {
+  position: absolute;
+  top: -12px;
+  right: -10px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(160,120,48,0.45);
+}
+.book-eyebrow {
+  display: block;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(160,120,48,0.80);
+  margin-bottom: 1.2rem;
+}
+.book-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: #FAF8F4;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.book-meta {
+  font-size: 0.72rem;
+  color: rgba(250,248,244,0.35);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.8rem;
+}
+.book-pull {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(250,248,244,0.62);
+  line-height: 1.85;
+  border-left: 2px solid rgba(160,120,48,0.45);
+  padding-left: 1.3rem;
+  max-width: 460px;
+  margin-bottom: 2.2rem;
+}
+.book-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; align-items: center; }
+.book-price {
+  font-size: 0.68rem;
+  color: rgba(250,248,244,0.28);
+  letter-spacing: 0.08em;
+  margin-top: 0.8rem;
+}
+
+/* ═══════════════════════════════════════════════
+   ARTICLES SECTION — warm off-white
+═══════════════════════════════════════════════ */
+.articles-section {
+  background: var(--off-white);
+  padding: 7rem 2.5rem;
+}
+.articles-header {
+  max-width: var(--wide);
+  margin: 0 auto 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.articles-grid {
+  max-width: var(--wide);
+  margin: 0 auto 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+.article-card {
+  background: var(--white);
+  border: 1px solid var(--mid-gray);
+  border-radius: 8px;
+  padding: 1.9rem 1.7rem 1.6rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+/* Gold top border that grows on hover */
+.article-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gold);
+  transform: scaleX(0.3);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold-br);
+}
+.article-card:hover::before { transform: scaleX(1); }
+.article-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.article-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.article-tag-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+.article-title {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.42;
+  margin-bottom: 0.75rem;
+  flex: 1;
+}
+.article-excerpt {
+  font-size: 0.80rem;
+  color: var(--ink-light);
+  line-height: 1.68;
+  margin-bottom: 1.3rem;
+}
+.article-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--warm-gray);
+  padding-top: 0.85rem;
+  margin-top: auto;
+}
+.article-read {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: gap 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+}
+.article-card:hover .article-read { gap: 0.6rem; }
+.article-read-time {
+  font-size: 0.66rem;
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+.articles-cta { text-align: center; }
+
+/* ═══════════════════════════════════════════════
+   NOTES SECTION — pure white
+═══════════════════════════════════════════════ */
+.notes-section {
+  background: var(--white);
+  padding: 7rem 2.5rem;
+  position: relative;
+}
+/* Signature gold vertical line, left-aligned */
+.notes-section::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 4rem;
+  bottom: 4rem;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-br), transparent);
+  pointer-events: none;
+}
+.notes-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.note-item {
+  border-left: 2px solid var(--gold-br);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.2rem;
+  background: var(--off-white);
+  border-radius: 0 6px 6px 0;
+  transition: border-left-color var(--t), background var(--t);
+}
+.note-item:hover { border-left-color: var(--gold); background: var(--warm-gray); }
+.note-date {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.55rem;
+}
+.note-text {
+  font-family: var(--serif);
+  font-size: 0.97rem;
+  color: var(--ink-mid, #3A3228);
+  line-height: 1.88;
+  font-style: italic;
+}
+.notes-end {
+  text-align: center;
+  padding: 2.5rem 0 0.5rem;
+}
+.notes-ornament {
+  display: block;
+  font-size: 0.55rem;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.notes-end-text {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink-faint);
+  line-height: 1.9;
+}
+.notes-end-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════════
+   ABOUT SECTION — warm gray
+═══════════════════════════════════════════════ */
+.about-section {
+  background: var(--warm-gray);
+  padding: 7rem 2.5rem;
+}
+.about-inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.about-text { }
+.about-text p {
+  font-size: 0.95rem;
+  color: var(--ink);
+  line-height: 1.88;
+  margin-bottom: 1.1rem;
+}
+.about-text p:last-of-type { margin-bottom: 0; }
+.about-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
+
+/* Timeline credentials */
+.cred-timeline { margin-top: 1rem; }
+.cred-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--mid-gray);
+  position: relative;
+}
+.cred-item:first-child { padding-top: 0; }
+.cred-item:last-child { border-bottom: none; }
+.cred-year {
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--gold);
+  min-width: 42px;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+.cred-dot-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 6px;
+}
+.cred-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold-lt);
+  border: 2px solid var(--gold);
+  flex-shrink: 0;
+}
+.cred-line {
+  width: 1px;
+  flex: 1;
+  background: var(--gold-br);
+  margin-top: 5px;
+  min-height: 28px;
+}
+.cred-item:last-child .cred-line { display: none; }
+.cred-body { }
+.cred-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 0.2rem;
+}
+.cred-sub {
+  font-size: 0.76rem;
+  color: var(--ink-light);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════
+   PUBLICATIONS SECTION — white
+═══════════════════════════════════════════════ */
+.pub-section {
+  background: var(--white);
+  padding: 6rem 2.5rem;
+}
+.pub-inner { max-width: var(--wide); margin: 0 auto; }
+.pub-header { margin-bottom: 2.8rem; }
+.pub-timeline { position: relative; padding-left: 2.2rem; }
+.pub-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), var(--gold-br));
+}
+.pub-item {
+  position: relative;
+  padding-bottom: 2.4rem;
+}
+.pub-item:last-child { padding-bottom: 0; }
+.pub-item::before {
+  content: '';
+  position: absolute;
+  left: -2.6rem;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--gold-br);
+}
+.pub-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  background: var(--off-white);
+  border: 1px solid var(--mid-gray);
+  border-radius: 8px;
+  padding: 1.4rem 1.6rem;
+  transition: border-color var(--t), box-shadow var(--t);
+}
+.pub-link:hover { border-color: var(--gold-br); box-shadow: var(--shadow-sm); }
+.pub-year-badge {
+  display: inline-block;
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+  background: var(--gold-lt);
+  border: 1px solid var(--gold-br);
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-bottom: 0.7rem;
+}
+.pub-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.42;
+  margin-bottom: 0.35rem;
+}
+.pub-journal {
+  font-size: 0.75rem;
+  color: var(--ink-light);
+  line-height: 1.55;
+}
+.pub-journal strong { color: var(--ink); font-weight: 600; }
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer {
+  background: var(--charcoal);
+  padding: 5rem 2.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+footer::before {
+  content: '"Still Human."';
+  position: absolute;
+  right: -1rem;
+  bottom: -2rem;
+  font-family: var(--serif);
+  font-size: 8rem;
+  font-weight: 600;
+  font-style: italic;
+  color: rgba(255,255,255,0.025);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+.footer-inner {
+  max-width: var(--wide);
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 2.5rem;
+  align-items: start;
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: rgba(250,248,244,0.88);
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
+}
+.footer-tagline {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: rgba(250,248,244,0.38);
+  line-height: 1.7;
+  max-width: 320px;
+  margin-bottom: 1.5rem;
+}
+.footer-quals {
+  font-size: 0.7rem;
+  color: rgba(250,248,244,0.28);
+  line-height: 1.75;
+  letter-spacing: 0.03em;
+}
+.footer-links-col h4 {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(160,120,48,0.75);
+  margin-bottom: 1.1rem;
+}
+.footer-link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer-link-list a {
+  font-size: 0.82rem;
+  color: rgba(250,248,244,0.45);
+  text-decoration: none;
+  transition: color var(--t);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.footer-link-list a:hover { color: rgba(160,120,48,0.9); }
+.footer-link-list a::before {
+  content: '';
+  width: 14px;
+  height: 1px;
+  background: rgba(160,120,48,0.4);
+  flex-shrink: 0;
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-copy {
+  font-size: 0.68rem;
+  color: rgba(250,248,244,0.25);
+}
+.footer-disclaimer {
+  font-size: 0.63rem;
+  color: rgba(250,248,244,0.18);
+  max-width: 480px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════
+   FADE ANIMATION
+═══════════════════════════════════════════════ */
+.fade {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade.on { opacity: 1; transform: none; }
+.fade.d1 { transition-delay: 0.08s; }
+.fade.d2 { transition-delay: 0.16s; }
+.fade.d3 { transition-delay: 0.24s; }
+.fade.d4 { transition-delay: 0.32s; }
+.fade.d5 { transition-delay: 0.40s; }
+.fade.d6 { transition-delay: 0.48s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade { opacity: 1; transform: none; transition: none; }
+  .scroll-hint { animation: none; }
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 840px) {
+  nav { padding: 0 1.4rem; }
+  .nav-links { gap: 1.4rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; padding: 4rem 1.6rem; }
+  .hero-portrait-wrap { flex-direction: row; justify-content: center; gap: 2.5rem; }
+  .hero-photo { width: 160px; height: 200px; }
+  .hero-rule { margin: 0 auto 1.8rem; }
+  .hero-tagline { margin: 0 auto 2.5rem; }
+  .hero-ctas { justify-content: center; }
+  .book-inner { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+  .book-cover { max-width: 180px; margin: 0 auto; }
+  .book-pull { margin: 0 auto 2.2rem; }
+  .book-ctas { justify-content: center; }
+  .articles-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .notes-section::before { display: none; }
+}
+@media (max-width: 580px) {
+  .nav-links { gap: 1rem; }
+  .nav-links a { font-size: 0.7rem; }
+  .hero-portrait-wrap { flex-direction: column; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .trust-inner { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); width: 100%; }
+  .trust-item:last-child { border-bottom: none; }
+  .book-section { padding: 4.5rem 1.4rem; }
+  .articles-section, .notes-section, .about-section, .pub-section { padding: 5rem 1.4rem; }
+  footer { padding: 4rem 1.4rem 2.5rem; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ═══ NAV ═══ -->
+<nav aria-label="Main navigation">
+  <a href="index.html" class="nav-brand" aria-label="Dr. T. Jeevaraj — Home">Dr. T. Jeevaraj</a>
+  <ul class="nav-links">
+    <li><a href="notes.html" class="active">Articles</a></li>
+    <li><a href="books.html">Books</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<main id="main">
+<section class="hero" aria-label="Introduction">
+  <div class="hero-inner">
+
+    <!-- Portrait + book -->
+    <div class="hero-portrait-wrap fade">
+      <div>
+        <img
+          src="images/T. Jeevaraj.jpg"
+          alt="Dr. T. Jeevaraj — physician and writer"
+          class="hero-photo"
+          width="210" height="265"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <div>
+        <a href="books.html" class="hero-book-link" aria-label="Are You Still Human? — read the book">
+          <img
+            src="ARE YOU STILL HUMAN.jpg"
+            alt="Are You Still Human? by Dr. T. Jeevaraj — 2026"
+            class="hero-book-cover"
+            width="100"
+            loading="lazy"
+          >
+          <span class="hero-book-label">New book ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <div class="hero-text">
+      <span class="hero-eyebrow fade d1">Physician · Writer · Sri Lanka</span>
+      <h1 class="hero-name fade d2">Dr. T.&nbsp;Jeevaraj</h1>
+      <div class="hero-roles fade d3">
+        <span class="hero-role-line">General Practitioner</span>
+        <span class="hero-role-line">Health Informatics Researcher</span>
+        <span class="hero-role-line">Writer on AI &amp; Medicine</span>
+      </div>
+      <hr class="hero-rule fade d4" aria-hidden="true">
+      <p class="hero-tagline fade d4">
+        Writing about what artificial intelligence quietly does to healthcare, to human relationships, and to the people who work between them.
+      </p>
+      <div class="hero-ctas fade d5">
+        <a href="notes.html" class="btn btn-primary">Read the Articles</a>
+        <a href="books.html" class="btn btn-outline">My Book</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="4 6 8 10 12 6"/>
+    </svg>
+    scroll
+  </div>
+</section>
+
+<!-- ═══ TRUST BAR ═══ -->
+<div class="trust" role="complementary" aria-label="Credentials summary">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon" aria-hidden="true">✓</div>
+      <span><strong>BMJ Open</strong> Co-author · 2020</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon" aria-hidden="true">🌍</div>
+      <span><strong>World Bank</strong> Featured · 2022</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon" aria-hidden="true">🎓</div>
+      <span><strong>MD Trainee</strong> · PGIM, University of Colombo</span>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon" aria-hidden="true">⚕</div>
+      <span><strong>20+ Years</strong> Clinical Practice</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ BOOK ═══ -->
+<section class="book-section" aria-label="Published book">
+  <div class="book-inner">
+    <div class="book-cover-wrap fade">
+      <span class="book-badge">Out now · Kindle</span>
+      <a href="books.html">
+        <img
+          src="ARE YOU STILL HUMAN.jpg"
+          alt="Are You Still Human? — book cover"
+          class="book-cover"
+          width="240"
+          loading="lazy"
+        >
+      </a>
+    </div>
+    <div class="fade d1">
+      <span class="book-eyebrow">Published May 2026 · Literary Nonfiction</span>
+      <h2 class="book-title">Are You Still Human?</h2>
+      <p class="book-meta">Kindle eBook · 37 pages · $2.99 · Free with Kindle Unlimited</p>
+      <p class="book-pull">
+        Three true stories. Ten observed patterns. One quiet question about what AI exposure quietly does to human thinking — to the way we listen, grieve, pay attention, and stay present with one another.
+      </p>
+      <div class="book-ctas">
+        <a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener" class="btn btn-primary" aria-label="Read Are You Still Human? on Amazon Kindle">
+          Read on Kindle →
+        </a>
+        <a href="books.html" class="btn btn-dark">About the book</a>
+      </div>
+      <p class="book-price">$2.99 · Free with Kindle Unlimited</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ARTICLES ═══ -->
+<section class="articles-section" aria-label="Articles">
+  <div class="articles-header">
+    <div class="fade">
+      <span class="section-label">Writing</span>
+      <h2 class="section-title">Articles on Healthcare &amp; AI</h2>
+      <p class="section-sub">Six long-form pieces on AI in clinical practice, health informatics, and the human dimensions of digital health — written from twenty years of frontline medicine.</p>
+    </div>
+    <a href="notes.html" class="btn btn-outline fade" style="flex-shrink:0;">All Articles →</a>
+  </div>
+
+  <div class="articles-grid" role="list">
+
+    <a href="health-informatics-peripheral-failure.html" class="article-card fade d1" role="listitem">
+      <div class="article-tag"><span class="article-tag-dot" aria-hidden="true"></span>Healthcare AI</div>
+      <div class="article-title">What Health Information Systems Taught Me About the Future of Healthcare AI</div>
+      <p class="article-excerpt">A nurse asked: "What is the output? Why are we doing this much struggle?" Three lessons from implementation that AI integration must learn before it is too late.</p>
+      <div class="article-footer">
+        <span class="article-read">Read article <span aria-hidden="true">→</span></span>
+        <span class="article-read-time">10 min</span>
+      </div>
+    </a>
+
+    <a href="ai-listening-first.html" class="article-card fade d2" role="listitem">
+      <div class="article-tag"><span class="article-tag-dot" aria-hidden="true"></span>AI Design</div>
+      <div class="article-title">Listening Before Asking</div>
+      <p class="article-excerpt">I downloaded a wellness app and felt lost — not from a technical fault, but because it asked me to classify myself before it understood anything about me.</p>
+      <div class="article-footer">
+        <span class="article-read">Read article <span aria-hidden="true">→</span></span>
+        <span class="article-read-time">7 min</span>
+      </div>
+    </a>
+
+    <a href="ai-empathy-illusion.html" class="article-card fade d3" role="listitem">
+      <div class="article-tag"><span class="article-tag-dot" aria-hidden="true"></span>AI &amp; Psychology</div>
+      <div class="article-title">When AI Said, "You Make Me Smile"</div>
+      <p class="article-excerpt">I study AI. I know it cannot feel anything. And yet, when those four words appeared on my screen, I paused. What happens when a frightened patient hears the same thing?</p>
+      <div class="article-footer">
+        <span class="article-read">Read article <span aria-hidden="true">→</span></span>
+        <span class="article-read-time">7 min</span>
+      </div>
+    </a>
+
+    <a href="ai-supervision-governance.html" class="article-card fade d1" role="listitem">
+      <div class="article-tag"><span class="article-tag-dot" aria-hidden="true"></span>AI Governance</div>
+      <div class="article-title">Who Will Supervise the Supervising AI?</div>
+      <p class="article-excerpt">My son asked me three questions about AI in healthcare. I answered the first two confidently. The third — asked quietly, after a pause — I could not answer at all.</p>
+      <div class="article-footer">
+        <span class="article-read">Read article <span aria-hidden="true">→</span></span>
+        <span class="article-read-time">6 min</span>
+      </div>
+    </a>
+
+    <a href="ai-health-advice-human-connection.html" class="article-card fade d2" role="listitem">
+      <div class="article-tag"><span class="article-tag-dot" aria-hidden="true"></span>AI in Healthcare</div>
+      <div class="article-title">The Day Health Advice Stopped Travelling Through People</div>
+      <p class="article-excerpt">In rural Sri Lanka, patients once arrived carrying conversations. Then a young man held up his phone. It answered well. But something was missing.</p>
+      <div class="article-footer">
+        <span class="article-read">Read article <span aria-hidden="true">→</span></span>
+        <span class="article-read-time">8 min</span>
+      </div>
+    </a>
+
+    <a href="ai-consistency-nccp.html" class="article-card fade d3" role="listitem">
+      <div class="article-tag"><span class="article-tag-dot" aria-hidden="true"></span>Clinical AI</div>
+      <div class="article-title">The Day My AI Assistant Disagreed With Itself</div>
+      <p class="article-excerpt">The same system gave two different answers to the same question. Neither was wrong. Both were justifiable. That distinction changed how I think about AI in healthcare.</p>
+      <div class="article-footer">
+        <span class="article-read">Read article <span aria-hidden="true">→</span></span>
+        <span class="article-read-time">6 min</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="articles-cta fade">
+    <a href="notes.html" class="btn btn-outline">All Articles &amp; Notes →</a>
+  </div>
+</section>
+
+<!-- ═══ SHORT NOTES ═══ -->
+<section class="notes-section" aria-label="Short observations">
+  <div class="notes-inner">
+    <span class="section-label fade">Short Notes</span>
+    <h2 class="section-title fade" style="margin-bottom:0.7rem;">Observations</h2>
+    <p class="section-sub fade" style="margin-bottom:2.5rem;">Shorter reflections on language, attention, and what happens when clinical habits and digital habits begin to blur.</p>
+
+    <div class="note-item fade d1">
+      <span class="note-date">May 2026</span>
+      <p class="note-text">A colleague described a difficult conversation with a patient's family. Afterwards, she said: "I kept thinking about how I could have <em>framed</em> it better." Not said differently. Not explained more clearly. Framed. The language of prompts has entered the language of care without anyone announcing it.</p>
+    </div>
+
+    <div class="note-item fade d2">
+      <span class="note-date">May 2026</span>
+      <p class="note-text">There is a specific discomfort that arrives when you ask someone a question and immediately begin composing your follow-up. You are no longer listening. You are processing. The person in front of you has become an input. Most of us do not notice when this happens.</p>
+    </div>
+
+    <div class="note-item fade d3">
+      <span class="note-date">March 2026</span>
+      <p class="note-text">Grief is inefficient. It does not produce output. A mind trained for ten hours a day to reduce inefficiency will, eventually, begin to apply that training to grief. The results appear in clinical settings much later — when the person arrives and says: <em>I should have cried by now. I don't know where it went.</em></p>
+    </div>
+
+    <div class="notes-end fade d4">
+      <span class="notes-ornament" aria-hidden="true">· · ·</span>
+      <p class="notes-end-text">More notes are added as they are written.<br>There is no schedule. Observations arrive when they arrive.</p>
+      <a href="notes.html" class="btn btn-outline notes-end-link">Read all notes →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about-section" aria-label="About Dr. T. Jeevaraj">
+  <div class="about-inner">
+    <div class="fade">
+      <span class="section-label">About</span>
+      <h2 class="section-title">A Clinician Who Writes</h2>
+      <div class="about-text">
+        <p>I am a General Practitioner with more than twenty years of clinical service across hospital medicine, primary care, and health administration in Sri Lanka. I am currently completing an MD in Health Informatics as a Batch 9 trainee at the Postgraduate Institute of Medicine, University of Colombo.</p>
+        <p>My writing grows from that clinical background — from what I have seen in wards, in outpatient rooms, in health information system implementations, and in the space between what digital health promises and what it delivers on the ground.</p>
+        <p>I write here about AI in healthcare, digital health, and what technology quietly does to the people who use it and the people they care for.</p>
+      </div>
+      <div class="about-ctas">
+        <a href="about.html" class="btn btn-outline">More about me →</a>
+      </div>
+    </div>
+
+    <div class="fade d1">
+      <span class="section-label">Credentials</span>
+      <div class="cred-timeline">
+        <div class="cred-item">
+          <span class="cred-year">2026</span>
+          <div class="cred-dot-wrap"><div class="cred-dot"></div><div class="cred-line"></div></div>
+          <div class="cred-body">
+            <div class="cred-title">MD Health Informatics Trainee — Batch 9</div>
+            <div class="cred-sub">PGIM, University of Colombo · 2026 – 2027</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <span class="cred-year">2024</span>
+          <div class="cred-dot-wrap"><div class="cred-dot"></div><div class="cred-line"></div></div>
+          <div class="cred-body">
+            <div class="cred-title">MSc Biomedical Informatics — Completed</div>
+            <div class="cred-sub">PGIM, University of Colombo · Batch 12 · DHIS2 certified</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <span class="cred-year">2022</span>
+          <div class="cred-dot-wrap"><div class="cred-dot"></div><div class="cred-line"></div></div>
+          <div class="cred-body">
+            <div class="cred-title">World Bank Featured</div>
+            <div class="cred-sub">NCD screening programme, DH Thampalakamam · PSSP, Trincomalee</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <span class="cred-year">2020</span>
+          <div class="cred-dot-wrap"><div class="cred-dot"></div><div class="cred-line"></div></div>
+          <div class="cred-body">
+            <div class="cred-title">BMJ Open Co-author</div>
+            <div class="cred-sub">University of Michigan collaboration · doi:10.1136/bmjopen-2020-038148</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <span class="cred-year">2016</span>
+          <div class="cred-dot-wrap"><div class="cred-dot"></div><div class="cred-line"></div></div>
+          <div class="cred-body">
+            <div class="cred-title">MCGP — Member, College of General Practitioners</div>
+            <div class="cred-sub">College of General Practitioners of Sri Lanka</div>
+          </div>
+        </div>
+        <div class="cred-item">
+          <span class="cred-year">2006</span>
+          <div class="cred-dot-wrap"><div class="cred-dot"></div></div>
+          <div class="cred-body">
+            <div class="cred-title">MBBS — Faculty of Medicine</div>
+            <div class="cred-sub">University of Jaffna · SLMC Reg. No. 23293</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PUBLICATIONS ═══ -->
+<section class="pub-section" aria-label="Publications">
+  <div class="pub-inner">
+    <div class="pub-header fade">
+      <span class="section-label">Research</span>
+      <h2 class="section-title">Peer-Reviewed Publications</h2>
+      <p class="section-sub">Published contributions in international and national medical journals. ORCID: <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">0009-0008-5084-0258</a></p>
+    </div>
+    <div class="pub-timeline">
+      <div class="pub-item fade d1">
+        <a href="https://doi.org/10.4038/jmj.v36i2.221" target="_blank" rel="noopener" class="pub-link">
+          <span class="pub-year-badge">2024</span>
+          <div class="pub-name">The Correlation Between Global Longitudinal Strain by Speckle Tracking Echocardiography and Coronary Angiogram Finding in Patients with Suspected Chronic Stable Angina Pectoris</div>
+          <div class="pub-journal"><strong>Jaffna Medical Journal</strong> · Vol. 36, Issue 2 · doi:10.4038/jmj.v36i2.221 · Multi-centre study: Teaching Hospitals Kandy, Jaffna &amp; DGH Trincomalee</div>
+        </a>
+      </div>
+      <div class="pub-item fade d2">
+        <a href="https://doi.org/10.1136/bmjopen-2020-038148" target="_blank" rel="noopener" class="pub-link">
+          <span class="pub-year-badge">2020</span>
+          <div class="pub-name">Imputing HbA1c from Capillary Blood Glucose Levels in Patients with Type 2 Diabetes in Sri Lanka: A Cross-Sectional Study</div>
+          <div class="pub-journal"><strong>BMJ Open</strong> · July 2020 · doi:10.1136/bmjopen-2020-038148 · PMID: 32690534 · In collaboration with University of Michigan</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Dr. T. Jeevaraj</div>
+        <p class="footer-tagline">A physician writing about medicine, AI, and the future of human care.</p>
+        <p class="footer-quals">
+          MBBS · MCGP · MSc Biomedical Informatics<br>
+          MD Health Informatics Trainee · PGIM, University of Colombo · Sri Lanka<br>
+          SLMC Registration No. 23293
+        </p>
+      </div>
+      <div class="footer-links-col">
+        <h4>On this site</h4>
+        <ul class="footer-link-list">
+          <li><a href="notes.html">Articles &amp; Notes</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+        <h4 style="margin-top:1.5rem;">Elsewhere</h4>
+        <ul class="footer-link-list">
+          <li><a href="https://www.amazon.com/dp/B0H333G41P" target="_blank" rel="noopener">Amazon Kindle</a></li>
+          <li><a href="https://www.linkedin.com/in/drjeevaraj/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener">ORCID Profile</a></li>
+          <li><a href="https://scholar.google.com/citations?user=iUkxMpUAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+          <li><a href="https://substack.com/@drtjeevaraaj" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="mailto:drtjeevaraj@gmail.com">drtjeevaraj@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Dr. T. Jeevaraj · drjeevaraj.com · Still Human</p>
+      <p class="footer-disclaimer">All content reflects the personal views of the author, published in a personal capacity. It does not represent the views of any affiliated institution.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Intersection observer — fade in
+  const fades = document.querySelectorAll('.fade');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  fades.forEach(el => io.observe(el));
+
+  // Smooth page transition
+  const links = document.querySelectorAll('a[href]');
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('tel')) {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.style.cssText = 'opacity:0;transition:opacity 0.25s ease;';
+        setTimeout(() => { window.location.href = href; }, 250);
+      });
+    }
+  });
+  window.addEventListener('pageshow', e => {
+    if (e.persisted) document.body.style.opacity = '1';
+  });
+  // Fade in on load
+  document.body.style.opacity = '0';
+  window.addEventListener('load', () => {
+    document.body.style.transition = 'opacity 0.35s ease';
+    document.body.style.opacity = '1';
+  });
+</script>
+
+</body>
+</html>
