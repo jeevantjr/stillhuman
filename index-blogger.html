@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9EW1LVGWZP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9EW1LVGWZP');
+  </script>
+
+  <title>Dr. T. Jeevaraj — Articles &amp; Book · Still Human</title>
+  <meta name="description" content="Dr. T. Jeevaraj — MBBS, MCGP, MSc Biomedical Informatics, MD Health Informatics Trainee (PGIM, University of Colombo). Articles and a book on AI and human care.">
+  <meta name="author" content="Dr. T. Jeevaraj">
+  <link rel="canonical" href="https://drjeevaraj.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dr. T. Jeevaraj — Articles &amp; Book · Still Human">
+  <meta property="og:description" content="MBBS · MCGP · MSc Biomedical Informatics · MD Health Informatics Trainee (PGIM). Articles and a book on AI and human care.">
+  <meta property="og:url" content="https://drjeevaraj.com/">
+  <meta property="og:image" content="https://drjeevaraj.com/T.%20Jeevaraj.jpg">
+  <meta property="og:site_name" content="Dr. T. Jeevaraj — Still Human">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Dr. Thangarasa Jeevaraaj","url":"https://drjeevaraj.com","jobTitle":"General Practitioner","description":"MBBS, MCGP, MSc Biomedical Informatics, MD Health Informatics Trainee at PGIM, University of Colombo. Writer.","sameAs":["https://orcid.org/0009-0008-5084-0258","https://www.linkedin.com/in/drjeevaraj/"]}</script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ── MINIMAL LANDING — additive only, reuses style.css tokens ── */
+    .mh-hero { padding: calc(var(--nav-h) + 3.5rem) 0 3.5rem; border-bottom: 1px solid var(--border-light); }
+    .mh-hero-inner { display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
+    .mh-photo { width: 128px; height: 160px; border-radius: 4px; object-fit: cover; object-position: top; box-shadow: var(--shadow-md); flex-shrink: 0; }
+    .mh-name { font-family: var(--font-display); font-size: clamp(2.2rem,4vw,3rem); font-weight: 400; color: var(--ink); line-height: 1.1; margin-bottom: 0.5rem; }
+    .mh-quals { font-family: var(--font-ui); font-size: 0.88rem; color: var(--ink-light); letter-spacing: 0.3px; margin-bottom: 0.3rem; }
+    .mh-affil { font-family: var(--font-ui); font-size: 0.8rem; color: var(--ink-pale); letter-spacing: 0.3px; margin-bottom: 1.3rem; }
+    .mh-mission { font-family: var(--font-display); font-size: 1.1rem; font-style: italic; color: var(--ink-mid); line-height: 1.6; max-width: 520px; margin-bottom: 1.6rem; }
+    .mh-ctas { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .mh-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-ui); font-size: 0.78rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.75rem 1.5rem; border-radius: var(--radius-sm); transition: all var(--t); }
+    .mh-btn-gold { background: var(--gold); color: var(--ink); }
+    .mh-btn-gold:hover { background: var(--gold-light); }
+    .mh-btn-outline { border: 1.5px solid var(--border); color: var(--gold-deep); }
+    .mh-btn-outline:hover { background: var(--gold-faint); border-color: var(--gold); }
+
+    .mh-section { padding: 4.5rem 0; }
+    .mh-section.alt { background: var(--parchment-light); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+    .mh-sec-hd { text-align: center; margin-bottom: 3rem; }
+    .mh-sec-hd .page-label { margin-bottom: 0.6rem; }
+    .mh-sec-hd h2 { font-family: var(--font-display); font-size: clamp(1.7rem,3vw,2.2rem); font-weight: 400; color: var(--ink); }
+
+    /* Book teaser */
+    .mh-book { display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .mh-book img { width: 160px; border-radius: 3px 10px 10px 3px; box-shadow: var(--shadow-lg); transform: perspective(800px) rotateY(-8deg); }
+    .mh-book-text { max-width: 480px; }
+    .mh-book-type { font-family: var(--font-ui); font-size: 0.65rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.6rem; }
+    .mh-book-title { font-family: var(--font-display); font-size: 1.6rem; color: var(--ink); margin-bottom: 0.8rem; }
+    .mh-book-blurb { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.4rem; }
+
+    /* Article teaser cards */
+    .mh-art-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.3rem; }
+    .mh-art-card { display: block; background: var(--parchment-light); border: 1px solid var(--border-light); border-top: 3px solid var(--gold); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 1.6rem; transition: all var(--t); }
+    .mh-art-card:hover { border-color: var(--gold); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .mh-art-tag { font-family: var(--font-ui); font-size: 0.6rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 0.7rem; display: block; }
+    .mh-art-title { font-family: var(--font-display); font-size: 1.12rem; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 0.6rem; }
+    .mh-art-desc { font-family: var(--font-ui); font-size: 0.78rem; color: var(--ink-light); line-height: 1.6; margin-bottom: 1rem; }
+    .mh-art-arr { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 600; color: var(--copper); }
+
+    @media (max-width: 860px) { .mh-art-grid { grid-template-columns: 1fr; } .mh-book { text-align: center; justify-content: center; } .mh-hero-inner { justify-content: center; text-align: center; } .mh-mission { margin-left: auto; margin-right: auto; } .mh-ctas { justify-content: center; } }
+  </style>
+</head>
+<body class="inner-page">
+
+<nav id="main-nav" class="solid">
+  <a href="index-blogger.html" class="nav-title">Still Human</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="notes.html">Articles</a></li>
+    <li><a href="books.html">Book</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     HERO — identity only
+══════════════════════════════════════════ -->
+<section class="mh-hero">
+  <div class="container">
+    <div class="mh-hero-inner">
+      <img src="images/T. Jeevaraj.jpg" alt="Dr. T. Jeevaraj" class="mh-photo"
+           onerror="this.style.display='none'">
+      <div>
+        <h1 class="mh-name">Dr. T. Jeevaraj</h1>
+        <div class="mh-quals">MBBS &middot; MCGP &middot; MSc Biomedical Informatics &middot; MD Health Informatics Trainee</div>
+        <div class="mh-affil">Postgraduate Institute of Medicine, University of Colombo, Sri Lanka</div>
+        <p class="mh-mission">Writing on artificial intelligence and human care &mdash; a book, and a set of articles, from a practising physician.</p>
+        <div class="mh-ctas">
+          <a href="books.html" class="mh-btn mh-btn-gold"><i class="fa-solid fa-book"></i> Read the Book</a>
+          <a href="notes.html" class="mh-btn mh-btn-outline"><i class="fa-solid fa-pen-nib"></i> Read the Articles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BOOK
+══════════════════════════════════════════ -->
+<section class="mh-section">
+  <div class="container">
+    <div class="mh-sec-hd">
+      <span class="page-label">Published &mdash; May 2026</span>
+      <h2>Are You Still Human?</h2>
+    </div>
+    <div class="mh-book">
+      <a href="books.html"><img src="ARE YOU STILL HUMAN.jpg" alt="Are You Still Human? — book cover"></a>
+      <div class="mh-book-text">
+        <div class="mh-book-type">Literary Nonfiction &middot; 37 pages &middot; Kindle eBook</div>
+        <div class="mh-book-title">Are You Still Human?</div>
+        <p class="mh-book-blurb">Three true stories. Ten observed patterns. One quiet question about what AI does to ordinary human life.</p>
+        <a href="books.html" class="mh-btn mh-btn-gold"><i class="fa-solid fa-arrow-right"></i> Read More &amp; Buy on Amazon</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     ARTICLES
+══════════════════════════════════════════ -->
+<section class="mh-section alt">
+  <div class="container">
+    <div class="mh-sec-hd">
+      <span class="page-label">Written Work</span>
+      <h2>Articles on Healthcare &amp; AI</h2>
+    </div>
+    <div class="mh-art-grid">
+      <a href="health-informatics-peripheral-failure.html" class="mh-art-card">
+        <span class="mh-art-tag">AI Design &middot; 7 min</span>
+        <div class="mh-art-title">What Health Information Systems Taught Me About the Future of Healthcare AI</div>
+        <p class="mh-art-desc">A nurse asked: "What is the output? Why are we doing this much struggle?" She had no citations — but years of frontline experience.</p>
+        <span class="mh-art-arr">Read Article &rarr;</span>
+      </a>
+      <a href="ai-listening-first.html" class="mh-art-card">
+        <span class="mh-art-tag">AI &amp; Human Psychology &middot; 7 min</span>
+        <div class="mh-art-title">Listening Before Asking</div>
+        <p class="mh-art-desc">I downloaded a wellness app and felt lost — not from a technical fault, but because it asked me to classify myself before it understood anything about me.</p>
+        <span class="mh-art-arr">Read Article &rarr;</span>
+      </a>
+      <a href="ai-empathy-illusion.html" class="mh-art-card">
+        <span class="mh-art-tag">AI Governance &middot; 6 min</span>
+        <div class="mh-art-title">When AI Said, "You Make Me Smile"</div>
+        <p class="mh-art-desc">I study AI. I know it cannot feel anything. And yet, when those four words appeared on my screen, I paused.</p>
+        <span class="mh-art-arr">Read Article &rarr;</span>
+      </a>
+      <a href="ai-supervision-governance.html" class="mh-art-card">
+        <span class="mh-art-tag">AI in Healthcare &middot; 7 min</span>
+        <div class="mh-art-title">Who Will Supervise the Supervising AI?</div>
+        <p class="mh-art-desc">My son asked me three questions about AI in healthcare. I answered the first two confidently. The third, I could not answer at all.</p>
+        <span class="mh-art-arr">Read Article &rarr;</span>
+      </a>
+      <a href="ai-health-advice-human-connection.html" class="mh-art-card">
+        <span class="mh-art-tag">AI in Healthcare &middot; 8 min</span>
+        <div class="mh-art-title">The Day Health Advice Stopped Travelling Through People</div>
+        <p class="mh-art-desc">In rural Sri Lanka, patients once arrived carrying conversations — advice from daughters, neighbours, old friends. Then a young man held up his phone.</p>
+        <span class="mh-art-arr">Read Article &rarr;</span>
+      </a>
+      <a href="ai-consistency-nccp.html" class="mh-art-card">
+        <span class="mh-art-tag">Clinical AI &middot; 6 min</span>
+        <div class="mh-art-title">The Day My AI Assistant Disagreed With Itself</div>
+        <p class="mh-art-desc">I built an ICD-O coding support assistant for cancer registry work. Then the same system gave two different answers to the same question.</p>
+        <span class="mh-art-arr">Read Article &rarr;</span>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <a href="notes.html" class="mh-btn mh-btn-outline">All Articles &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer style="text-align:center;">
+  <span class="footer-ornament">&middot; &middot; &middot;</span>
+  <p class="footer-title">Still Human</p>
+  <p class="footer-tagline">Human stories in the age of artificial intelligence.</p>
+
+  <div class="social-links" style="margin-bottom:1rem;">
+    <a href="mailto:drtjeevaraj@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.linkedin.com/in/drjeevaraj/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://x.com/drjeevaraj" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://github.com/jeevantjr" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://scholar.google.com/citations?user=iUkxMpUAAAAJ&hl=en" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Scholar</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.researchgate.net/profile/Jeevaraaj-Thangarasa" target="_blank" rel="noopener"><i class="fa-brands fa-researchgate"></i> ResearchGate</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://orcid.org/0009-0008-5084-0258" target="_blank" rel="noopener"><i class="fa-brands fa-orcid" style="color:#A6CE39;"></i> ORCID</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://www.amazon.com/stores/author/B0H33ZVCT9/about" target="_blank" rel="noopener"><i class="fa-brands fa-amazon"></i> Amazon</a>
+    <span class="social-divider">&middot;</span>
+    <a href="https://substack.com/@drtjeevaraaj" target="_blank" rel="noopener"><i class="fa-solid fa-rss"></i> Substack</a>
+  </div>
+
+  <ul class="footer-links">
+    <li><a href="index-blogger.html">Home</a></li>
+    <li><a href="notes.html">Articles</a></li>
+    <li><a href="books.html">Book</a></li>
+  </ul>
+
+  <p style="font-family:var(--font-ui);font-size:0.65rem;color:rgba(242,232,210,0.60);max-width:580px;margin:1.2rem auto 0.5rem;line-height:1.7;">
+    All content on this website reflects the personal views, analyses, and creative work of the author. It is published in a personal capacity and does not represent the views, positions, or endorsements of any affiliated institution, employer, or organization. The content is intended solely for informational and academic discussion purposes.
+  </p>
+  <p class="footer-copy">&copy; 2026 T. Jeevaraj &nbsp;&middot;&nbsp; Still Human &nbsp;&middot;&nbsp; Sri Lanka &nbsp;&middot;&nbsp; <a href="privacy.html" style="color:inherit;text-decoration:none;opacity:0.75;">Privacy Policy</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('mailto') && !href.startsWith('javascript')) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.add('page-exit');
+        setTimeout(() => { window.location.href = href; }, 320);
+      });
+    }
+  });
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) document.body.classList.remove('page-exit');
+  });
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+  }
+</script>
+
+</body>
+</html>
